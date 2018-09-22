@@ -1,9 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="img"  src="{{ asset('images/TheGrimOrangeAlbum.jpg') }}"></div>
+  <div class="img"  src="{{ asset('sddryd/images/TheGrimOrangeAlbum.jpg') }}">
   <div class="container">
-    <div class="row col-lg-12">
-      <img  id="logo" src="{{ asset('images/TheGrimLogoTransparent.png') }}" style="width: auto; height: 200px;"></img>
-      <p>Bootstrap is the most popular HTML, CSS...</p>
-    </div>
+      <img  id="logo" src="{{ asset('assets/images/TheGrimLogoTransparent.png') }}" style="width: auto; height: 200px;"></img>
+  </div>
   </div>
 </div>

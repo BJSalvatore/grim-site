@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Styles -->
-    <link href="{{ asset('./css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <title>{{ config('app.name', 'The Grim') }}</title>
 
@@ -22,17 +22,12 @@
 </head>
 <body>
 
-  <div id="app">
-      <!-- provides navbar on every page -->
-      @include('inc._navbar')
+@section('content')
 
-      @include('inc._sidebar')
+<div id="app" class="container">
 
-      <!-- includes footer -->
-      @include('inc._footer')
-  </div>
-
-  @yield('content')
+</div>
+@yield('content')
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

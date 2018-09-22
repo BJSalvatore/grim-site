@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+}
+
 body{
   font-family: 'Open Sans', sans-serif;
 }
@@ -8,6 +12,17 @@ h1{
 .navbar{
   background-color: #000;
   color: #fff;
+  padding-left: 20px;
+}
+
+.nav-item{
+  color: silver;
+}
+
+.navbar-brand{
+  font-family: 'Freckle Face';
+  font-size: 40px;
+  color: orange;
 }
 
 // jumbotron

@@ -11,18 +11,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
     <title>{{ config('app.name', 'The Grim') }}</title>
 
-    <style type="text/css">
-
-    </style>
-
 </head>
-<body>
+<body style="background-color: silver;">
 
 @section('content')
+
+@include('inc._navbar')
 
 <div id="app" class="container">
 

@@ -14,3 +14,31 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/blog_entry', function () {
+    return view('blog_entry');
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/merch', function () {
+    return view('merch');
+});
+
+Route::get('/photos', function () {
+    return view('photos');
+});
+
+Route::get('/press', function () {
+    return view('press');
+});

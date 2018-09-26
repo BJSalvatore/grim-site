@@ -20,11 +20,18 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    protected function authenticated($request, $user)
+    {
+      if($user->is_admin('admin')){
+          return redirect('add_blogpost');
+      }else{
+          return redirect('/');
+      }
+    }
+        public function email_list() {
+        	return view('mailing_list');
+        }
+
     protected $redirectTo = '/home';
 
     /**

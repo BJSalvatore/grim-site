@@ -20,8 +20,6 @@
 
 @section('content')
 
-@include('inc._navbar')
-
 <div id="app" class="container">
 
 </div>

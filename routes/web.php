@@ -11,34 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PagesController@getHome');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'PagesController@getAbout');
 
-Route::get('/blog_entry', function () {
-    return view('blog_entry');
-});
+Route::get('/contact', 'PagesController@getContact');
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/merch', 'PagesController@getMerch');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/photos', 'PagesController@getPhotos');
 
-Route::get('/merch', function () {
-    return view('merch');
-});
+Route::get('/press', 'PagesController@getPress');
 
-Route::get('/photos', function () {
-    return view('photos');
-});
+Route::get('/blog', 'PagesController@getBlog');
 
-Route::get('/press', function () {
-    return view('press');
-});
+// Route::get('/blog_entry', function () {
+//     return view('blog_entry');
+// });
+//
+// Route::get('/blog', function () {
+//     return view('blog');
+// });

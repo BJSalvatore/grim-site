@@ -4,6 +4,7 @@
 
 @include('inc._jumbotron')
 
+@include('inc._navbar')
 
 @section('content')
 <div class="d-flex m-3">

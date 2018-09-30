@@ -29,13 +29,14 @@
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('more') ? 'active': ''}}" href="/more">..and Much More!</a>
-        </li>
-
-          <li class="nav-item">
-            <a class="{{ Request::is ('blog_entry') ? 'active': ''}}" href="/blog_entry">Blog Entry for Admin</a>
-          </li>
-
-
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+          </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item {{ Request::is ('blog_entry') ? 'active': ''}}" href="/blog_entry">Blog Entry for Admin</a>
+        </div>
+      </li>
       </ul>
     </div>
   </nav>

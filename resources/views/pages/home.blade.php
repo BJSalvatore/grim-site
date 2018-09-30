@@ -9,7 +9,6 @@
 @section('content')
 <div class="d-flex m-3">
   <div class="row">
-    <!-- <div class="col-lg-12"> -->
       <div class="col-2">@include('inc._sidebar')</div>
           <div class="col-lg-10">
             <h1 style="font-family: Freckle Face;">Biography</h1>
@@ -19,7 +18,6 @@
             JEFF YEARSLEY WAS ASKED TO PLAY 2ND GUITAR. JEFF WAS A FELLOW BAND MATE AND FRIEND OF BRIAN'S FROM THE EARLY PUNK ROCK DAYS. THE BAND PLAYED THEIR FIRST SHOW WITH THE NEW LINE UP OPENING UP FOR THE ADOLESCENTS IN THE SUMMER OF 2010. 2016 SAW THE ADDITION OF ONE OF SIMI VALLEY'S FINEST DRUMMERS, MICAH ROSSELLINI. THE BAND WAS NOW COMPLETE AND IN 2017 RELEASED A NEW 7" ON FELONY RECORDS. IN 2018, THE BAND IS SET TO RELEASE THEIR FIRST FULL LENTH VINYL IN 30 YEARS WITH NEW WORLD ORDER THROUGH SOUND SPEED RECORDS.
             </p>
           </div>
-      <!-- </div> -->
     </div>
   </div>
 @endsection

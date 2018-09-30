@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
-@include('inc._navbar')
+@include('inc._content')
 
-@section('content')
-<h1>About the Band</h1>
+<!-- @section('content')
 
-@endsection
 
+@endsection -->
 
 @include('inc._footer')

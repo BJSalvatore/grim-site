@@ -11,11 +11,12 @@ class PagesController extends Controller
     }
 
         public function getAbout() {
-
-        return view('pages/about');
+          $title = "About the band";
+        return view('pages/about')->with("title", $title);
     }
 
         public function getContact() {
+          $title ="Contact Us";
           $bandphone = "(818)492-8690";
           $bandemail = "boboedy@yahoo.com";
           $bandaddress = [
@@ -27,23 +28,27 @@ class PagesController extends Controller
             'bandcountry'=> 'USA'
           ];
 
-        return view('pages/contact')->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
+        return view('pages/contact')->with("title", $title)->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
     }
 
         public function getMerch() {
-        return view('pages/merch');
+          $title = "Buy Our Stuff!";
+        return view('pages/merch')->withTitle($title);
     }
 
         public function getPhotos() {
-        return view('pages/photos');
+          $title = "Check Us Out!";
+        return view('pages/photos')->withTitle($title);
     }
 
         public function getPress() {
-        return view('pages/press');
+          $title = "The Press Loves Us!";
+        return view('pages/press')->withTitle($title);
     }
 
         public function getBlog() {
-        return view('pages/blog');
+          $title = "Things We Have to Say!";
+        return view('pages/blog')->withTitle($title);
     }
 
       // public function postContact(){

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@include('inc._navbar')
+@include('inc._content')
 
 @section('content')
-<h1>Merchandise</h1>
+
 
 @endsection
 

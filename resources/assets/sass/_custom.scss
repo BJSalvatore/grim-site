@@ -4,11 +4,17 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
+  padding: 1px;
 }
 
 h1{
   font-family: 'Freckle Face', cursive;
 }
+
+h5{
+  font-weight: 600;
+}
+
 .navbar{
   background-color: #000;
   color: #fff;
@@ -24,8 +30,6 @@ h1{
   font-size: 40px;
   color: orange;
 }
-
-// jumbotron
 
 .jumbotron{
  background-image: url(‘images/TheGrimLogoTransparent.png’);

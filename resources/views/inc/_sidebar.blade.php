@@ -1,9 +1,8 @@
-<div>
-  <div class="d-flex justify-content-center text-light bg-dark" style="margin-left: 0px; margin-top: -15px; height: 100%;">
+  <div class="container justify-content-center text-light bg-dark" style="margin-left: 0px; margin-top: 0px; height: 100%;">
     <div class= "sidenav navbar-right">
-    <div class="col-lg-12">
       <div class= "row">
-          <div class="col-3">
+        <div class="col-lg-12">
+          <div class="col-lg-3">
             <form class="navbar-form">
               <p>Sign up for our mailing list!</p>
               <div class="form-group">
@@ -20,4 +19,3 @@
       </div>
     </div>
   </div>
-</div>

@@ -25,6 +25,11 @@ Route::get('/press', 'PagesController@getPress');
 
 Route::get('/blog', 'PagesController@getBlog');
 
+Route::resource('posts', 'PostController');
+
+Route::post('/posts/create', 'PostController@create');
+Route::post('/posts/store', 'PostController@store');
+
 // Route::get('/blog_entry', function () {
 //     return view('blog_entry');
 // });

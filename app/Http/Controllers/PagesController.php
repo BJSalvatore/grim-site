@@ -46,10 +46,9 @@ class PagesController extends Controller
         return view('pages/press')->withTitle($title);
     }
 
-        public function getBlog() {
-          $title = "Things We Have to Say!";
-        return view('pages/blog')->withTitle($title);
-    }
+        public function create() {
+          return view('posts/create');
+      }
 
       // public function postContact(){
       //

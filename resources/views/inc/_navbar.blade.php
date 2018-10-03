@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <div class="row">
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-dark" style="width: 100%">
 
@@ -25,7 +27,7 @@
           <a class="{{ Request::is ('photos') ? 'active': ''}}" href="/photos">Photos</a>
         </li>
         <li class="nav-item">
-          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
+          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/show">Blog</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('merch') ? 'active': ''}}" href="/merch">Merch</a>
@@ -38,7 +40,7 @@
         <li class="nav-item dropdown">
 
         <li class="nav-item active">
-          <a class="{{ Request::is ('posts/create') ? 'active': ''}}" href="/posts/create">Blog Posts</a></li>
+          <a class="{{ Request::is ('/blog') ? 'active': ''}}" href="/posts/create">Blog Posts</a></li>
         </li>
 
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

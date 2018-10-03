@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Session;
 
 class PostController extends Controller
 {
@@ -14,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $post = Post::find($id);
+
+        return view('/blog', compact('post', 'posts'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts/create'); //shows a form page
+        return view('posts.create'); //shows a form page
     }
 
     /**
@@ -35,22 +38,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         // validate the data
-        // $this->validate($request, [
-        //   'title' => 'required|unique:posts|max:255',
-        //   'post' => 'required'
-        // ]);
+      $request ->validate([
+          'title' => 'required|unique:posts|max:255',
+          'post' => 'required'
+        ]);
 
         // store in database
-        $post = new Post;
-        $post = $request->input('title');
+        $post = new Post();
+        $title = $request->input('title');
         $post = $request->input('post');
+
+        $post -> title = $request -> $title;
+        $post -> post = $request -> $post;
         $post->save();
 
-        $request->session()->flash('status', 'Post published!');
+        Session::flash('success', 'The blog post was saved successfully!');
 
         // redirect to another
-        return redirect()->route('posts/show', $post->id);
+        return redirect()->route('posts/show', $post ->id);
+        // return view('index', compact('post'));
     }
 
     /**
@@ -61,7 +69,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('posts.show');
     }
 
     /**

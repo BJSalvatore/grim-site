@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Post;
 use Session;
@@ -40,24 +41,21 @@ class PostController extends Controller
     {
 
         // validate the data
-      $request ->validate([
+      $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
           'post' => 'required'
         ]);
 
         // store in database
-        $post = new Post();
-        $title = $request->input('title');
-        $post = $request->input('post');
-
-        $post -> title = $request -> $title;
-        $post -> post = $request -> $post;
-        $post->save();
+        $post = new Post;
+        $post -> title = $request -> input('title');
+        $post -> post = $request -> input('post');
+        $post -> save();
 
         Session::flash('success', 'The blog post was saved successfully!');
 
         // redirect to another
-        return redirect()->route('posts/show', $post ->id);
+        return redirect()->route('posts.show', $post ->id);
         // return view('index', compact('post'));
     }
 

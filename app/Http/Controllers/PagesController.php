@@ -46,18 +46,13 @@ class PagesController extends Controller
         return view('pages/press')->withTitle($title);
     }
 
-      public function store()
-      {
-        return view('posts/store');
-      }
+        public function store() {
+          return view('posts/store');
+    }
         public function create() {
           return view('posts/create');
-      }
-
+    }
         public function show(){
           return view('posts/show');
-        }
-
-
-
+    }
 }

@@ -11,10 +11,10 @@
     <div class="col-3">@include('inc._sidebar')</div>
     <div class = "col-lg-9">
       <h1>Stuff goes here</h1>
-      <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?<br><br>
-      Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.<br><br>
-      Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.<br><br>
-      Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit. </p>
+      <p>Mel fabulas voluptaria ex. No eam novum homero, cum delectus consequat at. In quod nonumy reprehendunt cum, mel congue diceret perpetua te. Euismod mandamus in mel, sit ea persius deterruisset.<br><br>
+      Dolorum detracto dissentiet vix ei, ipsum clita omittantur ius ea. In sea brute scaevola, ad mea nibh solet officiis. Quis possim appellantur qui ad, alia accumsan ea mei. Id ignota vituperata sea, quidam euismod at sea. Mea ad posse omnium.<br><br>
+      Lorem ipsum dolor sit amet, te zril menandri sit, posse accumsan qui ei. Legimus fastidii quaerendum sit at. Appetere legendos necessitatibus nec ne. Solet salutatus intellegat pro ex, erat salutatus efficiantur sit ut, quando accusamus vim no. Dolore numquam partiendo ad mel, an est veniam soleat, his ne reque nostrud. In iuvaret atomorum omittantur has, vocibus praesent ea ius.<br><br>
+      Id mel vidisse invenire. Eu atqui movet omnium mel, eu pri meis accusata, no usu tincidunt voluptaria consectetuer. No eos euismod ceteros incorrupte. Solum volumus ad has, te mei paulo omittam interpretaris. Nam tollit euismod ea, voluptua sensibus vis et, ex errem inermis vis. Duo ludus feugait aliquando ne, nam ex vide recteque argumentum.</p>
     </div>
   </div>
 @endsection

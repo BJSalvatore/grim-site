@@ -9,10 +9,9 @@
               </div>
               <button type="submit" class="btn btn-default btn-md m-1">Sign Up</button>
             </form>
-              <a href="#">Link</a>
-              <a href="#">Link</a>
-              <a href="#">Link</a>
-              <a href="#">Link</a>
+            <div class="container">
+              <img id="logo" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="width: 210px; height: auto; margin-top: 0px; margin-left: 0px"></img>
+            </div>
           </div>
       </div>
     </div>

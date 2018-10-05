@@ -1,10 +1,11 @@
-
+@include('inc._head')
 @extends('layouts.app')
 @include('inc._navbar')
+
 @section('title', '| Create New Post')
 
 @section('content')
-<div class="container">
+<div id="blogForm" class="container">
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-md-9">
@@ -27,4 +28,22 @@
     </div>
   </div>
 </div>
+
+@include('inc._scripts')
+
+<script>
+$(document).ready(function(){
+$( "#blogForm" ).validate({
+    rules: {
+      title: {
+        required: true,
+        maxlength: 255
+      },
+      post: {
+        required: true
+      },
+    }
+  });
+});
+</script>
 @endsection

@@ -38,14 +38,15 @@
         <li class="nav-item">
           <a class="{{ Request::is ('more') ? 'active': ''}}" href="/more">..and Much More!</a>
         <li class="nav-item dropdown">
-
         <li class="nav-item active">
           <a class="{{ Request::is ('/blog') ? 'active': ''}}" href="/posts/create">Blog Posts</a></li>
         </li>
-
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item active">
+          <a class="{{ Request::is ('/register') ? 'active': ''}}" href="/register">Register</a></li>
+        </li>
+          {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My Account
-          </a>
+          </a> --}}
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item {{ Request::is ('blog_entry') ? 'active': ''}}" href="/blog_entry">Blog Entry for Admin</a>
         </div>

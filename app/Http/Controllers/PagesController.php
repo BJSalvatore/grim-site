@@ -55,4 +55,7 @@ class PagesController extends Controller
         public function show(){
           return view('posts/show');
     }
+      public function register(){
+        return view('pages/register');
+  }
 }

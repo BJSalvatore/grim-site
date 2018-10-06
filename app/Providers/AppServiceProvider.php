@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
       // eliminates mixed content error
               if(env('APP_ENV') == 'production') {\URL::forceScheme('https');
+              }
     }
 
     /**
@@ -22,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    function register()
+    public function register()
     {
         //
     }

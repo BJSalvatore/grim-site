@@ -28,22 +28,4 @@
     </div>
   </div>
 </div>
-
-@include('inc._scripts')
-
-<script>
-// $(document).ready(function(){
-// $( "#blogForm" ).validate({
-//     rules: {
-//       title: {
-//         required: true,
-//         maxlength: 255
-//       },
-//       post: {
-//         required: true
-//       },
-//     }
-//   });
-// });
-</script>
 @endsection

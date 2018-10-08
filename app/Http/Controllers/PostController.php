@@ -14,8 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::find($id);
-        return view('/blog', compact('post', 'posts'));
+        // create a variable and store all of our blog posts in it
+        $posts = Post::all();
+        // return a view and pass in the variable
+        return view('posts.index')->with('posts', $posts);
     }
     /**
      * Show the form for creating a new resource.

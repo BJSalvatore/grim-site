@@ -3,9 +3,6 @@
 
 @section('title', '| Create New Post')
 
-
-
-
 @section('content')
 <div id="blogForm" class="container">
   <div class="row">

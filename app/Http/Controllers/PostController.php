@@ -75,7 +75,7 @@ class PostController extends Controller
         // find post in database and save it as variable
         $post = Post::find($id);
         // return the view and pas in the var we previously created
-        return view('posts.edit')->with ('post', $post);
+        return view('posts.edit')->with('post', $post);
     }
     /**
      * Update the specified resource in storage.
@@ -86,7 +86,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // validate the database
+      $validatedData = $request ->validate([
+          'title' => 'required|unique:posts|max:255',
+          'post' => 'required'
+        ]);
+      // save the data to the Database
+        $post = Post::find($id);
+        $post -> title = $request -> input('title');
+        $post -> post = $request -> input('post');
+        $post -> save();
+      // set flash data with success message
+        Session::flash('success', 'This post was successfully updated and saved.');
+      // redirect
+        return redirect()->route('posts.show', $post ->id);
     }
     /**
      * Remove the specified resource from storage.
@@ -96,6 +109,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Collective\Html\Eloquent;
 use App\Post;
 use Session;
 class PostController extends Controller
@@ -71,7 +72,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // find post in database and save it as variable
+        $post = Post::find($id);
+        // return the view and pas in the var we previously created
+        return view('posts.edit')->with ('post', $post);
     }
     /**
      * Update the specified resource in storage.

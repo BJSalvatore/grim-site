@@ -1,6 +1,9 @@
 <?php
 
 // $DATABASE_URL = parse_url(getenv("DATABASE_URL"));
+  $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 
 return [
 
@@ -40,9 +43,6 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
-        $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
-        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
         $host = $url["host"];
         $username = $url["user"];

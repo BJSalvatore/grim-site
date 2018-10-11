@@ -41,14 +41,21 @@ return [
             'prefix' => '',
         ],
 
+        $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
+        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+        $host = $url["host"];
+        $username = $url["user"];
+        $password = $url["pass"];
+        $database = substr($url["path"], 1);
+
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
+            'host' => $host,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true
-'),
-            'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
-            'password' => env('DB_PASSWORD', '82ae92e1'),
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

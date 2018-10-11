@@ -22,5 +22,4 @@ Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store');
 Route::post('/posts/create', 'PostController@create');
 Route::post('user/create', 'RegisterController@create');
-Route::get('posts/show{id}', 'PostController@show');
-// Route::get('posts/{id}', 'PostController@index');
+Route::get('posts/{id}/show', 'PostController@show');

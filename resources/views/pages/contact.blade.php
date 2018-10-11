@@ -8,8 +8,8 @@
 
 @section('content')
   <div class = "row">
-    <div class="col-lg-3">@include('inc._sidebar')</div>
-    <div class = "col-lg-9">
+    <div class="col-lg-4">@include('inc._sidebar')</div>
+    <div class = "col-lg-8">
       <h5>Email:</h5> <p>{{ $bandemail }}</p>
       <h5>Phone:</h5> <p>{{ $bandphone }}</p>
       <h5>Mailing Address:</h5>

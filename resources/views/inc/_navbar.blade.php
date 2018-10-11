@@ -27,7 +27,7 @@
           <a class="{{ Request::is ('photos') ? 'active': ''}}" href="/photos">Photos</a>
         </li>
         <li class="nav-item">
-          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/show">Blog</a>
+          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('merch') ? 'active': ''}}" href="/merch">Merch</a>
@@ -35,21 +35,18 @@
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="{{ Request::is ('more') ? 'active': ''}}" href="/more">..and Much More!</a>
-        <li class="nav-item dropdown">
         <li class="nav-item active">
-          <a class="{{ Request::is ('/blog') ? 'active': ''}}" href="/posts/create">Blog Posts</a></li>
+          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
         <li class="nav-item active">
-          <a class="{{ Request::is ('/register') ? 'active': ''}}" href="/register">Register</a></li>
+          <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
+        </li>
+        <li class="nav-item active">
+          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/register">Register</a></li>
         </li>
           {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My Account
           </a> --}}
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item {{ Request::is ('blog_entry') ? 'active': ''}}" href="/blog_entry">Blog Entry for Admin</a>
-        </div>
       </li>
       </ul>
     </div>

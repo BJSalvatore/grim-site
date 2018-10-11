@@ -13,8 +13,8 @@
     <div class="col-lg-3">@include('inc._sidebar')</div>
     <div class="col-lg-8">
       <div class="post mt-3">
-        <h3>{{ $post -> title }}</h3>
-        <p>{{ $post -> post}}</p>
+        <h3>{{ $posts -> title }}</h3>
+        <p>{{ $posts -> post}}</p>
         <a href='#' class="btn btn-primary">Read more</a>
       </div>
       <hr>

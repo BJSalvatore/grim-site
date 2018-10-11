@@ -16,9 +16,11 @@ Route::get('/merch', 'PagesController@getMerch');
 Route::get('/photos', 'PagesController@getPhotos');
 Route::get('/press', 'PagesController@getPress');
 Route::get('/blog', 'PagesController@getBlog');
-Route::get('/posts/{/id}', 'PostController@show');
+
+// Route::get('/posts/{id}', 'PostController@show');
 Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store');
 Route::post('/posts/create', 'PostController@create');
 Route::post('user/create', 'RegisterController@create');
-Route::get('posts/show', 'PostController@show');
+Route::get('posts/show{id}', 'PostController@show');
+// Route::get('posts/{id}', 'PostController@index');

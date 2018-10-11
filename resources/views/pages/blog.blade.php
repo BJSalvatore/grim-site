@@ -10,10 +10,10 @@
 
 <div class="col-lg-12">
   <div class= "row">
-    <div class="col-lg-3">@include('inc._sidebar')</div>
+    <div class="col-lg-4">@include('inc._sidebar')</div>
     <div class="col-lg-8">
       <div class="post mt-3">
-        <h3>Post Title</h3>
+        <h3 style="font-family: Freckle Face;">Post Title</h3>
         <p>Lorem ipsum dolor sit amet, dicat iudicabit te eos. Id est aliquid voluptua, eu eum latine splendide, no elit nemore vix. Qui error ceteros in, elitr dolore altera ne per, te usu vocent insolens laboramus. Duo apeirian prodesset signiferumque te, te quo iisque nominavi. Qui ex mentitum petentium. At eam esse iisque suscipiantur, cu mazim principes pri.</p>
         <a href='#' class="btn btn-primary">Read more</a>
       </div>

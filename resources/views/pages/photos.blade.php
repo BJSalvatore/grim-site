@@ -14,10 +14,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             @include('inc._sidebar')</div>
-            <div class="col-md-9">
-                <h1>Photos</h1>
+            <div class="col-lg-8">
+                <h1 style="font-family: Freckle Face;">Photos</h1>
                 <hr>
                 <div id="myCarousel" class="carousel slide mt-4" data-ride="carousel">
                     <!-- Indicators -->

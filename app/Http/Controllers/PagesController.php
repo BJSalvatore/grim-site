@@ -36,6 +36,11 @@ class PagesController extends Controller
           $title = "The Press Loves Us!";
         return view('pages/press')->withTitle($title);
     }
+        public function getBlog() {
+          $title = "Blog Posts";
+        return view('pages/blog')->withTitle($title);
+    }
+
         public function store() {
           return view('posts/store');
     }
@@ -45,7 +50,8 @@ class PagesController extends Controller
         public function show(){
           return view('posts/show');
     }
-      public function register(){
-        return view('pages/register');
-  }
+        public function register(){
+          return view('pages/register');
+    }
+
 }

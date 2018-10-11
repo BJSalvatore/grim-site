@@ -8,9 +8,9 @@
 
 @section('content')
   <div class = "row">
-    <div class="col-3">@include('inc._sidebar')</div>
-    <div class = "col-lg-9">
-      <h1>Stuff goes here</h1>
+    <div class="col-4">@include('inc._sidebar')</div>
+    <div class = "col-lg-8">
+      <h1 style="font-family: Freckle Face;">Stuff goes here</h1>
       <p>Mel fabulas voluptaria ex. No eam novum homero, cum delectus consequat at. In quod nonumy reprehendunt cum, mel congue diceret perpetua te. Euismod mandamus in mel, sit ea persius deterruisset.<br><br>
       Dolorum detracto dissentiet vix ei, ipsum clita omittantur ius ea. In sea brute scaevola, ad mea nibh solet officiis. Quis possim appellantur qui ad, alia accumsan ea mei. Id ignota vituperata sea, quidam euismod at sea. Mea ad posse omnium.<br><br>
       Lorem ipsum dolor sit amet, te zril menandri sit, posse accumsan qui ei. Legimus fastidii quaerendum sit at. Appetere legendos necessitatibus nec ne. Solet salutatus intellegat pro ex, erat salutatus efficiantur sit ut, quando accusamus vim no. Dolore numquam partiendo ad mel, an est veniam soleat, his ne reque nostrud. In iuvaret atomorum omittantur has, vocibus praesent ea ius.<br><br>

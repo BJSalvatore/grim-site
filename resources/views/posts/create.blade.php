@@ -14,7 +14,7 @@
         <form data-parsley-validate method="POST" action="{{ action('PostController@store') }}">
            @csrf
             <label class="mt-1" for="title">Title</label>
-            <input class="form-control" id="title" name='title' type="text" required, maxlength="255"></input>
+            <input class="form-control" id="title" name='title' type="text" required maxlength="255"></input>
 
           <div class="form-group">
             <label class="mt-1" for="post">Blog Post</label>

@@ -17,10 +17,16 @@ Route::get('/photos', 'PagesController@getPhotos');
 Route::get('/press', 'PagesController@getPress');
 Route::get('/blog', 'PagesController@getBlog');
 
-// Route::get('/posts/{id}', 'PostController@show');
+Route::post('user/create', 'RegisterController@create');
+
 Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store');
 Route::post('/posts/create', 'PostController@create');
-Route::post('user/create', 'RegisterController@create');
 Route::get('posts/{id}/show', 'PostController@show');
+Route::get('posts/{id}/edit', 'PostController@edit');
 Route::put('posts/{id}/update', 'PostController@update');
+
+Route::get('blog', function(){
+  $posts = DB::table('posts')->get();
+  return view('pages.blog', ['posts'=>$posts]);
+});

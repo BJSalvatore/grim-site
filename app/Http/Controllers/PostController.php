@@ -64,6 +64,7 @@ class PostController extends Controller
         $post = Post::find($id);
         return view('posts.show')->with('post', $post);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,14 +92,12 @@ class PostController extends Controller
           'title' => 'required|unique:posts|max:255',
           'post' => 'required'
         ]);
-      // save the data to the Database
         $post = Post::find($id);
         $post -> title = $request -> input('title');
         $post -> post = $request -> input('post');
         $post -> save();
-      // set flash data with success message
         Session::flash('success', 'This post was successfully updated and saved.');
-      // redirect
+
         return redirect()->route('posts.show', $post ->id);
     }
     /**
@@ -109,6 +108,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-
+      $post = Post::find($id);
+      $post->delete();
+      Session::flash('success', 'Post was deleted successfully.');
+      return redirect()->route('posts.index');
     }
 }

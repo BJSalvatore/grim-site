@@ -7,11 +7,11 @@ class PagesController extends Controller
         return view('pages/home');
     }
         public function getAbout() {
-          $title = "About the band";
-        return view('pages/about')->with("title", $title);
+          $header_title = "About the band";
+        return view('pages/about')->with("header_title", $header_title);
     }
         public function getContact() {
-          $title ="Contact Us";
+          $header_title ="Contact Us";
           $bandphone = "(818)492-8690";
           $bandemail = "boboedy@yahoo.com";
           $bandaddress = [
@@ -22,23 +22,23 @@ class PagesController extends Controller
             'bandzip' => '91306',
             'bandcountry'=> 'USA'
           ];
-        return view('pages/contact')->with("title", $title)->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
+        return view('pages/contact')->with("header_title", $header_title)->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
     }
         public function getMerch() {
-          $title = "Buy Our Stuff!";
-        return view('pages/merch')->withTitle($title);
+          $header_title = "Buy Our Stuff!";
+        return view('pages/merch')->with('header_title', $header_title);
     }
         public function getPhotos() {
-          $title = "Check Us Out!";
-        return view('pages/photos')->withTitle($title);
+          $header_title = "Check Us Out!";
+        return view('pages/photos')->with('header_title', $header_title);
     }
         public function getPress() {
-          $title = "The Press Loves Us!";
-        return view('pages/press')->withTitle($title);
+          $header_title = "The Press Loves Us!";
+        return view('pages/press')->with('header_title', $header_title);
     }
         public function getBlog() {
-          $title = "Blog Posts";
-        return view('pages/blog')->withTitle($title);
+          $header_title = "Blog Posts";
+        return view('pages/blog')->with('header_title', $header_title);
     }
 
         public function store() {
@@ -50,6 +50,13 @@ class PagesController extends Controller
         public function show(){
           return view('posts/show');
     }
+        public function update(){
+          return view('posts/update');
+    }
+        public function edit(){
+          return view('posts/edit');
+    }
+
         public function register(){
           return view('pages/register');
     }

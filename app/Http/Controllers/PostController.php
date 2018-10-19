@@ -92,10 +92,12 @@ class PostController extends Controller
           'title' => 'required|unique:posts|max:255',
           'post' => 'required'
         ]);
+
         $post = Post::find($id);
         $post -> title = $request -> input('title');
         $post -> post = $request -> input('post');
         $post -> save();
+
         Session::flash('success', 'This post was successfully updated and saved.');
 
         return redirect()->route('posts.show', $post ->id);

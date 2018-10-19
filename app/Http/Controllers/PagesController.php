@@ -56,7 +56,6 @@ class PagesController extends Controller
         public function edit(){
           return view('posts/edit');
     }
-
         public function register(){
           return view('pages/register');
     }

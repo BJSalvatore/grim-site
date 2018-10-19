@@ -13,7 +13,7 @@
 </style>
 
 <div class="container">
-    <div class="row">
+    <div class="d-flex flex-row">
         <div class="col-lg-4">
             @include('inc._sidebar')</div>
             <div class="col-lg-8">

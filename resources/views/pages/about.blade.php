@@ -7,7 +7,7 @@
 @include('inc._header')
 
 @section('content')
-  <div class = "row">
+  <div class = "d-flex flex-row">
     <div class="col-4">@include('inc._sidebar')</div>
     <div class = "col-lg-8">
       <h1 style="font-family: Freckle Face;">Stuff goes here</h1>

@@ -1,6 +1,6 @@
   <div class="container justify-content-center text-light bg-dark" style="margin-left: 0px; margin-top: 0px; height: 100%;">
     <div class= "sidenav navbar-right">
-      <div class="col-lg-4">
+      <div class="d-flex flex-column col-lg-4">
             <form class="navbar-form">
               <div class="container">
                 <h3>New Release!</h3>

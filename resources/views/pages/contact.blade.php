@@ -7,7 +7,7 @@
 @include('inc._header')
 
 @section('content')
-  <div class = "row">
+  <div class = "d-flex flex-row">
     <div class="col-lg-4">@include('inc._sidebar')</div>
     <div class = "col-lg-8">
       <h5>Email:</h5> <p>{{ $bandemail }}</p>

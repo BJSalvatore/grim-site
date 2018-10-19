@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-  <div class="row">
+  <div class="d-flex flex-row">
     <div class="col-lg-4"></div>
     <div class="col-lg-8">
       <h1>Register</h1>

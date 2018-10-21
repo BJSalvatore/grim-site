@@ -47,6 +47,9 @@
       <div class="d-flex flex-row align-items-center justify-content-center">
         {{$posts -> links()}}
       </div>
+      <div class="d-flex flex-row align-items-center justify-content-center">
+        Page {{$posts->currentPage()}} of {{$posts->lastPage()}}
+      </div>
     </div>
   </div>
 </div>

@@ -15,8 +15,8 @@
       <div class="post mt-3">
       @foreach($posts as $post)
         <h3 style="font-family: Freckle Face;">{{ $post -> title}}</h3>
-      </p>{{ substr($post -> post, 0, 50) }}{{ strlen($post->post > 50 ? "..." : "") }}</p>
-          <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary">Read more</a>
+      </p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>
+          <a href="" class="btn btn-sm btn-secondary">Read more</a>
         <hr>
       @endforeach
       </div>

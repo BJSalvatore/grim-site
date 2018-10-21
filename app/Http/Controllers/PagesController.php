@@ -38,9 +38,8 @@ class PagesController extends Controller
     }
         public function getBlog() {
           $header_title = "Blog Posts";
-        return view('pages/blog')->with('header_title', $header_title);
+        return view('pages/blog')->with('header_title', $header_title)-with('posts', $posts);
     }
-
         public function store() {
           return view('posts/store');
     }

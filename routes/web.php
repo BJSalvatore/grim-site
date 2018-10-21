@@ -27,6 +27,9 @@ Route::get('posts/{id}/edit', 'PostController@edit');
 Route::put('posts/{id}/update', 'PostController@update');
 
 Route::get('blog', function(){
-  $posts = DB::table('posts')->get();
+  $posts = DB::table('posts')
+        ->orderBy('created_at', 'desc')
+        ->limit(4)
+        ->get();
   return view('pages.blog', ['posts'=>$posts]);
 });

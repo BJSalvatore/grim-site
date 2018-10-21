@@ -33,7 +33,9 @@
             <td>{{ $post->created_at }}</td>
             <td>
               <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>
+            <form method="PUT">
               <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
+            </form>
               <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                 @csrf
                 @method("DELETE")

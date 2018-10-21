@@ -34,7 +34,11 @@
             <td>
               <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>
               <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
-              <a href="#" class="btn btn-sm btn-danger m-1">Delete</a>
+              <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                @csrf
+                @method("DELETE")
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </form>
             </td>
 
           </tr>

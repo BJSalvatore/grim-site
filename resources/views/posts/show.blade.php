@@ -25,9 +25,11 @@
         <p>{{ $post -> updated_at }}</p>
       </div>
       <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
-        <form method="DELETE" action="{{ route('posts.destroy', $post -> id)}}">
-          <button type="submit" class="btn btn-sm btn-danger m-1">Delete</button>
-        </form>
+      <form action="{{ route('posts.destroy', $post->id) }}">
+        @csrf
+        @method("DELETE")
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </form>
     </div>
       <hr>
   </div> <!-- end of row -->

@@ -40,11 +40,13 @@
                 <button class="btn btn-danger btn-sm">Delete</button>
               </form>
             </td>
-
           </tr>
           @endforeach
         </tbody>
       </table>
+      <div class="d-flex flex-row align-items-center justify-content-center">
+        {{$posts -> links()}}
+      </div>
     </div>
   </div>
 </div>

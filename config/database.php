@@ -59,7 +59,7 @@ return [
             'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'heroku_37ef2959c0795ff'),
-            'username' => env('DB+USERNAME', 'b82409b1d1c87f'),
+            'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
             'password' => env('DB_PASSWORD', '82ae92e1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

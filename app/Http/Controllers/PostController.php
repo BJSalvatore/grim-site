@@ -40,7 +40,7 @@ class PostController extends Controller
         // validate the data
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts, slug',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
           'post' => 'required'
         ]);
         // store in database
@@ -92,7 +92,7 @@ class PostController extends Controller
       // validate the database
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts, slug',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
           'post' => 'required'
         ]);
 

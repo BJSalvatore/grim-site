@@ -21,6 +21,14 @@
 
 </head>
 
+  <style>
+  #editpost{
+    height: 400px;
+    word-break: normal;
+    overflow: normal;
+  }
+  </style>
+
 <body style="background-color: silver;">
 
 <div id="app" class="container m-4 p-0">

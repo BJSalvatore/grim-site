@@ -20,7 +20,7 @@ Route::get('/blog', 'PagesController@getBlog');
 Route::post('user/create', 'RegisterController@create');
 
 Route::resource('/posts', 'PostController');
-Route::post('/posts/store', 'PostController@store');
+Route::post('/posts/store', 'PostController@store')->name('posts.store');
 Route::post('/posts/create', 'PostController@create');
 Route::get('posts/{id}/show', 'PostController@show');
 Route::get('posts/{id}/edit', 'PostController@edit');

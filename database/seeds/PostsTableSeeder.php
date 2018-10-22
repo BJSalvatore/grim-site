@@ -12,16 +12,18 @@ class PostsTableSeeder extends Seeder
      */
   public function run()
     {
-            DB::table('posts')->insert(['title' => 'Post 1', 'post' => 'This is post number one' ]);
-            DB::table('posts')->insert(['title' => 'Post 2', 'post' => 'This is post number two' ]);
+            DB::table('posts')->insert(['title' => 'Post 1', 'slug' => 'blog-1', 'post' => 'This is post number one' ]);
+            DB::table('posts')->insert(['title' => 'Post 2', 'slug' => 'blog-2', 'post' => 'This is post number two' ]);
 
             DB::table('posts')->insert([
             'title' => 'Bacon Blog',
+            'slug' => 'bacon-blog',
             'post' => 'Bacon ipsum dolor amet pancetta doner venison andouille tri-tip spare ribs turducken picanha alcatra tail, pork belly flank hamburger. Hamburger tri-tip bresaola chuck tenderloin turducken corned beef capicola sirloin buffalo. Meatloaf corned beef ribeye pig. Flank ribeye jowl pork belly shank beef ribs pastrami porchetta pig filet mignon cupim doner bresaola chuck.<br>
             Ball tip pork chop buffalo kevin meatball tenderloin brisket rump. Shoulder biltong corned beef, ham hock venison turducken pork chop frankfurter chuck burgdoggen pork doner ground round pastrami. Tongue meatloaf bacon pork chop, salami t-bone filet mignon pork belly tenderloin jerky sausage pork pancetta short ribs capicola. Pig venison cow tongue, prosciutto shankle pork belly pork chop alcatra t-bone pork filet mignon chuck.']);
 
             DB::table('posts')->insert([
             'title' => 'Star Wars Blog',
+            'slug' => 'starwars-blog',
             'post' => 'No! Alderaan is peaceful. We have no weapons. You can\'t possibly… I care. So, what do you think of her, Han? The Force is strong with this one. I have you now. The more you tighten your grip, Tarkin, the more star systems will slip through your fingers.<br>
             Hokey religions and ancient weapons are no match for a good blaster at your side, kid. I can\'t get involved! I\'ve got work to do! It\'\s not that I like the Empire, I hate it, but there\'s nothing I can do about it right now. It\'s such a long way from here.<br>
             I\'m surprised you had the courage to take the responsibility yourself. Ye-ha! I have traced the Rebel spies to her. Now she is my only link to finding their secret base. You mean it controls your actions?<br>
@@ -33,6 +35,7 @@ class PostsTableSeeder extends Seeder
 
             DB::table('posts')->insert([
             'title' => 'Monty Python Post',
+            'slug' => 'monty-python-blog',
             'post' => 'Who\'s that then? We found them. The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. Oh, ow! I am your king.<br>
             The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. Shut up! Burn her anyway! We found them. Bloody Peasant!<br>
             We found them. We want a shrubbery!! I dunno. Must be a king. Did you dress her up like this?<br>
@@ -47,6 +50,7 @@ class PostsTableSeeder extends Seeder
 
             DB::table('posts')->insert([
             'title' => 'Bob Ross Blog',
+            'slug' => 'bob-ross-blog',
             'post' => 'I really recommend you use odorless thinner or your spouse is gonna run you right out into the yard and you\'ll be working by yourself. If what you\'re doing doesn\'t make you happy - you\'re doing the wrong thing. Sometimes you learn more from your mistakes than you do from your masterpieces. That\'s a son of a gun of a cloud. Only think about one thing at a time. Don\'t get greedy.<br>
             I like to beat the brush. God gave you this gift of imagination. Use it. Isn\'t that fantastic that you can create an almighty tree that fast? Everyone is going to see things differently - and that\'s the way it should be. We\'ll put all the little clouds in and let them dance around and have fun.<br>
             We can fix anything. Just let this happen. We just let this flow right out of our minds. All you need to paint is a few tools, a little instruction, and a vision in your mind. I spend a lot of time walking around in the woods and talking to trees, and squirrels, and little rabbits and stuff.<br>
@@ -57,6 +61,7 @@ class PostsTableSeeder extends Seeder
 
             DB::table('posts')->insert([
             'title' => 'Samuel L. Jackson Blog',
+            'slug' => 'samuel-l-jackson-blog',
             'post' =>
             'Look, just because I don\'t be givin\' no man a foot massage don\'t make it right for Marsellus to throw Antwone into a glass motherfuckin\' house, fuckin\' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, \'cause I\'ll kill the motherfucker, know what I\'m sayin\'<br>
             Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine. You don\'t get sick, I do. That\'s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We\'re on the same curve, just on opposite ends.<br>
@@ -64,14 +69,15 @@ class PostsTableSeeder extends Seeder
 
             DB::table('posts')->insert([
             'title' => 'Carl Sagan Blog',
+            'slug' => 'carl-sagan-blog',
             'post' => 'A very small stage in a vast cosmic arena radio telescope paroxysm of global death Tunguska event at the edge of forever take root and flourish. Stirred by starlight muse about decipherment hydrogen atoms Orion\'s sword Drake Equation. Realm of the galaxies something incredible is waiting to be known made in the interiors of collapsing stars dispassionate extraterrestrial observer rings of Uranus great turbulent clouds? Something incredible is waiting to be known invent the universe star stuff harvesting star light dispassionate extraterrestrial observer a mote of dust suspended in a sunbeam bits of moving fluff.<br>
             Ship of the imagination Flatland brain is the seed of intelligence extraordinary claims require extraordinary evidence emerged into consciousness cosmos. Light years dispassionate extraterrestrial observer rich in heavy atoms muse about tingling of the spine the ash of stellar alchemy. Courage of our questions something incredible is waiting to be known hydrogen atoms the only home we\'ve ever known something incredible is waiting to be known courage of our questions.<br>
             Kindling the energy hidden in matter concept of the number one Cambrian explosion corpus callosum cosmos muse about. At the edge of forever the only home we\'ve ever known at the edge of forever finite but unbounded Drake Equation astonishment? Something incredible is waiting to be known courage of our questions a still more glorious dawn awaits great turbulent clouds two ghostly white figures in coveralls and helmets are soflty dancing rich in heavy atoms and billions upon billions upon billions upon billions upon billions upon billions upon billions.']);
 
-            DB::table('posts')->insert(['title' => 'Post 9', 'post' => 'This is post number nine' ]);
-            DB::table('posts')->insert(['title' => 'Post 10', 'post' => 'This is post number ten' ]);
-            DB::table('posts')->insert(['title' => 'Post 11', 'post' => 'This is post number eleven' ]);
-            DB::table('posts')->insert(['title' => 'Post 12', 'post' => 'This is post number twelve' ]);
+            DB::table('posts')->insert(['title' => 'Post 9', 'slug' => 'blog-9', 'post' => 'This is post number nine' ]);
+            DB::table('posts')->insert(['title' => 'Post 10', 'slug' => 'blog-10', 'post' => 'This is post number ten' ]);
+            DB::table('posts')->insert(['title' => 'Post 11', 'slug' => 'blog-11', 'post' => 'This is post number eleven' ]);
+            DB::table('posts')->insert(['title' => 'Post 12', 'slug' => 'blog-12', 'post' => 'This is post number twelve' ]);
 
 
     }

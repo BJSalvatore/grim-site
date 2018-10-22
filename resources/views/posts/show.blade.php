@@ -12,17 +12,19 @@
     <div class="row">
         <div class="col-lg-4">
             @include('inc._sidebar')</div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="post mt-3">
                     <h3>{{ $post -> title }}</h3>
                     <p>{{ $post -> post}}</p>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <div class="container bg-secondary p-4 align-content-center justify-content-center">
-                    <h6>Created on:</h6>
-                    <p>{{ $post -> created_at }}</p>
-                    <h6>Updated on:</h6>
+                    <h5>URL:</h5>
+                    <a href="{{ url($post -> slug) }}">{{ url($post->slug) }}</a> <!--appends slug to base url-->
+                    <h5>Created on:</h5>
+                    <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
+                    <h5>Updated on:</h5>
                     <p>{{ $post -> updated_at }}</p>
                 </div>
                   <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-md btn-block btn-light m-1">Edit</a>

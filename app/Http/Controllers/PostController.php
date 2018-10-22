@@ -40,11 +40,13 @@ class PostController extends Controller
         // validate the data
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts, slug',
           'post' => 'required'
         ]);
         // store in database
         $post = new Post;
         $post -> title = $request -> input('title');
+        $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
         $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
@@ -90,11 +92,13 @@ class PostController extends Controller
       // validate the database
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts, slug',
           'post' => 'required'
         ]);
 
         $post = Post::find($id);
         $post -> title = $request -> input('title');
+        $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
         $post -> save();
 

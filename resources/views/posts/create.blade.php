@@ -16,6 +16,9 @@
             <label class="mt-1" for="title">Title</label>
             <input class="form-control" id="title" name='title' type="text" required maxlength="255"></input>
 
+            <label class="mt-1" for="slug">Slug</label>
+            <input class="form-control" id="slug" name="slug" type="text" required minlength='5' maxlength="255"></input>
+
           <div class="form-group">
             <label class="mt-1" for="post">Blog Post</label>
             <textarea class="form-control" id="post" name='post' required></textarea>

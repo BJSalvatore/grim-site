@@ -12,6 +12,6 @@ class BlogController extends Controller
       // fetch from database based on $slug
       $post = Post::where('slug', $slug)->first();
       // return the view and pass in the post object
-      return view('blog.single')->with('post', $post);
+      return view('pages.single')->with('post', $post);
     }
 }

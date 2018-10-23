@@ -34,5 +34,5 @@ Route::get('blog', function(){
   return view('pages.blog', ['posts'=>$posts]);
 });
 
-Route::get('/blog/{slug}')->name('blog.single')->uses('BlogController@getSingle');
+Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingle');
 // ->where("/^[a-zA-Z0-9-_]+$/");

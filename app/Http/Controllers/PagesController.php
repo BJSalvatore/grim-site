@@ -59,7 +59,7 @@ class PagesController extends Controller
           return view('pages/register');
     }
         public function getSingle(){
-          return view('single');
+          return view('/single');
     }
 
 }

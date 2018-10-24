@@ -18,7 +18,6 @@
 
             <label class="mt-1" for="slug">Slug</label>
             <input class="form-control" id="slug" name="slug" type="text" required minlength='5' maxlength="255"></input>
-
           <div class="form-group">
             <label class="mt-1" for="post">Blog Post</label>
             <textarea class="form-control" id="post" name='post' required></textarea>
@@ -29,5 +28,4 @@
       </div>
     </div>
   </div>
-</div>
 @endsection

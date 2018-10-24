@@ -1,4 +1,4 @@
-@section('title', "| $post -> title")
+@section('title', "| {{$post -> title}}")
 
 @extends('layouts.app')
 @include('inc._navbar')

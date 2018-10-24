@@ -21,7 +21,7 @@
             <div class="col-lg-3">
                 <div class="container bg-secondary p-4 align-content-center justify-content-center">
                     <h5>URL:</h5>
-                    <a href="{{ url($post -> slug) }}">{{ url($post->slug) }}</a> <!--appends slug to base url-->
+                    <a href="{{ url('single/'.$post -> slug) }}">{{ url('single/'.$post->slug) }}</a> <!--appends slug to base url-->
                     <h5>Created on:</h5>
                     <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
                     <h5>Updated on:</h5>

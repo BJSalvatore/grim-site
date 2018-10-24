@@ -89,12 +89,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-      // validate the database
-      $validatedData = $request ->validate([
+      $post = Post::find($id);
+        if($request -> input('slug') == $post -> slug) {
+          $validateData = $request -> validate([
           'title' => 'required|unique:posts|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
           'post' => 'required'
         ]);
+        }else{
+        // validate the database
+        $validatedData = $request ->validate([
+            'title' => 'required|unique:posts|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
+            'post' => 'required'
+          ]);
+        }
 
         $post = Post::find($id);
         $post -> title = $request -> input('title');

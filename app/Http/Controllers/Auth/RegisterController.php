@@ -69,4 +69,27 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+      public function store(Request $request)
+      {
+          // validate the data
+        $validatedData = $request ->validate([
+            'name' => 'required||max:255',
+            'email' => 'required|unique:users',
+            'password' => 'required'
+          ]);
+          // store in database
+          $user = new User;
+          $user -> name = $request -> input('name');
+          $user -> email = $request -> input('email');
+          $user -> password = $request -> input('password');
+          $post -> save();
+
+          Session::flash('success', 'You are now registered and have permission to leave blog comments!');
+          return redirect()->route('pages.home');
+      }
+
+    public function getRegister(){
+      return view('auth/register');
+  }
 }

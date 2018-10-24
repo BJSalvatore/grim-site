@@ -42,11 +42,11 @@
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
         <li class="nav-item active">
-          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/register">Register</a></li>
+          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
         </li>
-          {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            My Account
-          </a> --}}
+        <li class="nav-item active">
+          <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
+        </li>
       </li>
       </ul>
     </div>

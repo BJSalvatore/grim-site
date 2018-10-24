@@ -9,6 +9,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Authentication Routes
+Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
+Route::post('auth/login', 'Auth\LoginController@postLogin');
+Route::get('auth/logout', 'Auth\Logincontroller@getLogout')->name('logout');
+
+// Registration Routes
+Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');
+Route::post('auth/register', 'Auth\RegisterController@store')->name('register.store');
+
+
 Route::get('/', 'PagesController@getHome');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
@@ -24,7 +35,7 @@ Route::post('/posts/store', 'PostController@store')->name('posts.store');
 Route::post('/posts/create', 'PostController@create');
 Route::get('posts/{id}/show', 'PostController@show');
 Route::get('posts/{id}/edit', 'PostController@edit');
-Route::put('posts/{id}/update', 'PostController@update');
+Route::put('posts/{id}', 'PostController@update');
 
 Route::get('blog', function(){
   $posts = DB::table('posts')

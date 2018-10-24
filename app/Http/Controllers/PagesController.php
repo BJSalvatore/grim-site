@@ -56,10 +56,10 @@ class PagesController extends Controller
           return view('posts/edit');
     }
         public function register(){
-          return view('pages/register');
+          return view('auth/register');
     }
         public function getSingle(){
-          return view('/single');
+          return view('single');
     }
 
 }

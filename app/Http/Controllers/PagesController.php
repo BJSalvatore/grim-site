@@ -61,5 +61,16 @@ class PagesController extends Controller
         public function getSingle(){
           return view('single');
     }
+        public function getLogout(){
+          return view('pages/home');
+        }
+
+        public function getRegister(){
+          return view('auth/register');
+        }
+
+        public function getAdmin(){
+          return view('auth/admin');
+    }
 
 }

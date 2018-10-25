@@ -1,7 +1,6 @@
-@section('title', '| Register')
+@section('title', '| Register New Admin')
 
 @extends('layouts.app')
-@include('inc._header')
 
 @section('content')
 <div class="container">
@@ -21,9 +20,17 @@
             <textarea class="form-control" id="email" name='email' ></textarea>
           </div>
           <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" id="username" name='username' ></input>
+          </div>
+          <div class="form-group">
             <label for="password">Password</label>
             <password class="form-control" id="password" name='password' ></password>
           </div>
+          <select class=”form-control” name=role id=role>
+          <option value=”admin”>Admin</option>
+          <option value=”user”>Normal User</option>
+          </select>
             <button type="submit" class="btn btn-secondary btn-md m-1">Register</button>
         </form>
       </div>

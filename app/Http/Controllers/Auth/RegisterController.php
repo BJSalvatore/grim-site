@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +26,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/home';
 
     /**
@@ -51,6 +50,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|varchar|max:25|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -66,6 +66,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -76,20 +77,21 @@ class RegisterController extends Controller
         $validatedData = $request ->validate([
             'name' => 'required||max:255',
             'email' => 'required|unique:users',
+            'username' => 'required|unique:users\max:25',
+            'role' => 'required',
             'password' => 'required'
           ]);
           // store in database
           $user = new User;
           $user -> name = $request -> input('name');
           $user -> email = $request -> input('email');
+          $user -> username = $request -> input('username');
+          $user -> role = $request -> input ('role');
           $user -> password = $request -> input('password');
           $post -> save();
 
-          Session::flash('success', 'You are now registered and have permission to leave blog comments!');
+          Session::flash('success', 'You are now registered with the username of '.$user -> username.' and have permission to leave blog comments!');
+
           return redirect()->route('pages.home');
       }
-
-    public function getRegister(){
-      return view('auth/register');
-  }
 }

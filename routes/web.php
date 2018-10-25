@@ -11,9 +11,14 @@
 */
 
 // Authentication Routes
+
+Auth::routes();
 Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('auth/login', 'Auth\LoginController@postLogin');
-Route::get('auth/logout', 'Auth\Logincontroller@getLogout')->name('logout');
+Route::get('pages/home', 'Auth\LoginController@getLogout')->name('logout');
+
+Route::get('auth/admin', 'Auth\RegisterController@getAdmin')->name('admin'); // displays admin form
+Route::post('auth/admin', 'Auth\RegisterController@createAdmin')->name('admin.store');
 
 // Registration Routes
 Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');
@@ -47,7 +52,5 @@ Route::get('blog', function(){
 
 Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingle');
 // ->where("/^[a-zA-Z0-9-_]+$/");
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

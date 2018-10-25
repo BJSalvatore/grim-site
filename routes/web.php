@@ -47,3 +47,7 @@ Route::get('blog', function(){
 
 Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingle');
 // ->where("/^[a-zA-Z0-9-_]+$/");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -15,6 +15,12 @@ h5{
   font-weight: 600;
 }
 
+.jumbotron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar{
   background-color: #000;
   color: #fff;

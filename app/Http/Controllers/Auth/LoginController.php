@@ -47,4 +47,13 @@ class LoginController extends Controller
       public function getLogin(){
         return view('auth/login');
     }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+      public function getLogout(){
+        return view('auth/logout');
+    }
 }

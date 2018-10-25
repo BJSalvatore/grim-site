@@ -14,6 +14,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav w-100 nav-justified">
+
+        @if($user ->isAdmin())
+        <li class="nav-item active">
+          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
+        </li>
+        <li class="nav-item active">
+          <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
+        </li>
+        @else        
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
         </li>
@@ -35,18 +44,23 @@
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
         </li>
-        <li class="nav-item active">
-          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
-        </li>
-        <li class="nav-item active">
-          <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
-        </li>
+        @endif
+
+        @guest
         <li class="nav-item active">
           <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
         </li>
+        @endguest
+
+        @auth
+          <li class="nav-item active">
+            <a class="{{ Request::is ('logout') ? 'active': ''}}" href="/home">Logout</a></li>
+          </li>
+        @endauth
+
       </li>
       </ul>
     </div>

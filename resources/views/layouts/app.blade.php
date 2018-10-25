@@ -29,8 +29,7 @@
   }
   </style>
 
-<body style="background-color: silver;">
-
+<body style="background-color: silver; postion:fixed; z-index: -1;">
 <div id="app" class="container m-4 p-0">
   @include('inc._messages')
   @yield('content')

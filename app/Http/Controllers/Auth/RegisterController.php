@@ -2,10 +2,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Collective\Html\Eloquent;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -73,8 +78,8 @@ class RegisterController extends Controller
         $validatedData = $request ->validate([
             'name' => 'required||max:255',
             'email' => 'required|unique:users',
-            'username' => 'required|unique:users\max:25',
-            'role' => 'required',
+            'username' => 'required|unique:users|max:25',
+            // 'role' => 'required',
             'password' => 'required'
           ]);
           // store in database
@@ -82,12 +87,13 @@ class RegisterController extends Controller
           $user -> name = $request -> input('name');
           $user -> email = $request -> input('email');
           $user -> username = $request -> input('username');
-          $user -> role = $request -> input ('role');
-          $user -> password = $request -> input('password');
-          $post -> save();
+          // $user -> role = $request -> input ('role');
+          $user->fill(['password' => Hash::make($request->password)]);
+          $user->save();
 
-          Session::flash('success', 'You are now registered with the username of '.$user -> username.' and have permission to leave blog comments!');
+          $request->session()->flash('success', 'You are now registered with the username of '.$user -> username.' and have permission to leave blog comments! Please login to continue.');
 
-          return redirect()->route('pages.home');
+          return redirect()->route('login');
+
       }
 }

@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+
+use App\Post;
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
-use App\Post;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Session;
+
 class PostController extends Controller
 {
     /**

@@ -20,6 +20,10 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function getLogin(){
+      return view('auth/login');
+    }
+
     protected function authenticated($request, $user)
     {
       if($user-> role =='admin'){
@@ -41,16 +45,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-      public function getLogin(){
-        return view('auth/login');
-    }
-    //
-    // public function username()
-    // {
-    //     return 'username';
-    // }
-    //
-    //   public function getLogout(){
-    //     return view('pages/home');
-    // }
 }

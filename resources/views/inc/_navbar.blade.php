@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav w-100 nav-justified">
 
-        {{-- @if($user ->isAdmin()) --}}
+        {{-- @if($role ->isAdmin()) --}}
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
@@ -25,7 +25,7 @@
           <li class="nav-item active">
             <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
           </li>
-        {{-- @else         --}}
+        {{-- @else --}}
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
         </li>

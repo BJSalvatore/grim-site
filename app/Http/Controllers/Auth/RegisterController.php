@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Auth;
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,10 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    public function getRegister(){
+      return view ('auth/register');
+    }
 
     /**
      * Where to redirect users after registration.
@@ -61,15 +66,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'username' => $data['username'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
 
       public function store(Request $request)
       {

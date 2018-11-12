@@ -20,17 +20,14 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    // protected function authenticated($request, $user)
-    // {
-    //   if($user-> role =='admin'){
-    //       return redirect('add_blogpost');
-    //   }else{
-    //       return redirect('/');
-    //   }
-    // }
-    //     public function email_list() {
-    //     	return view('mailing_list');
-    //     }
+    protected function authenticated($request, $user)
+    {
+      if($user-> role =='admin'){
+          return redirect('add_blogpost');
+      }else{
+          return redirect('/');
+      }
+    }
 
     protected $redirectTo = '/home';
 
@@ -47,13 +44,13 @@ class LoginController extends Controller
       public function getLogin(){
         return view('auth/login');
     }
-
-    public function username()
-    {
-        return 'username';
-    }
-
-      public function getLogout(){
-        return view('pages/home');
-    }
+    //
+    // public function username()
+    // {
+    //     return 'username';
+    // }
+    //
+    //   public function getLogout(){
+    //     return view('pages/home');
+    // }
 }

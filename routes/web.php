@@ -14,15 +14,11 @@
 
 Auth::routes();
 Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
-Route::post('auth/login', 'Auth\LoginController@postLogin');
 Route::get('pages/home', 'Auth\LoginController@getLogout')->name('logout');
-
-Route::get('auth/admin', 'Auth\RegisterController@getAdmin')->name('admin'); // displays admin form
-Route::post('auth/admin', 'Auth\RegisterController@createAdmin')->name('admin.store');
 
 // Registration Routes
 Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');
-Route::post('auth/register', 'Auth\RegisterController@store')->name('register.store');
+Route::post('store', 'Auth\RegisterController@store')->name('register.store');
 
 
 Route::get('/', 'PagesController@getHome');
@@ -33,7 +29,6 @@ Route::get('/photos', 'PagesController@getPhotos');
 Route::get('/press', 'PagesController@getPress');
 Route::get('/blog', 'PagesController@getBlog');
 
-Route::post('user/create', 'RegisterController@create');
 
 Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store')->name('posts.store');

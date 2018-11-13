@@ -26,7 +26,6 @@ h5{
 .navbar{
   background-color: #000;
   color: #fff;
-  padding-left: 20px;
 }
 
 .nav-item{
@@ -51,12 +50,15 @@ h5{
     left: 0;
     background-color: #000; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
+}
+
+.sidenav li {
+  font-size: 18px;
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    // padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;

@@ -46,19 +46,17 @@ h5{
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     margin-top: 200px;
     z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
     background-color: #000; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-.sidenav li {
-  font-size: 18px;
-}
+// .sidenav li {
+//   font-size: 18px;
+// }
 
 /* The navigation menu links */
 .sidenav a {
-    // padding: 6px 8px 6px 16px;
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;

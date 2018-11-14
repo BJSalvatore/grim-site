@@ -28,20 +28,28 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-        public function roles()
-    {
-        return $this->belongsToMany('App\Role');
-    }
+    //  public function show(Request $request, $id)
+    // {
+    //     $value = $request->session()->get('key');
+    //
+    //     //
+    // }
 
-        public function isAdmin()
-    {
-        foreach ($this->roles()->get() as $role)
-        {
-            if ($role->name == 'Admin')
-            {
-                return true;
-            }
-        }
-        return false;
-    }
+
+    //     public function roles()
+    // {
+    //     return $this->belongsToMany('App\Role');
+    // }
+    //
+    //     public function isAdmin()
+    // {
+    //     foreach ($this->roles()->get() as $role)
+    //     {
+    //         if ($role->name == 'Admin')
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 }

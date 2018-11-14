@@ -1,8 +1,10 @@
-<div class="d-flex justify-content-center text-light bg-dark p-3" style="margin-left: 0px; margin-top: 0px; height: 100%;">
+  <link href="{{ asset('../css/app.css') }}" rel="stylesheet" type="text/css">
+
+<div class="d-flex justify-content-center text-light bg-dark" style="height: 100%;">
   <div class= "sidenav navbar-right">
-    <div class="container" style="align-content: justify-content-center">
+    <div class="container justify-content-center" >
         <h3>New Release!</h3>
-        <img id="newLP" class="img-fluid mb-3 mt-3" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"style="min-width: 210px; height: auto;"></img>
+        <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"style="max-width: 280px; height: auto;"></img>
       <hr>
       <h3>Cop Killer</h3>
       <audio controls>
@@ -11,11 +13,11 @@
       <hr>
         <h3>Upcoming Shows</h3>
         <ul>
-          <li><a href="#">10/10/2018 @ This Place</a></li>
-          <li><a href="#">10/22/2018 @ That Place</a></li>
-          <li><a href="#">11/02/2018 @ The Other Place</a></li>
+          <li><h5><a href="#">10/10/2018 @ This Place</a></h5></li>
+          <li><h5><a href="#">10/22/2018 @ That Place</a><h5></li>
+          <li><h5><a href="#">11/02/2018 @ The Other Place</a><h5></li>
         </ul>
-        <img id="logo" class="img-fluid" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="min-width: 210px; height: auto; margin-top: 0px; margin-left: 0px"></img>
+        <img id="logo" class="img-fluid" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="max-width: 280px; height: auto;"></img>
     </div>
   </div>
 </div>

@@ -13,29 +13,16 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
-      {{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css"> --}}
-
-
     <link href="{{ asset('css/parsley.css') }}" rel="stylesheet" type="text/css">
 
     <title>The Grim @yield('title')</title>
 
 </head>
 
-  <style>
-  #editpost{
-    height: 400px;
-    word-break: normal;
-    overflow: normal;
-  }
-  </style>
-
 <body style="background-color: silver; postion:fixed; z-index: -1;">
-<div id="app" class="container m-4 p-0">
-  @include('inc._messages')
+<div id="app" class="container m-0 pl-0 pt-3 pb-3">
   @yield('content')
 </div>
-
   @include('inc._footer')
 
 <!-- Scripts -->

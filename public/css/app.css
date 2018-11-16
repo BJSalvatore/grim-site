@@ -10466,3 +10466,107 @@ a.text-dark:focus {
   }
 }
 
+* {
+  margin: 0px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 1px;
+}
+
+h1 {
+  font-family: 'Freckle Face', cursive;
+}
+
+h5 {
+  font-weight: 600;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  background-position: 0% 25%;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar {
+  background-color: #000;
+  color: #fff;
+}
+
+.nav-item {
+  color: silver;
+}
+
+.navbar-brand {
+  font-family: 'Freckle Face';
+  font-size: 40px;
+  color: #FF8C00;
+}
+
+/* The sidebar menu */
+
+.sidenav {
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 160px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  margin-top: 200px;
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: #000;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+}
+
+.sidenav li {
+  font-size: 18px;
+}
+
+/* The navigation menu links */
+
+.sidenav a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+
+.main {
+  margin-left: 160px;
+  /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+

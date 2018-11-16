@@ -14,8 +14,8 @@
 
 // Auth::routes();
 Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
-Route::get('pages/home', 'Auth\LoginController@getLogout')->name('logout');
 Route::post('login', 'Auth\LoginController@login')->name('successful.login');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Registration Routes
 Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');

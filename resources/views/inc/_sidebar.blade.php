@@ -1,7 +1,6 @@
   <link href="{{ asset('../css/app.css') }}" rel="stylesheet" type="text/css">
 
 <div class="d-flex justify-content-center text-light bg-dark" style="height: 100%;">
-  <div class= "sidenav navbar-right">
     <div class="container justify-content-center" >
         <h3>New Release!</h3>
         <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"style="max-width: 280px; height: auto;"></img>
@@ -19,5 +18,4 @@
         </ul>
         <img id="logo" class="img-fluid" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="max-width: 280px; height: auto;"></img>
     </div>
-  </div>
 </div>

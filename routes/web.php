@@ -51,4 +51,4 @@ Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingl
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-URL::forceSchema('https'); // eliminates Mixed Content error
+// URL::forceSchema('https'); // eliminates Mixed Content error

@@ -15,12 +15,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       // eliminates mixed content error
-              if(env('APP_ENV') == 'production') {
-                \URL::forceScheme('https');
-              }
-
-              Schema::defaultStringLength(191);
-
+              // if(env('APP_ENV') == 'production') {
+              //   \URL::forceScheme('https');
+              // }
+              //
+              // Schema::defaultStringLength(191);
+      if($this->app->environment('production')) {
+        URL::forceScheme('https');
+      }
     }
 
 

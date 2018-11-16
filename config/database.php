@@ -7,10 +7,10 @@
   // $password = $url['pass'];
   // $database = substr($url["path"], 1);
 
-  $host = secure_url('us-cdbr-iron-east-01.cleardb.net');
-  $username = secure_url('b82409b1d1c87f');
-  $password = secure_url('82ae92e1');
-  $database = secure_url('heroku_37ef2959c0795ff');
+  $host = 'us-cdbr-iron-east-01.cleardb.net';
+  $username = 'b82409b1d1c87f';
+  $password = '82ae92e1';
+  $database = 'heroku_37ef2959c0795ff';
 
 
 

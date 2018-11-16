@@ -50,5 +50,3 @@ Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingl
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-// URL::forceSchema('https'); // eliminates Mixed Content error

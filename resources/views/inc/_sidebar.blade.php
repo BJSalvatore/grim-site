@@ -7,7 +7,7 @@
       <hr>
       <h3>Cop Killer</h3>
       <audio controls>
-        <source src="{{ asset('assets/audio/the-grim_the-grim-cop-killer-7-inch.mp3') }}" type="audio/mpeg">
+        {{-- <source src="{{ asset('assets/audio/the-grim_the-grim-cop-killer-7-inch.mp3') }}" type="audio/mpeg"> --}}
       </audio>
       <hr>
         <h3>Upcoming Shows</h3>

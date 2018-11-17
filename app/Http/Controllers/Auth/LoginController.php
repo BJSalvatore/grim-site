@@ -45,4 +45,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function password_verify($password, $hash){
+      if (password_verify('$password', $hash)) {
+      echo 'Password is valid!';
+      } else {
+      echo 'Invalid password.';
+      }
+    }
+
 }

@@ -79,15 +79,13 @@ class RegisterController extends Controller
             'name' => 'required||max:255',
             'email' => 'required|unique:users',
             'username' => 'required|unique:users|max:25',
-            // 'role' => 'required',
-            'password' => 'required'
+            'password' => 'required|password'
           ]);
           // store in database
           $user = new User;
           $user -> name = $request -> input('name');
           $user -> email = $request -> input('email');
           $user -> username = $request -> input('username');
-          // $user -> role = $request -> input ('role');
           $user->fill(['password' => Hash::make($request->password)]);
           $user->save();
 

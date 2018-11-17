@@ -13,9 +13,9 @@ class DropRoleColumnFromUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-          $table->dropColumn('role');
-        });
+      Schema::table('users', function (Blueprint $table) {
+        $table->string('role');;
+      });
     }
 
     /**
@@ -25,8 +25,8 @@ class DropRoleColumnFromUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-          $table->string('role');;
-        });
+      Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('role');
+      });
     }
 }

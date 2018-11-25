@@ -21,6 +21,7 @@
 
 <body style="background-color: silver; postion:fixed; z-index: -1;">
 <div id="app" class="container m-0 pl-0 pt-3 pb-3">
+  @include('alert')
   @yield('content')
 </div>
   @include('inc._footer')

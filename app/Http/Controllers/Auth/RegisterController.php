@@ -83,7 +83,7 @@ class RegisterController extends Controller
           $user->fill(['password' => Hash::make($request->password)]);
           $user->save();
 
-          $request->session()->flash('success', 'You are now registered with the username of '.$user -> username.' and have permission to leave blog comments! Please login to continue.');
+          Session::flash('success', 'You are now registered with the username of '.$user -> username.' and have permission to leave blog comments! Please login to continue.');
 
           return redirect()->route('login');
 

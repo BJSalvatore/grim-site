@@ -2,11 +2,15 @@
 @section('title' | 'Registration')
 @section('content')
 <div class="container">
+    {{-- <div class="message">
+        @if (Session::has('success'))
+            {{!!Session::get('success')!!}}
+        @endif
+    </div> --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form data-parsley-validate method="POST" action="{{ route('register.store', 'RegisterController@store') }}">
                         @csrf

@@ -2,13 +2,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Validator;
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Session;
 
@@ -74,13 +75,6 @@ class RegisterController extends Controller
 
       public function store(Request $request)
       {
-          // validate the data
-        $validatedData = $request ->validate([
-            'name' => 'required||max:255',
-            'email' => 'required|unique:users',
-            'username' => 'required|unique:users|max:25',
-            'password' => 'required|password'
-          ]);
           // store in database
           $user = new User;
           $user -> name = $request -> input('name');

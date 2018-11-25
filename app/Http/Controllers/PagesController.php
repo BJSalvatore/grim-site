@@ -55,7 +55,11 @@ class PagesController extends Controller
         public function edit(){
           return view('posts/edit');
     }
-        public function register(){
+
+      public function register(){
+        return view('auth/register');
+  }
+        public function getRegister(){
           return view('auth/register');
     }
         public function getSingle(){
@@ -63,10 +67,6 @@ class PagesController extends Controller
     }
         public function getLogout(){
           return view('pages/home');
-        }
-
-        public function getRegister(){
-          return view('auth/register');
         }
 
         public function getAdmin(){

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form data-parsley-validate method="POST" action="{{ action('RegisterController@store') }}">
+                    <form data-parsley-validate method="POST" action="{{ route('register.store', 'RegisterController@store') }}">
                         @csrf
 
                         <div class="form-group row">

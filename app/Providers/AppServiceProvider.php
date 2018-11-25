@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
       // eliminates mixed content error
 
-          if(env('APP_ENV') !== 'local') {
+          if(env('APP_ENV') == 'production') {
             \URL::forceScheme('https');
           }
 

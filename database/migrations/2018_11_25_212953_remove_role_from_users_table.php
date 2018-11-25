@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermissionsTable extends Migration
+class RemoveRoleFromUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('slug'); // edit posts
-            $table->string('name'); // edit posts
-            $table->timestamps();
-        });
+      Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('role');
+      });
     }
 
     /**
@@ -28,6 +25,8 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        Schema::table('users', function (Blueprint $table) {
+          $table->string('role')->after('username');
+        });
     }
 }

@@ -11,8 +11,6 @@
 */
 
 // Authentication Routes
-
-// Auth::routes();
 Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('successful.login');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -21,6 +19,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');
 Route::post('store', 'Auth\RegisterController@store')->name('register.store');
 
+//Routes for pages
 Route::get('/', 'PagesController@getHome');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
@@ -29,12 +28,13 @@ Route::get('/photos', 'PagesController@getPhotos');
 Route::get('/press', 'PagesController@getPress');
 Route::get('/blog', 'PagesController@getBlog');
 
-
+//Routes for posts
 Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store')->name('posts.store');
 Route::post('/posts/create', 'PostController@create');
 Route::get('posts/{id}/show', 'PostController@show');
 Route::get('posts/{id}/edit', 'PostController@edit');
+Route::get('posts/{id}', 'PostController@destroy');
 Route::put('posts/{id}', 'PostController@update');
 
 Route::get('blog', function(){
@@ -49,3 +49,19 @@ Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingl
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Routes for $messages
+Route::resource('/messages', 'MessageController');
+Route::post('/messages/store', 'MessageController@store')->name('messages.store');
+Route::post('/messages/create', 'MessageController@create');
+Route::get('messages/{id}/show', 'MessageController@show');
+Route::get('messages/{id}', 'MessageController@destroy');
+
+
+Route::get('message', function(){
+  $messages = DB::table('messages')
+        ->orderBy('created_at', 'desc')
+        ->limit(4)
+        ->get();
+  return view('pages.contact', ['messages'=>$posts]);
+});

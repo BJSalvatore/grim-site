@@ -20,6 +20,8 @@
     <hr>
     <form>
       <div class="form-group">
+        <form data-parsley-validate method="POST" action="{{ action('MessageController@store') }}">
+           @csrf
         <label name="email">Email:</label>
         <input id="email" name="email" class="form-control" placeholder="Email address">
       </div>
@@ -31,7 +33,8 @@
         <label name="message">Message:</label>
         <textarea id="message" name="message" class="form-control"placeholder="Type your message here."></textarea>
       </div>
-      <input class ="btn btn-dark" type="submit" value="Send Message">
+      {{-- <input class ="btn btn-dark" type="submit" value="Send Message"> --}}
+      <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
     </form>
     </div>
   </div>

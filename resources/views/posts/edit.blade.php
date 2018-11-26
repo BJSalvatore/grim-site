@@ -11,7 +11,7 @@
     @include('inc._sidebar')</div>
     <div class="col-lg-8">
       <div class="form-group">
-        <form id="editForm" role="form" method="PUT" action="{{ route('posts.update', $post -> id) }}">
+        <form id="editForm" role="form" method="PUT" action="{{ route('posts.update', 'PostController@update', $post -> id) }}">
             @csrf
             <label class="mt-1" for="title">Title</label>
             <input class="form-control form-control-lg" id="title" name='title' value="{{ $post -> title}}" type="text"></input>

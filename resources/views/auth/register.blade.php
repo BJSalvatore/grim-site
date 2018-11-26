@@ -2,11 +2,6 @@
 @section('title' | 'Registration')
 @section('content')
 <div class="container">
-    {{-- <div class="message">
-        @if (Session::has('success'))
-            {{!!Session::get('success')!!}}
-        @endif
-    </div> --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -48,6 +43,7 @@
 
                             <div class="col-md-6">
                                 <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required unique maxlength="25">
+                                <font color='red'><strong>Username is only used for display purposes when commenting on blog posts.</strong></font>
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">

@@ -23,54 +23,68 @@ class PagesController extends Controller
             'bandcountry'=> 'USA'
           ];
         return view('pages/contact')->with("header_title", $header_title)->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
-    }
-        public function getMerch() {
-          $header_title = "Buy Our Stuff!";
-        return view('pages/merch')->with('header_title', $header_title);
-    }
-        public function getPhotos() {
-          $header_title = "Check Us Out!";
-        return view('pages/photos')->with('header_title', $header_title);
-    }
-        public function getPress() {
-          $header_title = "The Press Loves Us!";
-        return view('pages/press')->with('header_title', $header_title);
-    }
-        public function getBlog() {
-          $header_title = "Blog Posts";
-        return view('pages/blog')->with('header_title', $header_title)-with('posts', $posts);
-    }
-        public function store() {
-          return view('posts/store');
-    }
-        public function create() {
-          return view('posts/create');
-    }
-        public function show(){
-          return view('posts/show');
-    }
-        public function update(){
-          return view('posts/update');
-    }
-        public function edit(){
-          return view('posts/edit');
-    }
+      }
+          public function getMerch() {
+            $header_title = "Buy Our Stuff!";
+          return view('pages/merch')->with('header_title', $header_title);
+      }
+          public function getPhotos() {
+            $header_title = "Check Us Out!";
+          return view('pages/photos')->with('header_title', $header_title);
+      }
+          public function getPress() {
+            $header_title = "The Press Loves Us!";
+          return view('pages/press')->with('header_title', $header_title);
+      }
+          public function getBlog() {
+            $header_title = "Blog Posts";
+          return view('pages/blog')->with('header_title', $header_title)-with('posts', $posts);
+      }
+          public function store() {
+            return view('posts/store');
+      }
+          public function create() {
+            return view('posts/create');
+      }
+          public function show(){
+            return view('posts/show');
+      }
+          public function update(){
+            return view('posts/update');
+      }
+          public function edit(){
+            return view('posts/edit');
+      }
 
-      public function register(){
-        return view('auth/register');
-  }
-        public function getRegister(){
+        public function register(){
           return view('auth/register');
-    }
-        public function getSingle(){
-          return view('single');
-    }
-        public function getLogout(){
-          return view('pages/home');
-        }
+      }
+          public function getRegister(){
+            return view('auth/register');
+      }
+          public function getSingle(){
+            return view('single');
+      }
+          public function getLogout(){
+            return view('pages/home');
+          }
 
-        public function getAdmin(){
-          return view('auth/admin');
-    }
+          public function getAdmin(){
+            return view('auth/admin');
+      }
+
+      public function getMessages() {
+        $header_title = "Messages";
+      return view('pages/messages')->with('header_title', $header_title)-with('messages', $messages);
+  }
+      public function storeMessages() {
+        return view('messages/store');
+  }
+      public function createMessages() {
+        return view('messages/create');
+  }
+      public function showMessages(){
+        return view('messages/show');
+  }
 
 }

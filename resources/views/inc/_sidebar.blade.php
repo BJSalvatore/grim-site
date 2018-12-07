@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-center text-light bg-dark" style="height: 100%;">
     <div class="container justify-content-center" >
         <h3>New Release!</h3>
-        <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"style="max-width: 280px; height: auto;"></img>
+        <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}" style="max-width: 280px; height: auto;"></img>
       <hr>
       <h3>Cop Killer</h3>
       <audio controls>

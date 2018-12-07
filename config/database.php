@@ -7,6 +7,9 @@
   // $password = $url['pass'];
   // $database = substr($url["path"], 1);
 
+
+
+
   $host = 'us-cdbr-iron-east-01.cleardb.net';
   $username = 'b82409b1d1c87f';
   $password = '82ae92e1';

@@ -50,10 +50,6 @@ h5{
     overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-// .sidenav li {
-//   font-size: 18px;
-// }
-
 /* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
@@ -78,6 +74,12 @@ h5{
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+merch.img{
+  width: px;
+  padding: 5px;
+  border: 1px solid #000;
 }
 
 

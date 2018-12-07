@@ -65,3 +65,10 @@ Route::get('message', function(){
         ->get();
   return view('pages.contact', ['messages'=>$posts]);
 });
+
+// Routes for files
+Route::get('/files/{type}/{id?}', 'FileController@index');
+
+Route::post('files/add', 'FileController@store');
+Route::post('files/edit/{id}', 'FileController@edit');
+Route::post('files/delete/{id}', 'FileController@destroy');

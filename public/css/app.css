@@ -10564,7 +10564,9 @@ h5 {
   }
 }
 
-div.merch {
-  heigh: 33%;
+merch.img {
+  width: px;
+  padding: 5px;
+  border: 1px solid #000;
 }
 

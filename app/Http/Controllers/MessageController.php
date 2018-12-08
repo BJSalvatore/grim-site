@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+    public function index(){
     // create a variable and store all of the messages in it
     $message = Message::orderBy('timestamps', 'asc')->paginate(5);
     // return a view and pass in the variable
     return view('messages.index')->with('messages', $messages);
+    }
+
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
 
     public function create()
     {
@@ -35,4 +42,6 @@ class MessageController extends Controller
         return redirect()->route('/home', $message ->created_at);
         // return view('index', compact('post'));
     }
+
+
 }

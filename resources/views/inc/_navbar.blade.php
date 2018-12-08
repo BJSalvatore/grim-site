@@ -22,9 +22,12 @@
         <li class="nav-item active">
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
-          <li class="nav-item active">
-            <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
-          </li>
+        <!-- <li class="nav-item active">
+          <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
+        </li> -->
+        <li class="nav-item active">
+          <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Files</a></li>
+        </li>
         {{-- @else --}}
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>

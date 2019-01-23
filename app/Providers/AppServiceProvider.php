@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
       // eliminates mixed content error
 
           if(env('APP_ENV') == 'production') {
-            \URL::forceScheme('https');
+            URL::forceScheme('https');
           }
 
           Schema::defaultStringLength(191);

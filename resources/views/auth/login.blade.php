@@ -56,6 +56,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+                                <a href="{{ url('/')}}" class="btn btn-secondary">Back</a>
 
                                 {{-- <a class="btn btn-link" href="{{ route('password.request') }}"> --}}
                                 <a class="btn btn-link" href="#">

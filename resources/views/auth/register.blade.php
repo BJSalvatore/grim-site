@@ -80,6 +80,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="{{ url('/')}}" class="btn btn-secondary">Back</a>
                             </div>
                         </div>
                     </form>

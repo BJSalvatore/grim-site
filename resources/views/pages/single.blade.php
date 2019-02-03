@@ -15,6 +15,19 @@
           <p>{{ $post -> post}}</p>
       </div>
       <hr>
+      <div class="row">
+          <div class="col-lg-8">
+            <h3>Comments will be listed here once the bug is fixed.</h3>
+            @foreach($post -> comments as $comment)
+              <!-- <div class="comment"> -->
+                <h3>Name: {{$comment->name}}</h3>
+                <h3>UserName: {{$comment->username}}</h3>
+                <p>Comment:<br/>{{ $comment->comment}}</p>
+            <!-- </div> -->
+            @endforeach
+          </div>
+        </div>
+      <hr>
     <div id="comment-form">
       <form data-parsley-validate method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">

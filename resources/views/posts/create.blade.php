@@ -20,7 +20,7 @@
             <input class="form-control" id="slug" name="slug" type="text" required minlength='5' maxlength="255"></input>
           <div class="form-group">
             <label class="mt-1" for="post">Blog Post</label>
-            <textarea class="form-control" id="post" name='post' required></textarea>
+            <textarea rows="10" cols="col-lg-12" class="form-control" id="post" name='post' required></textarea>
           </div>
             <button type="submit" class="btn btn-secondary btn-md m-1">Publish New Post</button>
         </form>

@@ -11443,12 +11443,12 @@ a.text-dark:focus {
   margin: 0px;
 }
 
-body {
+body, p {
   font-family: 'Open Sans', sans-serif;
   padding: 1px;
 }
 
-h1 {
+h1, h3 {
   font-family: 'Freckle Face', cursive;
 }
 
@@ -11493,6 +11493,7 @@ h5 {
   position: fixed;
   /* Fixed Sidebar (stay in place on scroll) */
   margin-top: 200px;
+  margin-left: 0px;
   z-index: 1;
   /* Stay on top */
   background-color: #000;
@@ -11542,4 +11543,3 @@ merch.img {
   padding: 5px;
   border: 1px solid #000;
 }
-

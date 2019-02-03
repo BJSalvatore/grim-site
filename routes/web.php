@@ -36,6 +36,9 @@ Route::get('posts/{id}/show', 'PostController@show');
 Route::get('posts/{id}/edit', 'PostController@edit');
 Route::get('posts/{id}', 'PostController@destroy');
 Route::put('posts/{id}', 'PostController@update');
+//Routes for comments associated to $posts
+Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
+
 
 Route::get('blog', function(){
   $posts = DB::table('posts')

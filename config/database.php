@@ -1,20 +1,17 @@
 <?php
-// $DATABASE_URL = parse_url(getenv("DATABASE_URL"));
-  // $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
-  // $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
+  $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
+  // $url='postgres://uypffdrfkfdnsl:2c1dd49d2dc287f817244bc773ebe6f50ad7728c2b65c81592816a2132155453@ec2-54-235-67-106.compute-1.amazonaws.com:5432/dev8pffq9pkh6j';
+  // $url = parse_url(getenv("DATABASE_URL"));
   // $host = $url['host'];
   // $username = $url['user'];
   // $password = $url['pass'];
   // $database = substr($url["path"], 1);
 
-
-
-
   $host = 'us-cdbr-iron-east-01.cleardb.net';
   $username = 'b82409b1d1c87f';
   $password = '82ae92e1';
   $database = 'heroku_37ef2959c0795ff';
-
 
 
 return [
@@ -72,19 +69,19 @@ return [
             'engine' => null,
         ],
 
-          // 'pgsql' => [
-          //     'driver' => 'pgsql',
-          //     'host' => env('DB_HOST', '127.0.0.1'),
-          //     'port' => env('DB_PORT', '5432'),
-          //     'database' => env('DB_DATABASE', 'forge'),
-          //     'username' => env('DB_USERNAME', 'forge'),
-          //     'password' => env('DB_PASSWORD', ''),
-          //     'charset' => 'utf8',
-          //     'prefix' => '',
-          //     'schema' => 'public',
-          //     'sslmode' => 'prefer',
-          // ],
-
+        //   'pgsql' => [
+        //       'driver' => 'pgsql',
+        //       'host' => env('DB_HOST', '127.0.0.1'),
+        //       'port' => env('DB_PORT', '5432'),
+        //       'database' => env('DB_DATABASE', 'forge'),
+        //       'username' => env('DB_USERNAME', 'forge'),
+        //       'password' => env('DB_PASSWORD', ''),
+        //       'charset' => 'utf8',
+        //       'prefix' => '',
+        //       'schema' => 'public',
+        //       'sslmode' => 'prefer',
+        //   ],
+        //
         // 'pgsql' => [
         //     'driver' => 'pgsql',
         //     'host' => $DATABASE_URL['host'],

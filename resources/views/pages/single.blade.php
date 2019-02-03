@@ -21,15 +21,19 @@
           @csrf
             <div class="col-lg-8">
              <label class="mt-1" for="name">Name</label>
-             <h3> <input class="form-control" id="name" name='name' type="textarea"></input></h3>
+             <h3> <input class="form-control" id="name" name="name" type="textarea" required maxlength="255"></input></h3>
+           </div>
+            <div class="col-lg-8">
+             <label class="mt-1" for="username">UserName</label>
+             <h3> <input class="form-control" id="username" name="username" type="textarea" required maxlength="255"></input></h3>
            </div>
               <div class="col-lg-8">
            <label class="mt-1" for="email">Email</label>
-           <h1> <input class="form-control" id="email" name='email' type="textarea"></input></h1>
+           <h3><input class="form-control" id="email" name="email" type="textarea" required maxlength="255"></input></h3>
          </div>
                <div class="col-lg-12">
              <label class="mt-1" for="comment">Comment</label>
-             <textarea rows="10" class="form-control" id="comment" name='comment' type="textarea"></textarea>
+             <textarea rows="10" class="form-control" id="comment" name="comment" type="textarea"required minlength="5" maxlength="2000"></textarea>
           </div>
         <div class="col-lg-8">
           <div class="button" style="margin-top: 10px;">

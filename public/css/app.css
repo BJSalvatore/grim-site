@@ -11443,12 +11443,12 @@ a.text-dark:focus {
   margin: 0px;
 }
 
-body, p {
+body {
   font-family: 'Open Sans', sans-serif;
   padding: 1px;
 }
 
-h1, h3 {
+h1 {
   font-family: 'Freckle Face', cursive;
 }
 
@@ -11543,3 +11543,4 @@ merch.img {
   padding: 5px;
   border: 1px solid #000;
 }
+

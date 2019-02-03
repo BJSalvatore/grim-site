@@ -28,8 +28,14 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+
     public function getRegister(){
       return view ('auth/register');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 
     /**
@@ -87,5 +93,11 @@ class RegisterController extends Controller
 
           return redirect()->route('login');
 
+      }
+
+      public function show($id)
+      {
+        $user = User::find($id);
+        return view ('user.show')->with('user', $user);
       }
 }

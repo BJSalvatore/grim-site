@@ -24,14 +24,14 @@ class LoginController extends Controller
       return view('auth/login');
     }
 
-    protected function authenticated($request, $user)
-    {
-      if($user-> role =='admin'){
-          return redirect('add_blogpost');
-      }else{
-          return redirect('/');
-      }
-    }
+    // protected function authenticated($request, $user)
+    // {
+    //   if($user-> role =='manager'){
+    //       return redirect('add_blogpost');
+    //   }else{
+    //       return redirect('/');
+    //   }
+    // }
 
     protected $redirectTo = '/home';
 

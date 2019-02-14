@@ -18,7 +18,7 @@ class FixCommentsTable extends Migration
             $table->string('name');
             $table->string('username');
             $table->string('email');
-            $table->text('coment');
+            $table->text('comment');
             $table->boolean('approved');
             $table->integer('post_id')->unsigned()->nullable(false);
             $table->timestamps();
@@ -36,8 +36,11 @@ class FixCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['post_id']);
         Schema::dropIfExists('comments');
+
+        Schema::table('comments', function (Blueprint $table) {
+        $table->dropForeign(['post_id']);
+      });
 
     }
 }

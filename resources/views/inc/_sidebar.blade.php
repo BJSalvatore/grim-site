@@ -18,5 +18,8 @@
           <li><h5><a href="#">10/22/2018 @ That Place</a><h5></li>
           <li><h5><a href="#">11/02/2018 @ The Other Place</a><h5></li>
         </ul>
+        <div class="d-inline-flex col-sm-3">
+          <img id="logo" class="d-flex img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="width: auto; height: 150px;"></img>
+        </div>
     </div>
 </div>

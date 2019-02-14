@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
+use Session;
 use Validator;
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
@@ -9,9 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Session;
 
 class RegisterController extends Controller
 {
@@ -93,6 +93,21 @@ class RegisterController extends Controller
 
           return redirect()->route('login');
 
+      }
+
+      protected function create(array $data){
+        $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'username' => $data['username'],
+          'password' => bcrypt['email'],
+          'password' => bycrypt($data['password']),
+        ]);
+        $user
+          -> roles()
+          ->attach(Role::where('name', 'member')->first());
+
+          return $user;
       }
 
       public function show($id)

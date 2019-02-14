@@ -1,21 +1,27 @@
 <?php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class AddRoleToUsersTable extends Migration
+
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+     //pivot table
     public function up()
     {
-      Schema::table('users', function (Blueprint $table) {
-        $table->string('role')->after('username');
-      });
-      
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -23,8 +29,6 @@ class AddRoleToUsersTable extends Migration
      */
     public function down()
     {
-      Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('role');
-      });
+        Schema::dropIfExists('roles');
     }
 }

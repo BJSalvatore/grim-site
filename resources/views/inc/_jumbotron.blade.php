@@ -9,8 +9,5 @@
       <div id="band-image" class="container d-flex img-responsive mr-0" style="background-image: url('assets/images/MainPic.png'); background-repeat: no-repeat; height: 440px; margin-top: 0px;">
       </div>
     </div>
-    <div class="d-inline-flex col-sm-3">
-      <img id="logo" class="d-flex img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}" style="width: auto; height: 150px;"></img>
-    </div>
   </div>
 </div>

@@ -32,7 +32,7 @@ Route::get('/blog', 'PagesController@getBlog');
 Route::resource('/posts', 'PostController');
 Route::post('/posts/store', 'PostController@store')->name('posts.store');
 Route::post('/posts/create', 'PostController@create');
-Route::get('posts/{id}/show', 'PostController@show');
+Route::get('posts/{id}/show', 'PostController@show')->name('posts.show');
 Route::get('posts/{id}/edit', 'PostController@edit');
 Route::get('posts/{id}', 'PostController@destroy');
 Route::put('posts/{id}', 'PostController@update');

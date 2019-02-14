@@ -16,6 +16,13 @@ class Kernel extends ConsoleKernel
         //
     ];
 
+    protected $middlewareGroups = [
+    'CheckRole' => [
+      \App\Http\Middleware\CheckRole::class,
+      \Illuminate\Auth\Middleware\Authenticate::class,
+    ]
+  ],
+
     /**
      * Define the application's command schedule.
      *

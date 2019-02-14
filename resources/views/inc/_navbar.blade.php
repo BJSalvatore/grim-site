@@ -37,7 +37,7 @@
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
         </li>
 
-        @if(Auth::user()->role_id==2)
+        @if(Auth::check() && Auth::user()->role_id==2)
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>

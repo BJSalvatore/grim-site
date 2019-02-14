@@ -37,14 +37,15 @@
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
         </li>
 
-        <!-- @if((Auth::user())->hasRole('manager')) -->
+        @if(Auth::user()->role_id==2)
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
-        <!-- @endif -->
+        @endif
+
         <!-- <li class="nav-item active">
           <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
         </li> -->

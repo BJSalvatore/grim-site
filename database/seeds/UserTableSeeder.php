@@ -34,7 +34,7 @@ class UserTableSeeder extends Seeder
           'email' => 'ellie@example.com',
           'username' => 'Ellie Mae',
           'password' => bcrypt('secret'),
-          'type' => 'default',
+          'type' => 'guest',
           ]);
     }
 }

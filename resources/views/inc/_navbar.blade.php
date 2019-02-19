@@ -43,7 +43,8 @@
         </li>
         @endguest
 
-        @Auth
+        @if (auth()->check())
+        @if(auth()->user()->isAdmin())
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
@@ -51,8 +52,16 @@
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
         <li class="nav-item active">
-          <a href="{{ url('/logout') }}"> Logout </a></li>
-        @endAuth
+          <a href="{{ url('/logout') }}"> Logout </a>
+        </li>
+        @endif
+        @endif
+
+        @Auth
+        <li class="nav-item active">
+          <a href="{{ url('/logout') }}"> Logout </a>
+        </li>
+        @endauth
 
         <!-- <li class="nav-item active">
           <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>

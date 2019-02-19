@@ -18,7 +18,10 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+      // create a variable and store all of our blog posts in it
+      // $comments = Comment::orderBy('id', 'create_at')->paginate(5);
+      // // return a view and pass in the variable
+      // return view('comments.index')->with('comments', $comments);
     }
 
     /**
@@ -73,7 +76,9 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        //
+      // call function in Post model
+      // $comments = Comment::find($id);
+      // return view('comments.show')->with(['comment'], $comment)->with(['username', 'comment', 'created_at'], $comment);
     }
 
     /**

@@ -37,8 +37,10 @@ Route::get('posts/{id}/show', 'PostController@show')->name('posts.show');
 Route::get('posts/{id}/edit', 'PostController@edit');
 Route::get('posts/{id}', 'PostController@destroy');
 Route::put('posts/{id}', 'PostController@update');
+
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
+// Route::get('comments/{post_id}/show', 'CommentsController@show')->name('comments.show');
 Route::get('users/{id}/show', 'Auth\RegisterController@show')->name('user.show');
 
 

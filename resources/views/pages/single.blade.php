@@ -17,14 +17,13 @@
       <hr>
       <div class="row">
           <div class="col-lg-8">
-            <h3>Comments will be listed here once the bug is fixed.</h3>
-            <!-- @foreach($post -> comments as $comment) -->
-              <!-- <div class="comment"> -->
-                <h3>Name: {{$comment->name}}</h3>
-                <h3>UserName: {{$comment->username}}</h3>
-                <p>Comment:<br/>{{ $comment->comment}}</p>
-            <!-- </div> -->
-            <!-- @endforeach -->
+            <div id="comment">
+            @foreach($post-> comments as $comment)
+                <p><strong>Name: </strong>{{$comment->name}}</p>
+                <p><strong>UserName: </strong>{{$comment->username}}</p>
+                <p><strong>Comment:</strong><br/>{{ $comment->comment}}</p>
+            @endforeach
+            </div>
           </div>
         </div>
       <hr>

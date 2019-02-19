@@ -14,7 +14,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav w-100 nav-justified">
-        @guest
+
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
         </li>
@@ -36,23 +36,14 @@
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
         </li>
-        <li class="nav-item active">
-          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
-        <li class="nav-item active">
-          <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
-        </li>
-        @endguest
 
-        @Auth
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
-        <li class="nav-item active">
-          <a href="{{ url('/logout') }}"> Logout </a></li>
-        @endAuth
+
 
         <!-- <li class="nav-item active">
           <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
@@ -61,6 +52,20 @@
           <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Files</a></li>
         </li> -->
 
+
+        @guest
+        <li class="nav-item active">
+          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
+        <li class="nav-item active">
+          <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
+        @endguest
+
+        @auth
+          <li class="nav-item active">
+            <a href="{{ url('/logout') }}"> Logout </a></li>
+        @endauth
+
+      </li>
       </ul>
     </div>
   </nav>

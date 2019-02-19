@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropCommentsTable extends Migration
+class AddUserTypeToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class DropCommentsTable extends Migration
      */
     public function up()
     {
-      Schema::dropIfExists('comments');
+        Schema::table('users', function (Blueprint $table) {
+          $table->string('type')->default('default');
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class DropCommentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

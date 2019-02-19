@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,18 +11,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function roles()
-    {
-        return $this->belongsToMany(User::class);
-    }
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'password'
+        'name', 'email', 'username', 'type', 'password'
     ];
 
     /**
@@ -33,61 +29,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-    * @param string|array $roles
-    */
-    // public function authorizeRoles($roles)
-    // {
-    //   if (is_array($roles)) {
-    //       return $this->hasAnyRole($roles) ||
-    //              abort(401, 'This action is unauthorized.');
-    //   }
-    //   return $this->hasRole($roles) ||
-    //          abort(401, 'This action is unauthorized.');
-    // }
-    /**
-    * Check multiple roles
-    * @param array $roles
-    */
-    /**
-    * Check multiple roles
-    * @param array $roles
-    */
-    public function hasAnyRole($roles)
-    {
-      return null !== $this->roles()->whereIn(‘name’, $roles)->first();
-}
-    /**
-    * Check one role
-    * @param string $role
-    */
-    public function hasRole($role)
-    {
-      return null !== $this->roles()->where('name', $role)->first();
+    const ADMIN = 'admin';
+    const SUPER_ADMIN = 'super_admin';
+    const DEFAULT = 'guest';
+
+    public function isAdmin()    {
+    return $this->type === self::ADMIN;
     }
 
-    //  public function show(Request $request, $id)
-    // {
-    //     $value = $request->session()->get('key');
-    //
-    //     //
-    // }
 
-
-    //     public function roles()
-    // {
-    //     return $this->belongsToMany('App\Role');
-    // }
-    //
-    //     public function isAdmin()
-    // {
-    //     foreach ($this->roles()->get() as $role)
-    //     {
-    //         if ($role->name == 'Admin')
-    //         {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
 }

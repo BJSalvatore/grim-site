@@ -4,7 +4,6 @@
 @section('title', '| Home')
 
 @extends('layouts.app')
-
 @include('inc._jumbotron')
 @include('inc._navbar')
 

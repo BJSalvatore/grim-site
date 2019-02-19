@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use APP\Role;
 
 class HomeController extends Controller
 {
@@ -21,17 +23,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        $request->user()->authorizeRoles(['member', 'manager']);
 
-        return view('/');
-    }
-
-     // public function adminViews(Request $request)
-     // {
-     //   $request->user()->authorizeRoles('manager');
-     //   return view(‘some.view’);
-     // }
-
+     public function index()
+   {
+       return view('/home');
+   }
 }

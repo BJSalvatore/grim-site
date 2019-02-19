@@ -4,7 +4,6 @@
 @section('title', '| Blog')
 
 @extends('layouts.app')
-@include('inc._navbar')
 
 @section('content')
 <div class="col-lg-12">

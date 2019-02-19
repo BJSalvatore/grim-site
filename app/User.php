@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     const ADMIN = 'admin';
     const SUPER_ADMIN = 'super_admin';
-    const DEFAULT = 'guest';
+    const GUEST = 'guest';
 
     public function isAdmin()    {
     return $this->type === self::ADMIN;

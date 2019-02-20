@@ -5,7 +5,7 @@
         <h3>New Release!</h3>
         <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}" style="width: 280px; height: auto;"></img>
       <hr>
-      <h3>Cop Killer</h3>
+      <h3>Featured Song</h3>
       <div class="d-inline-flex" style="width: 280px;">
         <audio controls>
           {{-- <source src="{{ asset('assets/audio/the-grim_the-grim-cop-killer-7-inch.mp3') }}" type="audio/mpeg"> --}}

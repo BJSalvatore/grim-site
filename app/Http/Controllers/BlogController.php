@@ -14,4 +14,5 @@ class BlogController extends Controller
       // return the view and pass in the post object
       return view('pages.single')->with('post', $post);
     }
+
 }

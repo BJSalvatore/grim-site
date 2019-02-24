@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Collective\Html\Eloquent;
 use App\Http\Controllers\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use App\Comment;
 use App\Post;
 use App\User;
@@ -18,8 +21,9 @@ class CommentsController extends Controller
      */
     public function index()
     {
-      // create a variable and store all of our blog posts in it
-      // $comments = Comment::orderBy('id', 'create_at')->paginate(5);
+
+      // create a variable and store all of our blog comments in it
+      // $comments = Comment::orderBy('id', 'created_at')->paginate(5);
       // // return a view and pass in the variable
       // return view('comments.index')->with('comments', $comments);
     }
@@ -42,15 +46,16 @@ class CommentsController extends Controller
      */
     public function store(Request $request, $post_id)
     {
-        $this->validate($request, array(
+        $request->validate([
           'name' => 'required|max:255',
           'username' => 'required|max:255',
           'email' => 'required|max:255',
           'comment' => 'required|min:5\max:2000'
-        ));
+        ]);
 
         $post = Post::find('$post_id');
         // $user = User::find('$id');
+
 
         $comment = new Comment();
         $comment -> name = $request-> name;
@@ -59,13 +64,19 @@ class CommentsController extends Controller
         $comment-> comment = $request-> comment;
         $comment-> approved = true;
         $comment->post()->associate($post);
+        $comment-> post_id = $request -> post_id;
         // $comment->user()->associate($user);
-
         $comment->save();
+
+        // dd($request->all());
+        // dd($post_id);
+        // dd($comment);
+
+
 
         Session::flash('success', 'Comment was added!');
 
-        return redirect()->route('blog.single', [$post->slug]);
+        return redirect()->route('blog.single', [$post-> slug]);
     }
 
     /**
@@ -76,9 +87,12 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-      // call function in Post model
-      // $comments = Comment::find($id);
-      // return view('comments.show')->with(['comment'], $comment)->with(['username', 'comment', 'created_at'], $comment);
+      // $comments = DB::table('comments')
+      //       ->orderBy('created_at', 'desc')
+      //       ->limit(10)
+      //       ->get();
+      //
+      //       return $comments;
     }
 
     /**

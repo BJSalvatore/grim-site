@@ -22,6 +22,7 @@
                 <p><strong>Name: </strong>{{$comment->name}}</p>
                 <p><strong>UserName: </strong>{{$comment->username}}</p>
                 <p><strong>Comment:</strong><br/>{{ $comment->comment}}</p>
+                 <p>{{ date("D, d M y H:i:s", strtotime($comment -> created_at)) }}</p>
             @endforeach
             </div>
           </div>

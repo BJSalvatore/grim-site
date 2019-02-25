@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use App\Post;
+
 class PagesController extends Controller
 {
         public function getHome() {
@@ -38,7 +41,7 @@ class PagesController extends Controller
       }
           public function getBlog() {
             $header_title = "Blog Posts";
-          return view('pages/blog')->with('header_title', $header_title)-with('posts', $posts);
+          return view('pages/blog')->with('header_title', $header_title)->with('posts', $posts);
       }
           public function store() {
             return view('posts/store');

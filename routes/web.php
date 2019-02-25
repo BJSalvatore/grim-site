@@ -43,11 +43,10 @@ Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.st
 // Route::get('comments/{post_id}/show', 'CommentsController@show')->name('comments.show');
 Route::get('users/{id}/show', 'Auth\RegisterController@show')->name('user.show');
 
-
 Route::get('blog', function(){
   $posts = DB::table('posts')
-        ->orderBy('created_at', 'desc')
-        ->limit(4)
+        ->orderBy('created_at', 'asc')
+        // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);
 });

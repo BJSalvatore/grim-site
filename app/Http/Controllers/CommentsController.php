@@ -40,34 +40,33 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $post_id)
-    {
-        $this->validate($request, array(
-          'name' => 'required|max:255',
-          'username' => 'required|max:255',
-          'email' => 'required|max:255',
-          'comment' => 'required|min:5\max:2000'
-        ));
+     public function store(Request $request, $post_id)
+   {
+       $request->validate([
+         'name' => 'required|max:255',
+         'username' => 'required|max:255',
+         'email' => 'required|max:255',
+         'comment' => 'required|min:5\max:2000'
+       ]);
+       $post = Post::find('$post_id');
+       // $user = User::find('$id');
+       $comment = new Comment();
+       $comment -> name = $request-> name;
+       $comment-> username = $request-> username;
+       $comment-> email = $request-> email;
+       $comment-> comment = $request-> comment;
+       $comment-> approved = true;
+       $comment->post()->associate($post);
+       $comment-> post_id = $request -> post_id;
+       // $comment->user()->associate($user);
+       $comment->save();
+       // dd($request->all());
+       // dd($post_id);
+       // dd($comment);
 
-        $post = Post::find('$post_id');
-        // $user = User::find('$id');
-
-        $comment = new Comment();
-        $comment -> name = $request-> name;
-        $comment-> username = $request-> username;
-        $comment-> email = $request-> email;
-        $comment-> comment = $request-> comment;
-        $comment-> approved = true;
-        $comment->post()->associate($post);
-        // $comment->user()->associate($user);
-
-        $comment->save();
-
-        Session::flash('success', 'Comment was added!');
-
-        return redirect()->route('blog.single', [$post->slug]);
-    }
-
+       Session::flash('success', 'Comment was added!');
+     return redirect()->route('blog.single', [$post->slug]);
+   }
     /**
      * Display the specified resource.
      *

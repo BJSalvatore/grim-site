@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Post;
 use Session;
 
 class PostController extends Controller
@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('id', 'asc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'asc')->paginate(10);
         // return a view and pass in the variable
         return view('posts.index')->with('posts', $posts);
     }
@@ -74,7 +74,6 @@ class PostController extends Controller
         $post = Post::find($id);
         return view('posts.show')->with(['post'], $post)->with(['title'], $post);
 
-
     }
 
     /**
@@ -88,7 +87,7 @@ class PostController extends Controller
         // find post in database and save it as variable
         $post = Post::find($id);
         // return the view and pas in the var we previously created
-        return view('posts.edit')->with('post', $post);
+        return view('posts.edit')->withPost($post);
     }
     /**
      * Update the specified resource in storage.

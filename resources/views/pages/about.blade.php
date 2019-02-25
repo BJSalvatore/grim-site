@@ -20,10 +20,6 @@
       <div id="animatedShoes" class="container d-inline-flex" style="margin-top: -100px;">
       <div class="float-right">
           <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img>
-          <!-- <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img>
-          <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img>
-          <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img>
-          <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img> -->
       </div>
     </div>
   </div>

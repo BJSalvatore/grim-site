@@ -40,8 +40,7 @@ Route::put('posts/{id}', 'PostController@update');
 
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
-// Route::get('comments/{post_id}/show', 'CommentsController@show')->name('comments.show');
-Route::get('users/{id}/show', 'Auth\RegisterController@show')->name('user.show');
+// Route::get('comments/{post_id}', 'CommentsController@show');
 
 Route::get('blog', function(){
   $posts = DB::table('posts')

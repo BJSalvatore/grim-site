@@ -29,7 +29,7 @@
             <th>{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->post}}</td>
-            {{-- <td>{{ substr($post -> post,0, 50) }}{{ strlen($post->post > 50 ? "..." : "") }}</td> --}}
+            <td>{{ substr($post -> post, 0, 150) }}{{ strlen($post->post > 150 ? "..." : "") }}</td>
             <td>{{ $post->created_at }}</td>
             <td>
               <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>

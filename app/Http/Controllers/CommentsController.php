@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Collective\Html\Eloquent;
 use App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Comment;
@@ -63,13 +64,20 @@ class CommentsController extends Controller
        $comment->post()->associate($post);
        $comment-> post_id = $request -> post_id;
        // $comment->user()->associate($user);
-       $comment->save();
+
        // dd($request->all());
        // dd($post_id);
        // dd($comment);
 
-       Session::flash('success', 'Comment was added!');
-     return redirect()->route('blog.single', [$post->slug]);
+    if(!auth()->check()){
+    $comment->save();
+     Session::flash('success', 'Comment was added!');
+      }else{
+     Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
+      }
+        // return redirect()->route('blog.single', [$post->slug]);
+        return redirect()->route('blog.single', $post ->slug)->with('post', $post);
+        // return redirect()->route('blog.single', [$post->slug])->withPost('post', $post);
    }
     /**
      * Display the specified resource.

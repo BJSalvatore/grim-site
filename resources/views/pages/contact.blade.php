@@ -9,7 +9,7 @@
 @section('content')
   <div class = "d-flex flex-row">
     <div class="col-lg-4">@include('inc._sidebar')</div>
-    <div class = "col-lg-8">
+    <div class = "col-lg-8 p-4">
       <h5>Email:</h5> <p>{{ $bandemail }}</p>
       <h5>Phone:</h5> <p>{{ $bandphone }}</p>
       <h5>Mailing Address:</h5>

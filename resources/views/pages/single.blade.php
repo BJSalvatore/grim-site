@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @include('inc._navbar')
 
-@section('title', "| {{$post->title}}")
+<!-- @section('title', "| {{$post->title}}") -->
 
 @section('content')
 <div class="row">
   <div class="col-lg-4">
     @include('inc._sidebar')</div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 p-4">
       <div class="post mt-3">
           <h3>{{ $post -> title }}</h3>
           <p>{{ $post -> post}}</p>
@@ -31,6 +31,7 @@
         <div class="row">
           @csrf
             <div class="col-lg-8">
+             <h6><font color="red">You must be registered and logged in to leave a comment.</font></h6>
              <label class="mt-1" for="name">Name</label>
              <h3> <input class="form-control" id="name" name="name" type="textarea" required maxlength="255"></input></h3>
            </div>

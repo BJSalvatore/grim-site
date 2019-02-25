@@ -1,7 +1,7 @@
   <link href="{{ asset('../css/app.css') }}" rel="stylesheet" type="text/css">
 
-<div id="sidebar" class="d-flex text-light bg-dark align-content-center" style="height: 100%; margin-left: 0px; margin-bottom: 0px;">
-  <div class="container">
+<div id="sidebar" class="d-flex text-light bg-dark align-content-center">
+  <div class="container p-4">
         <h3>New Release!</h3>
         <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"></img>
       <hr>

@@ -10,7 +10,7 @@
 <div class="col-lg-12">
   <div class= "d-flex flex-row">
     <div class="col-lg-4">@include('inc._sidebar')</div>
-    <div class="col-lg-12">
+    <div class="col-lg-12 p-4">
       <div class="post mt-3">
       @foreach($posts as $post)
         <h3 style="font-family: Freckle Face;">{{ $post -> title}}</h3>

@@ -11445,7 +11445,7 @@ a.text-dark:focus {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  padding: 1px;
+  padding: 10px;
 }
 
 h1 {
@@ -11485,26 +11485,27 @@ h5 {
 
 /* The sidebar menu */
 
-.sidenav {
-  height: 100%;
+#sidebar {
+  height: auto;
   /* Full-height: remove this if you want "auto" height */
-  width: 160px;
+  width: 360px;
   /* Set the width of the sidebar */
-  position: fixed;
+  margin-bottom: 80px;
+  /* keeps sticky footer from covering content in sidebar */
+  margin-top: 5px;
+  position: absolute;
   /* Fixed Sidebar (stay in place on scroll) */
-  margin-top: 200px;
-  margin-left: 0px;
   z-index: 1;
   /* Stay on top */
   background-color: #000;
   /* Black */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
+  -webkit-box-shadow: 15px 12px 28px #FF8C00;
+          box-shadow: 15px 12px 28px #FF8C00;
 }
 
 /* The navigation menu links */
 
-.sidenav a {
+#sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
@@ -11514,7 +11515,7 @@ h5 {
 
 /* When you mouse over the navigation links, change their color */
 
-.sidenav a:hover {
+#sidebar a:hover {
   color: #f1f1f1;
 }
 
@@ -11533,7 +11534,7 @@ h5 {
 .main {
   margin-left: 160px;
   /* Same as the width of the sidebar */
-  padding: 0px 10px;
+  padding: 10px;
 }
 
 #comment p {

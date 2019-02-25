@@ -10,7 +10,7 @@
 @section('content')
 <div class = "d-flex flex-row">
   <div class="col-4">@include('inc._sidebar')</div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 p-4">
       <h1 style="font-family: Freckle Face;">Press Releases</h1>
     </div>
 </div>

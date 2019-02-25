@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-lg-4">
     @include('inc._sidebar')</div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 p-4">
       <div class="container" style="width: 800px;">
       <div class="row" style="height: 20px"></div>
       <div class="row" style="height: 320px">

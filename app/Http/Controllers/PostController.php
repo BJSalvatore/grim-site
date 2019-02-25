@@ -72,7 +72,7 @@ class PostController extends Controller
     {
         // call function in Post model
         $post = Post::find($id);
-        return view('posts.show')->with(['post'], $post)->with(['title'], $post);
+        return view('posts.show')->withPost($post);
 
     }
 

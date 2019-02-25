@@ -31,12 +31,13 @@ Route::get('/blog', 'PagesController@getBlog');
 
 //Routes for posts
 Route::resource('/posts', 'PostController');
+Route::get('/posts/index', 'PostController@index')->name('posts.index');
 Route::post('/posts/store', 'PostController@store')->name('posts.store');
 Route::post('/posts/create', 'PostController@create');
-Route::get('posts/{id}/show', 'PostController@show')->name('posts.show');
-Route::get('posts/{id}/edit', 'PostController@edit');
-Route::get('posts/{id}', 'PostController@destroy');
-Route::put('posts/{id}', 'PostController@update');
+Route::get('/posts/{id}/show', 'PostController@show')->name('posts.show');
+Route::get('/posts/{id}/edit', 'PostController@edit');
+Route::get('/posts/{id}', 'PostController@destroy');
+Route::put('/posts/{id}', 'PostController@update');
 
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
@@ -50,7 +51,7 @@ Route::get('blog', function(){
   return view('pages.blog', ['posts'=>$posts]);
 });
 
-Route::get('/single/{slug}')->name('blog.single')->uses('BlogController@getSingle');
+Route::get('/single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
 Route::get('/home', 'HomeController@index')->name('home');

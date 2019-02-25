@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -36,8 +35,8 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
+          // Schema::dropForeign(['post_id']);
           Schema::dropIfExists('comments');
-          // Schema::dropForeign('post_id');
 
     }
   }

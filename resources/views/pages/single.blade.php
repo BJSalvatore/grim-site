@@ -20,11 +20,7 @@
                 <p><strong>Name: </strong>{{$comment->name}}</p>
                 <p><strong>UserName: </strong>{{$comment->username}}</p>
                 <p><strong>Comment:</strong><br/>{{ $comment->comment}}</p>
-<<<<<<< HEAD
-                 <p>{{ date("D, d M y H:i:s", strtotime($comment -> created_at)) }}</p>
-=======
                 <p>{{ date("D, d M y H:i:s", strtotime($comment -> created_at)) }}</p>
->>>>>>> 67bbc7c5a5d18054996ab125ceec18ca9952789b
             @endforeach
           </div>
           </div>

@@ -12,11 +12,10 @@
     }
 </style>
 
-<div class="container">
     <div class="d-flex flex-row">
-        <div class="col-lg-4">
+        <div class="col-4">
             @include('inc._sidebar')</div>
-            <div class="col-lg-8 p-4">
+            <div class="col-lg-9 p-4">
                 <h1 style="font-family: Freckle Face;">Photos</h1>
                 <hr>
                 <div id="myCarousel" class="carousel slide mt-4" data-ride="carousel">
@@ -130,5 +129,4 @@
                 </a>
             </div>
         </div>
-    </div>
     @endsection

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = [
-      'name', 'username', 'email', 'comment', 'approved', 'post_id'
+      'name', 'username', 'email', 'comment', 'approved', 'post_id', 'approved_at'
     ];
     protected $table = 'comments';
     public function post()

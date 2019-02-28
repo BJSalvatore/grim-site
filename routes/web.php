@@ -42,6 +42,10 @@ Route::put('/posts/{id}', 'PostController@update');
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
 // Route::get('comments/{post_id}', 'CommentsController@show');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/approval', 'HomeController@approval')->name('approval');
+    Route::get('/home', 'HomeController@index')->name('home');
+});
 
 Route::get('blog', function(){
   $posts = DB::table('posts')
@@ -51,7 +55,7 @@ Route::get('blog', function(){
   return view('pages.blog', ['posts'=>$posts]);
 });
 
-Route::get('/single/{slug}', 'BlogController@getSingle')->name('blog.single');
+Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -78,3 +82,6 @@ Route::get('/files/{type}/{id?}', 'FileController@index');
 Route::post('files/add', 'FileController@store');
 Route::post('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
+
+// routes for emails
+Route::post('/send', 'EmailController@send');

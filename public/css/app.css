@@ -11542,6 +11542,15 @@ h5 {
   padding: 1px;
 }
 
+#blogButton {
+  margin: 2px;
+}
+
+#footer {
+  width: 100%;
+  bottom: 0;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 
 @media screen and (max-height: 450px) {

@@ -20,7 +20,8 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->boolean('approved');
             $table->integer('post_id')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('approved_at')->nullable();
           });
 
           Schema::table(('comments'), function($table){

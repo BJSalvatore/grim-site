@@ -16,11 +16,5 @@
       Lorem ipsum dolor sit amet, te zril menandri sit, posse accumsan qui ei. Legimus fastidii quaerendum sit at. Appetere legendos necessitatibus nec ne. Solet salutatus intellegat pro ex, erat salutatus efficiantur sit ut, quando accusamus vim no. Dolore numquam partiendo ad mel, an est veniam soleat, his ne reque nostrud. In iuvaret atomorum omittantur has, vocibus praesent ea ius.<br><br>
       Id mel vidisse invenire. Eu atqui movet omnium mel, eu pri meis accusata, no usu tincidunt voluptaria consectetuer. No eos euismod ceteros incorrupte. Solum volumus ad has, te mei paulo omittam interpretaris. Nam tollit euismod ea, voluptua sensibus vis et, ex errem inermis vis. Duo ludus feugait aliquando ne, nam ex vide recteque argumentum.</p>
     </div>
-    <div class="col">
-      <div id="animatedShoes" class="container d-inline-flex" style="margin-top: -100px;">
-      <div class="float-right">
-          <img src="{{ asset('assets/images/converseGray.png') }}" class="img" style="width: 200px; margin-bottom: 20px;"></img>
-      </div>
-    </div>
   </div>
 @endsection

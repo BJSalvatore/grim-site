@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 use Session;
+use Image;
 
 class PostController extends Controller
 {
@@ -48,7 +49,7 @@ class PostController extends Controller
         // validate the data
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts, slug',
           'post' => 'required'
         ]);
         // store in database
@@ -56,6 +57,17 @@ class PostController extends Controller
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
+
+        // check for and save the image
+        if($request->hasFile('blog_image')) {
+          $image = $request->file('blog_image');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $locatioin = public_path('assets/imagesblogImages/') . $filename;
+          Image::make($image)->resize(800,400)->save($location);
+
+          $post->image = $filename; //saves filename for retrieval of image
+        }
+
         $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
@@ -72,7 +84,7 @@ class PostController extends Controller
     {
         // call function in Post model
         $post = Post::find($id);
-        return view('posts.show')->withPost($post);
+        return view('posts.show')->with('post',$post);
 
     }
 

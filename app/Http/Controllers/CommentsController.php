@@ -69,15 +69,13 @@ class CommentsController extends Controller
        // dd($post_id);
        // dd($comment);
 
-    if(!auth()->check()){
-    $comment->save();
-     Session::flash('success', 'Comment was added!');
+    if(auth()->check()){
+      $comment->save();
+       Session::flash('success', 'Comment was added!');
       }else{
-     Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
+       Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
       }
-        // return redirect()->route('blog.single', [$post->slug]);
-        return redirect()->route('blog.single', $post ->slug)->with('post', $post);
-        // return redirect()->route('blog.single', [$post->slug])->withPost('post', $post);
+        return redirect()->route('blog.single', [$post ->slug]);
    }
     /**
      * Display the specified resource.

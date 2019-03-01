@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 use Session;
 use Image;
@@ -19,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('created_at', 'asc')->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         // return a view and pass in the variable
         return view('posts.index')->with('posts', $posts);
     }
@@ -50,7 +51,8 @@ class PostController extends Controller
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
-          'post' => 'required'
+          'post' => 'required',
+          'blog_image' =>'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:8192' //max file size of 8MB
         ]);
         // store in database
         $post = new Post;
@@ -113,6 +115,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
       $post = Post::find($id);
+
         if($request -> input('slug') == $post -> slug) {
           $validateData = $request -> validate([
           'title' => 'required|unique:posts|max:255',
@@ -120,22 +123,49 @@ class PostController extends Controller
         ]);
         }else{
         // validate the database
-        $validatedData = $request ->validate([
+          $validatedData -> $request ->validate([
             'title' => 'required|unique:posts|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
-            'post' => 'required'
+            'slug' => "required|alpha_dash|min:5|max:255|unique:posts',$id",
+            'post' => 'required',
+            'blog_image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
           ]);
-        }
 
         $post = Post::find($id);
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
-        $post -> save();
+
+        if($request->hasFile('blog_image')){
+          //add new photo
+          $image = $request->file('blog_image');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('assets/images/blogImages/' . $filename);
+          Image::make($image)->resize(300, null, function ($constraint){
+            $constraint->aspectRatio();
+          })->update($location);
+
+          //dd($request->all());
+          // dd($post);
+
+          $image->move($location, $filename);
+          //update database with new photo
+          $oldFilename = $post->image; //grabs old filename
+
+          // delete old photo
+          // Storage::delete($oldFilename);
+         File::delete(public_path('assets/images/blogImages/' . $oldFilename));
+
+          $post->image = $location . '/' . $filename; //saves filename for retrieval of image
+
+
+
+        }
+        $post -> update();
 
         Session::flash('success', 'This post was successfully updated and saved.');
 
-        return redirect()->route('posts.show', $post ->id);
+        return redirect()->route('posts.show', $post->id);
+      }
     }
     /**
      * Remove the specified resource from storage.
@@ -146,7 +176,7 @@ class PostController extends Controller
     public function destroy($id)
     {
       $post = Post::find($id);
-
+      Storage::delete($post->image);
       $post -> delete();
 
       Session::flash('success', 'Post was deleted successfully.');

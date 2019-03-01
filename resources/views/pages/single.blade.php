@@ -9,7 +9,7 @@
     @include('inc._sidebar')</div>
     <div class="col-lg-8 p-4">
       <div class="post mt-3">
-          <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="400" width="800"> </img>
+          <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
           <h3>{{ $post -> title }}</h3>
           <p>{{ $post -> post}}</p>
       </div>

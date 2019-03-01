@@ -21,7 +21,6 @@
             <label class="mt-1" for="post">Blog Post</label>
             <textarea rows="10" cols="col-lg-12" class="form-control" id="post" name='post' required></textarea>
           </div>
-          <!-- <div class="form-group"  method="POST" action = "{{ action('PostController@store') }}" enctype="multipart/form-data"> -->
           <div class="form-group">
             <label class="mt-1" for="blog_image">Upload Image</label>
             <input class="form-control mt-1" id="blog_image" name="blog_image" type="file"></input>

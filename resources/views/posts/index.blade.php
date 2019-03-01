@@ -21,6 +21,7 @@
           <th>Title</th>
           <th>Slug</th>
           <th>Post</th>
+          <th>Image ID</th>
           <th>Created At</th>
           <th></th>
         </thead>
@@ -30,9 +31,8 @@
             <th>{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->slug }}</td>
-              <!-- <img src="{{ asset('assets/images/blogImages' . $post->image)}}" height="400" width="800" /> -->
-            <!-- <td>{{ $post->post}}</td> -->
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
+            <td>{{ $post->image }}</td>
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
             <td>
               <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>

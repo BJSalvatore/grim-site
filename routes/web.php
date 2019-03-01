@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('blog', function(){
   $posts = DB::table('posts')
-        ->orderBy('created_at', 'asc')
+        ->orderBy('id', 'desc')
         // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);
@@ -70,18 +70,18 @@ Route::get('messages/{id}', 'MessageController@destroy');
 
 Route::get('message', function(){
   $messages = DB::table('messages')
-        ->orderBy('created_at', 'desc')
-        ->limit(4)
+        ->orderBy('created_at', 'asc')
+        ->limit(10)
         ->get();
-  return view('pages.contact', ['messages'=>$posts]);
+  return view('pages.contact', ['messages'=> $messages]);
 });
 
 // Routes for files
-Route::get('/files/{type}/{id?}', 'FileController@index');
-
-Route::post('files/add', 'FileController@store');
-Route::post('files/edit/{id}', 'FileController@edit');
-Route::post('files/delete/{id}', 'FileController@destroy');
+// Route::get('/files/{type}/{id?}', 'FileController@index');
+//
+// Route::post('files/add', 'FileController@store');
+// Route::post('files/edit/{id}', 'FileController@edit');
+// Route::post('files/delete/{id}', 'FileController@destroy');
 
 // routes for emails
 Route::post('/send', 'EmailController@send');

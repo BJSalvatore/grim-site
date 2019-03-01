@@ -63,7 +63,9 @@ class PostController extends Controller
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('assets/images/blogImages/' . $filename);
-          Image::make($image)->resize(800, 400)->save($location);
+          Image::make($image)->resize(300, null, function ($constraint){
+            $constraint->aspectRatio();
+            })->save($location);
 
           $post->image = $filename; //saves filename for retrieval of image
         }
@@ -144,6 +146,7 @@ class PostController extends Controller
     public function destroy($id)
     {
       $post = Post::find($id);
+
       $post -> delete();
 
       Session::flash('success', 'Post was deleted successfully.');

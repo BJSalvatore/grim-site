@@ -14,6 +14,7 @@
             @include('inc._sidebar')</div>
             <div class="col-lg-5">
                 <div class="post mt-3">
+                    <img src="{{ asset('assets/images/blogImages' . $post->image)}}" height="100" width="200" />
                     <h3>{{ $post -> title }}</h3>
                     <p>{{ $post -> post}}</p>
                 </div>

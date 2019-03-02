@@ -22,9 +22,8 @@ class CommentsController extends Controller
      */
     public function index()
     {
-
       // create a variable and store all of our blog comments in it
-      // $comments = Comment::orderBy('id', 'created_at')->paginate(5);
+      $comments = Comment::orderBy('created_at', 'desc')->paginate(5);
       // // return a view and pass in the variable
       // return view('comments.index')->with('comments', $comments);
     }
@@ -75,23 +74,20 @@ class CommentsController extends Controller
       }else{
        Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
       }
-        return redirect()->route('blog.single', [$post ->slug]);
-   }
+        // return view('blog.single')->with('$post', $post);
+        // return redirect()->route('blog.single')->with('slug', $slug)->with('post', $post);
+        return redirect()->route('pages.single', [$post -> slug]);
+    }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-      // $comments = DB::table('comments')
-      //       ->orderBy('created_at', 'desc')
-      //       ->limit(10)
-      //       ->get();
-      //
-      //       return $comments;
-    }
+    // public function show($id)
+    // {
+    //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,10 +95,10 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -111,10 +107,10 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -122,8 +118,8 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

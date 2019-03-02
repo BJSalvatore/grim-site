@@ -9,24 +9,27 @@
     @include('inc._sidebar')</div>
     <div class="col-lg-8 p-4">
       <div class="post mt-3">
+        @if($post->image)
           <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+        @endif
           <h3>{{ $post -> title }}</h3>
-          <p>{{ $post -> post}}</p>
+          <p>{{ $post -> post }}</p>
+          <!-- <p>{{ substr($post -> post, 0, 300) }}{{ strlen($post -> post) > 300 ? "..." : ""}}</p> -->
       </div>
       <hr>
-      <div class="row">
+      <div id="commentSection" class="row">
         <div class="col-lg-8">
+          @foreach($post-> comments as $comment)
           <div id="comment">
-            @foreach($post->comments as $comment)
-                <p><strong>Name: </strong>{{$comment->name}}</p>
-                <p><strong>UserName: </strong>{{$comment->username}}</p>
-                <p><strong>Comment:</strong><br/>{{ $comment->comment}}</p>
-                <p>{{ date("D, d M y H:i:s", strtotime($comment -> created_at)) }}</p>
-            @endforeach
+              <p><strong>Name: </strong>{{$comment-> name}}</p>
+              <p><strong>UserName: </strong>{{$comment-> username}}</p>
+              <p><strong>Comment:</strong><br/>{{ $comment-> comment}}</p>
+              <p>{{ date('D, d M y H:i:s', strtotime($comment -> created_at)) }}</p>
+              <hr>
           </div>
-          </div>
+          @endforeach
         </div>
-      <hr>
+      </div>
     <div id="comment-form">
       <form data-parsley-validate method="POST" action="{{ action('CommentsController@store', $post-> id, $post-> slug) }}">
         <div class="row">

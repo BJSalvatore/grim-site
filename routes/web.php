@@ -39,6 +39,8 @@ Route::get('/posts/{id}/edit', 'PostController@edit');
 Route::get('/posts/{id}', 'PostController@destroy');
 Route::put('/posts/{id}', 'PostController@update');
 
+Route::get('blog/{slug}', ['as' => 'pages.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
+
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
 // Route::get('comments/{post_id}', 'CommentsController@show');

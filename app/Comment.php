@@ -6,7 +6,9 @@ class Comment extends Model
     protected $fillable = [
       'name', 'username', 'email', 'comment', 'approved', 'post_id', 'approved_at'
     ];
+
     protected $table = 'comments';
+
     public function post()
     {
         return $this->belongsTo('App\Post', 'post_id', 'id');

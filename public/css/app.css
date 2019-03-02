@@ -11537,6 +11537,10 @@ h5 {
   padding: 10px;
 }
 
+#commentSection .row {
+  height: auto;
+}
+
 #comment p {
   margin-bottom: 0px !important;
   padding: 1px;

@@ -21,6 +21,7 @@ class CreateCommentsTable extends Migration
             $table->boolean('approved');
             $table->integer('post_id')->unsigned();
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->timestamp('approved_at')->nullable();
           });
 

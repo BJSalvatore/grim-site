@@ -1,14 +1,14 @@
 {
-"private": true,
- "scripts": {
-   "dev": "npm run development",
-   "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-   "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-   "watch-poll": "npm run watch -- --watch-poll",
-   "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-   "prod": "npm run production",
-   "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
- },
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
   "name": "grim-site",
   "version": "1.0.0",
   "description": "",
@@ -27,9 +27,11 @@
   },
   "homepage": "https://github.com/demoncowgirl/grim-site#readme",
   "dependencies": {
-    "heroku": "^7.19.4",
+    "heroku": "^7.22.2",
     "jquery-validation": "^1.19.0",
-    "parsleyjs": "^2.8.1"
+    "mysql-server": "^1.0.5",
+    "parsleyjs": "^2.8.1",
+    "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
     "axios": "^0.18.0",

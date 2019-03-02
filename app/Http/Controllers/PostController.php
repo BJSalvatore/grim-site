@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('created_at', 'asc')->paginate(10);
+        $posts = Post::orderBy('id', 'asc')->paginate(10);
         // return a view and pass in the variable
         // return view('posts.index')->with('posts', $posts);
         return view('posts.index', compact('posts'));
@@ -60,6 +60,7 @@ class PostController extends Controller
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
+        $post -> image = $request ->input('blog_image');
 
         // check for and save the image
         if($request->hasFile('blog_image')) {
@@ -72,6 +73,8 @@ class PostController extends Controller
 
           $post->image = $filename; //saves filename for retrieval of image
         }
+
+        dd($post);
 
         $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');

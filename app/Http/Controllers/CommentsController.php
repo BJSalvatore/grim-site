@@ -23,7 +23,7 @@ class CommentsController extends Controller
     public function index()
     {
       // create a variable and store all of our blog comments in it
-      $comments = Comment::orderBy('created_at', 'desc')->paginate(5);
+      $comments = Comment::orderBy('id', 'asc')->paginate(5);
       // // return a view and pass in the variable
       // return view('comments.index')->with('comments', $comments);
     }
@@ -64,8 +64,8 @@ class CommentsController extends Controller
        $comment-> post_id = $request -> post_id;
        // $comment->user()->associate($user);
 
-       // dd($request->all());
-       // dd($comment);
+       //dd($request->all());
+       dd($comment);
 
     if(auth()->check()){
       $comment->save();

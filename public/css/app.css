@@ -10747,7 +10747,7 @@ h5 {
 }
 
 #commentSection .row {
-  height: auto;
+  display: flex;
 }
 
 #comment p {

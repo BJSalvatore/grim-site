@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('blog', function(){
   $posts = DB::table('posts')
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);

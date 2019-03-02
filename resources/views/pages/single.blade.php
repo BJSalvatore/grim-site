@@ -31,7 +31,7 @@
         </div>
       </div>
     <div id="comment-form">
-      <form data-parsley-validate method="POST" action="{{ action('CommentsController@store', $post-> id, $post-> slug) }}">
+      <form data-parsley-validate method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
           @csrf
             <div class="col-lg-8">

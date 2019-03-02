@@ -74,7 +74,7 @@ class PostController extends Controller
           $post->image = $filename; //saves filename for retrieval of image
         }
 
-        dd($post);
+        // dd($post);
 
         $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');

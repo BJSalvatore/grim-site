@@ -65,7 +65,7 @@ class CommentsController extends Controller
        // $comment->user()->associate($user);
 
        //dd($request->all());
-       dd($comment);
+       // dd($comment);
 
     if(auth()->check()){
       $comment->save();

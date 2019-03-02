@@ -52,7 +52,7 @@ class CommentsController extends Controller
          'email' => 'required|max:255',
          'comment' => 'required|min:5\max:2000'
        ]);
-       $post = Post::find('$post_id');
+       $post = Post::find($post_id);
        // $user = User::find('$id');
        $comment = new Comment();
        $comment -> name = $request-> name;
@@ -65,15 +65,16 @@ class CommentsController extends Controller
        // $comment->user()->associate($user);
 
        // dd($request->all());
-       // dd($post_id);
        // dd($comment);
 
     if(auth()->check()){
+         dd($post);
       $comment->save();
        Session::flash('success', 'Comment was added!');
       }else{
        Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
       }
+
         // return view('blog.single')->with('$post', $post);
         // return redirect()->route('blog.single')->with('slug', $slug)->with('post', $post);
         return redirect()->route('pages.single', [$post -> slug]);

@@ -16,9 +16,6 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demoncowgirl/grim-site.git"
@@ -30,6 +27,7 @@
   },
   "homepage": "https://github.com/demoncowgirl/grim-site#readme",
   "dependencies": {
+    "heroku": "^7.19.4",
     "jquery-validation": "^1.19.0",
     "parsleyjs": "^2.8.1"
   },

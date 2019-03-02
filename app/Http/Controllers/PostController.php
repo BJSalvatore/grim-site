@@ -146,10 +146,7 @@ class PostController extends Controller
           $location = public_path('assets/images/blogImages/' . $filename);
           Image::make($image)->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
-          })->update($location);
-
-          //dd($request->all());
-          // dd($post);
+          })->save($location);
 
           $image->move($location, $filename);
           //update database with new photo
@@ -161,10 +158,8 @@ class PostController extends Controller
 
           $post->image = $location . '/' . $filename; //saves filename for retrieval of image
 
-
-
         }
-        $post -> update();
+        $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');
 

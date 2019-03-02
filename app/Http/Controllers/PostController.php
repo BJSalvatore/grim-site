@@ -138,6 +138,7 @@ class PostController extends Controller
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
+        $post -> image = $request -> input('blog_image');
 
         if($request->hasFile('blog_image')){
           //add new photo

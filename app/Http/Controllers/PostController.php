@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use Session;
 use Image;
+use File;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -67,11 +69,17 @@ class PostController extends Controller
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('assets/images/blogImages/' . $filename);
+          // $location = storage_path('assets/images/blogImages/' . $filename);
           Image::make($image)->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
             })->save($location);
 
           $post->image = $filename; //saves filename for retrieval of image
+
+
+          if($image = $request->file('blog_image')){
+            $path = Storage::disk('s3')->put($location, 'public');
+          }
         }
 
         // dd($post);

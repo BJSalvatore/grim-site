@@ -1,6 +1,6 @@
 <?php
 
-  $url = 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
+  $CLEARDB_DATABASE_URL= 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
   // $DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
   // $url='postgres://uypffdrfkfdnsl:2c1dd49d2dc287f817244bc773ebe6f50ad7728c2b65c81592816a2132155453@ec2-54-235-67-106.compute-1.amazonaws.com:5432/dev8pffq9pkh6j';
   // $url = parse_url(getenv("DATABASE_URL"));
@@ -47,6 +47,10 @@ return [
     */
 
     'connections' => [
+
+      // $db = mysqli_init();
+      // $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
+      // $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
 
         'sqlite' => [
             'driver' => 'sqlite',

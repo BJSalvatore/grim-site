@@ -78,7 +78,8 @@ class PostController extends Controller
 
 
           if($image = $request->file('blog_image')){
-            $path = Storage::disk('s3')->put($location, 'public');
+            $filePath = 'images/' . $location;
+            Storage::disk('s3')->put($filePath, file_get_contents($image));
           }
         }
 

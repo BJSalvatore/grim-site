@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use Session;
 use Image;
-use File;
 
 class PostController extends Controller
 {
@@ -78,8 +77,9 @@ class PostController extends Controller
 
 
           if($image = $request->file('blog_image')){
-            $filePath = 'images/' . $location;
-            Storage::disk('s3')->put($filePath, file_get_contents($image));
+            $filePath = 'https://s3.console.aws.amazon.com/s3/buckets/grim-images/' . $location;
+            Storage::disk('s3')->putFile('images', $location, 'public');
+
           }
         }
 

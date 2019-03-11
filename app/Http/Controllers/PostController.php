@@ -6,6 +6,8 @@ use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
 use App\Post;
 use Session;
 use Image;
@@ -77,8 +79,33 @@ class PostController extends Controller
 
 
           if($image = $request->file('blog_image')){
-            $filePath = 'https://s3.console.aws.amazon.com/s3/buckets/grim-images/' . $location;
-            Storage::disk('s3')->putFile('images', $location, 'public');
+            // $filePath = 'https://s3.console.aws.amazon.com/s3/buckets/grim-images/' . $location;
+            // Storage::disk('s3')->put('images', $location, 'public');
+
+            $bucket = 'grim-images';
+            $keyname = 'image_upload';
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region'  => 'us-east-1',
+
+            ]);
+
+            try {
+                // Upload data.
+                $result = $s3->putObject([
+                    'Bucket' => $bucket,
+                    'Key'    => $keyname,
+                    // 'Body'   => 'Hello, world!',
+                    'ACL'    => 'public-read'
+                ]);
+
+                // Print the URL to the object.
+                echo $result['ObjectURL'] . PHP_EOL;
+            } catch (S3Exception $e) {
+                echo $e->getMessage() . PHP_EOL;
+            }
+
 
           }
         }

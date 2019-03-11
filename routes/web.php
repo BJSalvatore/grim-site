@@ -60,6 +60,22 @@ Route::get('blog', function(){
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
+//routes for press releases
+Route::resource('releases', 'PressReleaseController');
+Route::get('/releases/index', 'PressReleaseController@index')->name('releases.index');
+Route::post('/releases/store', 'PressReleaseController@store')->name('releases.store');
+// Route::get('/releases/{id}/show', 'PressReleaseController@show')->name('releases.show');
+
+Route::get('press', function(){
+  $header_title = "The Press Loves Us!";
+  $releases = DB::table('releases')
+      ->orderBy('id', 'asc')
+      // ->limit(10)
+      ->get();
+  return view('pages.press', ['releases'=>$releases])->with('header_title', $header_title);
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Routes for $messages

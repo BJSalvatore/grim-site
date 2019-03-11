@@ -35,10 +35,10 @@ class PagesController extends Controller
             $header_title = "Check Us Out!";
           return view('pages/photos')->with('header_title', $header_title);
       }
-          public function getPress() {
-            $header_title = "The Press Loves Us!";
-          return view('pages/press')->with('header_title', $header_title);
-      }
+      //       public function getPress() {
+      //         $header_title = "The Press Loves Us!";
+      //       return view('pages/press')->with('header_title', $header_title);
+      // }
           public function getBlog() {
             $header_title = "Blog Posts";
           return view('pages/blog')->with('header_title', $header_title)->with('posts', $posts);
@@ -80,14 +80,14 @@ class PagesController extends Controller
         $header_title = "Messages";
       return view('pages/messages')->with('header_title', $header_title)-with('messages', $messages);
   }
-      public function storeMessages() {
-        return view('messages/store');
-  }
-      public function createMessages() {
-        return view('messages/create');
-  }
-      public function showMessages(){
-        return view('messages/show');
-  }
+  //     public function storeMessages() {
+  //       return view('messages/store');
+  // }
+  //     public function createMessages() {
+  //       return view('messages/create');
+  // }
+  //     public function showMessages(){
+  //       return view('messages/show');
+  // }
 
 }

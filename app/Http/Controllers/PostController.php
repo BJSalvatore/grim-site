@@ -57,41 +57,48 @@ class PostController extends Controller
           'title' => 'required|unique:posts|max:255',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
           'post' => 'required',
-          'blog_image' =>'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:8192' //max file size of 8MB
+          'blog_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
         ]);
         // store in database
         $post = new Post;
-        $post -> title = $request -> input('title');
-        $post -> slug = $request -> input('slug');
-        $post -> post = $request -> input('post');
-        $post -> image = $request ->input('blog_image');
 
         // check for and save the image to local file
         if($request->hasFile('blog_image')) {
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('assets/images/blogImages/' . $filename);
+          $filePath = '' . $filename;
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
             })->save($location);
 
-          $post->image = $filename; //saves filename for retrieval of image
-
           // save image to aws s3
-          if($image = $request->file('blog_image')){
-
-            $s3 = Storage::disk('s3');
-            $s3->put($location, $image);
+            $s3 = Storage::disk('s3')->put($filePath, $image);
+            $post->image = $s3;
 
         }
 
+          $post -> title = $request -> input('title');
+          $post -> slug = $request -> input('slug');
+          $post -> post = $request -> input('post');
+          $post -> image = $request ->input('blog_image');
+
+          $post->image = $filename; //saves filename for retrieval of image
+
         $post -> save();
+
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
         return redirect()->route('posts.show', $post ->id);
-      }
+
     }
+
+    // public static function getImage (Request $filePath)
+    // {
+    //   return $filePath;
+    // }
+
     /**
      * Display the specified resource.
      *

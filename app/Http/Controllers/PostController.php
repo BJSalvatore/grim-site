@@ -1,13 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
+// require '../vendor/aws-autoloader.php';
+// require '../vendor/autoload.php';
+
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Aws\S3\S3Client;
-use Aws\S3\Exception\S3Exception;
 use App\Post;
 use Session;
 use Image;
@@ -65,58 +66,31 @@ class PostController extends Controller
         $post -> post = $request -> input('post');
         $post -> image = $request ->input('blog_image');
 
-        // check for and save the image
+        // check for and save the image to local file
         if($request->hasFile('blog_image')) {
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('assets/images/blogImages/' . $filename);
-          // $location = storage_path('assets/images/blogImages/' . $filename);
+          // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
             })->save($location);
 
           $post->image = $filename; //saves filename for retrieval of image
 
-
+          // save image to aws s3
           if($image = $request->file('blog_image')){
-            // $filePath = 'https://s3.console.aws.amazon.com/s3/buckets/grim-images/' . $location;
-            // Storage::disk('s3')->put('images', $location, 'public');
 
-            $bucket = 'grim-images';
-            $keyname = 'image_upload';
+            $s3 = Storage::disk('s3');
+            $s3->put($location, $image);
 
-            $s3 = new S3Client([
-                'version' => 'latest',
-                'region'  => 'us-east-1',
-
-            ]);
-
-            try {
-                // Upload data.
-                $result = $s3->putObject([
-                    'Bucket' => $bucket,
-                    'Key'    => $keyname,
-                    // 'Body'   => 'Hello, world!',
-                    'ACL'    => 'public-read'
-                ]);
-
-                // Print the URL to the object.
-                echo $result['ObjectURL'] . PHP_EOL;
-            } catch (S3Exception $e) {
-                echo $e->getMessage() . PHP_EOL;
-            }
-
-
-          }
         }
-
-        // dd($post);
 
         $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
         return redirect()->route('posts.show', $post ->id);
-
+      }
     }
     /**
      * Display the specified resource.

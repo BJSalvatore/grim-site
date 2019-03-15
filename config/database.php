@@ -9,11 +9,19 @@
   // $password = $url['pass'];
   // $database = substr($url["path"], 1);
 
-  $host = 'us-cdbr-iron-east-01.cleardb.net';
-  $username = 'b82409b1d1c87f';
-  $password = '82ae92e1';
-  $database = 'heroku_37ef2959c0795ff';
+  // $host = 'us-cdbr-iron-east-01.cleardb.net';
+  // $username = 'b82409b1d1c87f';
+  // $password = '82ae92e1';
+  // $database = 'heroku_37ef2959c0795ff';
 
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"], 1);
+
+    $conn = new mysqli($server, $username, $password, $db);
 
 return [
 

@@ -1,9 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-// require '../vendor/aws-autoloader.php';
-// require '../vendor/autoload.php';
-
 use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
@@ -148,7 +145,7 @@ class PostController extends Controller
             'title' => 'required|unique:posts|max:255',
             'slug' => "required|alpha_dash|min:5|max:255|unique:posts',$id",
             'post' => 'required',
-            'blog_image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
+            'blog_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8192',
           ]);
 
         $post = Post::find($id);

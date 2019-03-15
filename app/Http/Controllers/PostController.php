@@ -52,7 +52,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // validate the data
+      // validate the data
       $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
@@ -78,6 +78,17 @@ class PostController extends Controller
             $post->image = $s3;
 
         }
+
+         try {
+              DB::connection()->getPdo();
+              if(DB::connection()->getDatabaseName()){
+                  echo "Yes! Successfully connected to the DB: " . DB::connection()->getDatabaseName();
+              }else{
+                  die("Could not find the database. Please check your configuration.");
+              }
+          } catch (\Exception $e) {
+              die("Could not open connection to database server.  Please check your configuration.");
+          }
 
           $post -> title = $request -> input('title');
           $post -> slug = $request -> input('slug');

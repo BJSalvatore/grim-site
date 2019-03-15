@@ -62,7 +62,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
-            'port' => env('DB_PORT', '3306'),
+            'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'heroku_37ef2959c0795ff'),
             'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
             'password' => env('DB_PASSWORD', '82ae92e1'),
@@ -72,6 +72,19 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+        ],
+
+        'mysql2' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost:3306'),
+            'database'  => env('DB_DATABASE', 'grim'),
+            'username'  => env('DB_USERNAME', 'root'),
+            'password'  => env('DB_PASSWORD', '#1Chupacabra64'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'port'      => env('DB_PORT', '3306'),
+            'prefix'    => '',
+            'strict'    => false,
         ],
 
         //   'pgsql' => [

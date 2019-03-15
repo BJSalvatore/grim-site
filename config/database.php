@@ -13,15 +13,11 @@
   // $username = 'b82409b1d1c87f';
   // $password = '82ae92e1';
   // $database = 'heroku_37ef2959c0795ff';
-
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-    $server = $url["host"];
-    $username = $url["user"];
-    $password = $url["pass"];
-    $db = substr($url["path"], 1);
-
-    $conn = new mysqli($server, $username, $password, $db);
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $host = $url["host"] ?? null;
+  $username = $url["user"] ?? null;
+  $password = $url["pass"] ?? null;
+  $database = substr($url["path"], 1);
 
 return [
 
@@ -36,7 +32,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql_heroku'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,24 +52,19 @@ return [
 
     'connections' => [
 
-      // $db = mysqli_init();
-      // $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
-      // $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
-
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
 
-
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'heroku_37ef2959c0795ff'),
-            'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
-            'password' => env('DB_PASSWORD', '82ae92e1'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -81,6 +72,18 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+
+
+        'mysql_heroku' => array(
+            'driver' => 'mysql',
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ),
 
         'mysql2' => [
             'driver'    => 'mysql',

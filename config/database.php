@@ -1,8 +1,36 @@
 <?php
-  $host = 'us-cdbr-iron-east-01.cleardb.net';
-  $username = 'b82409b1d1c87f';
-  $password = '82ae92e1';
-  $database = 'heroku_37ef2959c0795ff';
+
+//Get Heroku ClearDB connection information
+$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$server   = $cleardb_url["host"];
+$username = $cleardb_url["user"];
+$password = $cleardb_url["pass"];
+$database = substr($cleardb_url["path"],1);
+
+$active_group = 'default';
+$query_builder = TRUE;
+
+$db['default'] = array(
+  'dsn'    => '',
+  'hostname' => $server,
+  'username' => $username,
+  'password' => $password,
+  'database' => $database,
+  'dbdriver' => 'mysqli',
+  'dbprefix' => '',
+  'pconnect' => FALSE,
+  'db_debug' => (ENVIRONMENT !== 'production'),
+  'cache_on' => FALSE,
+  'cachedir' => '',
+  'char_set' => 'utf8',
+  'dbcollat' => 'utf8_general_ci',
+  'swap_pre' => '',
+  'encrypt' => FALSE,
+  'compress' => FALSE,
+  'stricton' => FALSE,
+  'failover' => array(),
+  'save_queries' => TRUE
+);
 
 return [
 
@@ -58,18 +86,6 @@ return [
             'engine' => null,
         ],
 
-
-        'mysql_heroku' => array(
-            'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-        ),
-
         'mysql2' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost:80'),
@@ -121,6 +137,7 @@ return [
         ],
 
     ],
+
 
     /*
     |--------------------------------------------------------------------------

@@ -74,10 +74,10 @@ class PostsTableSeeder extends Seeder
             Ship of the imagination Flatland brain is the seed of intelligence extraordinary claims require extraordinary evidence emerged into consciousness cosmos. Light years dispassionate extraterrestrial observer rich in heavy atoms muse about tingling of the spine the ash of stellar alchemy. Courage of our questions something incredible is waiting to be known hydrogen atoms the only home we\'ve ever known something incredible is waiting to be known courage of our questions.<br>
             Kindling the energy hidden in matter concept of the number one Cambrian explosion corpus callosum cosmos muse about. At the edge of forever the only home we\'ve ever known at the edge of forever finite but unbounded Drake Equation astonishment? Something incredible is waiting to be known courage of our questions a still more glorious dawn awaits great turbulent clouds two ghostly white figures in coveralls and helmets are soflty dancing rich in heavy atoms and billions upon billions upon billions upon billions upon billions upon billions upon billions.']);
 
-            DB::table('posts')->insert(['title' => 'Post 9', 'slug' => 'blog-9', 'post' => 'This is post number nine' ]);
-            DB::table('posts')->insert(['title' => 'Post 10', 'slug' => 'blog-10', 'post' => 'This is post number ten' ]);
-            DB::table('posts')->insert(['title' => 'Post 11', 'slug' => 'blog-11', 'post' => 'This is post number eleven' ]);
-            DB::table('posts')->insert(['title' => 'Post 12', 'slug' => 'blog-12', 'post' => 'This is post number twelve' ]);
+            DB::table('posts')->insert(['title' => 'Post 9', 'slug' => 'blog-9', 'post' => 'This is post number nine', 'image' => '1552607969.jpg' ]);
+            DB::table('posts')->insert(['title' => 'Post 10', 'slug' => 'blog-10', 'post' => 'This is post number ten', 'image' => '1552689212.jpg' ]);
+            DB::table('posts')->insert(['title' => 'Post 11', 'slug' => 'blog-11', 'post' => 'This is post number eleven', 'image' => '1552692102.jpg' ]);
+            DB::table('posts')->insert(['title' => 'Post 12', 'slug' => 'blog-12', 'post' => 'This is post number twelve', 'image' => '1552768178.jpg' ]);
 
 
     }

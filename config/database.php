@@ -66,7 +66,7 @@ return [
 
         'mysql2' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost:80'),
+            'host'      => env('DB_HOST', 'localhost:5432'),
             'database'  => env('DB_DATABASE', 'grim'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', '#1Chupacabra64'),

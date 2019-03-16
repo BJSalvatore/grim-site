@@ -1,23 +1,8 @@
 <?php
-
-  $CLEARDB_DATABASE_URL= 'mysql://b82409b1d1c87f:82ae92e1@us-cdbr-iron-east-01.cleardb.net/heroku_37ef2959c0795ff?reconnect=true';
-  // $DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
-  // $url='postgres://uypffdrfkfdnsl:2c1dd49d2dc287f817244bc773ebe6f50ad7728c2b65c81592816a2132155453@ec2-54-235-67-106.compute-1.amazonaws.com:5432/dev8pffq9pkh6j';
-  // $url = parse_url(getenv("DATABASE_URL"));
-  // $host = $url['host'];
-  // $username = $url['user'];
-  // $password = $url['pass'];
-  // $database = substr($url["path"], 1);
-
-  // $host = 'us-cdbr-iron-east-01.cleardb.net';
-  // $username = 'b82409b1d1c87f';
-  // $password = '82ae92e1';
-  // $database = 'heroku_37ef2959c0795ff';
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-  $host = $url["host"] ?? null;
-  $username = $url["user"] ?? null;
-  $password = $url["pass"] ?? null;
-  $database = substr($url["path"], 1);
+  $host = 'us-cdbr-iron-east-01.cleardb.net';
+  $username = 'b82409b1d1c87f';
+  $password = '82ae92e1';
+  $database = 'heroku_37ef2959c0795ff';
 
 return [
 
@@ -32,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql_heroku'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,12 +45,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => $host,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            // 'unix_socket' => env['DB_SOCKET', ''],
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

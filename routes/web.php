@@ -45,8 +45,8 @@ Route::get('blog/{slug}', ['as' => 'pages.single', 'uses' => 'BlogController@get
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
 // Route::get('comments/{post_id}', 'CommentsController@show');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/approval', 'HomeController@approval')->name('approval');
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/approval', 'HomeController@approval')->name('approval');
+Route::get('/home', 'HomeController@index')->name('home');
 });
 
 Route::get('blog', function(){

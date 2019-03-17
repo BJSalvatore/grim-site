@@ -31,25 +31,29 @@
         </div>
       </div>
     <div id="comment-form">
-      <form data-parsley-validate method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
+      <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
           @csrf
             <div class="col-lg-8">
              <h6><font color="red">You must be registered and logged in to leave a comment.</font></h6>
              <label class="mt-1" for="name">Name</label>
-             <h3> <input class="form-control" id="name" name="name" type="textarea" required maxlength="255"></input></h3>
+             <h3> <input class="form-control" id="name" name="name" type="textarea"></input></h3>
+             <h5 class="alert alert-danger" role="alert"><strong>{{ $errors->first('name') }}</strong></h5>
            </div>
             <div class="col-lg-8">
              <label class="mt-1" for="username">UserName</label>
-             <h3> <input class="form-control" id="username" name="username" type="textarea" required maxlength="255"></input></h3>
+             <h3> <input class="form-control" id="username" name="username" type="textarea"></input></h3>
+             <h5 class="alert alert-danger" role="alert"><strong>{{ $errors->first('username') }}</strong></h5>
            </div>
-              <div class="col-lg-8">
+            <div class="col-lg-8">
            <label class="mt-1" for="email">Email</label>
-           <h3><input class="form-control" id="email" name="email" type="textarea" required maxlength="255"></input></h3>
-         </div>
-               <div class="col-lg-12">
+            <h3><input class="form-control" id="email" name="email" type="textarea"></input></h3>
+            <h5 class="alert alert-danger" role="alert"><strong>{{ $errors->first('email') }}</strong></h5>
+          </div>
+          <div class="col-lg-12">
              <label class="mt-1" for="comment">Comment</label>
-             <textarea rows="10" class="form-control" id="comment" name="comment" type="textarea"required minlength="5" maxlength="2000"></textarea>
+             <textarea rows="10" class="form-control" id="comment" name="comment" type="textarea"></textarea>
+              <h5 class="alert alert-danger" role="alert"><strong>{{ $errors->first('comment') }}</strong></h5>
           </div>
         <div class="col-lg-8">
           <div class="button" style="margin-top: 10px;">

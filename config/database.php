@@ -1,10 +1,11 @@
 <?php
 
-$host = env('DB_HOST');
-$username = env('DB_USERNAME');
-$password = env('DB_PASSWORD');
-$database = env('DB_DATABASE');
+  $DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
+  $server = $DATABASE_URL['host'];
+  $username = $DATABASE_URL['user'];
+  $password = $DATABASE_URL['pass'];
+  $db =  ltrim($DATABASE_URL['path'], '/');
 
 return [
 
@@ -47,11 +48,11 @@ return [
 
         'heroku_mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
+            'host' => $server,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'heroku_37ef2959c0795ff'),
-            'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
-            'password' => env('DB_PASSWORD', '82ae92e1'),
+            'database' => $db,
+            'username' => $username,
+            'password' => $password,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -60,16 +61,31 @@ return [
             'engine' => null,
         ],
 
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', $host),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', $database),
-            'username' => env('DB_USERNAME', $username),
-            'password' => env('DB_PASSWORD', $password),
-            'charset' => 'utf8',
-            'prefix' => '',
-        ],
+        'mysql' => [
+          'driver' => 'mysql',
+          'host' => env('DB_HOST', ''),
+          'port' => env('DB_PORT', ''),
+          'database' => env('DB_DATABASE', ''),
+          'username' => env('DB_USERNAME', ''),
+          'password' => env('DB_PASSWORD', ''),
+          'unix_socket' => env('DB_SOCKET', ''),
+          'charset' => 'utf8mb4',
+          'collation' => 'utf8mb4_unicode_ci',
+          'prefix' => '',
+          'strict' => true,
+          'engine' => null,
+      ],
+
+      'sqlsrv' => [
+           'driver' => 'sqlsrv',
+           'host' => env('DB_HOST', 'localhost'),
+           'port' => env('DB_PORT', '1433'),
+           'database' => env('DB_DATABASE', 'forge'),
+           'username' => env('DB_USERNAME', 'forge'),
+           'password' => env('DB_PASSWORD', ''),
+           'charset' => 'utf8',
+           'prefix' => '',
+       ],
 
     ],
 

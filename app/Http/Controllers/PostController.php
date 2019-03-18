@@ -97,8 +97,7 @@ class PostController extends Controller
         }
             $post->image = $filename; //saves filename for retrieval of image
 
-        $post -> save();
-
+            $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
         return redirect()->route('posts.show', $post ->id);

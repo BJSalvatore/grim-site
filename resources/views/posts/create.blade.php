@@ -15,12 +15,12 @@
            @csrf
             <label class="mt-1" for="title">Title</label>
             <input class="form-control" id="title" name='title' type="text"></input>
-            @if($errors->has('post'))
+            @if($errors->has('title'))
                <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('title') }}</strong></h5>
              @endif
             <label class="mt-1" for="slug">Slug</label>
             <input class="form-control" id="slug" name="slug" type="text"></input>
-            @if($errors->has('post'))
+            @if($errors->has('slug'))
                <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('slug') }}</strong></h5>
              @endif
           <div class="form-group">

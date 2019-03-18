@@ -58,12 +58,14 @@ class PostController extends Controller
         ],
           $messages = [
             'title.required' => 'A title is required.',
+            'title.unique' => 'This title has already been used.',
             'title.max' => 'This title is too long!',
-            'post.required' => 'Don\'t leave without telling your fans something...anything!',
             'slug.required' => 'A slug is required!',
             'slug.alpha-dash' => 'Use only hyphens between words!',
             'slug.min' => 'Minimum number of characters is 5!',
             'slug.max' => 'Maximum number of characters is 255!',
+            'slug.unique' => 'This slug has already been used.',
+            'post.required' => 'Don\'t leave without telling your fans something...anything!',
             'blog_image.image' => 'This is not an image!',
             'blog_image.mimes' => 'File type must be JPEG, PNG, JPG, GIF or SVG',
             'blog_image.max' => 'Maximum file size is !',
@@ -93,14 +95,16 @@ class PostController extends Controller
             $s3 = Storage::disk('s3')->put($filePath, $image);
             $post->image = $s3;
         }
+            $post->image = $filename; //saves filename for retrieval of image
 
-        $post->image = $filename; //saves filename for retrieval of image
+        dd($post);
 
         $post -> save();
 
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
         return redirect()->route('posts.show', $post ->id);
+
 
     }
 

@@ -1,35 +1,9 @@
 <?php
 
-$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$server   = $cleardb_url["host"];
-$username = $cleardb_url["user"];
-$password = $cleardb_url["pass"];
-$database = substr($cleardb_url["path"],1);
-
-$active_group = 'default';
-$query_builder = TRUE;
-
-// $database['default'] = array(
-//     'dsn'    => '',
-//     'hostname' => $cleardb_server,
-//     'username' => $cleardb_username,
-//     'password' => $cleardb_password,
-//     'database' => $cleardb_db,
-//     'dbdriver' => 'mysqli',
-//     'dbprefix' => '',
-//     'pconnect' => FALSE,
-//     'db_debug' => (ENVIRONMENT !== 'production'),
-//     'cache_on' => FALSE,
-//     'cachedir' => '',
-//     'char_set' => 'utf8',
-//     'dbcollat' => 'utf8_general_ci',
-//     'swap_pre' => '',
-//     'encrypt' => FALSE,
-//     'compress' => FALSE,
-//     'stricton' => FALSE,
-//     'failover' => array(),
-//     'save_queries' => TRUE
-// );
+$host = env('DB_HOST');
+$username = env('DB_USERNAME');
+$password = env('DB_PASSWORD');
+$database = env('DB_DATABASE');
 
 
 return [
@@ -73,11 +47,11 @@ return [
 
         'heroku_mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', $server),
+            'host' => env('DB_HOST', 'us-cdbr-iron-east-01.cleardb.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', $database),
-            'username' => env('DB_USERNAME', $username),
-            'password' => env('DB_PASSWORD', $password),
+            'database' => env('DB_DATABASE', 'heroku_37ef2959c0795ff'),
+            'username' => env('DB_USERNAME', 'b82409b1d1c87f'),
+            'password' => env('DB_PASSWORD', '82ae92e1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -86,52 +60,13 @@ return [
             'engine' => null,
         ],
 
-        // 'mysql2' => [
-        //     'driver'    => 'mysql',
-        //     'host'      => env('DB_HOST', 'localhost:5432'),
-        //     'database'  => env('DB_DATABASE', 'grim'),
-        //     'username'  => env('DB_USERNAME', 'root'),
-        //     'password'  => env('DB_PASSWORD', '#1Chupacabra64'),
-        //     'charset'   => 'utf8',
-        //     'collation' => 'utf8_unicode_ci',
-        //     'port'      => env('DB_PORT', '80'),
-        //     'prefix'    => '',
-        //     'strict'    => false,
-        // ],
-
-        //   'pgsql' => [
-        //       'driver' => 'pgsql',
-        //       'host' => env('DB_HOST', '127.0.0.1'),
-        //       'port' => env('DB_PORT', '5432'),
-        //       'database' => env('DB_DATABASE', 'forge'),
-        //       'username' => env('DB_USERNAME', 'forge'),
-        //       'password' => env('DB_PASSWORD', ''),
-        //       'charset' => 'utf8',
-        //       'prefix' => '',
-        //       'schema' => 'public',
-        //       'sslmode' => 'prefer',
-        //   ],
-        //
-        // 'pgsql' => [
-        //     'driver' => 'pgsql',
-        //     'host' => $DATABASE_URL['host'],
-        //     'port' => $DATABASE_URL['port'],
-        //     'database' => ltrim($DATABASE_URL['path'], '/'),
-        //     'username' => $DATABASE_URL['user'],
-        //     'password' => $DATABASE_URL['pass'],
-        //     'charset' => 'utf8',
-        //     'prefix' => '',
-        //     'schema' => 'public',
-        //     'sslmode' => 'prefer',
-        // ],
-
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
             'charset' => 'utf8',
             'prefix' => '',
         ],

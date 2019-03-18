@@ -7,6 +7,8 @@
   $password = $DATABASE_URL['pass'];
   $db =  ltrim($DATABASE_URL['path'], '/');
 
+  $conn = new mysqli($server, $username, $password, $db);
+
 return [
 
     /*

@@ -40,6 +40,7 @@ Route::get('/posts/{id}', 'PostController@destroy');
 Route::put('/posts/{id}', 'PostController@update');
 
 Route::get('blog/{slug}', ['as' => 'pages.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
+Route::get('/blog/index', 'BlogController@index')->name('blog.index');
 
 //Routes for comments associated to $posts
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
@@ -51,7 +52,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('blog', function(){
   $posts = DB::table('posts')
-        ->orderBy('id', 'asc')
+        ->orderBy('id', 'desc')
         // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);

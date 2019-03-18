@@ -20,18 +20,10 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    public function getLogin(){
+    public function getLogin()
+    {
       return view('auth/login');
     }
-
-    // protected function authenticated($request, $user)
-    // {
-    //   if($user-> role =='manager'){
-    //       return redirect('add_blogpost');
-    //   }else{
-    //       return redirect('/');
-    //   }
-    // }
 
     protected $redirectTo = '/home';
 

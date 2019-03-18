@@ -10670,6 +10670,10 @@ h5 {
   font-weight: 600;
 }
 
+#comment-form .alert-danger {
+  font-size: 10px;
+}
+
 .jumbotron {
   margin-bottom: 0px;
   background-position: 0% 25%;

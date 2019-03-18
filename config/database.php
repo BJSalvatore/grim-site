@@ -10,6 +10,29 @@ $database = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 
+// $database['default'] = array(
+//     'dsn'    => '',
+//     'hostname' => $cleardb_server,
+//     'username' => $cleardb_username,
+//     'password' => $cleardb_password,
+//     'database' => $cleardb_db,
+//     'dbdriver' => 'mysqli',
+//     'dbprefix' => '',
+//     'pconnect' => FALSE,
+//     'db_debug' => (ENVIRONMENT !== 'production'),
+//     'cache_on' => FALSE,
+//     'cachedir' => '',
+//     'char_set' => 'utf8',
+//     'dbcollat' => 'utf8_general_ci',
+//     'swap_pre' => '',
+//     'encrypt' => FALSE,
+//     'compress' => FALSE,
+//     'stricton' => FALSE,
+//     'failover' => array(),
+//     'save_queries' => TRUE
+// );
+
+
 return [
 
     /*
@@ -23,7 +46,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'heroku_mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -49,7 +72,7 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        'heroku_mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', $server),
             'port' => env('DB_PORT', '3306'),

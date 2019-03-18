@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Comment;
-use App\Http\Requests\CommentFormRequest;
 use App\Post;
 use App\User;
 use Session;
@@ -46,26 +46,7 @@ class CommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function store(Request $request, $post_id)
-   {
-       $request->validate([
-         'name' => 'required|max:255',
-         'username' => 'required|max:255',
-         'email' => 'required|max:255',
-         'comment' => 'required|min:5|max:2000',
-       ]);
-
-//        Using Laravel 5.7, a simpler way if you are using the validation factory, is to override it by sending them in the factory make call:
-// public function make(array $data, array $rules, array $messages = [], array $customAttributes = []),
-// as in:
-// $validator = $factory->make($this->input(), $this->rules(), $this->messages(), $this->attributes());
-
-       $validator = Validator::make($request, $rules, $messages);
-
-       if($validator->fails()) {
-         return Redirect::back()->withErrors($validator);
-       }
-
-
+     {
        $post = Post::find($post_id);
        // $user = User::find('$id');
        $comment = new Comment();
@@ -78,20 +59,49 @@ class CommentsController extends Controller
        $comment-> post_id = $request -> post_id;
        // $comment->user()->associate($user);
 
-       //dd($request->all());
-       // dd($comment);
+       $validatedData = $request->validate([
+        'name' => 'required|max:255',
+        'username' => 'required|max:255',
+        'email' => 'required|max:255',
+        'comment' => 'required|min:5|max:2000',
+      ],
+        $messages = [
+            'name.required' => 'What\'s your name?',
+            'name.max' => 'Can you shorten your name a bit?',
+            'username.required' => 'Don\'t you want everyone to know who posted this?',
+            'username.max' => 'How can you remember all of that?! Shorten this up, please.',
+            'email.required' => 'Your email is required',
+            'email.max' => 'Your email is too long.',
+            'comment.required' => 'Don\'t leave without telling us how you feel!',
+            'comment.min' => 'We know you have more to say. Your message must be longer',
+            'comment.max' => 'Wow! You have a lot to say! If it won\'t fit here, continue on another comment.'
+      ]);
 
-    if(auth()->check()){
-      $comment->save();
-       Session::flash('success', 'Comment was added!');
-      }else{
-       Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
-      }
+      // if($validation->fails()){
+      //     return redirect()->back()->withInput();
+      //   }else{
+      //     return redirect()->route('pages.single', [$post -> slug]);
+      //   }
 
-        // return view('blog.single')->with('$post', $post);
-        // return redirect()->route('blog.single')->with('slug', $slug)->with('post', $post);
+      if(!auth()->check()){
+        Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
+        return redirect()->route('login');
+
+      } else {
+        Session::flash('success', 'Comment was added successfully!');
+        $comment->save();
         return redirect()->route('pages.single', [$post -> slug]);
-    }
+        }
+
+      // if(auth()->check()){
+      //     $comment->save();
+      //     Session::flash('success', 'Comment was added!');
+      //    return redirect()->route('pages.single', [$post -> slug]);
+      //   } else {
+      //     Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
+      //    return redirect()->route('pages.single');
+      //   }
+      }
     /**
      * Display the specified resource.
      *

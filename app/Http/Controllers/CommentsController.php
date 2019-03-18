@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Comment;
 use App\Post;
 use App\User;
@@ -49,58 +50,44 @@ class CommentsController extends Controller
      {
        $post = Post::find($post_id);
        // $user = User::find('$id');
-       $comment = new Comment();
-       $comment -> name = $request-> name;
-       $comment-> username = $request-> username;
-       $comment-> email = $request-> email;
-       $comment-> comment = $request-> comment;
-       $comment-> approved = true;
-       $comment->post()->associate($post);
-       $comment-> post_id = $request -> post_id;
-       // $comment->user()->associate($user);
 
        $validatedData = $request->validate([
-        'name' => 'required|max:255',
-        'username' => 'required|max:255',
-        'email' => 'required|max:255',
+        // 'username' => 'required|max:255',
         'comment' => 'required|min:5|max:2000',
       ],
         $messages = [
-            'name.required' => 'What\'s your name?',
-            'name.max' => 'Can you shorten your name a bit?',
-            'username.required' => 'Don\'t you want everyone to know who posted this?',
-            'username.max' => 'How can you remember all of that?! Shorten this up, please.',
-            'email.required' => 'Your email is required',
-            'email.max' => 'Your email is too long.',
+            // 'username.max' => 'How can you remember all of that?! Shorten this up, please.',
+            // 'username.required' => 'Don\'t you want everyone to know who posted this?',
             'comment.required' => 'Don\'t leave without telling us how you feel!',
             'comment.min' => 'We know you have more to say. Your message must be longer',
             'comment.max' => 'Wow! You have a lot to say! If it won\'t fit here, continue on another comment.'
       ]);
 
-      // if($validation->fails()){
-      //     return redirect()->back()->withInput();
-      //   }else{
-      //     return redirect()->route('pages.single', [$post -> slug]);
-      //   }
+      $comment = new Comment();
+      // $comment-> username = $request-> username;
+      $comment-> username = auth()->user() -> username;
+      $comment-> comment = $request-> comment;
+      $comment-> post_id = $request -> post_id;
+      $comment-> post()->associate($post);
+      $comment-> approved = true;
+      $comment -> approved_at = Carbon::now();
+      // $comment->user()->associate($user);
 
       if(!auth()->check()){
         Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
         return redirect()->route('login');
 
       } else {
-        Session::flash('success', 'Comment was added successfully!');
+
         $comment->save();
+
+        Session::flash('success', 'Comment was added successfully!');
+
         return redirect()->route('pages.single', [$post -> slug]);
         }
 
-      // if(auth()->check()){
-      //     $comment->save();
-      //     Session::flash('success', 'Comment was added!');
-      //    return redirect()->route('pages.single', [$post -> slug]);
-      //   } else {
-      //     Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
-      //    return redirect()->route('pages.single');
-      //   }
+
+
       }
     /**
      * Display the specified resource.

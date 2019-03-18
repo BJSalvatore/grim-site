@@ -5,15 +5,14 @@
 
 @section('content')
 
-@if(Session::has('danger'))
-  <div class="alert alert-danger">
-      <strong>Trespasser!</strong> {!!Session::get('You must register and be logged in to leave blog comments! \nPlease login to continue.'')!!}
-  </div>
-@endif
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          @if(Session::has('danger'))
+            <div class="alert alert-danger">
+                <strong>Stop!</strong><p>'You must register and be logged in to leave blog comments! Please login to continue.'</p>
+            </div>
+          @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

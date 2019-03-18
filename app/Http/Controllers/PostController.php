@@ -6,6 +6,7 @@ use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 use App\Post;
 use Session;
 use Image;
@@ -22,8 +23,7 @@ class PostController extends Controller
     {
         // create a variable and store all of our blog posts in it
         $posts = Post::orderBy('id', 'asc')->paginate(10);
-        // return a view and pass in the variable
-        // return view('posts.index')->with('posts', $posts);
+
         return view('posts.index', compact('posts'));
     }
 
@@ -55,9 +55,28 @@ class PostController extends Controller
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
           'post' => 'required',
           'blog_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
+        ],
+          $messages = [
+            'title.required' => 'A title is required.',
+            'title.max' => 'This title is too long!',
+            'post.required' => 'Don\'t leave without telling your fans something...anything!',
+            'slug.required' => 'A slug is required!',
+            'slug.alpha-dash' => 'Use only hyphens between words!',
+            'slug.min' => 'Minimum number of characters is 5!',
+            'slug.max' => 'Maximum number of characters is 255!',
+            'blog_image.image' => 'This is not an image!',
+            'blog_image.mimes' => 'File type must be JPEG, PNG, JPG, GIF or SVG',
+            'blog_image.max' => 'Maximum file size is !',
         ]);
+
         // store in database
         $post = new Post;
+        $post -> title = $request -> input('title');
+        $post -> slug = $request -> input('slug');
+        $post -> post = $request -> input('post');
+        $post -> image = $request ->input('blog_image');
+        $post -> created_at = Carbon::now();
+        $post -> updated_at = Carbon::now();
 
         // check for and save the image to local file
         if($request->hasFile('blog_image')) {
@@ -73,15 +92,9 @@ class PostController extends Controller
           // save image to aws s3
             $s3 = Storage::disk('s3')->put($filePath, $image);
             $post->image = $s3;
-
         }
 
-          $post -> title = $request -> input('title');
-          $post -> slug = $request -> input('slug');
-          $post -> post = $request -> input('post');
-          $post -> image = $request ->input('blog_image');
-
-          $post->image = $filename; //saves filename for retrieval of image
+        $post->image = $filename; //saves filename for retrieval of image
 
         $post -> save();
 

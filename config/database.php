@@ -1,6 +1,5 @@
 <?php
 
-//Get Heroku ClearDB connection information
 $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $server   = $cleardb_url["host"];
 $username = $cleardb_url["user"];
@@ -87,18 +86,18 @@ return [
             'engine' => null,
         ],
 
-        'mysql2' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost:5432'),
-            'database'  => env('DB_DATABASE', 'grim'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', '#1Chupacabra64'),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'port'      => env('DB_PORT', '80'),
-            'prefix'    => '',
-            'strict'    => false,
-        ],
+        // 'mysql2' => [
+        //     'driver'    => 'mysql',
+        //     'host'      => env('DB_HOST', 'localhost:5432'),
+        //     'database'  => env('DB_DATABASE', 'grim'),
+        //     'username'  => env('DB_USERNAME', 'root'),
+        //     'password'  => env('DB_PASSWORD', '#1Chupacabra64'),
+        //     'charset'   => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'port'      => env('DB_PORT', '80'),
+        //     'prefix'    => '',
+        //     'strict'    => false,
+        // ],
 
         //   'pgsql' => [
         //       'driver' => 'pgsql',

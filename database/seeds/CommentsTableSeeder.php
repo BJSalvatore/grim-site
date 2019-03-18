@@ -12,9 +12,7 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
       DB::table('comments')->insert([
-        'name' => 'Beth Salvatore',
         'username' => 'Demoncowgirl',
-        'email' => 'demoncowgirl@gmail.com',
         'comment' => 'This is a test comment.',
         'approved' => true,
         'post_id' => 1,

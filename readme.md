@@ -2,6 +2,10 @@ Admin login for testing
   Username: bob@example.com
   Pwd: secret
 
+User login for testing
+  Username: ellie@example.com
+  Pwd: secret
+
 This is a website for the California punk band, The Grim.
 I am using a LAMP stack.
 I am building it using the Laravel framework. The CSS is being pre-compiled using Laravel's

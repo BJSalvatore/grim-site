@@ -17,7 +17,7 @@
           <!-- <p>{{ substr($post -> post, 0, 300) }}{{ strlen($post -> post) > 300 ? "..." : ""}}</p> -->
       </div>
       <hr>
-      <div id="commentSection" class="row">
+      <div id="commentSection" class="form-group">
         <div class="col-lg-8">
           @foreach($post-> comments as $comment)
           <div id="comment">

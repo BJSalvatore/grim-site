@@ -1,13 +1,10 @@
 <?php
-
-  $DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-  $server = $DATABASE_URL['host'];
-  $username = $DATABASE_URL['user'];
-  $password = $DATABASE_URL['pass'];
-  $db =  ltrim($DATABASE_URL['path'], '/');
-
-  $conn = new mysqli($server, $username, $password, $db);
+$DATABASE_URL=parse_url(getenv('CLEARDB_DATABASE_URL'));
+$server = $DATABASE_URL['host'];
+$username = $DATABASE_URL['user'];
+$password = $DATABASE_URL['pass'];
+$db =  ltrim($DATABASE_URL['path'], '/');
+$mysqli_connection = new mysqli($server, $username, $password, $db);
 
 return [
 
@@ -90,7 +87,6 @@ return [
        ],
 
     ],
-
 
     /*
     |--------------------------------------------------------------------------

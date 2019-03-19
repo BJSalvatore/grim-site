@@ -152,7 +152,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -214,7 +214,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'AWS' => Aws\Laravel\AwsFacade::class,
-
+        'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
     ],
 
 ];

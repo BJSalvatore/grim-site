@@ -97,12 +97,11 @@ class PostController extends Controller
             $post->image = $s3;
         }
             $post->image = $filename; //saves filename for retrieval of image
-
             $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
-        return Response::download($filePath) -> redirect()->route('posts.show', $post ->id);
-
+        // return Response::download($location) -> redirect()->route('posts.show', $post ->id);
+        return redirect()->route('posts.show', $post ->id);
 
     }
 

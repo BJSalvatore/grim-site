@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Post;
@@ -100,7 +101,7 @@ class PostController extends Controller
             $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
-        return redirect()->route('posts.show', $post ->id);
+        return Response::download($filePath) -> redirect()->route('posts.show', $post ->id);
 
 
     }

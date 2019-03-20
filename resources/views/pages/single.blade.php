@@ -30,6 +30,7 @@
         </div>
       </div>
 
+    <!-- @if (auth()->check()) -->
     <div id="comment-form">
       <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
@@ -46,14 +47,11 @@
                 <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('comment') }}</strong></h5>
               @endif
           </div>
-        <!-- <div class="col-lg-8">
-          <div class="button" style="margin-top: 5px;"> -->
             <button type="submit" class="btn btn-secondary btn-md m-1">Submit Comment</button>
-          <!-- </div> -->
         </div>
       </form>
     </div>
-
+    <!-- @endif -->
   </div>
 </div>
 @endsection

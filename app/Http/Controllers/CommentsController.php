@@ -97,6 +97,11 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
+      //
+      // if(!auth()->check()){
+      //   Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
+      //   return redirect()->route('login');
+      // }
 
       return view('comments.show', ['comment' => $comment]);
     }

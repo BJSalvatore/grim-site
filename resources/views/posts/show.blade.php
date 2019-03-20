@@ -7,38 +7,33 @@
 @include('inc._navbar')
 
 @section('content')
-
-<div class="col-lg-12">
-    <div class="row">
-        <div class="col-lg-4">
-            @include('inc._sidebar')</div>
-            <div class="col-lg-5">
-                <div class="post mt-3">
-                  @if($post->image)
-                    <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
-                  @endif
-                    <h3>{{ $post -> title }}</h3>
-                    <p>{{ $post -> post}}</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="container bg-secondary p-4 align-content-center justify-content-center">
-                    <h5>URL:</h5>
-                    <a href="{{ url('single/'.$post -> slug)}}">{{ url('single/'.$post -> slug)}}</a> <!--appends slug to base url-->
-                    <h5>Created on:</h5>
-                    <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
-                    <h5>Updated on:</h5>
-                    <p>{{ $post -> updated_at }}</p>
-                </div>
-                  <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-md btn-block btn-light m-1">Edit</a>
-                  <form action="{{ route('posts.destroy', $post->id) }}">
-                      @csrf
-                      @method("DELETE")
-                      <button class="btn btn-danger btn-md btn-block">Delete</button>
-                  </form>
-                  <a href="{{ route('posts.index')}}" class="btn btn-md btn-block btn-warning m-1">See All Posts</a>
-            </div>
-            <hr>
-        </div> <!-- end of row -->
-    </div> <!-- end of grid -->
-    @endsection
+<div class="row">
+  <div class="col-lg-4">
+    @include('inc._sidebar')</div>
+      <div class="col-lg-5">
+          <div class="post mt-3">
+            @if($post -> image)
+              <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+            @endif
+              <h3>{{ $post -> title }}</h3>
+              <p>{{ $post -> post}}</p>
+          </div>
+      </div>
+  <div class="col-lg-3">
+      <div class="container bg-secondary mt-3 align-content-center justify-content-center">
+        <div  id="postInfo" class="container p-4">
+          <h5>URL:</h5>
+          <a href="{{ url('single/'.$post -> slug)}}">{{ url('single/'.$post -> slug)}}</a> <!--appends slug to base url-->
+          <h5>Created on:</h5>
+          <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
+          <h5>Updated on:</h5>
+          <p>{{ $post -> updated_at }}</p>
+        </div>
+      </div>
+      <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-md btn-light m-1">Edit</a>
+      <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-md btn-danger m-1" method="post">Delete</a>
+      <a href="{{ route('posts.index') }}" class="btn btn-md btn-primary m-1">View All Posts</a>
+  </div>
+  <hr>
+</div>
+@endsection

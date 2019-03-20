@@ -1,6 +1,6 @@
   <link href="{{ asset('../css/app.css') }}" rel="stylesheet" type="text/css">
 
-<div id="sidebar" class="d-flex text-light bg-dark align-content-center">
+<div id="sidebar" class="d-flex text-light bg-dark align-content-center mt-3">
   <div class="container p-4">
         <h3>New Release!</h3>
         <img id="newLP" class="img-fluid p-0" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"></img>
@@ -13,11 +13,10 @@
       </div>
       <hr>
         <h3>Upcoming Shows</h3>
-        <ul>
-          <li><h5><a href="#">10/10/2018 @ This Place</a></h5></li>
-          <li><h5><a href="#">10/22/2018 @ That Place</a><h5></li>
-          <li><h5><a href="#">11/02/2018 @ The Other Place</a><h5></li>
-        </ul>
+        <div data-tockify-component="mini" data-tockify-calendar="thegrim"></div>
+<script data-cfasync="false" data-tockify-script="embed"
+                                  src="https://public.tockify.com/browser/embed.js"></script>
+
           <img id="logo" class="d-flex img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
     </div>
 </div>

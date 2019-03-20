@@ -30,9 +30,9 @@
           <p>{{ $post -> updated_at }}</p>
         </div>
       </div>
-      <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-md btn-light m-1">Edit</a>
-      <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-md btn-danger m-1" method="post">Delete</a>
-      <a href="{{ route('posts.index') }}" class="btn btn-md btn-primary m-1">View All Posts</a>
+      <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-md btn-light m-1" method="PUT">Edit</a>
+      <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-md btn-danger m-1" method="POST">Delete</a>
+      <a href="{{ url('posts') }}" class="btn btn-md btn-primary m-1">View All Posts</a>
   </div>
   <hr>
 </div>

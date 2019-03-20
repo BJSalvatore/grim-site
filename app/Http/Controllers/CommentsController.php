@@ -63,31 +63,21 @@ class CommentsController extends Controller
             'comment.max' => 'Wow! You have a lot to say! If it won\'t fit here, continue on another comment.'
       ]);
 
-      $comment = new Comment();
-      $comment-> username = auth()->user();
-      $comment-> comment = $request-> comment;
-      $comment-> post_id = $request -> post_id;
-      $comment-> post()->associate($post);
-      $comment-> approved = true;
-      $comment -> approved_at = Carbon::now();
-      // $comment->user()->associate($user);
+          $comment = new Comment();
+          $comment-> username = auth()->user() -> username;
+          $comment-> comment = $request-> comment;
+          $comment-> post_id = $request -> post_id;
+          $comment-> post()->associate($post);
+          $comment-> approved = true;
+          $comment -> approved_at = Carbon::now();
+          $comment->save();
 
-      if(!auth()->check()){
-        Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
-        return redirect()->route('login');
+          Session::flash('success', 'Comment was added successfully!');
 
-      } else {
-
-        $comment->save();
-
-        Session::flash('success', 'Comment was added successfully!');
-
-        return redirect()->route('pages.single', [$post -> slug]);
-        }
-
-
-
+          return redirect()->route('pages.single', [$post -> slug]);
       }
+
+
     /**
      * Display the specified resource.
      *
@@ -97,11 +87,6 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
-      //
-      // if(!auth()->check()){
-      //   Session::flash('danger', 'You must register and be logged in to leave blog comments! Please login to continue.');
-      //   return redirect()->route('login');
-      // }
 
       return view('comments.show', ['comment' => $comment]);
     }

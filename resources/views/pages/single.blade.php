@@ -28,9 +28,12 @@
           </div>
           @endforeach
         </div>
+        @if(!auth()->check())
+        <h5>You must be registered and logged in to leave a comment.</h5>
+          <a href="{{ url('auth/login') }}" class="btn btn-md btn-primary m-1">Login</a>
+        @endif
       </div>
-
-    <!-- @if (auth()->check()) -->
+    @if(auth()->check())
     <div id="comment-form">
       <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
@@ -38,7 +41,7 @@
             <div class="col-lg-8">
              <label class="mt-1" for="username"><strong>UserName:</strong>
             </label>
-            <h3> <input class="form-control" id="username" name="username" type="textarea" value="{{ Auth::user() -> username }}"></input></h3>
+            <h3> <input class="form-control" id="username" name="username" type="textarea" value="{{ Auth::user()->username}}"></input></h3>
            </div>
           <div class="col-lg-12">
              <label class="mt-1" for="comment"><strong>Comment:</strong></label>
@@ -47,11 +50,14 @@
                 <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('comment') }}</strong></h5>
               @endif
           </div>
+          <div class="col-lg-8">
             <button type="submit" class="btn btn-secondary btn-md m-1">Submit Comment</button>
+          </div>
         </div>
       </form>
     </div>
-    <!-- @endif -->
+  @endif
   </div>
 </div>
+
 @endsection

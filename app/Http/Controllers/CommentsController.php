@@ -27,7 +27,7 @@ class CommentsController extends Controller
       // create a variable and store all of our blog comments in it
       $comments = Comment::orderBy('id', 'asc')->paginate(5);
       // // return a view and pass in the variable
-      // return view('comments.index')->with('comments', $comments);
+      return view('comments.index', ['comments', $comments]);
     }
 
     /**
@@ -64,8 +64,7 @@ class CommentsController extends Controller
       ]);
 
       $comment = new Comment();
-      // $comment-> username = $request-> username;
-      $comment-> username = auth()->user() -> username;
+      $comment-> username = auth()->user();
       $comment-> comment = $request-> comment;
       $comment-> post_id = $request -> post_id;
       $comment-> post()->associate($post);
@@ -97,7 +96,9 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
+      $comment = Comment::find($id);
 
+      return view('comments.show', ['comment' => $comment]);
     }
 
     /**

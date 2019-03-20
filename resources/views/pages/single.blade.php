@@ -16,7 +16,6 @@
           <p>{{ $post -> post }}</p>
           <!-- <p>{{ substr($post -> post, 0, 300) }}{{ strlen($post -> post) > 300 ? "..." : ""}}</p> -->
         </div>
-      </div>
       <hr>
       <div id="commentSection" class="form-group">
         <div class="col-lg-8">
@@ -30,6 +29,7 @@
           @endforeach
         </div>
       </div>
+
     <div id="comment-form">
       <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
@@ -37,7 +37,7 @@
             <div class="col-lg-8">
              <label class="mt-1" for="username"><strong>UserName:</strong>
             </label>
-            <h3> <input class="form-control" id="username" name="username" type="textarea" value=" {{ Auth::user() -> username }}"></input></h3>
+            <h3> <input class="form-control" id="username" name="username" type="textarea" value="{{ Auth::user() -> username }}"></input></h3>
            </div>
           <div class="col-lg-12">
              <label class="mt-1" for="comment"><strong>Comment:</strong></label>
@@ -53,5 +53,7 @@
         </div>
       </form>
     </div>
+
+  </div>
 </div>
 @endsection

@@ -22,6 +22,7 @@
           <th>Post</th>
           <th>Image ID</th>
           <th>Created At</th>
+          <th>Updated At</th>
           <th></th>
         </thead>
         <tbody>
@@ -36,16 +37,11 @@
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
             <td>{{ $post->image }}</td>
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
+            <td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
             <td>
-              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>
-            <form method="PUT">
-              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
-            </form>
-            <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-              @csrf
-              @method("DELETE")
-              <button class="btn btn-danger btn-sm">Delete</button>
-            </form>
+              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a>
+              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a>
+              <a action="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
             </td>
           </tr>
           @endforeach

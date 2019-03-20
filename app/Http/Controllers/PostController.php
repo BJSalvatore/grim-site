@@ -131,7 +131,7 @@ class PostController extends Controller
         // find post in database and save it as variable
         $post = Post::find($id);
         // return the view and pas in the var we previously created
-        return view('posts.edit')->withPost($post);
+        return view('posts.edit', ['post' => $post]);
     }
     /**
      * Update the specified resource in storage.
@@ -179,11 +179,12 @@ class PostController extends Controller
 
           // delete old photo
           // Storage::delete($oldFilename);
-         File::delete(public_path('assets/images/blogImages/' . $oldFilename));
+          File::delete(public_path('assets/images/blogImages/' . $oldFilename));
 
           $post->image = $location . '/' . $filename; //saves filename for retrieval of image
 
         }
+
         $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');

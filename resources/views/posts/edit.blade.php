@@ -11,8 +11,9 @@
     @include('inc._sidebar')</div>
     <div class="col-lg-8">
       <div class="form-group">
-        <form id="editForm" role="form" method="PUT" action="{{ action('PostController@update', $post->id) }}" enctype="multipart/form-data">
-            @csrf
+        <form id="editForm" method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
+          @method('PATCH')
+          @csrf
             <label class="mt-1" for="title">Title</label>
             <input class="form-control form-control-lg" id="title" name='title' value="{{ $post -> title}}" type="text"></input>
             <label class="mt-1" for="slug">Slug</label>
@@ -27,8 +28,8 @@
               <h5>Updated on:</h5>
               <p>{{ $post -> updated_at }}</p>
             </div>
-          <button type="submit" class="btn btn-success btn-block">Save Changes</button>
-          <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-block btn-danger m-1">Cancel</a>
+              <a href="{{ route('posts.update', $post -> id) }}" class="btn btn-success btn-block" method="PUT">Save Changes</a>
+              <a href="{{ route('posts.show', $post -> id) }}" class="btn btn-block btn-danger m-1">Cancel</a>
         </form>
       </div>
     </div>

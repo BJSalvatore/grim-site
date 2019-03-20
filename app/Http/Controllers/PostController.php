@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Post;
@@ -23,9 +23,9 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('id', 'asc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(20);
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function __construct()
@@ -105,11 +105,6 @@ class PostController extends Controller
 
     }
 
-    // public static function getImage (Request $filePath)
-    // {
-    //   return $filePath;
-    // }
-
     /**
      * Display the specified resource.
      *
@@ -120,7 +115,8 @@ class PostController extends Controller
     {
         // call function in Post model
         $post = Post::find($id);
-        return view('posts.show')->withPost($post);
+
+        return view('posts.show', ['post' => $post]);
 
     }
 
@@ -135,7 +131,7 @@ class PostController extends Controller
         // find post in database and save it as variable
         $post = Post::find($id);
         // return the view and pas in the var we previously created
-        return view('posts.edit')->withPost($post);
+        return view('posts.edit', ['post' => $post]);
     }
     /**
      * Update the specified resource in storage.
@@ -183,11 +179,12 @@ class PostController extends Controller
 
           // delete old photo
           // Storage::delete($oldFilename);
-         File::delete(public_path('assets/images/blogImages/' . $oldFilename));
+          File::delete(public_path('assets/images/blogImages/' . $oldFilename));
 
           $post->image = $location . '/' . $filename; //saves filename for retrieval of image
 
         }
+
         $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');

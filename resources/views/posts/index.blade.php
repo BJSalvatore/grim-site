@@ -5,14 +5,13 @@
 
 @section('content')
 <div class="container">
-<div class="row">
-  <div class="col-lg-12">
-      <h1>All Posts</h1>
-      <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Create New Post</a>
-  </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <h1>All Posts</h1>
+        <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Create New Post</a>
+    </div>
     <div class="col-lg-12"><hr></div>
   </div>
-
   <div class="row">
     <div class="col-lg-12">
       <table class="table">
@@ -23,27 +22,26 @@
           <th>Post</th>
           <th>Image ID</th>
           <th>Created At</th>
+          <th>Updated At</th>
           <th></th>
         </thead>
         <tbody>
           @foreach($posts as $post)
           <tr>
+            <!-- @if($post->image)
+              <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+            @endif -->
             <th>{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->slug }}</td>
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
             <td>{{ $post->image }}</td>
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
+            <td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
             <td>
-              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>
-            <form method="PUT">
-              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
-            </form>
-              <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                @csrf
-                @method("DELETE")
-                <button class="btn btn-danger btn-sm">Delete</button>
-              </form>
+              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a>
+              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a>
+              <a action="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
             </td>
           </tr>
           @endforeach
@@ -58,4 +56,4 @@
     </div>
   </div>
 </div>
-  @endsection
+@endsection

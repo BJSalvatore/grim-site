@@ -15,6 +15,7 @@
           <h3>{{ $post -> title }}</h3>
           <p>{{ $post -> post }}</p>
           <!-- <p>{{ substr($post -> post, 0, 300) }}{{ strlen($post -> post) > 300 ? "..." : ""}}</p> -->
+        </div>
       </div>
       <hr>
       <div id="commentSection" class="form-group">

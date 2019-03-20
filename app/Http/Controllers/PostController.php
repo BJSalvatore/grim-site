@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Post;
@@ -22,9 +23,9 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(20);
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function __construct()
@@ -102,13 +103,7 @@ class PostController extends Controller
         // redirect to another
         return redirect()->route('posts.show', $post ->id);
 
-
     }
-
-    // public static function getImage (Request $filePath)
-    // {
-    //   return $filePath;
-    // }
 
     /**
      * Display the specified resource.
@@ -120,7 +115,8 @@ class PostController extends Controller
     {
         // call function in Post model
         $post = Post::find($id);
-        return view('posts.show')->withPost($post);
+
+        return view('posts.show', ['post' => $post]);
 
     }
 

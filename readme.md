@@ -17,3 +17,4 @@ Symfony
 Eloquent
 Mysql
 Bootstrap
+Image Intervention

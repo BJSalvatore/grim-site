@@ -38,11 +38,11 @@ class ImageController extends Controller
 
   // save image to aws s3
       $s3 = Storage::disk('s3')->put($filePath, $image, 'public');
-      $uploadedImage -> image = $s3;
+      $post -> image = $s3;
       }
-      $uploadedImage -> image = $filename; //saves filename for retrieval of image
+      $post -> image = $filename; //saves filename for retrieval of image
 
-      $uploadedImage->save();
+      $post->save();
     }
 
   public static function getImage ($filePath)

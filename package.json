@@ -44,8 +44,8 @@
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.7",
     "sass": "^1.17.3",
-    "vue": "^2.6.9",
-    "vue-template-compiler": "^2.6.9",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-mix": "^2.0.2"

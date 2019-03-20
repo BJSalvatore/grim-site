@@ -58,6 +58,14 @@ Route::get('blog', function(){
   return view('pages.blog', ['posts'=>$posts]);
 });
 
+Route::get('allPosts', function(){
+  $posts = DB::table('posts')
+        ->orderBy('id', 'desc')
+        // ->limit(10)
+        ->get();
+  return view('pages.index', ['posts'=>$posts]);
+});
+
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 

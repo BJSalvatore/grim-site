@@ -27,6 +27,9 @@
         <tbody>
           @foreach($posts as $post)
           <tr>
+            <!-- @if($post->image)
+              <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+            @endif -->
             <th>{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->slug }}</td>
@@ -34,7 +37,6 @@
             <td>{{ $post->image }}</td>
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
             <td>
-
               <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1">View</a>
             <form method="PUT">
               <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1">Edit</a>
@@ -44,7 +46,6 @@
               @method("DELETE")
               <button class="btn btn-danger btn-sm">Delete</button>
             </form>
-
             </td>
           </tr>
           @endforeach

@@ -53,14 +53,15 @@ class CommentsController extends Controller
 
        $validatedData = $request->validate([
         // 'username' => 'required|max:255',
-        'comment' => 'required|min:5|max:2000',
+        'comment' => 'required|min:5|max:2000|unique:comments',
       ],
         $messages = [
             // 'username.max' => 'How can you remember all of that?! Shorten this up, please.',
             // 'username.required' => 'Don\'t you want everyone to know who posted this?',
             'comment.required' => 'Don\'t leave without telling us how you feel!',
             'comment.min' => 'We know you have more to say. Your message must be longer',
-            'comment.max' => 'Wow! You have a lot to say! If it won\'t fit here, continue on another comment.'
+            'comment.max' => 'Wow! You have a lot to say! If it won\'t fit here, continue on another comment.',
+            'comment.unique' => 'Be original! Someone has already used this comment.'
       ]);
 
           $comment = new Comment();

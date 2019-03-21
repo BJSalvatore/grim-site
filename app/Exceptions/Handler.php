@@ -14,13 +14,28 @@ class Handler extends ExceptionHandler
      * @param  \Symfony\Component\HttpKernel\Exception\HttpException  $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    protected function renderHttpException(HttpException $e)
+    // protected function renderHttpException(HttpException $e)
+    // {
+    //     if (! view()->exists("errors.{$e->getStatusCode()}")) {
+    //     return response()->view('errors.default', ['exception' => $e], 500, $e->getHeaders());
+    //     }
+    //     return parent::renderHttpException($e);
+    // }
+
+    public function renderHttpException(HttpException $e)
     {
-        if (! view()->exists("errors.{$e->getStatusCode()}")) {
-        return response()->view('errors.default', ['exception' => $e], 500, $e->getHeaders());
+    if ($this->isHttpException($e)) {
+        if ($e->getStatusCode() == 404) {
+            return response()->view('errors.' . '404', [], 404);
         }
-        return parent::renderHttpException($e);
+
+        if ($exception->getStatusCode() == 500) {
+            return response()->view('errors.' . '500', [], 500);
+        }
     }
+
+    return parent::render($request, $exception);
+  }
     /**
      * A list of the exception types that are not reported.
      *

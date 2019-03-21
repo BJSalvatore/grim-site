@@ -9,13 +9,14 @@
     <div class="col-lg-4">
     @include('inc._sidebar')</div>
     <div class="col-lg-8">
+      <h3 class="mt-3" style="font-family: Freckle Face;">Edit Post</h3>
       <div class="form-group">
         <form action id="editForm" method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div>
           @if($post->image)
-            <img class="mt-3" src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+            <img class="mt-1" src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
           @endif
           </div>
           <div>

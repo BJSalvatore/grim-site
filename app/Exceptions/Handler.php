@@ -34,6 +34,7 @@ class Handler extends ExceptionHandler
         }
 
     return parent::render($request, $e);
+    }
   }
     /**
      * A list of the exception types that are not reported.

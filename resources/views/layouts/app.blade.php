@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Font Awesome -->
@@ -17,14 +16,13 @@
     <link href="{{ asset('css/parsley.css') }}" rel="stylesheet" type="text/css">
 
     <title>The Grim @yield('title')</title>
-
 </head>
+
 <body style="background-color: silver; postion:fixed; z-index: -1;">
-<!-- <div id="app" class="container m-0 pl-0 pt-3 pb-3"> -->
-  <!-- @include('alert') -->
+
+  @include('alert')
   @yield('content')
   @include('inc._footer')
-</div>
 
 
 <!-- Scripts -->

@@ -142,23 +142,30 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // $post = $request->input('id');
       $post = Post::find($id);
 
-        if($request -> input('slug') == $post -> slug) {
-          $validateData = $request -> validate([
+      $validatedData = $request ->validate([
           'title' => 'required|unique:posts|max:255',
-          'post' => 'required'
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
+          'post' => 'required',
+          'blog_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
+        ],
+          $messages = [
+            'title.required' => 'A title is required.',
+            'title.unique' => 'This title has already been used.',
+            'title.max' => 'This title is too long!',
+            'slug.required' => 'A slug is required!',
+            'slug.alpha-dash' => 'Use only hyphens between words!',
+            'slug.min' => 'Minimum number of characters is 5!',
+            'slug.max' => 'Maximum number of characters is 255!',
+            'slug.unique' => 'This slug has already been used.',
+            'post.required' => 'Don\'t leave without telling your fans something...anything!',
+            'blog_image.image' => 'This is not an image!',
+            'blog_image.mimes' => 'File type must be JPEG, PNG, JPG, GIF or SVG',
+            'blog_image.max' => 'Maximum file size is !',
         ]);
-        }else{
-        // validate the database
-          $validatedData -> $request ->validate([
-            'title' => 'required|unique:posts|max:255',
-            'slug' => "required|alpha_dash|min:5|max:255|unique:posts',$id",
-            'post' => 'required',
-            'blog_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8192',
-          ]);
 
-        $post = Post::find($id);
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
@@ -185,12 +192,11 @@ class PostController extends Controller
 
         }
 
-        $post -> save();
+        $post->update($request->all());
+        // $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');
-
         return redirect()->route('posts.show', $post->id);
-      }
     }
     /**
      * Remove the specified resource from storage.
@@ -201,11 +207,11 @@ class PostController extends Controller
     public function destroy($id)
     {
       $post = Post::find($id);
+      dd($post);
       Storage::delete($post->image);
       $post -> delete();
 
       Session::flash('success', 'Post was deleted successfully.');
-
       return redirect()->route('posts.index');
     }
 }

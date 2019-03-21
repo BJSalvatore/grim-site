@@ -30,9 +30,15 @@
           <p>{{ $post -> updated_at }}</p>
         </div>
       </div>
-      <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-md btn-light m-1" method="GET">Edit</form>
-      <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-md btn-danger m-1" method="DELETE">Delete</a>
-      <a href="{{ url('posts') }}" class="btn btn-md btn-primary m-1" method="GET">View All Posts</a>
+    <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
+      @csrf
+      @method('DELETE')
+    <div>
+      <button type="submit" class="btn btn-block btn-danger m-1">Delete</a>
+    </div>
+    </form>
+       <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</form>
+      <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-1" method="GET">View All Posts</a>
   </div>
   <hr>
 </div>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit>
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=heroku_37ef2959c0795ff;host=us-cdbr-iron-east-01.cleardb.net" />
+        <var name="DB_USER" value=getenv("CLEARDB_DATABASE") />
+        <var name="DB_PASSWD" value=getenv("CLEARDB_PASSWORD") />
+        <var name="DB_DBNAME" value=getenv("CLEARDB_USERNAME") />
+    </php>
+</phpunit>

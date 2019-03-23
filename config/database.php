@@ -1,9 +1,9 @@
 <?php
-$DATABASE_URL=parse_url(getenv('CLEARDB_DATABASE_URL'));
-$server = $DATABASE_URL['host'];
-$username = $DATABASE_URL['user'];
-$password = $DATABASE_URL['pass'];
-$db =  ltrim($DATABASE_URL['path'], '/');
+$DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$server = $DATABASE_URL["host"];
+$username = $DATABASE_URL["user"];
+$password = $DATABASE_URL["pass"];
+$db =  ltrim($DATABASE_URL["path"], "/");
 $mysqli_connection = new mysqli($server, $username, $password, $db);
 
 return [
@@ -19,7 +19,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'heroku_mysql'),
+    'default' => env('EXT_DB_CONNECTION', 'heroku_mysql'),
 
     /*
     |--------------------------------------------------------------------------

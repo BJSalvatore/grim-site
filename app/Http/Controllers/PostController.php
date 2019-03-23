@@ -142,58 +142,62 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-      // $post = $request->input('id');
+
       $post = Post::find($id);
+      $oldFilename = $post -> image;
 
       $validatedData = $request ->validate([
-          'title' => 'required|unique:posts|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts',
+          'title' => 'required|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255',
           'post' => 'required',
           'blog_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
         ],
           $messages = [
             'title.required' => 'A title is required.',
-            'title.unique' => 'This title has already been used.',
+            // 'title.unique' => 'This title has already been used.',
             'title.max' => 'This title is too long!',
             'slug.required' => 'A slug is required!',
             'slug.alpha-dash' => 'Use only hyphens between words!',
             'slug.min' => 'Minimum number of characters is 5!',
             'slug.max' => 'Maximum number of characters is 255!',
-            'slug.unique' => 'This slug has already been used.',
+            // 'slug.unique' => 'This slug has already been used.',
             'post.required' => 'Don\'t leave without telling your fans something...anything!',
             'blog_image.image' => 'This is not an image!',
             'blog_image.mimes' => 'File type must be JPEG, PNG, JPG, GIF or SVG',
             'blog_image.max' => 'Maximum file size is !',
         ]);
 
-        $post -> title = $request -> input('title');
-        $post -> slug = $request -> input('slug');
-        $post -> post = $request -> input('post');
-        $post -> image = $request -> input('blog_image');
+        $post = $request->all(); // this retrieve the new input information
 
         if($request->hasFile('blog_image')){
           //add new photo
-          $image = $request->file('blog_image');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('assets/images/blogImages/' . $filename);
-          Image::make($image)->resize(300, null, function ($constraint){
-            $constraint->aspectRatio();
+          $newImage = $request->file('blog_image');
+          $newFilename = time() . '.' . $newImage->getClientOriginalExtension();
+          $location = public_path('assets/images/blogImages/' . $newFilename);
+          $filePath = '' . $newFilename;
+          Image::make($newImage)->resize(300, null, function ($constraint){
+          $constraint->aspectRatio();
           })->save($location);
 
-          $image->move($location, $filename);
-          //update database with new photo
-          $oldFilename = $post->image; //grabs old filename
+          // delete old image from local public folder
+          if (Storage::exists(public_path('assets/images/blogImages/' . $oldFilename))){
+              Storage::delete(public_path('assets/images/blogImages/' . $oldFilename));
+              unlink(public_path('assets/images/blogImages/' . $oldFilename));
+            }
 
-          // delete old photo
-          // Storage::delete($oldFilename);
-          File::delete(public_path('assets/images/blogImages/' . $oldFilename));
+          // delete old image from AWS storage
+          if(Storage::disk('s3')->exists($filePath . $oldFilename)) {
+            Storage::disk('s3')->delete($filePath . $oldFilename);
+          }
 
-          $post->image = $location . '/' . $filename; //saves filename for retrieval of image
+        // save image to aws s3
+          $s3 = Storage::disk('s3')->put($filePath, $newImage);
+          dd($post, $newFilename);
+          $post->newImage = $s3;
 
-        }
-
-        $post->update($request->all());
-        // $post -> save();
+      }
+          $post->newImage = $filename;
+          $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');
         return redirect()->route('posts.show', $post->id);
@@ -206,12 +210,18 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-      $post = Post::find($id);
-      dd($post);
-      Storage::delete($post->image);
+      $post = Post::findOrFail($id);
+
+
+        // if(file_exists(public_path('assets/images/blogImages/' . $filename))){
+        //   $filename = delete();
+        //   $s3 = new S3(awsAccessKey, awsSecretKey);
+        //   $s3->deleteObject("bucketname", filename);
+        // }
+
       $post -> delete();
 
-      Session::flash('success', 'Post was deleted successfully.');
-      return redirect()->route('posts.index');
+      // Session::flash('success', 'Post was deleted successfully.');
+      return redirect()->route('posts.index')->with('success', 'Post was deleted successfully.');
     }
 }

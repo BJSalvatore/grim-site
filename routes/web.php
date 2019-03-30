@@ -28,6 +28,7 @@ Route::get('/merch', 'PagesController@getMerch');
 Route::get('/photos', 'PagesController@getPhotos');
 Route::get('/press', 'PagesController@getPress');
 Route::get('/blog', 'PagesController@getBlog');
+// Route::get('/files', 'FileController@index');
 
 //Routes for posts
 Route::resource('/posts', 'PostController');
@@ -75,6 +76,15 @@ Route::get('press', function(){
       ->get();
   return view('pages.press', ['releases'=>$releases])->with('header_title', $header_title);
 });
+
+//routes for file uploads
+Route::resource('files', 'FileController');
+Route::get('/files', 'FileController@index')->name('files.index');
+Route::post('files/add', 'FileController@store')->name('files.add');
+Route::post('files/add', 'FileController@create');
+Route::get('/files/{id}/show', 'FileController@show')->name('files.show');
+Route::post('files/edit/{id}', 'FileController@edit')->name('files.edit');
+Route::post('files/delete/{id}', 'FileController@destroy')->name('files.delete');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

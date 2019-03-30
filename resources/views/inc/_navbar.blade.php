@@ -47,30 +47,33 @@
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="{{ Request::is ('about') ? 'active': ''}}" href="/about">About</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="{{ Request::is ('press') ? 'active': ''}}" href="/press">Press</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="{{ Request::is ('photos') ? 'active': ''}}" href="/photos">Photos</a>
-        </li>
-        <li class="nav-item">
-          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
+        </li> -->
+        <!-- <li class="nav-item"> -->
+          <!-- <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('merch') ? 'active': ''}}" href="/merch">Merch</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
-        </li>
+        </li> -->
           @if(auth()->user()->isAdmin())
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
+        </li>
+        <li class="nav-item active">
+          <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Manage Files</a></li>
         </li>
           @endif
         <li class="nav-item active">

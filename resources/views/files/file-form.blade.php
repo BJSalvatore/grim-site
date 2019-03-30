@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @include('inc._navbar')
 
-@section('title', '| View All Files')
+@section('title', '| Add Files')
 
 @section('content')
 <div class="container is-fluid box">

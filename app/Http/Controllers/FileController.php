@@ -6,6 +6,8 @@ use App;
 use App\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
@@ -45,29 +47,49 @@ public function index()
       $all_ext = implode(',', $this->allExtensions()); //joins elements of array with string
 
       $this->validate($request, [
-        'title' => 'required|unique:files',
+        'name' => 'required|unique:files|max:15',
         'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
-      ]);
+      ],
+        $messages = [
+          'name.required' => 'A file name is required.',
+          'name.unique' => 'This name has been used before. Please try another one.',
+          'name.max' => 'There is a maximum of 15 characters allowed.',
+          'file.required' => 'There are no files attached.',
+          'file.file' => 'This is not a file.',
+          'file.mimes' => 'Accepted file types are: image, audio, video and documents.',
+          'file.max' => 'Maximum file size is ' . $max_size,
+        ]);
 
       //gets file extension and type
       $file = new File();
+      $file-> name = $request->input('name');
+      $file-> title = $request->input('title');
+      $file-> user_id = auth()->user() -> username;
 
       $file = $request->file('file');
-      $ext = $file-getClientOriginalExtension();
+      $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
+      $filename = $request['name'] . '.' . $ext;
+      $path = ('/public/assets/files/' . $filename);
 
-      //upload file to file storage in user personal directory
-      if (Storage::putFileAs('/public/files' . '/' . $type . '/', $file, $request['title'] . '.' . $ext))
-        {
-          return File::create([
-              $file-> title => $request->input('title'),
-              $ifle-> type => $type,
-              $file-> extension => $ext,
-              $file-> user_id => auth()->user() -> username
-          ]);
-        }
+      if(Storage::putFileAS($path, $file, $filename)){
+        return File::create([
+            'name' => $filename,
+            'title' => $request->input('title'),
+            'file' => $path,
+            'type' => $type,
+            'extension' => $ext,
+            'user_id' => auth()->user() -> username
+        ]);
+
+        // save file to local folder
+        $local = Storage::disk('local')->put($filePath, $file);
+        $file-> file = $local;
+
+      }
+        $file -> file = $filename;
+        dd($file);
         $file ->save();
-      // return response()->json(false);
     }
 
     public function show($id)
@@ -84,21 +106,21 @@ public function index()
     {
       $file = File::where('id', $id)->where ('user_id', Auth::id())->first();
 
-      if ($file->title == $request['title']){
+      if ($file->name == $request['name']){
         // return response()->json(false);
       }
         $this -> validate($request, [
-          'title' => 'required|unique:files'
+          'name' => 'required|unique:files'
       ]);
 
-      $old_filename = '/public/' . '/' . $file->type . '/' . $file->title . '.' . $file->extension;
-      $new_filename = '/public/' . $this->getUserDir() . '/' . $request['type'] . '/' . $request['title'] . '.' . $request['extension'];
+      $old_filename = '/public/' . '/' . $file->type . '/' . $file->name . '.' . $file->extension;
+      $new_filename = '/public/' . $this->getUserDir() . '/' . $request['type'] . '/' . $request['name'] . '.' . $request['extension'];
 
       if (Storage::disk('local')->exists($old_filename))
       {
         if(Storage::disk('local')->move($old_filename, $new_filename))
         {
-          $file->title = $request['title'];
+          $file->title = $request['name'];
           return $file->save();
         }
       }
@@ -111,9 +133,9 @@ public function index()
     {
       $file = File::findOrFail($id);
 
-      if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->title . '.' . $file->extension))
+      if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
       {
-        if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->title . '.' . $file->extension))
+        if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
         {
           return $file->delete();
         }
@@ -150,9 +172,5 @@ public function index()
       return array_merge($this->image_ext, $this->audio_ext, $this->video_ext, $this->document_ext);
     }
 
-    //get directory for the specific user
-    // private function getUserDir()
-    // {
-    //   return Auth::user()-name . '_' . Auth::id();
-    // }
+
 }

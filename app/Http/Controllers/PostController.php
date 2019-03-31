@@ -15,6 +15,10 @@ use Image;
 class PostController extends Controller
 {
 
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,11 +30,6 @@ class PostController extends Controller
         $posts = Post::orderBy('id', 'desc')->paginate(20);
 
         return view('posts.index', ['posts' => $posts]);
-    }
-
-    public function __construct()
-    {
-      $this->middleware('auth');
     }
 
     /**

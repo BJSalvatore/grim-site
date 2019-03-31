@@ -8,7 +8,6 @@
 <div class="row">
   <div class="col-lg-12">
     <h1>All Image, Video & Audio Files</h1>
-    <a href="{{ route('files.add') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Files</a>
     <table class="table">
       <thead>
         <th>#</th>
@@ -34,14 +33,15 @@
           <td>{{ date('M j, Y', strtotime($file->created_on)) }}</td>
           <!-- <td>{{ date('M j, Y', strtotime($file->updated_at)) }}</td> -->
           <td>
-            <a href="{{ route('files.show', $file -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a>
+            <a href="{{ route('files.index', $file -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a>
             <a href="{{ route('files.edit', $file -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a>
-            <a action="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
+            <a href="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
           </td>
         </tr>
         @endforeach
       </tbody>
     </table>
+    <a href="{{ route('files.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Files</a>
     <div class="d-flex flex-row align-items-center justify-content-center">
       {{$files -> links()}}
     </div>

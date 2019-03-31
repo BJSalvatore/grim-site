@@ -28,9 +28,13 @@ public function index()
 {
 
   $files = File::orderBy('created_on', 'desc')->paginate(5);
+  return view('files.file-display', compact('files'));
 
-  return view('files/file-display', ['files' => $files]);
+    }
 
+    public function create()
+    {
+        return view('files.file-form');
     }
 
     // upload new file and create a new record in the database
@@ -71,7 +75,7 @@ public function index()
         // call function in Post model
         $file = File::find($id);
 
-        return view('files.show', ['file' => $file]);
+        return view('files/file-display', ['file' => $file]);
 
     }
 
@@ -80,26 +84,25 @@ public function index()
     {
       $file = File::where('id', $id)->where ('user_id', Auth::id())->first();
 
-      if ($file->name == $request['name']){
+      if ($file->title == $request['title']){
         // return response()->json(false);
       }
         $this -> validate($request, [
-          'name' => 'required|unique:files'
+          'title' => 'required|unique:files'
       ]);
 
-      $old_filename = '/public/' . '/' . $file->type . '/' . $file->name . '.' . $file->extension;
-      $new_filename = '/public/' . $this->getUserDir() . '/' . $request['type'] . '/' . $request['name'] . '.' . $request['extension'];
+      $old_filename = '/public/' . '/' . $file->type . '/' . $file->title . '.' . $file->extension;
+      $new_filename = '/public/' . $this->getUserDir() . '/' . $request['type'] . '/' . $request['title'] . '.' . $request['extension'];
 
       if (Storage::disk('local')->exists($old_filename))
       {
         if(Storage::disk('local')->move($old_filename, $new_filename))
         {
-          $file->name = $request['name'];
+          $file->title = $request['title'];
           return $file->save();
         }
       }
 
-        // return response()->json(false);
     }
 
 
@@ -108,14 +111,13 @@ public function index()
     {
       $file = File::findOrFail($id);
 
-      if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
+      if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->title . '.' . $file->extension))
       {
-        if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
+        if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->title . '.' . $file->extension))
         {
           return $file->delete();
         }
       }
-        // return response()->json(false);
     }
 
     // this is the function used to determine type of file

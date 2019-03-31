@@ -78,13 +78,13 @@ Route::get('press', function(){
 });
 
 //routes for file uploads
-Route::resource('files', 'FileController');
-Route::get('/files', 'FileController@index')->name('files.index');
-Route::post('files/add', 'FileController@store')->name('files.add');
-Route::post('files/add', 'FileController@create');
+Route::resource('/files', 'FileController');
+Route::get('/files/index', 'FileController@index')->name('files.index');
+Route::post('files/store', 'FileController@store')->name('files.store');
+Route::post('files/add', 'FileController@create')->name('files.add');
 Route::get('/files/{id}/show', 'FileController@show')->name('files.show');
-Route::post('files/edit/{id}', 'FileController@edit')->name('files.edit');
-Route::post('files/delete/{id}', 'FileController@destroy')->name('files.delete');
+Route::get('files/edit/{id}', 'FileController@edit');
+Route::post('files/delete/{id}', 'FileController@destroy');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

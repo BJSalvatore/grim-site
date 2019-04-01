@@ -27,7 +27,7 @@
           <th>{{ $file-> title }}</th>
           <td>{{ $file -> type }}</td>
           <td>@if($file->type == 'jpg')
-            <img src="{{ asset('storage/app/public/assets/files/' .  $file -> name . $file -> extension) }}" height="150" width="auto"></img>
+            <img src="{{ asset('storage/assets/files/' .  $file -> name . $file -> extension) }}" height="150" width="auto"></img>
           @else
             This is a {{$file -> type}} file.
           @endif</td>

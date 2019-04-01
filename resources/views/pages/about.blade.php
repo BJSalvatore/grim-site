@@ -11,6 +11,50 @@
     <div class="col-4">@include('inc._sidebar')</div>
     <div class="row">
     <div class="col-lg-8 mt-3">
+      <h1 style="font-family: Freckle Face;">Band Lineup</h1>
+      <table class="table">
+        <thead>
+          <td></td>
+          <th>Name</th>
+          <th>Instrument</th>
+          <th>Dates</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>Image Here</td>
+
+            <td>Tim "Timmy" McDuffee</td>
+            <td>Vocals</td>
+            <td>1982</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>Image Here</td>
+            <td>Bob Oedy</td>
+            <td>Guitar</td>
+            <td>1982</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>Image Here</td>
+            <td>Jeff Yearsley</td>
+            <td>Guitar</td>
+            <td>2010</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>Image Here</td>
+            <td>Brian Preiss</td>
+            <td>Bass</td>
+            <td>2010</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>Image Here</td>
+            <td>Micah Rossellini</td>
+            <td>Drums</td>
+            <td>2016</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-8 mt-3 mb-3">
       <h1 style="font-family: Freckle Face;">Discography</h1>
       <table class="table">
         <thead>
@@ -36,14 +80,14 @@
             <td>Ghetto-way Records</td>
           </tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive"></img>No Image</td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/live-at-fenders.jpg') }}"></img></td>
             <td>Live At Fenders</td>
             <td>7" EP</td>
             <td>1987</td>
             <td>Super Seven Records</td>
           </tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive">No Image</img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/live-to-die.jpg') }}"></img></td>
             <td>Live To Die</td>
             <td>7" EP</td>
             <td>1987</td>
@@ -76,7 +120,6 @@
             <td>2018</td>
             <td>Sound Speed Records</td>
           </tr>
-          <td></td>
         </tbody>
       </table>
     </div>

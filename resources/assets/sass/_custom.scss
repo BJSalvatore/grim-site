@@ -89,6 +89,12 @@ h5{
   height: auto;
 }
 
+#pressImage{
+  width: 160px;
+  height: auto;
+  margin-bottom: 6px;
+}
+
 /* Style page content */
 .main {
     margin-left: 160px; /* Same as the width of the sidebar */
@@ -113,8 +119,10 @@ h5{
 }
 
 #footer{
-   width: 100%;
-   bottom: 0;;
+  font-size: 12px;
+  padding: 12px;
+  width: 100%;
+  bottom: 0;;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

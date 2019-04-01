@@ -10751,6 +10751,12 @@ h5 {
   height: auto;
 }
 
+#pressImage {
+  width: 160px;
+  height: auto;
+  margin-bottom: 6px;
+}
+
 /* Style page content */
 
 .main {
@@ -10777,6 +10783,8 @@ h5 {
 }
 
 #footer {
+  font-size: 12px;
+  padding: 12px;
   width: 100%;
   bottom: 0;
 }

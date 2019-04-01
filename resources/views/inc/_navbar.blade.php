@@ -19,7 +19,7 @@
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
         </li>
         <li class="nav-item">
-          <a class="{{ Request::is ('about') ? 'active': ''}}" href="/about">About</a>
+          <a class="{{ Request::is ('about') ? 'active': ''}}" href="/about">Discography/<br>Band Lineup</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('press') ? 'active': ''}}" href="/press">Press</a>

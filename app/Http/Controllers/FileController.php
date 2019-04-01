@@ -29,7 +29,7 @@ public function __construct()
 public function index()
 {
 
-  $files = File::orderBy('created_on', 'desc')->paginate(5);
+  $files = File::orderBy('created_at', 'desc')->paginate(5);
   return view('files.file-display', compact('files'));
 
     }
@@ -48,12 +48,17 @@ public function index()
 
       $this->validate($request, [
         'name' => 'required|unique:files|max:15',
+        'title' => 'required|unique:files|max:191',
         'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
+
       ],
         $messages = [
           'name.required' => 'A file name is required.',
           'name.unique' => 'This name has been used before. Please try another one.',
           'name.max' => 'There is a maximum of 15 characters allowed.',
+          'title.required' => 'A title is required.',
+          'title.unique' => 'This title has been used before. Please try another one.',
+          'title.max' => 'The maximum number of characters is 191.',
           'file.required' => 'There are no files attached.',
           'file.file' => 'This is not a file.',
           'file.mimes' => 'Accepted file types are: image, audio, video and documents.',
@@ -70,7 +75,7 @@ public function index()
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = public_path('assets/files/' . $filename);
+      $path = public_path('storage/public/files/' . $filename);
 
       if(Storage::putFileAS($path, $file, $filename)){
         return File::create([
@@ -79,17 +84,22 @@ public function index()
             'file' => $path,
             'type' => $type,
             'extension' => $ext,
-            'user_id' => auth()->user() -> username
+            'user_id' => auth()->user() -> username,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // save file to local folder
-        $public = Storage::disk('local')->put($filePath, $file);
+        $public = Storage::disk('public')->put($filePath, $file);
         $file-> file = $public;
 
       }
         $file -> file = $filename;
-        dd($file);
         $file ->save();
+
+        Session::flash('success', 'The file was saved successfully!');
+        // redirect to another
+        return redirect()->route('files');
     }
 
     public function show($id)
@@ -101,30 +111,11 @@ public function index()
 
     }
 
-    //edit files - filename can be changed
     public function edit(Request $request, $id)
     {
-      $file = File::where('id', $id)->where ('user_id', Auth::id())->first();
+      $file = File::find($id);
 
-      if ($file->name == $request['name']){
-        // return response()->json(false);
-      }
-        $this -> validate($request, [
-          'name' => 'required|unique:files'
-      ]);
-
-      $old_filename = '/public/' . '/' . $file->type . '/' . $file->name . '.' . $file->extension;
-      $new_filename = '/public/' . $this->getUserDir() . '/' . $request['type'] . '/' . $request['name'] . '.' . $request['extension'];
-
-      if (Storage::disk('local')->exists($old_filename))
-      {
-        if(Storage::disk('local')->move($old_filename, $new_filename))
-        {
-          $file->title = $request['name'];
-          return $file->save();
-        }
-      }
-
+      return view('files.edit', ['file' => $file]);
     }
 
 
@@ -133,9 +124,9 @@ public function index()
     {
       $file = File::findOrFail($id);
 
-      if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
+      if (Storage::disk('public')->exists('/public/' . $file->type . '/' . $file->name . '.' . $file->extension))
       {
-        if (Storage::disk('local')->exists('/public/' . $this->getUserDir() . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
+        if (Storage::disk('public')->exists('/public/' . '/' . $file->type . '/' . $file->name . '.' . $file->extension))
         {
           return $file->delete();
         }

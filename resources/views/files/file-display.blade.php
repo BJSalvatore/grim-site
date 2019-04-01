@@ -27,14 +27,13 @@
           <th>{{ $file-> title }}</th>
           <td>{{ $file -> type }}</td>
           <td>@if($file->type == 'jpg')
-            <img src="{{ asset($file->file)}}" height="150" width="auto"> </img>
+            <img src="{{ $file -> image }}" height="150" width="auto"> </img>
           @else
             This is a {{$file -> type}} file.
           @endif</td>
           <td>{{ $file-> user_id }}</td>
-          <td>{{ date('M j, Y', strtotime($file->created_on)) }}</td>
+          <td>{{ date('M j, Y', strtotime($file->created_at)) }}</td>
           <td>
-            <a href="{{ route('files.index', $file -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a><br>
             <a href="{{ route('files.edit', $file -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a><br>
             <a href="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
           </td>

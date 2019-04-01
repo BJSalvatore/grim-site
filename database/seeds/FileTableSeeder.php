@@ -22,4 +22,19 @@ class FileTableSeeder extends Seeder
       DB::table('files')->insert(['name' => 'NardcoreFlyer', 'file' => '/storage/public/assets/files/NardcoreFlyer.jpg', 'title' => 'Nardcore Flyer', 'type' => 'jpg', 'extension' => '.jpg', 'user_id' => 'Demoncowgirl'  ]);
 
     }
+
+    public function setVisibility(){
+
+        $visibility = Storage::getVisibility('BobBerkman.jpg', 'EvilTracy1.jpg', 'PrettyInPink.jpg', 'TheGrimatWarpedTour2018.jpg', 'TheGrimEarlyDays.jpg', 'TheGrimNuclearWorldOrder.jpg', 'the-grim-cop-killer-7-inch.mp3', 'NardcoreFlyer.jpg');
+        Storage::setVisibility('BobBerkman.jpg', 'public');
+        Storage::setVisibility('EvilTracy1.jpg', 'public');
+        Storage::setVisibility('PrettyInPink.jpg', 'public');
+        Storage::setVisibility('TheGrimatWarpedTour2018.jpg', 'public');
+        Storage::setVisibility('TheGrimEarlyDays.jpg', 'public');
+        Storage::setVisibility('TheGrimNuclearWorldOrder.jpg', 'public');
+        Storage::setVisibility('the-grim-cop-killer-7-inch.mp3', 'public');
+        Storage::setVisibility('NardcoreFlyer.jpg', 'public');
+
+    }
+
 }

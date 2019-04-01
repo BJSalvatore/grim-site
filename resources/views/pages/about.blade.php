@@ -9,12 +9,77 @@
 @section('content')
   <div class = "d-flex flex-row">
     <div class="col-4">@include('inc._sidebar')</div>
-    <div class="col-9 p-4">
-      <h1 style="font-family: Freckle Face;">Stuff goes here</h1>
-      <p>Mel fabulas voluptaria ex. No eam novum homero, cum delectus consequat at. In quod nonumy reprehendunt cum, mel congue diceret perpetua te. Euismod mandamus in mel, sit ea persius deterruisset.<br><br>
-      Dolorum detracto dissentiet vix ei, ipsum clita omittantur ius ea. In sea brute scaevola, ad mea nibh solet officiis. Quis possim appellantur qui ad, alia accumsan ea mei. Id ignota vituperata sea, quidam euismod at sea. Mea ad posse omnium.<br><br>
-      Lorem ipsum dolor sit amet, te zril menandri sit, posse accumsan qui ei. Legimus fastidii quaerendum sit at. Appetere legendos necessitatibus nec ne. Solet salutatus intellegat pro ex, erat salutatus efficiantur sit ut, quando accusamus vim no. Dolore numquam partiendo ad mel, an est veniam soleat, his ne reque nostrud. In iuvaret atomorum omittantur has, vocibus praesent ea ius.<br><br>
-      Id mel vidisse invenire. Eu atqui movet omnium mel, eu pri meis accusata, no usu tincidunt voluptaria consectetuer. No eos euismod ceteros incorrupte. Solum volumus ad has, te mei paulo omittam interpretaris. Nam tollit euismod ea, voluptua sensibus vis et, ex errem inermis vis. Duo ludus feugait aliquando ne, nam ex vide recteque argumentum.</p>
+    <div class="row">
+    <div class="col-lg-8 mt-3">
+      <h1 style="font-family: Freckle Face;">Discography</h1>
+      <table class="table">
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Format</th>
+          <th>Year</th>
+          <th>Label</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/merch/orange_album.jpg') }}"></img></td>
+            <td>Getting Revenge In 'Merica'</td>
+            <td>12" LP</td>
+            <td>1984</td>
+            <td>Mystic Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/slimey-valley.jpg') }}"></img></td>
+            <td>It Came From Slimey Valley</td>
+            <td>Vinyl, LP Compilation<br>Song - "Old Towne Mall"</td>
+            <td>1984</td>
+            <td>Ghetto-way Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive"></img>No Image</td>
+            <td>Live At Fenders</td>
+            <td>7" EP</td>
+            <td>1987</td>
+            <td>Super Seven Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive">No Image</img></td>
+            <td>Live To Die</td>
+            <td>7" EP</td>
+            <td>1987</td>
+            <td>Super Seven Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/merch/face_of_betrayal.jpg') }}"></img></td>
+            <td>Face Of Betrayal</td>
+            <td>LP</td>
+            <td>1988</td>
+            <td>Alchemy Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/merch/best_of_album.jpg') }}"></img></td>
+            <td>Best Of ... The Grim</td>
+            <td>CD, Cassette, LP Compilation</td>
+            <td>2011</td>
+            <td>Mystic Records</td>
+          </tr>
+          <tr>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/merch/cop_killer_ep.jpg') }}"></img></td>
+            <td>Cop Killer</td>
+            <td>7" EP</td>
+            <td>2017</td>
+            <td>Felony Records</td>
+          </tr>
+          <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"></img></td>
+            <td>Nuclear World Order</td>
+            <td>Full length LP</td>
+            <td>2018</td>
+            <td>Sound Speed Records</td>
+          </tr>
+          <td></td>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 @endsection

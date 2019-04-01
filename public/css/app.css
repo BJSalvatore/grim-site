@@ -10746,6 +10746,11 @@ h5 {
   height: auto;
 }
 
+#thumbnail {
+  width: 100px;
+  height: auto;
+}
+
 /* Style page content */
 
 .main {

@@ -31,7 +31,7 @@
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="{{ Request::is ('merch') ? 'active': ''}}" href="/merch">Merch</a>
+          <a class="{{ Request::is ('merch') ? 'active': ''}}" href="/merch">Shop</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>

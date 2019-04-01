@@ -28,14 +28,14 @@
                   @endif
                     <div class="mt-1 file is-info has-name">
                         <label class="file-label">
-                            <input class="file-input" type="file" ref="file" name="file" value="attachment.name">
+                            <input class="file-input" type="file" ref="file" name="file" value="{{ $file -> name . $file -> ext }}">
                             <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
                         </label>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <button type="submit" class="button is-primary">
-                        Add new file
+                        Update
                     </button>
                 </div>
             </div>

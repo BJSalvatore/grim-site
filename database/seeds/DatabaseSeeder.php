@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
       $this->call(CommentsTableSeeder ::class);
       $this->call(PressReleasesSeeder ::class);
       $this->call(FileTableSeeder :: class);
+      $this->call(InventoryTableSeeder :: class);
     }
 }

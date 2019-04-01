@@ -23,14 +23,33 @@ class PressReleaseController extends Controller
       // validate the data
     $validatedData = $request ->validate([
         'title' => 'required|unique:releases|max:255',
+        'image' => 'image|mimes:jpeg,png,jpg,give,svg|max:20000',
         'release_date' => 'required|max:255',
         'url' => 'required'
       ]);
       // store in database
       $release = new PressRelease;
       $release -> title = $request -> input('title');
+      $release -> image = input('image');
       $release -> release_date = $request -> input('release_date');
       $release -> url = $request -> input('url');
+
+      if($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $location = public_path('press' . $filename);
+        $filePath = '' . $filename;
+
+        // resize uploaded image
+        Image::make($image)->resize(160, null, function ($constraint){
+          $constraint->aspectRatio();
+          })->save($location);
+
+      // save image to public folder
+      $public = Storage::disk('public')->put($filepath, $image);
+      $release -> image = $filename;
     }
+      $post-> image = $filename; //saves filename for retrieval of image
+      $release -> save();
 
 }

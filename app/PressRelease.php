@@ -11,7 +11,7 @@ class PressRelease extends Model implements HasMedia
   use HasMediaTrait;
 
   protected $fillable = [
-    'title', 'release_date', 'url'
+    'title', 'image', 'release_date', 'url'
   ];
 
   protected $table = 'releases';

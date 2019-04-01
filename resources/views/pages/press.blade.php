@@ -10,13 +10,15 @@
 
 <div class="col-lg-12">
   <div class = "d-flex flex-row">
-    <div class="col-4"></div>
+      <div class="col-4">@include('inc._sidebar')</div>
       <div class="col-lg-8 p-4">
           <h1 style="font-family: Freckle Face;">Press Releases</h1>
           <hr>
           <div class= "release mt-3 mb-4">
          @foreach($releases as $release)
-          <img id="pressImage" class="d-flex img-responsive" src="{{ asset('assets/images/kaotic-radio.jpg') }}"></img>
+         @if($release -> image)
+           <img src="{{ asset('assets/images/press/' . $release->image)}}" height="160" width="auto"> </img>
+         @endif
            <h3><strong>{{ $release -> title }}<strong></h3>
            <h5>{{ $release -> release_date }}</h5>
            <h5><a href="{{ $release -> url }}">Click here!</a></h5>

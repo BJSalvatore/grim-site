@@ -70,7 +70,7 @@ public function index()
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = ('/public/assets/files/' . $filename);
+      $path = public_path('assets/files/' . $filename);
 
       if(Storage::putFileAS($path, $file, $filename)){
         return File::create([
@@ -83,8 +83,8 @@ public function index()
         ]);
 
         // save file to local folder
-        $local = Storage::disk('local')->put($filePath, $file);
-        $file-> file = $local;
+        $public = Storage::disk('local')->put($filePath, $file);
+        $file-> file = $public;
 
       }
         $file -> file = $filename;

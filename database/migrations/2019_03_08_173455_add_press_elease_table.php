@@ -18,6 +18,7 @@ class AddPressEleaseTable extends Migration
               $table->string('title');
               $table->string('release_date');
               $table->string('url');
+              $table->string('image')->nullable();
               $table->timestamp('created_at')->nullable();
         });
     }

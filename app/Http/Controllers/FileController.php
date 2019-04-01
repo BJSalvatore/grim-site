@@ -92,11 +92,10 @@ public function index()
 
         // save file to local folder
         $public = Storage::disk('public')->put($filePath, $file);
-        $file-> file = $public;
+        // $file-> file = $public;
 
       }
-        $file -> file = $filename;
-        dd($file);
+        // $file -> file = $filename;
         $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');

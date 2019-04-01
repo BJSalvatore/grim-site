@@ -43,6 +43,7 @@ public function index()
     // first validates for max file size and allowed extensions
     public function store(Request $request)
     {
+
       $max_size = (int)ini_get('upload_max_filesize') * 1000;
       $all_ext = implode(',', $this->allExtensions()); //joins elements of array with string
 
@@ -75,7 +76,7 @@ public function index()
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = public_path('storage/public/files/' . $filename);
+      $path = storage_path('/storage/public/assets/files/' . $filename);
 
       if(Storage::putFileAS($path, $file, $filename)){
         return File::create([
@@ -95,6 +96,7 @@ public function index()
 
       }
         $file -> file = $filename;
+        dd($file);
         $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');

@@ -37,7 +37,7 @@ class StockController extends Controller
           // create a variable and store all of our blog posts in it
           $items = Stock::orderBy('id', 'desc')->paginate(20);
 
-          return view('stock.index', ['items' => $items]);
+          return view('pages.inventory', ['items' => $items]);
       }
 
       /**
@@ -92,6 +92,7 @@ class StockController extends Controller
           $item -> size = $request ->input(strtoUpper('size'));
           $item -> quantity = $request -> input('quantity');
           $item -> image = $request ->input('merch_image');
+          $item -> user_id = auth()->user() -> username;
           $item -> created_at = Carbon::now();
           $item -> updated_at = Carbon::now();
 
@@ -114,7 +115,7 @@ class StockController extends Controller
           Session::flash('success', 'The blog post was saved successfully!');
           // redirect to another
           // return Response::download($location) -> redirect()->route('posts.show', $post ->id);
-          return redirect()->route('posts.show', $post ->id);
+          return redirect()->route('inventory.show', $post ->id);
 
       }
 

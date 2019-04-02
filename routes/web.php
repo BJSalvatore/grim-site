@@ -10,6 +10,8 @@
 |
 */
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 // Authentication Routes
 Route::get('auth/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('successful.login');
@@ -86,8 +88,14 @@ Route::get('/files/{id}/show', 'FileController@show')->name('files.show');
 Route::get('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+//routes for inventory
+Route::resource('/items', 'StockController');
+Route::get('/items/index', 'StockController@index')->name('items.index');
+Route::post('items/store', 'StockController@store')->name('items.store');
+Route::post('items/create', 'StockController@create')->name('items.add');
+Route::get('/items/{id}/show', 'StockController@show')->name('items.show');
+Route::get('items/edit/{id}', 'StockController@edit');
+Route::post('items/delete/{id}', 'StockController@destroy');
 
 // Routes for $messages
 Route::resource('/messages', 'MessageController');

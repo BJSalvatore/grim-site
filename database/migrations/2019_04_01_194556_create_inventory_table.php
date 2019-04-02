@@ -20,7 +20,7 @@ class CreateInventoryTable extends Migration
             $table-> string('description');
             $table-> string('size') -> nullable();
             $table-> integer('quantity');
-            $table-> string('merch_image');
+            $table-> string('image');
             $table->timestamps();
         });
     }

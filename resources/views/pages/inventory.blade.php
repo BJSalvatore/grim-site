@@ -1,7 +1,8 @@
-@extends('layouts.app')
-@include('inc._navbar')
+@section('title', '| Inventory')
 
-@section('title', '| Show Files')
+@extends('layouts.app')
+
+@include('inc._header')
 
 @section('content')
 <div class="container mt-3">
@@ -11,28 +12,27 @@
     <table class="table">
       <thead>
         <th>#</th>
-        <th>Name</th>
-        <th>Title</th>
-        <th>Type</th>
-        <th>File</th>
-        <th>User ID</th>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Size</th>
+        <th>Quantity</th>
         <th>Created On</th>
         <th></th>
       </thead>
       <tbody>
-        @foreach($files as $file)
+        @foreach(items as $item)
         <tr>
-          <th>{{ $file-> id }}</th>
-          <th>{{ $file-> name }}</th>
-          <th>{{ $file-> title }}</th>
-          <td>{{ $file -> type }}</td>
-          <td>@if($file-> type == 'jpg')
-            <img src="{{ asset('storage/assets/files/' .  $file -> name . $file -> extension) }}" height="150" width="auto"></img>
-          @else
-            This is a {{$file -> type}} file.
-          @endif</td>
-          <td>{{ $file-> user_id }}</td>
-          <td>{{ date('M j, Y', strtotime($file->created_at)) }}</td>
+          <th>{{ $item-> itemName }}</th>
+          <th>{{ $item-> price }}</th>
+          <th>{{ $item-> description }}</th>
+          <td>{{ $item -> size }}</td>
+          <td>{{ $item -> quantity }}</td>
+          <td>
+            <img src="{{ $item -> image }}" height="200" width="auto"></img>
+          </td>
+          <td>{{ $item-> user_id }}</td>
+          <td>{{ date('M j, Y', strtotime($item->created_at)) }}</td>
           <td>
             <a href="{{ route('files.edit', $file -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a><br>
             <a href="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
@@ -43,12 +43,14 @@
     </table>
     <a href="{{ route('files.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Files</a>
     <div class="d-flex flex-row align-items-center justify-content-center">
-      {{$files -> links()}}
+      {{$items -> links()}}
     </div>
     <div class="d-flex flex-row align-items-center justify-content-center">
-      Page {{$files->currentPage()}} of {{$files->lastPage()}}
+      Page {{$items->currentPage()}} of {{$items->lastPage()}}
     </div>
   </div>
 </div>
 </div>
+
+
 @endsection

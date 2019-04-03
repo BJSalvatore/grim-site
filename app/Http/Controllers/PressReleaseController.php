@@ -51,5 +51,5 @@ class PressReleaseController extends Controller
     }
       $post-> image = $filename; //saves filename for retrieval of image
       $release -> save();
-
+    }
 }

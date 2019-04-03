@@ -191,7 +191,6 @@ class PostController extends Controller
 
         // save image to aws s3
           $s3 = Storage::disk('s3')->put($filePath, $newImage);
-          dd($post, $newFilename);
           $post->newImage = $s3;
 
       }

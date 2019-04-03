@@ -30,7 +30,7 @@
     "heroku": "^7.22.7",
     "jquery-validation": "^1.19.0",
     "mysql-server": "^1.0.5",
-    "parsleyjs": "^2.8.1",
+    "parsleyjs": "^2.8.2",
     "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "mysql": "^2.16.0",
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.7",
-    "sass": "^1.17.3",
+    "sass": "^1.17.4",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.29.6",

@@ -10,11 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Session;
 
 // there are four arrays of different file extensions used for validation
 class FileController extends Controller
 {
-    private $image_ext = ['jpg', 'jpeg', 'png', 'gif'];
+    private $image_ext = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
     private $audio_ext = ['mp3', 'ogg', 'mpga'];
     private $video_ext = ['mp4', 'mpeg'];
     private $document_ext = ['doc', 'docx', 'pdf', 'odt'];
@@ -29,14 +30,15 @@ public function __construct()
 public function index()
 {
 
-  $files = File::orderBy('created_at', 'desc')->paginate(5);
-  return view('files.file-display', compact('files'));
+  $files = DB::table('files')->orderBy('created_at', 'desc')->paginate(5);
+
+  return view('files.index', compact('files'));
 
     }
 
     public function create()
     {
-        return view('files.file-form');
+        return view('files.create');
     }
 
     // upload new file and create a new record in the database
@@ -44,19 +46,19 @@ public function index()
     public function store(Request $request)
     {
 
-      $max_size = (int)ini_get('upload_max_filesize') * 1000;
+      $max_size = (int)ini_get('upload_max_filesize') * 20000;
       $all_ext = implode(',', $this->allExtensions()); //joins elements of array with string
 
       $this->validate($request, [
-        'name' => 'required|unique:files|max:15',
+        'name' => 'required|unique:files|max:50',
         'title' => 'required|unique:files|max:191',
-        'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
+        'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size,
 
       ],
         $messages = [
           'name.required' => 'A file name is required.',
           'name.unique' => 'This name has been used before. Please try another one.',
-          'name.max' => 'There is a maximum of 15 characters allowed.',
+          'name.max' => 'There is a maximum of 50 characters allowed.',
           'title.required' => 'A title is required.',
           'title.unique' => 'This title has been used before. Please try another one.',
           'title.max' => 'The maximum number of characters is 191.',
@@ -70,19 +72,19 @@ public function index()
       $file = new File();
       $file-> name = $request->input('name');
       $file-> title = $request->input('title');
+      $file = $request->file('file');
       $file-> user_id = auth()->user() -> username;
 
-      $file = $request->file('file');
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = storage_path('public/assets/files/' . $filename);
+      $path = storage_path('' . $filename);
 
-      if(Storage::putFileAS($path, $file, $filename)){
-        return File::create([
-            'name' => $filename,
+      if(Storage::disk('local') -> putFileAS($path, $file, $filename)){
+        $file = File::create([
             'title' => $request->input('title'),
-            'file' => $path,
+            'name' => $request->input('name'),
+            'file' => $filename,
             'type' => $type,
             'extension' => $ext,
             'user_id' => auth()->user() -> username,
@@ -90,25 +92,21 @@ public function index()
             'updated_at' => Carbon::now()
         ]);
 
-        // save file to local folder
-        $public = Storage::disk('public')->put($filePath, $file);
-        //$file-> file = $public;
-
       }
-        // $file -> file = $filename;
+        dd($path);
+        DB::insert($file);
         $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');
         // redirect to another
-        return redirect()->route('files');
+        return redirect()->route('files.index');
     }
 
     public function show($id)
     {
-        // call function in Post model
-        $file = File::find($id);
 
-        return view('files/file-display', ['file' => $file]);
+        $file = File::find($id);
+        return view('files.index', ['file' => $file]);
 
     }
 

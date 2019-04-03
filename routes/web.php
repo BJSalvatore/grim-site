@@ -55,7 +55,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('blog', function(){
   $posts = DB::table('posts')
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);
@@ -113,12 +113,6 @@ Route::get('message', function(){
   return view('pages.contact', ['messages'=> $messages]);
 });
 
-// Routes for files
-// Route::get('/files/{type}/{id?}', 'FileController@index');
-//
-// Route::post('files/add', 'FileController@store');
-// Route::post('files/edit/{id}', 'FileController@edit');
-// Route::post('files/delete/{id}', 'FileController@destroy');
 
 // routes for emails
 Route::post('/send', 'EmailController@send');

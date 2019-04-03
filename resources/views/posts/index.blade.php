@@ -28,9 +28,6 @@
         <tbody>
           @foreach($posts as $post)
           <tr>
-            <!-- @if($post->image)
-              <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
-            @endif -->
             <th>{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->slug }}</td>

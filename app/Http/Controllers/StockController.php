@@ -6,22 +6,6 @@ use Illuminate\Http\Request;
 
 class StockController extends Controller
 {
-  <?php
-  namespace App\Http\Controllers;
-
-  use Illuminate\Http\Request;
-  use Collective\Html\Eloquent;
-  use Illuminate\Database\Eloquent\Model;
-  use Illuminate\Support\Facades\DB;
-  use Illuminate\Database\Eloquent\Collection;
-  use Illuminate\Support\Facades\Storage;
-  use Carbon\Carbon;
-  use App\Post;
-  use Session;
-  use Image;
-
-  class PostController extends Controller
-  {
 
       public function __construct()
       {
@@ -35,9 +19,9 @@ class StockController extends Controller
       public function index()
       {
           // create a variable and store all of our blog posts in it
-          $items = Stock::orderBy('id', 'desc')->paginate(20);
+          $items = Stock::orderBy('id', 'asc')->paginate(20);
 
-          return view('pages.inventory', ['items' => $items]);
+          return view('pages.inventory', compact('items'));
       }
 
       /**
@@ -47,7 +31,7 @@ class StockController extends Controller
        */
       public function create()
       {
-          return view('stock.create'); //shows a form page
+          return view('merchandise.stock.create'); //shows a form page
       }
       /**
        * Store a newly created resource in storage.
@@ -67,29 +51,29 @@ class StockController extends Controller
             'merch_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
           ],
             $messages = [
-              'itemName.required'-> 'This field cannot be empty!',
-              'itemName.max' -> 'Maximum number of characters is 255.',
-              'price.required' -> 'This field is required.',
-              'price.integer' -> 'Please enter a number.',
-              'price.max' -> 'Maximum number of characters is 6',
-              'description.required' -> 'This field cannot be empty!',
-              'description.max' -> 'Maximum number of characters is 255.',
-              'size.option' -> 'This field is only required where necessary.',
-              'size.max' -> 'Please enter S, M, LG, XL, XXL or XXXL',
-              'quantity.required' -> 'This field is required!',
-              'quantity.integer' -> 'This is not a number. Please enter a number.',
-              'merch_image.image' -> 'This is not an image.',
-              'merch_image.mimes' -> 'File must be jpeg, jpg, png, gif or svg.'.
-              'merch_image.max' -> 'This file is too big. Please select a smaller file.'
+              'itemName.required' => 'This field cannot be empty!',
+              'itemName.max' => 'Maximum number of characters is 255.',
+              'price.required' => 'This field is required.',
+              'price.integer' => 'Please enter a number.',
+              'price.max' => 'Maximum number of characters is 6',
+              'description.required' => 'This field cannot be empty!',
+              'description.max' => 'Maximum number of characters is 255.',
+              'size.option' => 'This field is only required where necessary.',
+              'size.max' => 'Please enter S, M, LG, XL, XXL or XXXL',
+              'quantity.required' => 'This field is required!',
+              'quantity.integer' => 'This is not a number. Please enter a number.',
+              'merch_image.image' => 'This is not an image.',
+              'merch_image.mimes' => 'File must be jpeg, jpg, png, gif or svg.',
+              'merch_image.max' => 'This file is too big. Please select a smaller file.'
 
           ]);
 
           // store in database
           $item = new Stock;
           $item -> itemName = $request -> input('itemName');
-          $item => price = $request -> input('price');
+          $item -> price = $request -> input('price');
           $item -> description = $request -> input('description');
-          $item -> size = $request ->input(strtoUpper('size'));
+          $item -> size = $request ->input(strtoUpper('size'))->nullable();
           $item -> quantity = $request -> input('quantity');
           $item -> image = $request ->input('merch_image');
           $item -> user_id = auth()->user() -> username;
@@ -107,7 +91,7 @@ class StockController extends Controller
               $constraint->aspectRatio();
               })->save($location);
 
-              $public = Storage::disk('public')->put($filePath, $file);
+              $public = Storage::disk('public')->put($filePath, $image);
 
           }
               // $post-> image = $filename; //saves filename for retrieval of image
@@ -130,7 +114,7 @@ class StockController extends Controller
           // call function in Post model
           $items = Stock::find($id);
 
-          return view('items.show', ['items' => $items]);
+          return view('pages.inventory', ['items' => $items]);
 
       }
 
@@ -169,14 +153,11 @@ class StockController extends Controller
 
           $item = $request->all(); // this retrieve the new input information
 
-
+            $item -> save();
+            Session::flash('success', 'This item was successfully updated and saved.');
+            return redirect()->route('pages.inventory', $item->id);
         }
-            $post->newImage = $filename;
-            $post -> save();
 
-          Session::flash('success', 'This item was successfully updated and saved.');
-          return redirect()->route('posts.show', $post->id);
-      }
       /**
        * Remove the specified resource from storage.
        *
@@ -194,6 +175,4 @@ class StockController extends Controller
         // Session::flash('success', 'Post was deleted successfully.');
         return redirect()->route('merch.index')->with('success', 'Item was deleted successfully.');
       }
-  }
-
 }

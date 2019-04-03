@@ -13,7 +13,7 @@ class AddUserIdColumnToInventoryTable extends Migration
      */
     public function up()
     {
-        Schema::table('inventory', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             $table->string('user_id');
         });
     }
@@ -25,7 +25,7 @@ class AddUserIdColumnToInventoryTable extends Migration
      */
     public function down()
     {
-        Schema::table('inventory', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             //
         });
     }

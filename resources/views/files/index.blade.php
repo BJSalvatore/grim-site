@@ -13,8 +13,8 @@
         <th>#</th>
         <th>Name</th>
         <th>Title</th>
-        <th>Type</th>
         <th>File</th>
+        <th>File Type</th>
         <th>User ID</th>
         <th>Created On</th>
         <th></th>
@@ -25,17 +25,18 @@
           <th>{{ $file-> id }}</th>
           <th>{{ $file-> name }}</th>
           <th>{{ $file-> title }}</th>
-          <td>{{ $file -> type }}</td>
-          <td>@if($file-> type == 'jpg')
-            <img src="{{ asset('storage/assets/files/' .  $file -> name . $file -> extension) }}" height="150" width="auto"></img>
+          <td>@if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
+            <img src="{{ asset('storage/' .  $file -> name . $file -> extension) }}" height="150" width="auto"></img>
           @else
-            This is a {{$file -> type}} file.
-          @endif</td>
+            <td>This is a {{$file -> type}} file.</td>
+          @endif
+        </td>
+          <td>{{ $file-> type }}</td>
           <td>{{ $file-> user_id }}</td>
           <td>{{ date('M j, Y', strtotime($file->created_at)) }}</td>
           <td>
             <a href="{{ route('files.edit', $file -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a><br>
-            <a href="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
+          <a href="{{ route('files.destroy', $file->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
           </td>
         </tr>
         @endforeach

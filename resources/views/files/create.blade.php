@@ -26,15 +26,14 @@
                   @if($errors->has('title'))
                     <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('title') }}</strong></h5>
                   @endif
-                    <div class="mt-1 file is-info has-name">
-                        <label class="file-label">
-                            <input class="file-input" type="file" ref="file" name="file" @change="addFile()">
-                            <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
-                        </label>
-                    </div>
+                    <label class="mt-1" for="file">File</label>
+                    <input class="form-control p-1" name="file" type="file"></input>
+                    @if($errors->has('file'))
+                       <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('file') }}</strong></h5>
+                     @endif
                 </div>
                 <div class="col-md-9">
-                    <button type="submit" class="button is-primary">
+                    <button type="submit" class="btn btn-secondary btn-md mt-2">
                         Add new file
                     </button>
                 </div>

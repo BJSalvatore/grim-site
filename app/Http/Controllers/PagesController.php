@@ -43,6 +43,12 @@ class PagesController extends Controller
             $header_title = "Blog Posts";
           return view('pages/blog')->with('header_title', $header_title)->with('posts', $posts);
       }
+
+      public function getInventory() {
+        $header_title = "Inventory";
+      return view('pages/inventory')->with('header_title', $header_title)->with('items', $items);
+      }
+
           public function store() {
             return view('posts/store');
       }
@@ -57,6 +63,10 @@ class PagesController extends Controller
       }
           public function edit(){
             return view('posts/edit');
+      }
+
+      public function index(){
+        return view('posts/index');
       }
 
         public function register(){
@@ -75,6 +85,7 @@ class PagesController extends Controller
           public function getAdmin(){
             return view('auth/admin');
       }
+
 
       public function getMessages() {
         $header_title = "Messages";

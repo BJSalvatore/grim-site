@@ -97,6 +97,14 @@ Route::get('/items/{id}/show', 'StockController@show')->name('items.show');
 Route::get('items/edit/{id}', 'StockController@edit');
 Route::post('items/delete/{id}', 'StockController@destroy');
 
+Route::get('inventory', function(){
+  $items = DB::table('items')
+  ->orderBy('id', 'asc')
+  // ->limit(20)
+  ->get();
+  return view('merchandise.index', ['items'=>$items]);
+});
+
 // Routes for $messages
 Route::resource('/messages', 'MessageController');
 Route::post('/messages/store', 'MessageController@store')->name('messages.store');

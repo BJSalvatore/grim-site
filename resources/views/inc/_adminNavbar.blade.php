@@ -25,7 +25,7 @@
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="{{ Request::is ('inventory') ? 'active': ''}}" href="/pages/inventory">Inventory</a>
+          <a class="{{ Request::is ('inventory') ? 'active': ''}}" href="/merchandise/index">View Inventory</a>
         </li>
         <li class="nav-item">
           <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>

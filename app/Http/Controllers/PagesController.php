@@ -46,28 +46,28 @@ class PagesController extends Controller
 
       public function getInventory() {
         $header_title = "Inventory";
-      return view('pages/inventory')->with('header_title', $header_title)->with('items', $items);
+      return view('merchandise/index')->with('header_title', $header_title)->with('items', $items);
       }
 
-          public function store() {
-            return view('posts/store');
-      }
-          public function create() {
-            return view('posts/create');
-      }
-          public function show(){
-            return view('posts/show');
-      }
-          public function update(){
-            return view('posts/update');
-      }
-          public function edit(){
-            return view('posts/edit');
-      }
-
-      public function index(){
-        return view('posts/index');
-      }
+      //     public function store() {
+      //       return view('posts/store');
+      // }
+      //     public function create() {
+      //       return view('posts/create');
+      // }
+      //     public function show(){
+      //       return view('posts/show');
+      // }
+      //     public function update(){
+      //       return view('posts/update');
+      // }
+      //     public function edit(){
+      //       return view('posts/edit');
+      // }
+      //
+      // public function index(){
+      //   return view('posts/index');
+      // }
 
         public function register(){
           return view('auth/register');
@@ -91,14 +91,5 @@ class PagesController extends Controller
         $header_title = "Messages";
       return view('pages/messages')->with('header_title', $header_title)-with('messages', $messages);
   }
-  //     public function storeMessages() {
-  //       return view('messages/store');
-  // }
-  //     public function createMessages() {
-  //       return view('messages/create');
-  // }
-  //     public function showMessages(){
-  //       return view('messages/show');
-  // }
 
 }

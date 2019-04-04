@@ -19,9 +19,9 @@ class StockController extends Controller
       public function index()
       {
           // create a variable and store all of our blog posts in it
-          $items = Stock::orderBy('id', 'asc')->paginate(20);
+          $items = Stock::orderBy('id', 'asc')->get();
 
-          return view('pages.inventory', compact('items'));
+          return view('merchandise.index', compact('items'));
       }
 
       /**
@@ -31,7 +31,7 @@ class StockController extends Controller
        */
       public function create()
       {
-          return view('merchandise.stock.create'); //shows a form page
+          return view('merchandise.create'); //shows a form page
       }
       /**
        * Store a newly created resource in storage.
@@ -71,7 +71,7 @@ class StockController extends Controller
           // store in database
           $item = new Stock;
           $item -> itemName = $request -> input('itemName');
-          $item -> price = $request -> input('price');
+          $item -> price = $request -> input(money_format('%.2n', 'price'));
           $item -> description = $request -> input('description');
           $item -> size = $request ->input(strtoUpper('size'))->nullable();
           $item -> quantity = $request -> input('quantity');
@@ -84,7 +84,7 @@ class StockController extends Controller
           if($request->hasFile('merch_image')) {
             $image = $request->file('merch_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = storage_path('assets/images/merch/' . $filename);
+            $location = public_path('assets/images/merch/' . $filename);
             $filePath = '' . $filename;
             // resize uploaded image
             Image::make($image)->resize(300, null, function ($constraint){
@@ -94,12 +94,12 @@ class StockController extends Controller
               $public = Storage::disk('public')->put($filePath, $image);
 
           }
-              // $post-> image = $filename; //saves filename for retrieval of image
+              $item-> image = $filename; //saves filename for retrieval of image
               $item -> save();
           Session::flash('success', 'The blog post was saved successfully!');
           // redirect to another
           // return Response::download($location) -> redirect()->route('posts.show', $post ->id);
-          return redirect()->route('inventory.show', $post ->id);
+          return redirect()->route('merchandise.index', $post ->id);
 
       }
 
@@ -114,7 +114,7 @@ class StockController extends Controller
           // call function in Post model
           $items = Stock::find($id);
 
-          return view('pages.inventory', ['items' => $items]);
+          return view('merchandise.index', ['items' => $items]);
 
       }
 
@@ -129,7 +129,7 @@ class StockController extends Controller
           // find post in database and save it as variable
           $items = Stock::find($id);
           // return the view and pas in the var we previously created
-          return view('items.edit', ['item' => $item]);
+          return view('merchandise.edit', ['item' => $item]);
       }
       /**
        * Update the specified resource in storage.
@@ -155,7 +155,7 @@ class StockController extends Controller
 
             $item -> save();
             Session::flash('success', 'This item was successfully updated and saved.');
-            return redirect()->route('pages.inventory', $item->id);
+            return redirect()->route('merchandise.index', $item->id);
         }
 
       /**
@@ -173,6 +173,6 @@ class StockController extends Controller
         $item -> delete();
 
         // Session::flash('success', 'Post was deleted successfully.');
-        return redirect()->route('merch.index')->with('success', 'Item was deleted successfully.');
+        return redirect()->route('merchandise.index')->with('success', 'Item was deleted successfully.');
       }
 }

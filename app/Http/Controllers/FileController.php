@@ -78,8 +78,9 @@ public function index()
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = storage_path('' . $filename);
+      $path = storage_path('files/' . $filename);
 
+      // if(Storage::disk('public') -> putFileAS($path, $file, $filename)){
       if(Storage::disk('local') -> putFileAS($path, $file, $filename)){
         $file = File::create([
             'title' => $request->input('title'),
@@ -93,8 +94,11 @@ public function index()
         ]);
 
       }
-        dd($path);
+
         DB::insert($file);
+
+        dd($file, $path);
+
         $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');

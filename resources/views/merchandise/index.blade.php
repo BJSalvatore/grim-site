@@ -1,6 +1,7 @@
-@section('title', '| Inventory')
-
 @extends('layouts.app')
+@include('inc._navbar')
+
+@section('title', '| Inventory')
 
 @section('content')
 <div class="container mt-3">
@@ -8,6 +9,7 @@
   <div class="col-lg-12">
     <h1>Inventory</h1>
     <table class="table">
+    <a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Item</a>
       <thead>
         <th>#</th>
         <th>Item Name</th>
@@ -24,7 +26,7 @@
         <tr>
           <th>{{ $item-> id }}</th>
           <th>{{ $item-> itemName }}</th>
-          <td><img src="{{url($item->image)}}" height="160" width="auto"></img></td>
+          <td><img src="{{ asset('storage/merch/' .  $item -> image) }}" height="180" width="auto"></img</td>
           <th><h6>{{ $item-> description }}</h6></th>
           <td>{{ $item -> size }}</td>
           <td>{{ $item -> quantity }}</td>
@@ -39,7 +41,6 @@
         @endforeach
       </tbody>
     </table>
-    <a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Files</a>
   </div>
 </div>
 </div>

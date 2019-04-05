@@ -27,7 +27,7 @@ class StockController extends Controller
       public function index()
       {
           // create a variable and store all of our blog posts in it
-          $items = Stock::orderBy('id', 'asc')->get();
+          $items = Stock::orderBy('itemName', 'asc')->get();
 
           return view('merchandise.index', compact('items'));
       }
@@ -87,15 +87,15 @@ class StockController extends Controller
 
           $image = $request -> file('image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = storage_path('merch/' . $filename);
+          $location = public_path('' . $filename);
           $filePath = '' . $filename;
 
           $item-> image = $filename; //saves filename for retrieval of image
           $item -> save();
 
-          Session::flash('success', 'The blog post was saved successfully!');
+          Session::flash('success', 'The item was saved successfully!');
           // redirect to another
-          return redirect()->route('items.show', $item->id);
+          return redirect()->route('items.index');
           }
 
 
@@ -151,7 +151,7 @@ class StockController extends Controller
 
             $item -> save();
             Session::flash('success', 'This item was successfully updated and saved.');
-            return redirect()->route('merchandise.index', $item->id);
+            return redirect()->route('items.index', $item->id);
         }
 
       /**
@@ -165,8 +165,7 @@ class StockController extends Controller
         $item = Stock::findOrFail($id);
 
         $item -> delete();
-
-        // Session::flash('success', 'Post was deleted successfully.');
-        return redirect()->route('merchandise.index')->with('success', 'Item was deleted successfully.');
+        // Session::flash('success', 'Item was deleted successfully.');
+        return redirect()->route('items.index')->with('success', "item was deleted successfully.");
       }
 }

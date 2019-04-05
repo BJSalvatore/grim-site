@@ -17,7 +17,7 @@
               <p>Description: {{ $item -> description}}</p>
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>
-              <img src="{{ asset('assets/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
+              <img src="{{ asset('public/assets/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
           </div>
       </div>
   <div class="col-lg-3">
@@ -29,15 +29,17 @@
           <p>{{ $item -> updated_at }}</p>
         </div>
       </div>
-    <form action id="editForm" method="POST" action="{{ route('items.destroy', $item->id) }}" enctype="multipart/form-data">
+    <!-- <form action id="editForm" method="POST" action="{{ route('items.destroy', $item->id) }}" enctype="multipart/form-data">
       @csrf
-      @method('DELETE')
+      @method('DELETE') -->
     <div>
-      <button type="submit" class="btn btn-block btn-danger m-1">Delete</a>
+      <a href="{{route('items.destroy', $item->id) }}" class="btn btn-block btn-danger m-1" method="DELETE">Delete</a>
+      <a href="{{ route('items.edit', $item-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</a>
+     <a href="{{ url('items') }}" class="btn btn-block btn-primary m-1" method="GET">View All Inventory</a>
+     <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
     </div>
     </form>
-       <a href="{{ route('items.edit', $item-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</form>
-      <a href="{{ url('items') }}" class="btn btn-block btn-primary m-1" method="GET">View All Inventory</a>
+
   </div>
   <hr>
 </div>

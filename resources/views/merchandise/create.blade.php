@@ -41,13 +41,11 @@
                    @if($errors->has('quantity'))
                       <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('quantity') }}</strong></h5>
                     @endif
-                <div class="col-md-9">
                     <label class="mt-1" for="image">Image</label>
                     <input class="form-control p-1" name="image" type="file"></input>
                     @if($errors->has('image'))
                        <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('image') }}</strong></h5>
                      @endif
-                </div>
               </div>
                 <div class="col-md-9">
                     <button type="submit" class="btn btn-secondary btn-md mt-2">

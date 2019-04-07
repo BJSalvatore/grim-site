@@ -29,8 +29,7 @@ public function __construct()
 //fetch all files of a specific type and the user id
 public function index()
 {
-
-  $files = DB::table('files')->orderBy('created_at', 'desc')->paginate(5);
+  $files = File::orderBy('created_at', 'desc')->paginate(20);
 
   return view('files.index', compact('files'));
 
@@ -95,9 +94,7 @@ public function index()
 
       }
 
-        DB::insert($file);
-
-        dd($file, $path);
+        // DB::insert($file);
 
         $file ->save();
 
@@ -110,7 +107,7 @@ public function index()
     {
 
         $file = File::find($id);
-        return view('files.index', ['file' => $file]);
+        return view('files.show', ['file' => $file]);
 
     }
 

@@ -87,7 +87,7 @@ class StockController extends Controller
 
           $image = $request -> file('image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('' . $filename);
+          $location = storage_path('merch/' . $filename);
           $filePath = '' . $filename;
 
           $item-> image = $filename; //saves filename for retrieval of image

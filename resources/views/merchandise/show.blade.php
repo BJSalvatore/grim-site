@@ -17,7 +17,7 @@
               <p>Description: {{ $item -> description}}</p>
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>
-              <img src="{{ asset('public/assets/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
+              <img src="{{ asset('storage/public/assets/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
           </div>
       </div>
   <div class="col-lg-3">

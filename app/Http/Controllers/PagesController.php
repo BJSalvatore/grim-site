@@ -49,25 +49,10 @@ class PagesController extends Controller
       return view('merchandise/index')->with('header_title', $header_title)->with('items', $items);
       }
 
-      //     public function store() {
-      //       return view('posts/store');
-      // }
-      //     public function create() {
-      //       return view('posts/create');
-      // }
-      //     public function show(){
-      //       return view('posts/show');
-      // }
-      //     public function update(){
-      //       return view('posts/update');
-      // }
-      //     public function edit(){
-      //       return view('posts/edit');
-      // }
-      //
-      // public function index(){
-      //   return view('posts/index');
-      // }
+      public function getShopping() {
+        $header_title = "Shop";
+        return view('merchandise/shop')->with('header_title', $header_title);
+      }
 
         public function register(){
           return view('auth/register');

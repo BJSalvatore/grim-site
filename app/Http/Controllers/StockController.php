@@ -28,6 +28,7 @@ class StockController extends Controller
       {
           // create a variable and store all of our blog posts in it
           $items = Stock::orderBy('itemName', 'asc')->get();
+          // $items = DB::table('items')->get();
 
           return view('merchandise.index', compact('items'));
       }

@@ -21,16 +21,6 @@
           </div>
       </div>
   <div class="col-lg-3">
-    <div class="col-lg-3">
-      @guest
-      <form>
-       <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Add to Cart</a>
-      </div>
-      </form>
-      @endguest
-    </div>
-    <hr>
-    @admin
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="merchInfo" class="container p-4">
           <h5>Created on:</h5>
@@ -39,13 +29,15 @@
           <p>{{ $item -> updated_at }}</p>
         </div>
       </div>
+    <!-- <form action id="editForm" method="POST" action="{{ route('items.destroy', $item->id) }}" enctype="multipart/form-data">
+      @csrf
+      @method('DELETE') -->
     <div>
-      <a href="{{route('items.destroy', $item->id) }}" class="btn btn-block btn-danger m-1" method="DELETE">Delete</a>
-      <a href="{{ route('items.edit', $item-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</a>
-     <a href="{{ url('items') }}" class="btn btn-block btn-primary m-1" method="GET">View All Inventory</a>
-     <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
+      <a href="{{route('items.index', $item->id) }}" class="btn btn-block btn-danger m-1" method="GET">Add to Cart</a>
     </div>
     </form>
-    @endadmin
+
   </div>
+  <hr>
+</div>
 @endsection

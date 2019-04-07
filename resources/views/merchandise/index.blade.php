@@ -34,8 +34,9 @@
           <td>{{ $item-> user_id }}</td>
           <td>{{ date('M j, Y', strtotime($item->created_at)) }}</td>
           <td>
-            <a href="{{ route('items.edit', $item -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a><br>
-            <a href="{{ route('items.destroy', $item->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
+            <a href="{{ route('items.show', $item -> id)}}" class="btn btn-block btn-secondary" method="GET">View</a><br>
+            <a href="{{ route('items.edit', $item -> id)}}" class="btn btn-block btn-light" method="GET">Edit</a><br>
+            <a href="{{ route('items.destroy', $item->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
           </td>
         </tr>
         @endforeach

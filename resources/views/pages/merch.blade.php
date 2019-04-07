@@ -9,97 +9,31 @@
 
 @section('content')
 
-<div class="col-lg-12">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-4">
     @include('inc._sidebar')</div>
-    <div class="col-lg-8 offset-lg-4 p-2">
-      <div class="container" style="width: 800px;">
-      <div class="row" style="height: 20px"></div>
-      <div class="row" style="height: 320px">
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/grim_cop_killer.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
+    <div class="col-md-8 p-2">
+      <div class="container">
+      <div class="row" style="height: 320px; width: 850px;">
+          @foreach(App\Stock::all() as $item)
+          <div class="merch col-sm-4 border border-secondary m-1">
+            <div id="item" class="item">
+              <img src="{{ asset('storage/app/public/merch/' . $item->image) }}" style="height:240px; width:auto; margin:10px;"></img>
+              <h3><strong>{{ $item -> itemName }}</strong></h3>
+              <p><strong>Price:</strong> {{ $item -> price }}</p>
+              @if($item->size)
+              <p><strong>Size:</strong> {{ $item -> size }}</p>
+              @endif
+              <p><strong>Description:</strong> {{ $item -> description }}</p>
+            </div>
+            <div class="button mb-1 align-self-end">
+              <a href="{{route('items.index', $item->id) }}" class="btn btn-sm btn-secondary" method="GET">View</a>
             </div>
           </div>
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/cop_killer_ep.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-          <div class="merch col-sm-4 border border-secondary">
-              <img src="{{ asset('storage/app/public/merch/NuclearWorldOrder.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
+          @endforeach
+        </div>
       </div>
-      <div class="row" style="height: 20px"></div>
-      <div class="row" style="height: 320px">
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/face_of_betrayal.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/orange_album.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/best_of_album.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-      </div>
-      <div class="row" style="height: 20px"></div>
-      <div class="row" style="height: 320px">
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/pins_black_orange.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/pins_blue_white.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/pins_purple.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-      </div>
-      <div class="row" style="height: 20px"></div>
-      <div class="row" style="height: 320px">
-          <div class="merch col-sm-4 border border-secondary">
-            <img src="{{ asset('storage/app/public/merch/b&w_patch.jpg') }}" style="width: auto; height: 240px; padding: 5px;"></img>
-            <div class="item">
-              Item:<br>
-              Price:
-            </div>
-          </div>
-      </div>
-    </div>
     </div>
   </div>
-</div>
 
 @endsection

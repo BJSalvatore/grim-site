@@ -10799,6 +10799,12 @@ h5 {
   bottom: 0;
 }
 
+#item .img {
+  margin: 5px;
+  display: block;
+  align-self: center;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 
 @media screen and (max-height: 450px) {
@@ -10809,11 +10815,5 @@ h5 {
   .sidenav a {
     font-size: 18px;
   }
-}
-
-merch.img {
-  width: px;
-  padding: 5px;
-  border: 1px solid #000;
 }
 

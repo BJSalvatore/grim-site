@@ -11,7 +11,8 @@
   <div class="col-lg-4">
     @include('inc._sidebar')</div>
       <div class="col-lg-5">
-          <div class="post mt-3">
+        <a method="GET" action="{{ action('StockController@index', 'id'->$id) }}" enctype="multipart/form-data"></a>
+          <div class="item mt-3">
               <h3>Item: {{ $item -> itemName }}</h3>
               <p>Price: {{ $item -> price}}</p>
               <p>Description: {{ $item -> description}}</p>

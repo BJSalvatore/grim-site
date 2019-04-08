@@ -108,7 +108,7 @@ class StockController extends Controller
        */
       public function show($id)
       {
-          // call function in Post model
+
           $item = Stock::find($id);
 
           return view('merchandise.show', ['item' => $item]);

@@ -11,4 +11,9 @@ class Stock extends Model
 ];
 
 protected $table = 'items';
+
+public function item(){
+
+    return $this->belongsTo('App\Stock', 'id');
+  }
 }

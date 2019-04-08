@@ -127,6 +127,23 @@ h5{
   margin: 2px;
 }
 
+#item .img{
+  margin: 5px;
+  display: block;
+  align-self: center;
+}
+
+#myCarousel .img{
+  width: auto;
+  height: 200px;
+  margin: 15px;
+}
+
+.carousel-caption {
+  text-align:center;
+}
+
+
 #footer{
   font-size: 12px;
   padding: 12px;
@@ -134,11 +151,7 @@ h5{
   bottom: 0;;
 }
 
-#item .img{
-  margin: 5px;
-  display: block;
-  align-self: center;
-}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

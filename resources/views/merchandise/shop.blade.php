@@ -11,7 +11,7 @@
   <div class="col-lg-4">
     @include('inc._sidebar')</div>
       <div class="col-lg-5">
-          <div class="post mt-3">
+          <div class="item mt-3">
               <h3>Item: {{ $item -> itemName }}</h3>
               <p>Price: {{ $item -> price}}</p>
               <p>Description: {{ $item -> description}}</p>
@@ -21,23 +21,24 @@
           </div>
       </div>
   <div class="col-lg-3">
+    <div class="col-lg-3">
+      <form>
+       <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Add to Cart</a>
+      </div>
+      </form>
+
+    </div>
+    <hr>
+
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="merchInfo" class="container p-4">
-          <h5>Created on:</h5>
-          <p>{{ date('Y-m-d\ H:i:s', strtotime($item -> created_at)) }}</p>
-          <h5>Updated on:</h5>
-          <p>{{ $item -> updated_at }}</p>
+
         </div>
       </div>
-    <!-- <form action id="editForm" method="POST" action="{{ route('items.destroy', $item->id) }}" enctype="multipart/form-data">
-      @csrf
-      @method('DELETE') -->
     <div>
-      <a href="{{route('items.index', $item->id) }}" class="btn btn-block btn-danger m-1" method="GET">Add to Cart</a>
+     <a href="{{ url('items')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
     </div>
     </form>
 
   </div>
-  <hr>
-</div>
 @endsection

@@ -29,7 +29,7 @@ public function __construct()
 //fetch all files of a specific type and the user id
 public function index()
 {
-  $files = File::orderBy('created_at', 'desc')->paginate(20);
+  $files = File::orderBy('created_at', 'desc')->get();
 
   return view('files.index', compact('files'));
 

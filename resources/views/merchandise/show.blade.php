@@ -22,15 +22,8 @@
       </div>
   <div class="col-lg-3">
     <div class="col-lg-3">
-      @guest
-      <form>
-       <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Add to Cart</a>
-      </div>
-      </form>
-      @endguest
     </div>
     <hr>
-    <!-- @admin -->
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="merchInfo" class="container p-4">
           <h5>Created on:</h5>
@@ -46,6 +39,5 @@
      <a href="{{ url('items')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
     </div>
     </form>
-    <!-- @endadmin -->
   </div>
 @endsection

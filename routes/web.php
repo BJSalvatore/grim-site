@@ -88,6 +88,15 @@ Route::get('/files/{id}/show', 'FileController@show')->name('files.show');
 Route::get('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
 
+Route::get('photos', function(){
+  $header_title = "Photos!";
+  $files = DB::table('files')
+      ->orderBy('id', 'asc')
+      // ->limit(10)
+      ->get();
+  return view('pages.photos', ['files'=>$files])->with('header_title', $header_title);
+});
+
 //routes for inventory
 Route::resource('/items', 'StockController');
 Route::get('/items/index', 'StockController@index')->name('items.index');
@@ -103,6 +112,14 @@ Route::get('inventory', function(){
   // ->limit(20)
   ->get();
   return view('merchandise.index', ['items'=>$items]);
+});
+
+Route::get('shop', function(){
+  $items = DB::table('items')
+  ->orderBy('id', 'asc')
+  // ->limit(20)
+  ->get();
+  return view('merchandise.shop', ['items'=>$items]);
 });
 
 // Routes for $messages

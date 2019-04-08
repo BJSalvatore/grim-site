@@ -47,12 +47,6 @@
         @endforeach
       </tbody>
     </table>
-    <div class="d-flex flex-row align-items-center justify-content-center">
-      {{$files -> links()}}
-    </div>
-    <div class="d-flex flex-row align-items-center justify-content-center">
-      Page {{$files->currentPage()}} of {{$files->lastPage()}}
-    </div>
   </div>
 </div>
 </div>

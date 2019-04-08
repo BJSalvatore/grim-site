@@ -18,24 +18,34 @@
 
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      @foreach($files as $file)
+                        <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                      @endforeach
                     </ol>
+
+                    @foreach( $files as $file )
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <img class="d-block img-fluid" src="{{ assett('storage/app/public/files' .  $file->file) }}" alt="{{ $file ->title }}">
+                               <div class="carousel-caption d-none d-md-block">
+                                  <h3>{{ $photo->title }}</h3>
+                                  <p>{{ $photo->descriptoin }}</p>
+                               </div>
+                        </div>
+                     @endforeach
+
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-
-                    @foreach($files as $file)
-                      @if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
-                      <div class="item">
-                        <img src="{{ asset('storage/app/public/files/' .  $file -> name . $file -> extension) }}"></img>
-                     </div>
-                     <div class="carousel-caption">
-                         <h3>{{ $file -> title }}</h3>
-                     </div>
-                     @endif
+                      @foreach( $files as $file)
+                        @if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                          <img class="d-block img-fluid" src="{{ $file -> file }}" alt="{{ $file -> title }}">
+                       </div>
+                       <div class="carousel-caption d-none d-md-block">
+                           <h3>{{ $file -> title }}</h3>
+                       </div>
+                       @endif
+                     @endforeach
                     </div>
-                </div>
 
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -46,7 +56,8 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+              </div>
             </div>
         </div>
-      </div>
+
     @endsection

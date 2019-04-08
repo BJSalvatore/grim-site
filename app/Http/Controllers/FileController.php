@@ -68,7 +68,7 @@ public function index()
         ]);
 
       //gets file extension and type
-      $file = new File();
+      $file = new File;
       $file-> name = $request->input('name');
       $file-> title = $request->input('title');
       $file = $request->file('file');
@@ -93,7 +93,6 @@ public function index()
         ]);
 
       }
-
 
         $file ->save();
 

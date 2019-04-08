@@ -4,7 +4,7 @@
 @section('title', '| Inventory')
 
 @section('content')
-<div class="container mt-3">
+<div class="container mt-3 mb-4">
 <div class="row">
   <div class="col-lg-12">
     <h1>Inventory</h1>

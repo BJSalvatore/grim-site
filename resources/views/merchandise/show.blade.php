@@ -11,7 +11,6 @@
   <div class="col-lg-4">
     @include('inc._sidebar')</div>
       <div class="col-lg-5">
-        <a method="GET" action="{{ action('StockController@index', 'id'->$id) }}" enctype="multipart/form-data"></a>
           <div class="item mt-3">
               <h3>Item: {{ $item -> itemName }}</h3>
               <p>Price: {{ $item -> price}}</p>
@@ -31,7 +30,7 @@
       @endguest
     </div>
     <hr>
-    @admin
+    <!-- @admin -->
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="merchInfo" class="container p-4">
           <h5>Created on:</h5>
@@ -44,9 +43,9 @@
       <a href="{{route('items.destroy', $item->id) }}" class="btn btn-block btn-danger m-1" method="DELETE">Delete</a>
       <a href="{{ route('items.edit', $item-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</a>
      <a href="{{ url('items') }}" class="btn btn-block btn-primary m-1" method="GET">View All Inventory</a>
-     <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
+     <a href="{{ url('items')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
     </div>
     </form>
-    @endadmin
+    <!-- @endadmin -->
   </div>
 @endsection

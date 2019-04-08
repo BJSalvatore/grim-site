@@ -94,7 +94,6 @@ public function index()
 
       }
 
-        // DB::insert($file);
 
         $file ->save();
 

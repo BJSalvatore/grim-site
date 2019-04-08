@@ -14,10 +14,10 @@
       <div class="col-lg-8 p-4">
           <h1 style="font-family: Freckle Face;">Press Releases</h1>
           <hr>
-          <div class= "release mt-3 mb-4">
+          <div id="press" class="release mt-3 mb-4">
          @foreach($releases as $release)
          @if($release -> image)
-           <img src="{{ asset('assets/images/press/' . $release->image)}}" height="160" width="auto"> </img>
+           <img src="{{ asset('assets/images/press/' . $release->image)}}"> </img>
          @endif
            <h3><strong>{{ $release -> title }}<strong></h3>
            <h5>{{ $release -> release_date }}</h5>

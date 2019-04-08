@@ -1,7 +1,9 @@
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @section('title', '| Photos')
 
 @extends('layouts.app')
-
 @include('inc._header')
 
 @section('content')
@@ -23,17 +25,15 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
 
-                    <?php foreach($files as $file){ ?>
-                      if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
-                      <div class="item <?php echo ($key == 0) ? "active" : ""; ?> ">
+                    @foreach($files as $file)
+                      @if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
+                      <div class="item">
                         <img src="{{ asset('storage/app/public/files/' .  $file -> name . $file -> extension) }}"></img>
-                          <!-- <img src="/storage/files/ . "." . <?php  echo $file['file']; ?>" alt="Image of every carousel"/> -->
                      </div>
                      <div class="carousel-caption">
                          <h3>{{ $file -> title }}</h3>
                      </div>
-                     endif
-                   <?php } ?>
+                     @endif
                     </div>
                 </div>
 
@@ -48,4 +48,5 @@
                 </a>
             </div>
         </div>
+      </div>
     @endsection

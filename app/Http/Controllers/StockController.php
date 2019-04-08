@@ -89,14 +89,15 @@ class StockController extends Controller
           $image = $request -> file('image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = storage_path('merch/' . $filename);
-          $filePath = '' . $filename;
+          $filePath = '' . $image;
 
           $item-> image = $filename; //saves filename for retrieval of image
+
           $item -> save();
 
           Session::flash('success', 'The item was saved successfully!');
           // redirect to another
-          return redirect()->route('items.index');
+          return redirect()->route('items.index', $item->id);
           }
 
 
@@ -124,9 +125,9 @@ class StockController extends Controller
       public function edit($id)
       {
           // find post in database and save it as variable
-          $items = Stock::find($id);
+          $item = Stock::find($id);
           // return the view and pas in the var we previously created
-          return view('merchandise.edit', ['item' => $item]);
+          return view('merchandise.edit')->withStock('item');
       }
       /**
        * Update the specified resource in storage.
@@ -141,10 +142,27 @@ class StockController extends Controller
         $item = Stock::find($id);
         $oldFilename = $item -> image;
 
+        // validate the data
         $validatedData = $request ->validate([
-
+            'itemName' => 'required|max:255',
+            'price' => 'required|max:6',
+            'description' => 'required|max:255',
+            'size' => 'max:3',
+            'quantity' => 'required',
+            'image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
           ],
             $messages = [
+              'itemName.required' => 'This field cannot be empty!',
+              'itemName.max' => 'Maximum number of characters is 255.',
+              'price.required' => 'This field is required.',
+              'price.max' => 'Maximum number of characters is 6',
+              'description.required' => 'This field cannot be empty!',
+              'description.max' => 'Maximum number of characters is 255.',
+              'size.max' => 'Please enter S, M, LG, XL, XXL or XXXL',
+              'quantity.required' => 'This field is required!',
+              'image.image' => 'This is not an image.',
+              'image.mimes' => 'File must be jpeg, jpg, png, gif or svg.',
+              'image.max' => 'This file is too big. Please select a smaller file.'
 
           ]);
 
@@ -164,9 +182,9 @@ class StockController extends Controller
       public function destroy($id)
       {
         $item = Stock::findOrFail($id);
-
         $item -> delete();
-        // Session::flash('success', 'Item was deleted successfully.');
-        return redirect()->route('items.index')->with('success', "item was deleted successfully.");
+
+        Session::flash('success', 'Item was deleted successfully.');
+        return redirect()->route('items.index');
       }
 }

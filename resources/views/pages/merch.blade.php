@@ -17,7 +17,7 @@
           @foreach(App\Stock::all() as $item)
           <div class="merch col-sm-4 border border-secondary m-1">
             <div id="item" class="item">
-              <img src="{{ asset('storage/app/public/merch/' . $item->image) }}" style="height:240px; width:auto; margin:10px;"></img>
+              <img src="{{ asset('storage/merch/' . $item->image) }}" style="height:240px; width:auto; margin:10px;"></img>
               <h3><strong>{{ $item -> itemName }}</strong></h3>
               <p><strong>Price:</strong> {{ $item -> price }}</p>
               @if($item->size)

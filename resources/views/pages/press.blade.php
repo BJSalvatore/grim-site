@@ -17,7 +17,7 @@
           <div id="press" class="release mt-3 mb-4">
          @foreach($releases as $release)
          @if($release -> image)
-           <img src="{{ asset('assets/images/press/' . $release->image)}}"> </img>
+           <img src="{{ asset('storage/press/' . $release->image)}}"> </img>
          @endif
            <h3><strong>{{ $release -> title }}<strong></h3>
            <h5>{{ $release -> release_date }}</h5>

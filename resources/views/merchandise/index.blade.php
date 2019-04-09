@@ -4,11 +4,11 @@
 @section('title', '| Inventory')
 
 @section('content')
-<div class="container mt-3 mb-4">
-<div class="row">
+<div class="row mt-3" style="margin-bottom: 80px;">
   <div class="col-lg-12">
+    <div class="col-lg-8 offset-lg-2">
     <h1>Inventory</h1>
-    <table class="table">
+    <table id="merchandise" class="table">
     <a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Item</a>
       <thead>
         <th>#</th>

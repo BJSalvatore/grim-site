@@ -13,11 +13,13 @@
       <div class="col-lg-5">
           <div class="item mt-3">
               <h3>Item: {{ $item -> itemName }}</h3>
+              <p>ID: {{$item -> id }}</p>
               <p>Price: {{ $item -> price}}</p>
               <p>Description: {{ $item -> description}}</p>
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>
               <img src="{{ asset('storage/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
+
           </div>
       </div>
   <div class="col-lg-3">

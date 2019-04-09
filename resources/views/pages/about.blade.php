@@ -29,21 +29,21 @@
             <td>Mystic Records</td>
           </tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/slimey-valley.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('storage/images/slimey-valley.jpg') }}"></img></td>
             <td>It Came From Slimey Valley</td>
             <td>Vinyl, LP Compilation<br>Song - "Old Towne Mall"</td>
             <td>1984</td>
             <td>Ghetto-way Records</td>
           </tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/live-at-fenders.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('storage/images/live-at-fenders.jpg') }}"></img></td>
             <td>Live At Fenders</td>
             <td>7" EP</td>
             <td>1987</td>
             <td>Super Seven Records</td>
           </tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('assets/images/live-to-die.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('storage/images/live-to-die.jpg') }}"></img></td>
             <td>Live To Die</td>
             <td>7" EP</td>
             <td>1987</td>

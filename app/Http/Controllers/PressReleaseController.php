@@ -37,7 +37,7 @@ class PressReleaseController extends Controller
       if($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
-        $location = public_path('press' . $filename);
+        $location = storage_path('press' . $filename);
         $filePath = '' . $filename;
 
         // resize uploaded image

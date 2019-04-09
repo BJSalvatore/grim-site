@@ -52,7 +52,7 @@ class StockController extends Controller
       {
         // validate the data
         $validatedData = $request ->validate([
-            'itemName' => 'required|max:255',
+            'itemName' => 'required|max:255|unique:items',
             'price' => 'required|max:6',
             'description' => 'required|max:255',
             'size' => 'max:3',
@@ -62,6 +62,7 @@ class StockController extends Controller
             $messages = [
               'itemName.required' => 'This field cannot be empty!',
               'itemName.max' => 'Maximum number of characters is 255.',
+              'itemName.unique' => 'This item name has already been used.',
               'price.required' => 'This field is required.',
               'price.max' => 'Maximum number of characters is 6',
               'description.required' => 'This field cannot be empty!',
@@ -111,8 +112,7 @@ class StockController extends Controller
       {
 
           $item = Stock::find($id);
-
-          return view('merchandise.show', ['item' => $item]);
+          return view('merchandise.show', ['item'=>$item]);
 
       }
 

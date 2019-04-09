@@ -21,6 +21,7 @@
         <th></th>
       </thead>
       <tbody>
+
         @foreach($files as $file)
         <tr>
           <th>{{ $file-> id }}</th>

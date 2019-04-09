@@ -88,11 +88,16 @@ class StockController extends Controller
           $item -> updated_at = Carbon::now();
 
           $image = $request -> file('image');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = storage_path('merch/' . $filename);
-          $filePath = '' . $image;
 
-          $item-> image = $filename; //saves filename for retrieval of image
+            if($request->hasFile('image')) {
+            $uploadedImage = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('merch/' . $filename);
+            $uploadedImage->move($location, $filename);
+            $image-> image= $filename;
+
+
+              }
 
           $item -> save();
 

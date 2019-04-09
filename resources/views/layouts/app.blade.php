@@ -20,7 +20,8 @@
 
 <body style="background-color: silver; postion:fixed; z-index: -1;">
 
-  @include('alert')
+  @include('inc._flash-message')
+  <!-- @include('alert') -->
   @yield('content')
   @include('inc._footer')
 

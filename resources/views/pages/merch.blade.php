@@ -4,9 +4,7 @@
 @section('title', '| Buy Stuff')
 
 @extends('layouts.app')
-
-@include('inc._header')
-
+@include('inc._navbar')
 @section('content')
 
   <div class="row">
@@ -14,6 +12,7 @@
     @include('inc._sidebar')</div>
     <div class="col-md-8 p-2">
       <div class="container">
+        <h1 style="font-family: Freckle Face;">Buy Stuff!</h1>
       <div class="row" style="height: 320px; width: 850px;">
           @foreach(App\Stock::all() as $item)
           <div class="merch col-sm-4 border border-secondary m-1">
@@ -27,7 +26,7 @@
               <p><strong>Description:</strong> {{ $item -> description }}</p>
             </div>
             <div class="button mb-1 align-self-end">
-              <a href="{{route('items.index', $item->id) }}" class="btn btn-sm btn-secondary" method="GET">View</a>
+              <!-- <a href="{{route('items.index', $item->id) }}" class="btn btn-sm btn-secondary" method="GET">View</a> -->
             </div>
           </div>
           @endforeach

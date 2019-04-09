@@ -115,11 +115,12 @@ Route::get('inventory', function(){
 });
 
 Route::get('shop', function(){
+  $header_title ="Shop!";
   $items = DB::table('items')
   ->orderBy('id', 'asc')
   // ->limit(20)
   ->get();
-  return view('merchandise.shop', ['items'=>$items]);
+  return view('pages.merch', ['items'=>$items])->with('header_title', $header_title);
 });
 
 // Routes for $messages

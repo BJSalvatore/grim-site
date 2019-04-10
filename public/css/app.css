@@ -10716,7 +10716,17 @@ h5 {
 }
 
 .carousel-inner .item img {
-  margin: 0 auto;
+  margin: auto;
+}
+
+.carousel-control-next .carousel-control-prev {
+  margin: auto;
+  width: auto;
+}
+
+.carousel-item img {
+  height: auto;
+  width: 100%;
 }
 
 /* The sidebar menu */

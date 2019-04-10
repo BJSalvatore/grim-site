@@ -28,7 +28,7 @@
                       @foreach($files as $file)
                         @if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                              <img class="img-fluid" src="{{ asset('uploadedFiles/' .  $file -> file)}}">
+                              <img class="d-block img-fluid" src="{{ asset('uploadedFiles/' .  $file -> file)}}">
                        <div class="carousel-caption d-none d-md-block">
                            <h3>{{ $file -> title }}</h3>
                        </div>

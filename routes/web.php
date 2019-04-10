@@ -88,6 +88,14 @@ Route::get('/files/{id}/show', 'FileController@show')->name('files.show');
 Route::get('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
 
+// Route::get('files', function(){
+//   $files = DB::table('files')
+//       ->orderBy('created_at', 'desc')
+//       // ->limit(10)
+//       ->get();
+//   return view('files.index', ['files'=>$files]);
+// });
+
 Route::get('photos', function(){
   $header_title = "Photos!";
   $files = DB::table('files')

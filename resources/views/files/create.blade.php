@@ -17,19 +17,19 @@
                   <label class="mt-1" for="name">File Name</label>
                   <input class="form-control p-1" type="text" name="name" placeholder="Max 15 characters." v-model="fileName" required></p>
                   @if($errors->has('name'))
-                    <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('name') }}</strong></h5>
+                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('name') }}</strong></p>
                   @endif
                 </div>
                 <div class="col-md-9">
                   <label class="mt-1" for="name">Title</label>
                   <input class="form-control p-1" type="text" name="title" placeholder="This title will be displayed with the file." required>
                   @if($errors->has('title'))
-                    <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('title') }}</strong></h5>
+                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('title') }}</strong></p>
                   @endif
                     <label class="mt-1" for="file">File</label>
                     <input class="form-control p-1" name="file" type="file"></input>
                     @if($errors->has('file'))
-                       <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('file') }}</strong></h5>
+                       <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('file') }}</strong></p>
                      @endif
                 </div>
                 <div class="col-md-9">

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Session;
+use Image;
 
 // there are four arrays of different file extensions used for validation
 class FileController extends Controller
@@ -31,7 +32,7 @@ public function index()
 {
   $files = File::orderBy('created_at', 'desc')->get();
 
-  return view('files.index', compact('files'));
+  return view('files.index', ['files' => $files]);
 
     }
 
@@ -58,6 +59,7 @@ public function index()
           'name.required' => 'A file name is required.',
           'name.unique' => 'This name has been used before. Please try another one.',
           'name.max' => 'There is a maximum of 50 characters allowed.',
+          // 'name.alpha-dash' =>'No spaces are allowed in file name.',
           'title.required' => 'A title is required.',
           'title.unique' => 'This title has been used before. Please try another one.',
           'title.max' => 'The maximum number of characters is 191.',
@@ -71,34 +73,37 @@ public function index()
       $file = new File;
       $file-> name = $request->input('name');
       $file-> title = $request->input('title');
-      $file = $request->file('file');
+      $file -> file = $request->input('file');
       $file-> user_id = auth()->user() -> username;
+      $file -> created_at = Carbon::now();
+      $file -> updated_at = Carbon::now();
 
-      $ext = $file -> getClientOriginalExtension();
-      $type = $this->getType($ext);
-      $filename = $request['name'] . '.' . $ext;
-      $path = public_path('uploadedFiles/' . $filename);
+      if($request->hasFile('file')) {
+        $fileUpload = $request->file('file');
+        $ext = $fileUpload -> getClientOriginalExtension();
+        $type =  $ext;
+        $filename = time() . '.' . $ext;
+        $path = public_path('uploadedFiles/' . $filename);
 
-      // if(Storage::disk('public') -> putFileAS($path, $file, $filename)){
-      if(Storage::disk('local') -> putFileAS($path, $file, $filename)){
-        $file = File::create([
-            'title' => $request->input('title'),
-            'name' => $request->input('name'),
-            'file' => $filename,
-            'type' => $type,
-            'extension' => $ext,
-            'user_id' => auth()->user() -> username,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
+        Image::make($fileUpload)->resize(100, null, function ($constraint){
+          $constraint->aspectRatio();
+        })->save($path);
+
+        // save image to local Storage
+        $public = Storage::disk('public')->put($path, $filename);
+        $fileUpload -> file = $public;
 
       }
+
+      $file -> type = $type;
+      $file -> extension = $ext;
+      $file -> file = $filename;
 
         $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');
         // redirect to another
-        return redirect()->route('files.index');
+        return redirect()->route('files.show', $file -> id);
     }
 
     public function show($id)

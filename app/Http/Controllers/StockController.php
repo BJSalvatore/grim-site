@@ -29,7 +29,7 @@ class StockController extends Controller
       public function index()
       {
           // create a variable and store all of our blog posts in it
-          $items = Stock::orderBy('itemName', 'asc')->get();
+          $items = Stock::orderBy('id', 'asc')->get();
           // $items = DB::table('items')->get();
 
           return view('merchandise.index', compact('items'));
@@ -91,13 +91,13 @@ class StockController extends Controller
 
 
             if($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('merch/' . $filename);
+              $image = $request->file('image');
+              $filename = time() . '.' . $image->getClientOriginalExtension();
+              $location = public_path('merch/' . $filename);
 
-            Image::make($image)->resize(100, null, function ($constraint){
-              $constraint->aspectRatio();
-            })->save($location);
+              Image::make($image)->resize(100, null, function ($constraint){
+                $constraint->aspectRatio();
+              })->save($location);
 
               // save image to local Storage
               $public = Storage::disk('public')->put($location, $filename);
@@ -111,7 +111,7 @@ class StockController extends Controller
 
           Session::flash('success', 'The item was saved successfully!');
           // redirect to another
-          return redirect()->route('items.index', $item->id);
+          return redirect()->route('items.show', $item -> id);
           }
 
 
@@ -125,7 +125,7 @@ class StockController extends Controller
       {
 
           $item = Stock::find($id);
-          return view('merchandise.show', ['item'=>$item]);
+          return view('merchandise.show', ['item' => $item]);
 
       }
 

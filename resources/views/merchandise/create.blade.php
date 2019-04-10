@@ -17,34 +17,34 @@
                   <label class="mt-1" for="itemName">Item Name</label>
                   <input class="form-control p-1" type="text" name="itemName" v-model="itemName" required></p>
                   @if($errors->has('itemName'))
-                    <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('itemName') }}</strong></h5>
+                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('itemName') }}</strong></p>
                   @endif
                 </div>
                 <div class="col-md-9">
                   <label class="mt-1" for="price">Price</label>
                   <input class="form-control p-1" type="text" name="price" required>
                   @if($errors->has('price'))
-                    <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('price') }}</strong></h5>
+                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('price') }}</strong></p>
                   @endif
                   <label class="mt-1" for="description">Description</label>
                   <input class="form-control p-1" type="text" name="description" required>
                   @if($errors->has('description'))
-                    <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('description') }}</strong></h5>
+                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('description') }}</strong></p>
                   @endif
                   <label class="mt-1" for="size">Size</label>
                   <input class="form-control p-1" name="size" type="text" placeholder="Leave blank if no size."></input>
                   @if($errors->has('size'))
-                     <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('size') }}</strong></h5>
+                     <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('size') }}</strong></p>
                    @endif
                    <label class="mt-1" for="size">Quantity</label>
                    <input class="form-control p-1" name="quantity" type="text"></input>
                    @if($errors->has('quantity'))
-                      <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('quantity') }}</strong></h5>
+                      <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('quantity') }}</strong></p>
                     @endif
                     <label class="mt-1" for="image">Image</label>
                     <input class="form-control p-1" name="image" type="file"></input>
                     @if($errors->has('image'))
-                       <h5 class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('image') }}</strong></h5>
+                       <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('image') }}</strong></p>
                      @endif
               </div>
                 <div class="col-md-9">

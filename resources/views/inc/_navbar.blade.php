@@ -65,15 +65,7 @@
           <a href="{{ url('/logout') }}"> Logout </a>
         </li>
         @endif
-
-
-        <!-- <li class="nav-item active">
-          <a class="{{ Request::is ('auth/admin') ? 'active': ''}}" href="/auth/admin">Add New Admin</a></li>
-        </li> -->
-        <!-- <li class="nav-item active">
-          <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Files</a></li>
-        </li> -->
-
+        </li>
       </ul>
     </div>
   </nav>

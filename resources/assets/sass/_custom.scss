@@ -15,6 +15,7 @@ h5{
   font-weight: 600;
 }
 
+
 #comment-form .alert-danger{
   font-size: 10px;
 }
@@ -38,6 +39,14 @@ h5{
 
 .nav-item{
   color: silver;
+}
+
+.navbar-toggler{
+  border-color:  #FF8C00;
+}
+
+.navbar-toggler-icon{
+  background-color: silver;
 }
 
 .navbar-brand{
@@ -154,18 +163,8 @@ h5{
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 450px) and (max-width: 768px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    .container {flex-direction: column;}
 }
-
-
-
-//****************************************
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'Freckle Face', cursive;
-//
-// font awesome icons
-//   <i class="fab fa-facebook-square"></i>
-//   <i class="fab fa-twitter-square"></i>
-//   <i class="fab fa-instagram"></i>

@@ -19,7 +19,6 @@
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>
               <img src="{{ asset('merch/' . $item->image)}}" height="300" width="auto"> </img></p>
-
           </div>
       </div>
   <div class="col-lg-3">

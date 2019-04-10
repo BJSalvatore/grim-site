@@ -38,7 +38,7 @@
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
         <li class="nav-item active">
-          <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files/">Manage Files</a></li>
+          <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Manage Files</a></li>
         </li>
 
 

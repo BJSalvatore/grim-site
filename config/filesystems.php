@@ -44,7 +44,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => public_path('app/public/storage'),
+            'root' => public_path('app/public'),
         ],
 
         'public' => [

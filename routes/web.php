@@ -65,7 +65,7 @@ Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
 //routes for press releases
-Route::resource('releases', 'PressReleaseController');
+Route::resource('releases', 'PressReleaseController@index');
 Route::get('/releases/index', 'PressReleaseController@index')->name('releases.index');
 Route::post('/releases/store', 'PressReleaseController@store')->name('releases.store');
 // Route::get('/releases/{id}/show', 'PressReleaseController@show')->name('releases.show');

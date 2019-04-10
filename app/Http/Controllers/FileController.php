@@ -77,7 +77,7 @@ public function index()
       $ext = $file -> getClientOriginalExtension();
       $type = $this->getType($ext);
       $filename = $request['name'] . '.' . $ext;
-      $path = storage_path('files/' . $filename);
+      $path = public_path('uploadedFiles/' . $filename);
 
       // if(Storage::disk('public') -> putFileAS($path, $file, $filename)){
       if(Storage::disk('local') -> putFileAS($path, $file, $filename)){

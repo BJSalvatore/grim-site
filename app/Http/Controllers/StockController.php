@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App;
 use App\Stock;
 use Illuminate\Http\Request;
+use Collective\Html\Eloquent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Session;
+use Image;
 
 class StockController extends Controller
 {
@@ -82,22 +84,28 @@ class StockController extends Controller
           $item -> description = $request -> input('description');
           $item -> size = $request ->input('size');
           $item -> quantity = $request -> input('quantity');
-          $item -> image = $request ->file('image');
+          $item -> image = $request ->input('image');
           $item -> user_id = auth()->user() -> username;
           $item -> created_at = Carbon::now();
           $item -> updated_at = Carbon::now();
 
-          $image = $request -> file('image');
 
             if($request->hasFile('image')) {
-            $uploadedImage = $request->file('image');
+            $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('merch/' . $filename);
-            $uploadedImage->move($location, $filename);
-            $image-> image= $filename;
 
+            Image::make($image)->resize(100, null, function ($constraint){
+              $constraint->aspectRatio();
+            })->save($location);
+
+              // save image to local Storage
+              $public = Storage::disk('public')->put($location, $filename);
+              $item -> image = $public;
 
               }
+
+          $item -> image = $filename;
 
           $item -> save();
 

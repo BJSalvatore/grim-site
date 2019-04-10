@@ -26,7 +26,7 @@
         <tr>
           <th>{{ $item-> id }}</th>
           <th>{{ $item-> itemName }}</th>
-          <th><img src="{{ asset('storage/merch/' . $item -> image) }}" height="150" width="auto"></img></th>
+          <th><img src="{{ asset('merch/' . $item -> image) }}" height="150" width="auto"></img></th>
           <th><h6>{{ $item-> description }}</h6></th>
           <td>{{ $item -> size }}</td>
           <td>{{ $item -> quantity }}</td>

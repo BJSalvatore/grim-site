@@ -13,7 +13,7 @@
       <div class="col-lg-5">
           <div class="post mt-3">
             @if($post -> image)
-              <img src="{{ asset('assets/images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
+              <img src="{{ asset('images/' . $post->image)}}" height="300" width="auto"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
               <p>{{ $post -> post}}</p>

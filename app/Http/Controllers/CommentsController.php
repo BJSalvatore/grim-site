@@ -75,7 +75,7 @@ class CommentsController extends Controller
 
           Session::flash('success', 'Comment was added successfully!');
 
-          return redirect()->route('pages.single', [$post -> slug]);
+          return redirect()->route('posts.index', [$post -> id]);
       }
 
 

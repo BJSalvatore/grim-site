@@ -49,14 +49,6 @@
           <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Files</a></li>
         </li> -->
 
-
-        @guest
-        <li class="nav-item active">
-          <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
-        <li class="nav-item active">
-          <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
-        @endguest
-
         @auth
           <li class="nav-item active">
             <a href="{{ url('/logout') }}"> Logout </a></li>

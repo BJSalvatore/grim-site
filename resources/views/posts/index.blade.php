@@ -32,7 +32,11 @@
             <td>{{ $post->title }}</td>
             <td>{{ $post->slug }}</td>
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
-            <td>{{ $post->image }}</td>
+            @if($post -> image )
+              <td><img src="{{ asset('images/' . $post -> image) }}" height="150" width="auto"></img></td>
+              @else
+              <td>No Image</td>
+            @endif
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
             <td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
             <td>

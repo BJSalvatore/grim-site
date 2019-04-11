@@ -84,23 +84,22 @@ class PostController extends Controller
         if($request->hasFile('blog_image')) {
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('assets/images/blogImages/' . $filename);
-          $filePath = '' . $filename;
+          $location = public_path('images/' . $filename);
+
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
             })->save($location);
 
-          // save image to aws s3
-            $s3 = Storage::disk('s3')->put($filePath, $image);
-            $post-> image = $s3;
+            $public = Storage::disk('public')->put($location, $filename);
+            $post-> image = $public;
         }
             $post-> image = $filename; //saves filename for retrieval of image
             $post -> save();
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
-        // return Response::download($location) -> redirect()->route('posts.show', $post ->id);
-        return redirect()->route('posts.show', $post -> id);
+
+        return redirect()->route('posts.show', $post -> slug);
 
     }
 
@@ -172,26 +171,26 @@ class PostController extends Controller
           //add new photo
           $newImage = $request->file('blog_image');
           $newFilename = time() . '.' . $newImage->getClientOriginalExtension();
-          $location = public_path('assets/images/blogImages/' . $newFilename);
-          $filePath = '' . $newFilename;
+          $location = public_path('images/' . $newFilename);
+          $filePath = public_path('images/');
           Image::make($newImage)->resize(300, null, function ($constraint){
           $constraint->aspectRatio();
           })->save($location);
 
           // delete old image from local public folder
-          if (Storage::exists(public_path('assets/images/blogImages/' . $oldFilename))){
-              Storage::delete(public_path('assets/images/blogImages/' . $oldFilename));
-              unlink(public_path('assets/images/blogImages/' . $oldFilename));
+          if (Storage::exists(public_path('images/' . $oldFilename))){
+              Storage::delete(public_path('images/' . $oldFilename));
+              unlink(public_path('images/' . $oldFilename));
             }
 
           // delete old image from AWS storage
-          if(Storage::disk('s3')->exists($filePath . $oldFilename)) {
-            Storage::disk('s3')->delete($filePath . $oldFilename);
+          if(Storage::disk('public')->exists($filePath . $oldFilename)) {
+            Storage::disk('public')->delete($filePath . $oldFilename);
           }
 
         // save image to aws s3
-          $s3 = Storage::disk('s3')->put($filePath, $newImage);
-          $post->newImage = $s3;
+          $public = Storage::disk('public')->put($filePath, $newImage);
+          $post->newImage = $public;
 
       }
           $post->newImage = $filename;

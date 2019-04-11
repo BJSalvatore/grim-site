@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('inc._navbar')
 
 @section('title', '| Create New Post')
 

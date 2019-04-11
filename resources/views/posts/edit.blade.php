@@ -1,7 +1,7 @@
 @section('title', '| Edit Post')
 
 @extends('layouts.app')
-
+@include('inc._navbar')
 @section('content')
 <div class="col-lg-12">
   <div class="row">

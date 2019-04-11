@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@include('inc._navbar')
+@include('inc._adminNavbar')
 
 @section('title', '| Add Inventory')
 

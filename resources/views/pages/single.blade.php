@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @include('inc._navbar')
-
 <!-- @section('title', "| {{$post->title}}") -->
 
 @section('content')

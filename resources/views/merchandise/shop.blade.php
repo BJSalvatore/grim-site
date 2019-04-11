@@ -4,6 +4,7 @@
 @section('title', '| Inventory')
 
 @extends('layouts.app')
+
 @include('inc._navbar')
 
 @section('content')

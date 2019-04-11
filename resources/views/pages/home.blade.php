@@ -6,7 +6,6 @@
 @extends('layouts.app')
 @include('inc._jumbotron')
 @include('inc._navbar')
-
 @section('content')
 <div class="container-fluid">
 <div class = "d-flex flex-lg-row row-align-items-start">

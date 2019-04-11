@@ -43,7 +43,7 @@
         </li>
         @endguest
 
-        @if (auth()->check())
+        @if (auth()->check() && !auth()->user()->isAdmin())
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
           <li class="nav-item">
@@ -64,8 +64,12 @@
           <li class="nav-item">
             <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
           </li>
+          <li class="nav-item active">
+            <a href="{{ url('/logout') }}"> Logout </a>
+          </li>
+          @endif
 
-        @if(auth()->user()->isAdmin())
+        @if(auth()->check() && auth()->user()->isAdmin())
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
         </li>
@@ -78,7 +82,6 @@
         <li class="nav-item active">
           <a class="{{ Request::is ('inventory') ? 'active': ''}}" href="/inventory">Inventory</a></li>
         </li>
-          @endif
         <li class="nav-item active">
           <a href="{{ url('/logout') }}"> Logout </a>
         </li>

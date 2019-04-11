@@ -46,7 +46,24 @@
         @if (auth()->check())
         <li class="nav-item active">
           <a class="{{ Request::is ('/') ? 'active': ''}}" href="/">Home</a></li>
-        </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('about') ? 'active': ''}}" href="/about">Discography</a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('press') ? 'active': ''}}" href="/press">Press</a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('photos') ? 'active': ''}}" href="/photos">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('shop') ? 'active': ''}}" href="/shop">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ Request::is ('contact') ? 'active': ''}}" href="/contact">Contact</a>
+          </li>
           @if(auth()->user()->isAdmin())
         <li class="nav-item active">
           <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>

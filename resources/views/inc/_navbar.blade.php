@@ -83,6 +83,9 @@
           <a class="{{ Request::is ('inventory') ? 'active': ''}}" href="/inventory">Inventory</a></li>
         </li>
         <li class="nav-item active">
+          <a class="{{ Request::is ('messages') ? 'active': ''}}" href="/messages">Messages</a></li>
+        </li>
+        <li class="nav-item active">
           <a href="{{ url('/logout') }}"> Logout </a>
         </li>
         @endif

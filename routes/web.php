@@ -125,18 +125,19 @@ Route::get('shop', function(){
 
 // Routes for $messages
 Route::resource('/messages', 'MessageController');
+Route::get('/messages/index', 'MessageController@index')->name('messages.index');
 Route::post('/messages/store', 'MessageController@store')->name('messages.store');
 Route::post('/messages/create', 'MessageController@create');
 Route::get('messages/{id}/show', 'MessageController@show');
 Route::get('messages/{id}', 'MessageController@destroy');
 
 
-Route::get('message', function(){
+Route::get('messages', function(){
   $messages = DB::table('messages')
         ->orderBy('created_at', 'asc')
         ->limit(10)
         ->get();
-  return view('pages.contact', ['messages'=> $messages]);
+  return view('messages.index', ['messages'=> $messages]);
 });
 
 

@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    //
+
+      protected $fillable = [
+          'email', 'name', 'nessage', 'username', 'created_at', 'updated_at'
+      ];
+
+      protected $table = 'messages';
+
+
+    public function messages()
+    {
+        return $this->belongsTo('App\Messages', 'id');
+    }
 }

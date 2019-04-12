@@ -8,11 +8,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          @if(Session::has('danger'))
-            <div class="alert alert-danger">
-                <strong>Stop!</strong><p>'You must register and be logged in to leave blog comments! Please login to continue.'</p>
-            </div>
-          @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -72,6 +67,9 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
+                            <div class="col-md-8 offset-md-2 mt-2">
+                            @include('inc._disclaimer')
+                          </div>
                         </div>
                     </form>
                 </div>
@@ -79,4 +77,5 @@
         </div>
     </div>
 </div>
+
 @endsection

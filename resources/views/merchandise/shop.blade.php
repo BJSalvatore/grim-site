@@ -15,7 +15,7 @@
           <div class="item mt-3">
             @foreach($items as $item)
               <h3>Item: {{ $item -> itemName }}</h3>
-              <p>Price: {{ $item -> price}}</p>
+              <p>Price: ${{ $item -> price}}</p>
               <p>Description: {{ $item -> description}}</p>
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>

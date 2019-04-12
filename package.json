@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/demoncowgirl/grim-site#readme",
   "dependencies": {
+    "gifsicle": "^4.0.1",
     "heroku": "^7.22.7",
     "jquery-validation": "^1.19.0",
     "mysql-server": "^1.0.5",

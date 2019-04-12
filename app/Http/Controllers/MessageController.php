@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth;
 use App\Message;
+use Session;
 
 class MessageController extends Controller
 {
@@ -17,7 +19,7 @@ class MessageController extends Controller
 
     public function __construct()
     {
-      $this->middleware('auth');
+      // $this->middleware('auth');
     }
 
     public function create()
@@ -50,18 +52,19 @@ class MessageController extends Controller
         $message -> email = $request -> input('email');
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
-        $message-> username = auth()->user() -> username;
+        $message-> username = $request -> input('username');
         $message -> responded_on = $request -> input('responded_on');
-
-        dd($message);
-
         $message -> save();
 
-        Session::flash('success', 'Your message has been successfully sent!');
-        // redirect to another
-        return redirect()->route('home');
+        if (auth()->user()){
+          Session::flash('success', 'Your message has been successfully sent!');
+          return redirect()->route('home');
+        }else{
+          Session::flash('danger', 'You  must be registered and login to send a message!');
+          return redirect()->route('login');
+          }
+        }
 
-    }
 
     public function show($id){
       $message = Message::find($id);

@@ -49,10 +49,8 @@ class CommentsController extends Controller
      public function store(Request $request, $post_id)
      {
        $post = Post::find($post_id);
-       // $user = User::find('$id');
 
        $validatedData = $request->validate([
-        // 'username' => 'required|max:255',
         'comment' => 'required|min:5|max:2000|unique:comments',
       ],
         $messages = [

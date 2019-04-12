@@ -11,12 +11,11 @@
     @include('inc._sidebar')</div>
       <div class="col-lg-5">
           <div class="item mt-3">
-              <h3>Item: {{ $item -> itemName }}</h3>
-              <p>ID: {{$item -> id }}</p>
-              <p>Price: {{ $item -> price}}</p>
-              <p>Description: {{ $item -> description}}</p>
-              <p>Size: {{ $item -> size}}</p>
-              <p>Quantity: {{ $item -> quantity}}</p>
+              <h3>{{ $item -> itemName }}</h3>
+              <p><strong>Price: </strong>${{ $item -> price}}</p>
+              <p><strong>Description: </strong>{{ $item -> description}}</p>
+              <p><strong>Size: </strong>{{ $item -> size}}</p>
+              <p><strong>Quantity: </strong>{{ $item -> quantity}}</p>
               <img src="{{ asset('merch/' . $item->image)}}" height="300" width="auto"> </img></p>
           </div>
       </div>

@@ -85,6 +85,9 @@
                                 <a href="{{ url('/')}}" class="btn btn-secondary">Back</a>
                             </div>
                         </div>
+                        <div class="col-md-8 offset-md-2 mt-2">
+                        @include('inc._disclaimer')
+                      </div>
                     </form>
                 </div>
             </div>

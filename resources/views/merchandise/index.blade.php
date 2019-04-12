@@ -29,7 +29,7 @@
           <th><h6>{{ $item-> description }}</h6></th>
           <td>{{ $item -> size }}</td>
           <td>{{ $item -> quantity }}</td>
-          <th>{{ $item-> price }}</th>
+          <th>{{ $item -> price}}</th>
           <td>{{ $item-> user_id }}</td>
           <td>{{ date('M j, Y', strtotime($item->created_at)) }}</td>
           <td>

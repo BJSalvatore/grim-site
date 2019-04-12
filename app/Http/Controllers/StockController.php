@@ -80,7 +80,7 @@ class StockController extends Controller
           // store in database
           $item = new Stock;
           $item -> itemName = $request -> input('itemName');
-          $item -> price = $request -> input('price');
+          // $item -> price = $request -> input('price');
           $item -> description = $request -> input('description');
           $item -> size = $request ->input('size');
           $item -> quantity = $request -> input('quantity');
@@ -104,6 +104,11 @@ class StockController extends Controller
               $item -> image = $public;
 
               }
+
+          //format price input
+          $price = $request -> input('price');
+          $formattedPrice = number_format($price,2);
+          $item -> price = $formattedPrice;
 
           $item -> image = $filename;
 

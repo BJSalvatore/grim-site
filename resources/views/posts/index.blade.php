@@ -3,7 +3,7 @@
 @section('title', '| View All Posts')
 @include('inc._navbar')
 @section('content')
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-lg-12">
         <h1>All Posts</h1>

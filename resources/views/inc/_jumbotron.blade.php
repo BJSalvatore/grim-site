@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid m-0 p-0" style="background-color: #FF8C00; height: 440px">
+<div class="jumbotron jumbotron-fluid m-0 p-0" style="background-color: #FF8C00; height: 440px; width: 100%;">
   <div class="row no-gutters">
     <div class="d-inline-flex col-sm-3">
       <div class="d-flex img-responsive">

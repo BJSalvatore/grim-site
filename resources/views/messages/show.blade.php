@@ -15,6 +15,7 @@
         <th>Name</th>
         <th>Message</th>
         <th>Created On</th>
+        <th>Responded On</th>
       </thead>
       <tbody>
         <tr>
@@ -24,15 +25,17 @@
           <td>{{ $message -> name }}</td>
           <td>{{ $message -> message }}</td>
           <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
+          <td>{{ $message->responded_on }}</td>
           <td>
-            <a class="btn btn-block btn-secondary" method="GET">Respond</a><br>
+            <a href="{{ route('messages.mail', $message -> id) }}" class="btn btn-block btn-primary" method="GET">Respond</a><br>
             <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
+            <a href="{{ url('messages') }}" class="btn btn-block btn-secondary" method="GET">View All Messages</a><br>
+
           </td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
-</div>
-
 @endsection

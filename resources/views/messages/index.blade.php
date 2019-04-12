@@ -15,6 +15,7 @@
         <th>Name</th>
         <th>Message</th>
         <th>Created On</th>
+        <th>Responded On</th>
       </thead>
       <tbody>
         @foreach($messages as $message)
@@ -25,6 +26,7 @@
           <td>{{ $message -> name }}</td>
           <td>{{ $message -> message }}</td>
           <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
+          <td>{{ $message -> responded_on }}</td>
           <td>
             <a href="{{ route('messages.show', $message -> id)}}" class="btn btn-block btn-secondary" method="GET">View</a><br>
             <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>

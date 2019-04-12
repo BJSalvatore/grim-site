@@ -128,6 +128,7 @@ Route::resource('/messages', 'MessageController');
 Route::get('/messages/index', 'MessageController@index')->name('messages.index');
 Route::post('/messages/store', 'MessageController@store')->name('messages.store');
 Route::post('/messages/create', 'MessageController@create');
+Route::get('messages/{id}/mail', 'MessageController@mail')->name('messages.mail');
 Route::get('messages/{id}/show', 'MessageController@show');
 Route::get('messages/{id}', 'MessageController@destroy');
 
@@ -139,7 +140,6 @@ Route::get('messages', function(){
         ->get();
   return view('messages.index', ['messages'=> $messages]);
 });
-
 
 // routes for emails
 Route::post('/send', 'EmailController@send');

@@ -18,9 +18,9 @@
       <p>{{ $bandaddress['bandcity'] }}, {{ $bandaddress['bandstate'] }} {{ $bandaddress['bandzip'] }}</p>
       <p>{{ $bandaddress['bandcountry'] }}</p>
     <hr>
-    <form>
+    <h1>Contact Form</h1>
       <div class="form-group">
-        <form data-parsley-validate method="POST" action="{{ action('MessageController@store') }}">
+        <form method="POST" action="{{ action('MessageController@store') }}">
            @csrf
         <label name="email">Email:</label>
         <input id="email" name="email" class="form-control" placeholder="Email address">
@@ -31,9 +31,8 @@
       </div>
       <div class="form-group">
         <label name="message">Message:</label>
-        <textarea id="message" name="message" class="form-control"placeholder="Type your message here."></textarea>
+        <textarea id="message" name="message" class="form-control" placeholder="Type your message here."></textarea>
       </div>
-      {{-- <input class ="btn btn-dark" type="submit" value="Send Message"> --}}
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
     </form>
     </div>

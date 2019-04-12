@@ -7,9 +7,10 @@ use App\Message;
 
 class MessageController extends Controller
 {
+
     public function index(){
     // create a variable and store all of the messages in it
-    $message = Message::orderBy('timestamps', 'asc')->paginate(5);
+    $messages = Message::orderBy('created_at', 'asc')->paginate(5);
     // return a view and pass in the variable
     return view('messages.index')->with('messages', $messages);
     }
@@ -50,11 +51,15 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message-> username = auth()->user() -> username;
+        $message -> responded_on = $request -> input('responded_on');
+
+        dd($message);
+
         $message -> save();
 
         Session::flash('success', 'Your message has been successfully sent!');
         // redirect to another
-        return redirect()->route('messages.show', $message -> id);
+        return redirect()->route('home');
 
     }
 
@@ -64,8 +69,19 @@ class MessageController extends Controller
 
     }
 
-    public function destroy($id){
+    public function mail($id){
+      $message = Message::find($id);
+      return view('messages.mail', ['message' => $message]);
 
+    }
+
+    public function destroy($id){
+      $message = Message::findOrFail($id);
+      $message -> delete();
+
+      Session::flash('success', 'The message has been successfully deleted!');
+      // redirect to another
+      return redirect()->route('home');
     }
 
 

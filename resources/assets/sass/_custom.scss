@@ -4,7 +4,6 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
-  padding: 10px;
 }
 
 h1{
@@ -73,6 +72,14 @@ h5{
 .carousel-item img{
   height: auto;
   width: 100%;
+}
+
+.well {
+  background: #DCDCDC;
+  border: 2px groove #A8A8A8;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 
 /* The sidebar menu */

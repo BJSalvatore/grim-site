@@ -8,7 +8,7 @@ class Message extends Model
 {
 
       protected $fillable = [
-          'email', 'name', 'nessage', 'username', 'created_at', 'updated_at'
+          'email', 'name', 'nessage', 'username', 'created_at', 'updated_at', 'responded_on'
       ];
 
       protected $table = 'messages';
@@ -16,6 +16,6 @@ class Message extends Model
 
     public function messages()
     {
-        return $this->belongsTo('App\Messages', 'id');
+        return $this->belongsTo('App\Message', 'id');
     }
 }

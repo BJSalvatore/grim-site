@@ -19,7 +19,7 @@
         <th>Price</th>
         <th>User</th>
         <th>Created On</th>
-      </thead>
+      </thead
       <tbody>
         @foreach($items as $item)
         <tr>

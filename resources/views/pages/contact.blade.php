@@ -51,7 +51,9 @@
         <label for="message">Message:</label>
         <textarea v-model="message" name="message" class="form-control" type="text" placeholder="Type your message here."></textarea>
       </div>
+      <div class="col-md-8 mb-3"
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
+    </div>
     </form>
     </div>
   </div>

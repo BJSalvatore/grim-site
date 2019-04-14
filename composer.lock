@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b71a1b0b98af54896fbfa81556cf7408",
+    "content-hash": "2a9012ba3196fec60ca082e7a04fb015",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2293,16 +2293,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.4",
+            "version": "v5.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d651f8bd25c6baf7ae4913bc51f02849fad4e925"
+                "reference": "a2cf7a7983329d63edc6fde43142b232bb61aa0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d651f8bd25c6baf7ae4913bc51f02849fad4e925",
-                "reference": "d651f8bd25c6baf7ae4913bc51f02849fad4e925",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a2cf7a7983329d63edc6fde43142b232bb61aa0a",
+                "reference": "a2cf7a7983329d63edc6fde43142b232bb61aa0a",
                 "shasum": ""
             },
             "require": {
@@ -2436,7 +2436,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-03-12T13:33:14+00:00"
+            "time": "2019-04-10T13:05:18+00:00"
         },
         {
             "name": "laravel/tinker",

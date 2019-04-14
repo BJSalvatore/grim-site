@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('HEROKU_CONNECTION', 'mysql_heroku'),
+    'default' => env('CLEARDB_CONNECTION', 'mysql_heroku'),
 
     /*
     |--------------------------------------------------------------------------

@@ -12,7 +12,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "honeybadger-io/honeybadger-laravel": "^1.5",
         "intervention/image": "^2.4",
-        "laravel/framework": "5.8.4",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "league/flysystem-aws-s3-v3": "^1.0",

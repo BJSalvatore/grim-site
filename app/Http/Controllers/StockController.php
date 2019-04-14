@@ -95,7 +95,7 @@ class StockController extends Controller
               $filename = time() . '.' . $image->getClientOriginalExtension();
               $location = public_path('merch/' . $filename);
 
-              Image::make($image)->resize(100, null, function ($constraint){
+              Image::make($image)->resize(400, null, function ($constraint){
                 $constraint->aspectRatio();
               })->save($location);
 

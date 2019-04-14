@@ -31,7 +31,7 @@
     "heroku": "^7.22.7",
     "jquery-validation": "^1.19.0",
     "mysql-server": "^1.0.5",
-    "parsleyjs": "^2.8.2",
+    "pngquant-bin": "^5.0.2",
     "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {

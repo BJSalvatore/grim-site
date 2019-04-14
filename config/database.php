@@ -1,10 +1,4 @@
 <?php
-$DATABASE_URL = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$server = $DATABASE_URL["host"];
-$username = $DATABASE_URL["user"];
-$password = $DATABASE_URL["pass"];
-$db =  ltrim($DATABASE_URL["path"], "/");
-$mysqli_connection = new mysqli($server, $username, $password, $db);
 
 return [
 
@@ -41,17 +35,17 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => env('CLEARDB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
 
         'heroku_mysql' => [
             'driver' => 'mysql',
-            'host' => $server,
+            'host' => env('CLEARDB_HOST'),
             'port' => env('DB_PORT', '3306'),
-            'database' => $db,
-            'username' => $username,
-            'password' => $password,
+            'database' => env('CLEARDB_DATABASE'),
+            'username' => env('CLEARDB_USERNAME'),
+            'password' => env('CLEARDB_PASSWORD'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

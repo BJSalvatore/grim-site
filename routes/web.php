@@ -135,7 +135,7 @@ Route::get('messages/{id}', 'MessageController@destroy');
 
 Route::get('messages', function(){
   $messages = DB::table('messages')
-        ->orderBy('created_at', 'asc')
+        ->orderBy('created_at', 'desc')
         ->limit(10)
         ->get();
   return view('messages.index', ['messages'=> $messages]);

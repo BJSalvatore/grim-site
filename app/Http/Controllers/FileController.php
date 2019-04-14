@@ -85,7 +85,7 @@ public function index()
         $filename = time() . '.' . $ext;
         $path = public_path('uploadedFiles/' . $filename);
 
-        Image::make($fileUpload)->resize(100, null, function ($constraint){
+        Image::make($fileUpload)->resize(400, null, function ($constraint){
           $constraint->aspectRatio();
         })->save($path);
 

@@ -18,6 +18,13 @@ class CommentsTableSeeder extends Seeder
         'post_id' => 1,
         ]);
 
+        DB::table('comments')->insert([
+          'username' => 'Ellie Mae',
+          'comment' => 'This is another test comment.',
+          'approved' => true,
+          'post_id' => 1,
+          ]);
+
         // DB::table('comments')->insert([
         //   'name' => 'Ellie Mae',
         //   'username' => 'Ellie Mae',

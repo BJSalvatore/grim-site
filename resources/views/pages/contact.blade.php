@@ -9,6 +9,7 @@
 @section('content')
   <div class = "d-flex flex-row">
     <div class="col-lg-4">@include('inc._sidebar')</div>
+  <div class="col-md-12">
     <div class = "col-lg-8 mt-3 p-1">
       <h1>Here's How You Can Contact us!</h1>
       <h5>Phone:</h5> <p>{{ $bandphone }}</p>
@@ -51,11 +52,10 @@
         <label for="message">Message:</label>
         <textarea v-model="message" name="message" class="form-control" type="text" placeholder="Type your message here."></textarea>
       </div>
-      <div class="col-md-8 mb-3"
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
-    </div>
     </form>
     </div>
   </div>
+</div>
 </div>
 @endsection

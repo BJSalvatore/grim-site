@@ -23,6 +23,7 @@
       <p><a href="mailto:boboedy@yahoo.com"><i class="fas fa-envelope fa-3x"></i></a></p>
       <h5>Or login and use the form below:</h5>
     <hr>
+    <div class="col-md-8 mb-3 p-1">
     <h1>Contact Form</h1>
       <div class="form-group">
         <form method="POST" action="{{ action('MessageController@store') }}">
@@ -54,4 +55,5 @@
     </form>
     </div>
   </div>
+</div>
 @endsection

@@ -1,5 +1,12 @@
 <?php
 
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
+
 return [
 
     /*
@@ -13,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('EXT_DB_CONNECTION', 'heroku_mysql'),
+    'default' => env('HEROKU_CONNECTION', 'mysql_heroku'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,19 +46,15 @@ return [
             'prefix' => '',
         ],
 
-        'heroku_mysql' => [
+        'mysql_heroku' => [
             'driver' => 'mysql',
-            'host' => env('CLEARDB_HOST'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('CLEARDB_DATABASE'),
-            'username' => env('CLEARDB_USERNAME'),
-            'password' => env('CLEARDB_PASSWORD'),
-            'unix_socket' => env('DB_SOCKET', ''),
+            'host' => env('CLEARDB_HOST', ''),
+            'database' => env('CLEARDB_DATABASE', ''),
+            'username' => env('CLEARDB_USERNAME', ''),
+            'password' => env('CLEARDB_PASSWORD', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'strict' => true,
-            'engine' => null,
         ],
 
         'mysql' => [

@@ -19,7 +19,6 @@ return [
     |
     */
 
-    // 'default' => env('CLEARDB_CONNECTION', 'mysql_cleardb'),
     'default' => env('DB_CONNECTION', 'mysql'),
 
 

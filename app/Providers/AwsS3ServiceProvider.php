@@ -38,7 +38,7 @@ class AwsS3ServiceProvider extends ServiceProvider
         'version' => 'latest|version',
       ]);
 
-      $adapter = new AwsS3Adapter($client, 'thegrim');
+      $adapter = new AwsS3Adapter($client, 'grim-images');
       $filesystem = new Filesystem($adapter);
     }
 }

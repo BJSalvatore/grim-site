@@ -94,15 +94,15 @@ class StockController extends Controller
               $image = $request->file('image');
               $filename = time() . '.' . $image->getClientOriginalExtension();
               $location = public_path('merch/' . $filename);
-              $s3Path = ('merch/' . $filename);
+              $s3Path = secure_asset('merch/' . $filename);
 
               Image::make($image)->resize(400, null, function ($constraint){
                 $constraint->aspectRatio();
               })->save($location);
 
               // save image to local Storage
-              $public = Storage::disk('public')->put($location, $filename);
-              $item -> image = $public;
+              // $public = Storage::disk('public')->put($location, $filename);
+              // $item -> image = $public;
 
               //save file to aws
               $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');

@@ -38,7 +38,7 @@ class PressReleaseController extends Controller
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $location = public_path('pressReleases' . $filename);
-        $filePath = '' . $filename;
+        $s3Path = secure_asset('press/') . $filename;
 
         // resize uploaded image
         Image::make($image)->resize(160, null, function ($constraint){
@@ -46,8 +46,14 @@ class PressReleaseController extends Controller
           })->save($location);
 
       // save image to public folder
-      $public = Storage::disk('public')->put($filepath, $image);
-      $release -> image = $filename;
+      // $public = Storage::disk('public')->put($filepath, $image);
+      // $release -> image = $filename;
+
+      //save file to aws
+      $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+      $item -> image = $s3;
+
+
     }
       $post-> image = $filename; //saves filename for retrieval of image
       $release -> save();

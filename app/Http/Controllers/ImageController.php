@@ -30,7 +30,7 @@ class ImageController extends Controller
     // $image = $request->file('blog_image');
     $filename = time() . '.' . $image->getClientOriginalExtension();
     $location = public_path('assets/images/blogImages/' . $filename);
-    $filePath = '' . $filename;
+    $filePath = secure_asset('images/' . $filename;
     // resize uploaded image
     Image::make($image)->resize(300, null, function ($constraint){
       $constraint->aspectRatio();

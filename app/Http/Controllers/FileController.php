@@ -84,15 +84,15 @@ public function index()
         $type =  $ext;
         $filename = time() . '.' . $ext;
         $path = public_path('uploadedFiles/' . $filename);
-        $s3Path = ('files/' . $filename);
+        $s3Path = secure_asset('files/' . $filename);
 
         Image::make($fileUpload)->resize(400, null, function ($constraint){
           $constraint->aspectRatio();
         })->save($path);
 
         // save file to local Storage
-        $public = Storage::disk('public')->put($path, $filename, 'public');
-        $fileUpload -> file = $public;
+        // $public = Storage::disk('public')->put($path, $filename, 'public');
+        // $fileUpload -> file = $public;
 
         //save file to aws
         $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');

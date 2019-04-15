@@ -89,9 +89,13 @@ public function index()
           $constraint->aspectRatio();
         })->save($path);
 
-        // save image to local Storage
-        $public = Storage::disk('public')->put($path, $filename);
+        // save file to local Storage
+        $public = Storage::disk('public')->put($path, $filename, 'public');
         $fileUpload -> file = $public;
+
+        //save file to aws
+        $s3 = Storage::disk('s3')->put('files', $filename, 'public');
+        $fileUpload-> file = $s3;
 
       }
 
@@ -99,7 +103,7 @@ public function index()
       $file -> extension = $ext;
       $file -> file = $filename;
 
-        $file ->save();
+      $file ->save();
 
         Session::flash('success', 'The file was saved successfully!');
         // redirect to another

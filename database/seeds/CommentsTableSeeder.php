@@ -14,9 +14,18 @@ class CommentsTableSeeder extends Seeder
       DB::table('comments')->insert([
         'username' => 'Demoncowgirl',
         'comment' => 'This is a test comment.',
+        'slug' => 'blog-1',
         'approved' => true,
         'post_id' => 1,
         ]);
+
+        DB::table('comments')->insert([
+          'username' => 'Demoncowgirl',
+          'comment' => 'This is another test comment.',
+          'slug' => 'blog-1',
+          'approved' => true,
+          'post_id' => 1,
+          ]);
 
         // DB::table('comments')->insert([
         //   'name' => 'Ellie Mae',

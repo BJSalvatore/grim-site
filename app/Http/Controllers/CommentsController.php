@@ -65,15 +65,15 @@ class CommentsController extends Controller
           $comment = new Comment();
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
-          $comment-> post_id = $request -> post_id;
-          $comment-> post()->associate($post);
+          $comment-> post_id = post() -> asssociate($post->id);
           $comment-> approved = true;
           $comment -> approved_at = Carbon::now();
+
           $comment->save();
 
           Session::flash('success', 'Comment was added successfully!');
 
-          return redirect()->route('posts.index', [$post -> id]);
+          return redirect()->view('pages.single', [$post => id]);
       }
 
 

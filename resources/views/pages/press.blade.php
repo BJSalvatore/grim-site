@@ -17,7 +17,7 @@
           <div id="press" class="release mt-3 mb-4">
          @foreach($releases as $release)
          @if($release -> image)
-           <img src="{{ asset('pressReleases/' . $release->image)}}"> </img>
+           <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/press/' . $release->image)}}"> </img>
          @endif
            <h3><strong>{{ $release -> title }}<strong></h3>
            <h5>{{ $release -> release_date }}</h5>

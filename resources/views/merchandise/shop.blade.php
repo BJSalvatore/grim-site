@@ -19,7 +19,7 @@
               <p>Description: {{ $item -> description}}</p>
               <p>Size: {{ $item -> size}}</p>
               <p>Quantity: {{ $item -> quantity}}</p>
-              <img src="{{ asset('merch/' . $item->image)}}" height="300" width="auto"> </img></p>
+              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
             @endforeach
           </div>
       </div>

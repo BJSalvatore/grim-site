@@ -84,6 +84,7 @@ public function index()
         $type =  $ext;
         $filename = time() . '.' . $ext;
         $path = public_path('uploadedFiles/' . $filename);
+        $s3Path = ('files/' . $filename);
 
         Image::make($fileUpload)->resize(400, null, function ($constraint){
           $constraint->aspectRatio();
@@ -94,7 +95,7 @@ public function index()
         $fileUpload -> file = $public;
 
         //save file to aws
-        $s3 = Storage::disk('s3')->put('files', $filename, 'public');
+        $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
         $fileUpload-> file = $s3;
 
       }

@@ -19,11 +19,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
-<<<<<<< HEAD
-=======
-
->>>>>>> 6006fef8a86f5c374b50e619f86423bd1862e09a
+    'default' => env('DB_CONNECTION', 'mysql', 'mysql1'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,31 +56,15 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
         ],
-<<<<<<< HEAD
-      //
-      //   'mysql' => [
-      //     'driver' => 'mysql',
-      //     'host' => env('DB_HOST', '127.0.0.1'),
-      //     'port' => env('DB_PORT', '3306'),
-      //     'database' => env('DB_DATABASE', 'grim'),
-      //     'username' => env('DB_USERNAME', 'root'),
-      //     'password' => env('DB_PASSWORD', ''),
-      //     'unix_socket' => env('DB_SOCKET', ''),
-      //     'charset' => 'utf8mb4',
-      //     'collation' => 'utf8mb4_unicode_ci',
-      //     'prefix' => '',
-      //     'strict' => true,
-      //     'engine' => null,
-      // ],
-=======
 
-        'mysql' => [
+
+        'mysql1' => [
           'driver' => 'mysql',
           'host' => env('DB_HOST', '127.0.0.1'),
           'port' => env('DB_PORT', '3306'),
           'database' => env('DB_DATABASE', 'grim'),
           'username' => env('DB_USERNAME', 'root'),
-          'password' => env('DB_PASSWORD', '#1Chupacabra64'),
+          'password' => env('DB_PASSWORD', ''),
           'unix_socket' => env('DB_SOCKET', ''),
           'charset' => 'utf8mb4',
           'collation' => 'utf8mb4_unicode_ci',
@@ -92,7 +72,7 @@ return [
           'strict' => true,
           'engine' => null,
       ],
->>>>>>> 6006fef8a86f5c374b50e619f86423bd1862e09a
+
 
       'sqlsrv' => [
            'driver' => 'sqlsrv',

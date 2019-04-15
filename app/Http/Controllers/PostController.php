@@ -85,6 +85,7 @@ class PostController extends Controller
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/' . $filename);
+          $s3Path = ('blog_images/' . $filename);
 
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
@@ -93,6 +94,10 @@ class PostController extends Controller
 
             $public = Storage::disk('public')->put($location, $filename);
             $post-> image = $public;
+
+            $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+            $post-> image = $s3;
+
         }
             $post-> image = $filename; //saves filename for retrieval of image
             $post -> save();

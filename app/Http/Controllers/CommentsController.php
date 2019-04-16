@@ -71,14 +71,14 @@ class CommentsController extends Controller
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
           $comment-> post_id = post() -> asssociate($post->id);
-          $comment-> approved = true;
-          $comment -> approved_at = Carbon::now();
+          $comment-> approved = false;
+          // $comment -> approved_at = Carbon::now();
 
           $comment->save();
 
           Session::flash('success', 'Comment was added successfully!');
 
-          return redirect()->view('pages.single', [$post => id]);
+          return redirect()->view('comments.show', $comment -> id);
       }
 
 
@@ -115,7 +115,20 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $comment = new Comment();
+         $comment-> username = auth()->user() -> username;
+         $comment-> comment = $request-> comment;
+         $comment-> post_id = $request-> post_id;
+         $comment-> approved = true;
+         $comment -> approved_at = Carbon::now();
+
+         $comment = $request->all();
+
+         $comment->save();
+
+         Session::flash('success', 'Comment was approved successfully!');
+
+         return redirect()->view('comments.show', $comment -> id );
     }
 
     /**

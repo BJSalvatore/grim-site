@@ -8,19 +8,13 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-4">
-    @include('inc._sidebar')</div>
-      <div class="col-lg-5">
-          <div class="comment mt-3">
-            <th>{{ $comment-> id }}</th>
-            <th>{{ $comment->username }}</th>
-            <td>{{ $comment->comment }}</td>
-          </div>
-      </div>
-  <div class="col-lg-3">
-    <div class="col-lg-3">
-    </div>
-    <hr>
+    <div class="col-lg-6 offset-lg-4">
+      <!-- @foreach($comments as $comment) -->
+        <div class="comment mt-3">
+          <p><strong>ID: </strong>{{ $comment-> id }}</p>
+          <p><strong>Username: </strong>{{ $comment->username }}</p>
+          <p><strong>Comment: </strong>{{ $comment->comment }}</p>
+        </div>
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="commentInfo" class="container p-4">
           <h5>Created on:</h5>
@@ -31,10 +25,8 @@
           <p>{{ $comment -> approved_at }}</p>
         </div>
       </div>
-    <div>
-     <a href="{{ url('comments') }}" class="btn btn-block btn-primary m-1" method="GET">View All Comments</a>
-     <a href="{{ url('comments')}}" class="btn btn-block btn-secondary m-1" method="GET">Cancel</a>
+    <!-- @endforeach -->
+     <a href="{{ url('/status') }}" class="btn btn-block btn-primary m-1" method="GET">View All Comments</a>
     </div>
-    </form>
-  </div>
+</div>
 @endsection

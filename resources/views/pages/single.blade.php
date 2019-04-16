@@ -14,15 +14,15 @@
           <h3>{{ $post -> title }}</h3>
           <p>{{ $post -> post }}</p>
         </div>
-      <hr>
         <div id="comment" class="flex-container">
           <section class="content">
-          @foreach($post-> comments as $comment)
-              <p><strong>UserName: </strong>{{$comment-> username}}</p>
-              <p><strong>Comment:</strong><br/>{{ $comment-> comment}}</p>
-              <p>{{ date('D, d M y H:i:s', strtotime($comment -> created_at)) }}</p>
-              <hr>
-          @endforeach
+            @foreach($post-> comments as $comment)
+              @if($comment -> approved == true)
+                <p><strong>UserName: </strong>{{$comment-> username}}</p>
+                <p><strong>Comment:</strong><br/>{{ $comment-> comment}}</p>
+                <p>{{ date('D, d M y H:i:s', strtotime($comment -> created_at)) }}</p>
+              @endif
+            @endforeach
             </section>
           </div>
 

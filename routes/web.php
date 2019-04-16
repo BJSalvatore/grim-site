@@ -56,9 +56,10 @@ Route::get('blog', function(){
 //Routes for comments
 Route::resource('/comments', 'CommentsController');
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
-Route::get('/comments/index', 'PostController@index')->name('comments.index');
-Route::post('/comments/store', 'PostController@store')->name('comments.store');
-Route::get('/comments/{id}/show', 'PostController@show')->name('comments.show');
+Route::get('/comments/index', 'CommentsController@index')->name('comments.index');
+Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
+Route::post('/comments/{id}', 'CommentsController@update')->name('comments.update');
+Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
 
 Route::get('status', function(){
   $comments = DB::table('comments')

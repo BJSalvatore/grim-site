@@ -21,18 +21,23 @@ class CommentsTableSeeder extends Seeder
         DB::table('comments')->insert([
           'username' => 'Demoncowgirl',
           'comment' => 'This is another test comment.',
-          'username' => 'Ellie Mae',
           'approved' => true,
           'post_id' => 1,
           ]);
 
-        // DB::table('comments')->insert([
-        //   'name' => 'Ellie Mae',
-        //   'username' => 'Ellie Mae',
-        //   'email' => 'ellie@example.com',
-        //   'comment' => 'This is a test comment from the dog. Woof woof.',
-        //   'approved' => true,
-        //   'post_id' => 2,
-        //   ]);
+          DB::table('comments')->insert([
+            'username' => 'Ellie Mae',
+            'comment' => 'This is another test comment.',
+            'approved' => false,
+            'post_id' => 1,
+            ]);
+
+            DB::table('comments')->insert([
+              'username' => 'Ellie Mae',
+              'comment' => 'This is another test comment.',
+              'approved' => false,
+              'post_id' => 1,
+              ]);
+
     }
 }

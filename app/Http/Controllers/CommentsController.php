@@ -17,6 +17,11 @@ use Session;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +30,10 @@ class CommentsController extends Controller
     public function index()
     {
       // create a variable and store all of our blog comments in it
-      $comments = Comment::orderBy('id', 'asc')->paginate(5);
+      $comments = Comment::orderBy('id', 'asc')->get();
+
       // // return a view and pass in the variable
-      return view('comments.index', ['comments', $comments]);
+      return view('comments.index', ['comments' => $comments];
     }
 
     /**

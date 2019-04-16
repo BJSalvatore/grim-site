@@ -45,14 +45,6 @@ Route::put('/posts/{id}', 'PostController@update');
 Route::get('blog/{slug}', ['as' => 'pages.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/blog/index', 'BlogController@index')->name('blog.index');
 
-//Routes for comments associated to $posts
-Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
-// Route::get('comments/{post_id}', 'CommentsController@show');
-Route::middleware(['auth'])->group(function () {
-Route::get('/approval', 'HomeController@approval')->name('approval');
-Route::get('/home', 'HomeController@index')->name('home');
-});
-
 Route::get('blog', function(){
   $posts = DB::table('posts')
         ->orderBy('id', 'asc')
@@ -63,6 +55,22 @@ Route::get('blog', function(){
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
+
+//Routes for comments associated to $posts
+Route::resource('comments', 'CommentsController');
+Route::get('/comments/index', 'CommentsController@index')->name('comments.index');
+// Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
+Route::post('/comments/{post_id}/store', 'CommentsController@store')->name('comments.store');
+Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
+
+Route::get('comments', function(){
+  $comments = DB::table('comments')
+    ->orderBy('id', 'asc')
+    // ->limit(10)
+    ->get();
+  return view('comments.index', ['comments'=>$comments]);
+});
+
 
 //routes for press releases
 Route::resource('releases', 'PressReleaseController@index');

@@ -17,6 +17,18 @@
               <h3>{{ $post -> title }}</h3>
               <p>{{ $post -> post}}</p>
           </div>
+          <hr>
+          <hr>
+          <div id="comment" class="flex-container">
+            <section class="content">
+            @foreach($post-> comments as $comment)
+                <p><strong>UserName: </strong>{{$comment-> username}}</p>
+                <p><strong>Comment:</strong><br/>{{ $comment-> comment}}</p>
+                <p>{{ date('D, d M y H:i:s', strtotime($comment -> created_at)) }}</p>
+                <hr>
+            @endforeach
+              </section>
+            </div>
       </div>
   <div class="col-lg-3">
       <div class="container bg-secondary mt-3 align-content-center justify-content-center">
@@ -39,6 +51,6 @@
        <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</form>
       <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-1" method="GET">View All Posts</a>
   </div>
-  <hr>
 </div>
+
 @endsection

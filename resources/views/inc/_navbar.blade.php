@@ -38,6 +38,7 @@
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
+        </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
         </li>
@@ -75,6 +76,9 @@
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
+        </li>
+        <li class="nav-item active">
+          <a class="{{ Request::is ('comments') ? 'active': ''}}" href="/comments">Manage Blog Comments</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Manage Files</a></li>

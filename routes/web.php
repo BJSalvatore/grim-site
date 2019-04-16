@@ -45,20 +45,27 @@ Route::put('/posts/{id}', 'PostController@update');
 Route::get('blog/{slug}', ['as' => 'pages.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/blog/index', 'BlogController@index')->name('blog.index');
 
-//Routes for comments associated to $posts
-Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
-// Route::get('comments/{post_id}', 'CommentsController@show');
-Route::middleware(['auth'])->group(function () {
-Route::get('/approval', 'HomeController@approval')->name('approval');
-Route::get('/home', 'HomeController@index')->name('home');
-});
-
 Route::get('blog', function(){
   $posts = DB::table('posts')
         ->orderBy('id', 'asc')
         // ->limit(10)
         ->get();
   return view('pages.blog', ['posts'=>$posts]);
+});
+
+//Routes for comments
+Route::resource('/comments', 'CommentsController');
+Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
+Route::get('/comments/index', 'PostController@index')->name('comments.index');
+Route::post('/comments/store', 'PostController@store')->name('comments.store');
+Route::get('/comments/{id}/show', 'PostController@show')->name('comments.show');
+
+Route::get('status', function(){
+  $comments = DB::table('comments')
+        ->orderBy('created_at', 'asc')
+        // ->limit(10)
+        ->get();
+  return view('comments.index', ['comments'=>$comments]);
 });
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');

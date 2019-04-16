@@ -77,6 +77,9 @@
           <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
         </li>
         <li class="nav-item active">
+          <a class="{{ Request::is ('status') ? 'active': ''}}" href="/status">Manage Comments</a></li>
+        </li>
+        <li class="nav-item active">
           <a class="{{ Request::is ('files') ? 'active': ''}}" href="/files">Manage Files</a></li>
         </li>
         <li class="nav-item active">

@@ -54,6 +54,11 @@ class PagesController extends Controller
         return view('merchandise/shop')->with('header_title', $header_title);
       }
 
+      public function getComments() {
+        $header_title = "Comment Management";
+        return view('comments/index')->with('header_title', $header_title);
+      }
+
         public function register(){
           return view('auth/register');
       }

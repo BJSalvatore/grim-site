@@ -1,10 +1,11 @@
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
+
 class Comment extends Model
 {
     protected $fillable = [
-      'username', 'comment', 'slug', 'post_id', 'approved', 'approved_at'
+      'username', 'comment', 'post_id', 'approved', 'created_at', 'updated_at', 'approved_at'
     ];
 
     protected $table = 'comments';
@@ -12,5 +13,9 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo('App\Post', 'post_id', 'id');
+    }
+
+    public function comment(){
+        return $this->belongsTo('App\Comment', 'id');
     }
 }

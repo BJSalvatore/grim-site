@@ -15,22 +15,22 @@
           <p>{{ $post -> post }}</p>
         </div>
       <hr>
-      <div id="commentSection" class="form-group">
-        <div class="col-lg-8">
+        <div id="comment" class="flex-container">
+          <section class="content">
           @foreach($post-> comments as $comment)
-          <div id="comment">
               <p><strong>UserName: </strong>{{$comment-> username}}</p>
               <p><strong>Comment:</strong><br/>{{ $comment-> comment}}</p>
               <p>{{ date('D, d M y H:i:s', strtotime($comment -> created_at)) }}</p>
               <hr>
-          </div>
           @endforeach
-        </div>
-        @if(!auth()->check())
-        <h5>You must be registered and logged in to leave a comment.</h5>
-          <a href="{{ url('auth/login') }}" class="btn btn-md btn-primary m-1">Login</a>
-        @endif
-      </div>
+            </section>
+          </div>
+
+      @if(!auth()->check())
+      <h5>You must be registered and logged in to leave a comment.</h5>
+        <a href="{{ url('auth/login') }}" class="btn btn-md btn-primary m-1">Login</a>
+      @endif
+
     @if(auth()->check())
     <div id="comment-form">
       <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
@@ -54,8 +54,6 @@
         </div>
       </form>
     </div>
-  @endif
+    @endif
   </div>
-</div>
-
 @endsection

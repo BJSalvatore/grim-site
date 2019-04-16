@@ -38,6 +38,7 @@
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('register') ? 'active': ''}}" href="/auth/register">Register</a></li>
+        </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
         </li>

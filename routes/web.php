@@ -71,6 +71,22 @@ Route::get('status', function(){
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
+//Routes for comments associated to $posts
+Route::resource('comments', 'CommentsController');
+Route::get('/comments/index', 'CommentsController@index')->name('comments.index');
+// Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
+Route::post('/comments/{post_id}/store', 'CommentsController@store')->name('comments.store');
+Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
+
+Route::get('comments', function(){
+  $comments = DB::table('comments')
+    ->orderBy('id', 'asc')
+    // ->limit(10)
+    ->get();
+  return view('comments.index', ['comments'=>$comments]);
+});
+
+
 //routes for press releases
 Route::resource('releases', 'PressReleaseController@index');
 Route::get('/releases/index', 'PressReleaseController@index')->name('releases.index');

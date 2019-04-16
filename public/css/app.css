@@ -10804,8 +10804,14 @@ h5 {
   padding: 0px;
 }
 
-#commentSection .row {
+#comment .flex-container {
   display: flex;
+  height: auto;
+  flex-direction: column;
+}
+
+#comment section.content {
+  flex: 1;
 }
 
 #comment p {

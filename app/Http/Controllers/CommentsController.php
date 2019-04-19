@@ -76,7 +76,7 @@ class CommentsController extends Controller
 
           $comment->save();
 
-          Session::flash('success', 'Comment was added successfully!');
+          Session::flash('success', 'Comment was submitted successfully!<br>It will not be displayed until approved by the admin.');
 
           return redirect()->view('comments.show', $comment -> id);
       }

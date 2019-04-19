@@ -10669,6 +10669,11 @@ h5 {
   font-weight: 600;
 }
 
+.bootstrap-container {
+  margin: 80px;
+  padding: 0px;
+}
+
 #comment-form .alert-danger {
   font-size: 10px;
 }
@@ -10743,16 +10748,17 @@ h5 {
   /* Full-height: remove this if you want "auto" height */
   width: 360px;
   /* Set the width of the sidebar */
-  margin-bottom: 80px;
+  margin-bottom: 90px;
   /* keeps sticky footer from covering content in sidebar */
-  margin-top: 5px;
   position: absolute;
   /* Fixed Sidebar (stay in place on scroll) */
+  justify-content: center;
   z-index: 1;
   /* Stay on top */
   background-color: #000;
   /* Black */
   box-shadow: 15px 12px 28px #FF8C00;
+  padding-top: 15px;
 }
 
 /* The navigation menu links */
@@ -10766,10 +10772,6 @@ h5 {
 }
 
 /* When you mouse over the navigation links, change their color */
-
-#sidebar a:hover {
-  color: #f1f1f1;
-}
 
 #newLP {
   width: 280px;

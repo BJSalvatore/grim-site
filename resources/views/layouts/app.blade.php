@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    <meta charset="UTF-8">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
@@ -13,17 +14,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
-    <link href="{{ asset('css/parsley.css') }}" rel="stylesheet" type="text/css">
-
     <title>The Grim @yield('title')</title>
 </head>
 
 <body style="background-color: silver; postion:fixed; z-index: -1;">
-
-  @include('inc._flash-message')
-  <!-- @include('alert') -->
-  @yield('content')
-  @include('inc._footer')
+    @include('inc._flash-message')
+    <!-- @include('alert') -->
+    @yield('content')
+    @include('inc._footer')
 
 
 <!-- Scripts -->

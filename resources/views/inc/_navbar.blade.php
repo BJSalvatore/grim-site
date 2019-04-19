@@ -1,5 +1,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
-
+<div class="container-fluid">
 <div class="row">
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-dark" style="width: 100%">
 
@@ -72,10 +72,10 @@
 
         @if(auth()->check() && auth()->user()->isAdmin())
         <li class="nav-item active">
-          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create New Blog Post</a></li>
+          <a class="{{ Request::is ('blog') ? 'active': ''}}" href="/posts/create">Create Blog Post</a></li>
         </li>
         <li class="nav-item active">
-          <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Post</a></li>
+          <a class="{{ Request::is ('posts') ? 'active': ''}}" href="/posts">View All Blog Posts</a></li>
         </li>
         <li class="nav-item active">
           <a class="{{ Request::is ('status') ? 'active': ''}}" href="/status">Manage Comments</a></li>
@@ -97,4 +97,5 @@
       </ul>
     </div>
   </nav>
+</div>
 </div>

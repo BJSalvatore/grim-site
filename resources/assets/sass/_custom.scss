@@ -1,9 +1,15 @@
 *{
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+
 }
 
 body{
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  padding-bottom: 90px;
+  background-color: silver;
+  z-index: -1;
 }
 
 h1{
@@ -14,10 +20,22 @@ h5{
   font-weight: 600;
 }
 
+.parent {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+}
+
 
 .bootstrap-container{
-  margin: 80px;
-  padding: 0px;
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: center;
+  padding-top: 15px;
 }
 
 #comment-form .alert-danger{
@@ -87,18 +105,27 @@ h5{
   margin-bottom: 15px;
 }
 
+td {
+  word-wrap: break-word;
+}
+
+#content {
+  display: block;
+}
+
 /* The sidebar menu */
 // DO NOT CHANGE THIS!!
 #sidebar {
     height: auto; /* Full-height: remove this if you want "auto" height */
     width: 360px; /* Set the width of the sidebar */
+    padding-top: 15px;
+    padding-left: 15px;
     margin-bottom: 90px; /* keeps sticky footer from covering content in sidebar */
-    position: absolute; /* Fixed Sidebar (stay in place on scroll) */
-    justify-content: center;
-    z-index: 1; /* Stay on top */
+    position: absolute;
+    // justify-content: center;
+    // z-index: 0; /* Stay on top */
     background-color: #000; /* Black */
     box-shadow: 15px 12px 28px #FF8C00;
-    padding-top: 15px;
 
 }
 
@@ -111,10 +138,6 @@ h5{
     display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
-// #sidebar a:hover {
-//     color: #f1f1f1;
-// }
 
 #newLP{
   width: 280px;
@@ -126,6 +149,10 @@ h5{
   height: auto;
 }
 
+#shoes {
+  width: 200px;
+}
+
 #thumbnail{
   width: 100px;
   height: auto;
@@ -135,12 +162,6 @@ h5{
   width: 160px;
   height: auto;
   margin-bottom: 6px;
-}
-
-/* Style page content */
-.main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 10px;
 }
 
 #postInfo h5{
@@ -195,11 +216,33 @@ input.largeCheckbox{
   bottom: 0;;
 }
 
+#content {
+  padding-bottom: 15px;
+  height: 100%;
+}
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) and (max-width: 768px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-    .container {flex-direction: column;}
+@media screen and (max-width: 768px) {
+  #sidebar {
+    position: relative;
+    margin-bottom: 90px;
+  }
+
+  .navbar {
+    margin-top: 360px;
+  }
+
+  .header {
+    margin-top: 0px;
+  }
+
+    #content {
+      height: auto;
+      padding-bottom: 90px;
+    }
+
+    // #shoes {
+    //   opacity: 0.95;
+    // }
 }

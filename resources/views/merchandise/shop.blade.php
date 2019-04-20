@@ -8,10 +8,12 @@
 @include('inc._navbar')
 
 @section('content')
-<div class="row">
-  <div class="col-lg-4">
-    @include('inc._sidebar')</div>
-      <div class="col-lg-5">
+<div class="boostrap-container">
+    <div class = "row">
+      <div class="col-md-4">@include('inc._sidebar')</div>
+      <div class="col-md-6 offset-md-8 p-4">
+        <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
+        <hr>
           <div class="item mt-3">
             @foreach($items as $item)
               <h3>Item: {{ $item -> itemName }}</h3>

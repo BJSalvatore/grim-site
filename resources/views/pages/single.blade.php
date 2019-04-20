@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-lg-4">
     @include('inc._sidebar')</div>
-    <div class="col-lg-8 p-4">
+    <div id="content" class="col-lg-8 p-4">
       <div class="post mt-3">
         @if($post->image)
           <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="300" width="auto"> </img>

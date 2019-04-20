@@ -4,14 +4,13 @@
 @section('title', '| Home')
 
 @extends('layouts.app')
+
 @include('inc._jumbotron')
 @include('inc._navbar')
 @section('content')
-<div class="boostrap-container">
-  <div class = "row row-align-items-start no-gutters">
-    <div class="col-md-12">
-    <div class="col-md-4">@include('inc._sidebar')</div>
-      <div class="col-md-6 offset-md-4 pt-4">
+  <div class="boostrap-container">
+      <div class="col-md-4">@include('inc._sidebar')</div>
+      <div id="content" class="col-md-6 offset-md-4">
         <h1 style="font-family: Freckle Face;">Biography</h1>
         <!-- <p>THE GRIM STARTED IN 1982 PLAYING PARTIES IN THE SAN FERNANDO VALLEY. THEIR MUSIC APPEARED ON NUMEROUS COMPILATION RECORDS RELEASED BY MYSTIC RECORDS. IN 1984 MYSTIC RELEASED THEIR SELF TITLED RECORD KNOWN AS THE "ORANGE ALBUM". YOU MAY HAVE SEEN IT AS A BACKDROP IN THE MOVIE "PRETTY IN PINK". THE GRIM TOURED THE COUNTRY WITH NOFX, SCARED STRAIGHT. THEY PLAYED WITH BANDS LIKE SOCIAL DISTORTION, BAD RELIGION, NOFX, MINUTEMEN, PENNYWISE, THE VANDALS, DESCENDANTS, FACE TO FACE, RKL, NO USE FOR A NAME, ILL REPUTE, CIRCLE JERKS, AND MANY MORE! THE SONG, "SAIPAN DEATH MARCH" WAS ONE OF THE MOST REQUESTED SONGS ON THE RODNEY ON THE ROQ SHOW IN 1984. IN 1986 MYSTIC RECORDS RELEASED A SUPER SEVEN INCH RECORD FEATURING 4 SONGS RECORDED IN A TELEVISION STUDIO, ENTITLED "LIVE TO DIE". IN 1987 THE GRIM RECORDED AN ALBUM FOR MYSTIC THAT WAS EVENTUALLY RELEASED ON ALCHEMY RECORDS CALLED FACE OF BETRAYAL. IN 1988 MYSTIC RELEASED THE 7" LIVE AT FENDERS.
         THE BAND ENDED IN THE MID 90'S WHEN TIM STARTED WORKING FOR NOFX. THE BAND DID A COUPLE OF REUNION SHOWS IN EARLY 2001 WITH THE ORIGINAL MEMBERS, BUT SINCE JORDAN WAS IN STRUNG OUT THE REUNION WAS SHORT LIVED.
@@ -28,7 +27,5 @@
           <br>2016 saw the addition of one of Simi Valley's finest drummers, Micah Rossellini. The band was now complete and in 2017 released a new 7-inch on Felony Records. In 2018, the band is set to release their first full lenth vinyl in 30 years with 'New World Order through Sound Speed Records.
         </p>
       </div>
-    </div>
-  </div>
 </div>
 @endsection

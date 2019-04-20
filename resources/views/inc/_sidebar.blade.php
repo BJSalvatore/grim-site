@@ -1,4 +1,3 @@
-  <link href="{{ asset('../css/app.css') }}" rel="stylesheet" type="text/css">
 <div id="sidebar" class="container-fluid text-light bg-dark justify-content-center mt-0">
       <div class="p-2">
             <h3>New Release!</h3>

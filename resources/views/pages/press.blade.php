@@ -7,14 +7,12 @@
 @include('inc._header')
 
 @section('content')
-
-<div class="col-lg-12">
-  <div class = "d-flex flex-row">
-      <div class="col-4">@include('inc._sidebar')</div>
-      <div class="col-lg-8 p-4">
+<div class="boostrap-container">
+      <div class="col-md-4">@include('inc._sidebar')</div>
+      <div id="content" class="col-md-8 offset-md-6 p-4">
           <h1 style="font-family: Freckle Face;">Press Releases</h1>
           <hr>
-          <div id="press" class="release mt-3 mb-4">
+          <div id="press" class="release flex-row">
          @foreach($releases as $release)
          @if($release -> image)
            <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/press/' . $release->image)}}"> </img>
@@ -26,6 +24,5 @@
         @endforeach
       </div>
     </div>
-  </div>
 </div>
 @endsection

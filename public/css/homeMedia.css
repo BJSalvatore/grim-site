@@ -1,0 +1,36 @@
+
+/* Extra Small devices (mobiles, 320px and up) */
+@media screen and (min-width: 768px) {
+
+    #sidebar {
+      position: relative;
+      width: auto;
+      columns: 2;
+      margin-bottom: 15px;
+    }
+
+    #content {
+      position: relative;
+
+    }
+
+    .navbar {
+      position: relative;
+      margin-top: 360px;
+    }
+
+    #footer {
+      font-size: 10px;
+      height: 50px;
+      padding: 6px;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 769px) and (max-width: 992px) {}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 993px) and (max-width: 1199px) {}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1920px;) {}

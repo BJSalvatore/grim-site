@@ -7,9 +7,8 @@
 @include('inc._header')
 
 @section('content')
-<div class="boostrap-container">
-    <div class="col-lg-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-8 p-4">
+    <div class="col-md-4">@include('inc._sidebar')</div>
+      <div id="content" class="col-md-7 offset-md-5 p-4">
         <h1>Here's How You Can Contact us!</h1>
         <hr>
         <h5>Phone:</h5> <p>{{ $bandphone }}</p>
@@ -24,8 +23,7 @@
         <p><a href="mailto:boboedy@yahoo.com"><i class="fas fa-envelope fa-3x"></i></a></p>
         <h5>Or login and use the form below:</h5>
       <hr>
-    </div>
-    <div class="col-md-8 mb-3 p-1">
+
     <h1>Contact Form</h1>
       <div class="form-group">
         <form method="POST" action="{{ action('MessageController@store') }}">
@@ -56,5 +54,4 @@
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
     </form>
     </div>
-  </div>
 @endsection

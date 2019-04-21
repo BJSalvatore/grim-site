@@ -7,11 +7,10 @@
 @include('inc._header')
 
 @section('content')
-<div class="boostrap-container">
-      <div class="col-md-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-12 offset-md-7 p-4">
+    <div class="col-md-4">@include('inc._sidebar')</div>
+      <div class="col-md-8 offset-md-4">
       <h1 style="font-family: Freckle Face;">Discography</h1>
-      <table>
+      <table-responsive>
         <thead>
           <th></th>
           <th>Title</th>
@@ -86,7 +85,6 @@
           </tr>
           <tr style="height: 10px;"></tr>
         </tbody>
-      </table>
+      </table-responsive>
     </div>
-</div>
 @endsection

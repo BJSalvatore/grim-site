@@ -14,16 +14,23 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Media Queries -->
+    <!-- <link rel='stylesheet' media='screen and (max-width: 768px)' href='css/small.css'/> -->
+
+    @stack('styles')
+
     <title>The Grim @yield('title')</title>
 </head>
 
 <body>
 
   @include('inc._flash-message')
-  <div class="parent">
-      @yield('content')
+  <div id="parent" class="container">
+    <div id="parentRow" class="row">
+        @yield('content')
+    </div>
   </div>
-    @include('inc._footer')
+  @include('inc._footer')
 
 <!-- Scripts -->
 <script language="JavaScript" type="text/javascript" src="{{ asset('js/app.js') }}"></script>

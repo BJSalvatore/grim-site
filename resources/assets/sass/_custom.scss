@@ -1,12 +1,6 @@
-*{
-  margin: 0;
-  padding: 0;
-
-}
-
 body{
   font-family: 'Open Sans', sans-serif;
-  height: 100%;
+  height: auto;
   padding-bottom: 90px;
   background-color: silver;
   z-index: -1;
@@ -20,32 +14,8 @@ h5{
   font-weight: 600;
 }
 
-.parent {
-  display: flex;
-  margin: 0;
-  padding: 0;
 
-}
-
-
-.bootstrap-container{
-  display: flex;
-  height: auto;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: flex-start;
-  align-content: center;
-  padding-top: 15px;
-}
-
-#comment-form .alert-danger{
-  font-size: 10px;
-}
-
-#blogForm .alert-danger{
-  font-size: 10px;
-}
-
+//display
 .jumbotron {
     margin-bottom: 0px;
     background-position: 0% 25%;
@@ -54,6 +24,7 @@ h5{
     align-items: center;
 }
 
+//navbar
 .navbar{
   background-color: #000;
   color: #fff;
@@ -83,6 +54,77 @@ h5{
   padding: 40px;
 }
 
+//bootstrap
+#parent {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 15px;
+
+}
+
+#content {
+  min-height: 100vh;
+}
+
+//blog posts and comments
+
+#blogForm .alert-danger{
+  font-size: 10px;
+}
+
+#blogButton{
+  margin: 2px;
+}
+
+#postInfo h5{
+  padding: 0px;
+}
+
+
+#comment-form .alert-danger{
+  font-size: 10px;
+}
+
+#comment .flex-container{
+  display: flex;
+  height: auto;
+  flex-direction: column;
+}
+//
+// #comment section.content {
+//   flex: 1;
+// }
+
+#comment p{
+  margin-bottom: 0px !important;
+  padding: 1px;
+}
+
+input.largeCheckbox{
+  width: 20px;
+  height: 20px;
+}
+
+
+// photo carousel
+
+// #item .img{
+//   margin: 5px;
+//   display: block;
+//   align-self: center;
+// }
+//
+// #myCarousel .img{
+//   width: auto;
+//   height: 200px;
+//   margin: 15px;
+// }
+
+.carousel-caption {
+  text-align:center;
+}
+
 .carousel-inner .item img {
   margin: auto;
 }
@@ -97,6 +139,8 @@ h5{
   width: 100%;
 }
 
+
+//contact page
 .well {
   background: #DCDCDC;
   border: 2px groove #A8A8A8;
@@ -105,24 +149,30 @@ h5{
   margin-bottom: 15px;
 }
 
-td {
-  word-wrap: break-word;
+// discography page table
+
+.table-reponsive { //bootstrap defaults
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid #ddd;
+
+  margin-bottom: 20px;
 }
 
-#content {
-  display: block;
-}
+// td {
+//   word-wrap: break-word;
+// }
 
 /* The sidebar menu */
 // DO NOT CHANGE THIS!!
 #sidebar {
     height: auto; /* Full-height: remove this if you want "auto" height */
     width: 360px; /* Set the width of the sidebar */
-    padding-top: 15px;
-    padding-left: 15px;
     margin-bottom: 90px; /* keeps sticky footer from covering content in sidebar */
     position: absolute;
-    // justify-content: center;
     // z-index: 0; /* Stay on top */
     background-color: #000; /* Black */
     box-shadow: 15px 12px 28px #FF8C00;
@@ -130,27 +180,46 @@ td {
 }
 
 /* The navigation menu links */
-#sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
+#sidebar p {
+    padding: 4px;
     font-size: 25px;
+    font-weight: 600;
     color: #818181;
     display: block;
 }
 
+//audio
+audio.controls {
+  width: auto;
+}
+
+.embed-responsive { //bootstrap defaults
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+//photos, images and logos
+
+.img-responsive { //bootstrap defaults
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 #newLP{
-  width: 280px;
+  width: auto;
   height: auto;
 }
 
 #logo{
-  width: 260px;
+  width: auto;
   height: auto;
 }
 
 #shoes {
   width: 200px;
+  height: auto;
 }
 
 #thumbnail{
@@ -164,85 +233,38 @@ td {
   margin-bottom: 6px;
 }
 
-#postInfo h5{
-  padding: 0px;
-}
-
-#comment .flex-container{
-  display: flex;
-  height: auto;
-  flex-direction: column;
-}
-
-#comment section.content {
-  flex: 1;
-}
-
-#comment p{
-  margin-bottom: 0px !important;
-  padding: 1px;
-}
-
-input.largeCheckbox{
-  width: 20px;
-  height: 20px;
-}
-
-#blogButton{
-  margin: 2px;
-}
-
-#item .img{
-  margin: 5px;
-  display: block;
-  align-self: center;
-}
-
-#myCarousel .img{
-  width: auto;
-  height: 200px;
-  margin: 15px;
-}
-
-.carousel-caption {
-  text-align:center;
-}
-
-
 #footer{
+  position: fixed;
   font-size: 12px;
   padding: 12px;
   width: 100%;
-  bottom: 0;;
+  margin-bottom: 0px;
 }
 
-#content {
-  padding-bottom: 15px;
-  height: 100%;
-}
+@media screen and (max-width: 767px) {
 
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-width: 768px) {
-  #sidebar {
-    position: relative;
-    margin-bottom: 90px;
-  }
-
-  .navbar {
-    margin-top: 360px;
-  }
-
-  .header {
-    margin-top: 0px;
-  }
-
-    #content {
-      height: auto;
-      padding-bottom: 90px;
+    #sidebar {
+      position: absolute;
+      width: auto;
+      columns: 2;
     }
 
-    // #shoes {
-    //   opacity: 0.95;
-    // }
+    .header {
+      height: 160px;
+    }
+
+    #content {
+      position: relative;
+      margin-top: 445px;
+    }
+
+    #shoes {
+      width: 150px;
+    }
+
+    #footer {
+      font-size: 8px;
+      height: 50px;
+      /* padding: 10px; */
+    }
 }

@@ -57,10 +57,17 @@ h5{
 //bootstrap
 #parent {
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin: 0;
   padding: 15px;
+}
 
+#parentRow {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #content {
@@ -212,6 +219,11 @@ audio.controls {
   height: auto;
 }
 
+#calendar {
+  width: auto;
+  height: auto;
+}
+
 #logo{
   width: auto;
   height: auto;
@@ -241,25 +253,36 @@ audio.controls {
   margin-bottom: 0px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 531px) and (max-width: 767px) {
 
     #sidebar {
       position: absolute;
       width: auto;
       columns: 2;
+      max-height: 460px;
     }
 
     .header {
       height: 160px;
+      padding-bottom: 0;
     }
 
     #content {
       position: relative;
-      margin-top: 445px;
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+
+    #newLP {
+      max-width: 200px;
+    }
+
+    #calendar {
+      max-width: 260px;
     }
 
     #shoes {
-      width: 150px;
+      max-width: 200px;
     }
 
     #footer {
@@ -267,4 +290,19 @@ audio.controls {
       height: 50px;
       /* padding: 10px; */
     }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+
+  #sidebar {
+    columns: 1;
+  }
+
+  #content {
+    columns: 1;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
 }

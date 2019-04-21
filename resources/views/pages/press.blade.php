@@ -1,15 +1,11 @@
-<!-- CSRF Token -->
-<meta name="csrf-token" content="{{ csrf_token() }}">
-
 @section('title', '| Press')
 
 @extends('layouts.app')
 @include('inc._header')
 
 @section('content')
-<div class="boostrap-container">
       <div class="col-md-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-8 offset-md-6 p-4">
+      <div id="content" class="col-md-7 offset-md-4 p-4">
           <h1 style="font-family: Freckle Face;">Press Releases</h1>
           <hr>
           <div id="press" class="release flex-row">
@@ -24,5 +20,4 @@
         @endforeach
       </div>
     </div>
-</div>
 @endsection

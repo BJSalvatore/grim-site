@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="col-md-4">@include('inc._sidebar')</div>
-      <div class="col-md-8 offset-md-4">
+      <div id="content" class="col-md-6 offset-md-6">
       <h1 style="font-family: Freckle Face;">Discography</h1>
       <table-responsive>
         <thead>

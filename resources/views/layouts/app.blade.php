@@ -17,7 +17,6 @@
     <!-- Media Queries -->
     <!-- <link rel='stylesheet' media='screen and (max-width: 768px)' href='css/small.css'/> -->
 
-    @stack('styles')
 
     <title>The Grim @yield('title')</title>
 </head>
@@ -25,7 +24,7 @@
 <body>
 
   @include('inc._flash-message')
-  <div id="parent" class="container">
+  <div id="parent" class="container-fluid">
     <div id="parentRow" class="row">
         @yield('content')
     </div>

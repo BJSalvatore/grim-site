@@ -1,21 +1,32 @@
 <style>
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 531px) and (max-width: 767px) {
 
     #sidebar {
       position: absolute;
       width: auto;
       columns: 2;
-      /* margin-bottom: 15px; */
+      max-height: 460px;
+
     }
 
     #content {
       position: relative;
-      margin-top: 445px;
+      margin-top: 15px;
+      padding-top: 15px;
     }
 
     .navbar {
       margin-top: 360px;
     }
+
+    #newLP {
+      max-width: 200px;
+    }
+
+    #calendar {
+      max-width: 260px;
+    }
+
 
     #footer {
       font-size: 8px;
@@ -25,7 +36,20 @@
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 992px) {
+
+  #sidebar {
+    position: absolute;
+    width: auto;
+    columns: 4;
+  }
+
+  #content {
+    columns: 2;
+    margin-left: 15px;
+  }
+
+}
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 991px) and (max-width: 1199px) {}
@@ -44,7 +68,7 @@
 @section('content')
 
     <div class="col-md-4">@include('inc._sidebar')</div>
-    <div id="content" class="col-md-7 offset-md-5 p-4">
+    <div id="content" class="col-md-7 offset-md-4 p-4">
     <h1 style="font-family: Freckle Face;">Biography</h1>
     <!-- <p>THE GRIM STARTED IN 1982 PLAYING PARTIES IN THE SAN FERNANDO VALLEY. THEIR MUSIC APPEARED ON NUMEROUS COMPILATION RECORDS RELEASED BY MYSTIC RECORDS. IN 1984 MYSTIC RELEASED THEIR SELF TITLED RECORD KNOWN AS THE "ORANGE ALBUM". YOU MAY HAVE SEEN IT AS A BACKDROP IN THE MOVIE "PRETTY IN PINK". THE GRIM TOURED THE COUNTRY WITH NOFX, SCARED STRAIGHT. THEY PLAYED WITH BANDS LIKE SOCIAL DISTORTION, BAD RELIGION, NOFX, MINUTEMEN, PENNYWISE, THE VANDALS, DESCENDANTS, FACE TO FACE, RKL, NO USE FOR A NAME, ILL REPUTE, CIRCLE JERKS, AND MANY MORE! THE SONG, "SAIPAN DEATH MARCH" WAS ONE OF THE MOST REQUESTED SONGS ON THE RODNEY ON THE ROQ SHOW IN 1984. IN 1986 MYSTIC RECORDS RELEASED A SUPER SEVEN INCH RECORD FEATURING 4 SONGS RECORDED IN A TELEVISION STUDIO, ENTITLED "LIVE TO DIE". IN 1987 THE GRIM RECORDED AN ALBUM FOR MYSTIC THAT WAS EVENTUALLY RELEASED ON ALCHEMY RECORDS CALLED FACE OF BETRAYAL. IN 1988 MYSTIC RELEASED THE 7" LIVE AT FENDERS.
     THE BAND ENDED IN THE MID 90'S WHEN TIM STARTED WORKING FOR NOFX. THE BAND DID A COUPLE OF REUNION SHOWS IN EARLY 2001 WITH THE ORIGINAL MEMBERS, BUT SINCE JORDAN WAS IN STRUNG OUT THE REUNION WAS SHORT LIVED.

@@ -14,11 +14,13 @@ h5{
   font-weight: 600;
 }
 
-
 //display
 .jumbotron {
+    height: 440px;
+    width: 100%;
     margin-bottom: 0px;
     background-position: 0% 25%;
+    background-color: #FF8C00;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -72,6 +74,7 @@ h5{
 
 #content {
   min-height: 100vh;
+
 }
 
 //blog posts and comments
@@ -158,7 +161,12 @@ input.largeCheckbox{
 
 // discography page table
 
+table {
+  width: 900px;
+}
+
 .table-reponsive { //bootstrap defaults
+  min-width: 906px;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -176,11 +184,10 @@ input.largeCheckbox{
 /* The sidebar menu */
 // DO NOT CHANGE THIS!!
 #sidebar {
-    height: auto; /* Full-height: remove this if you want "auto" height */
     width: 360px; /* Set the width of the sidebar */
     margin-bottom: 90px; /* keeps sticky footer from covering content in sidebar */
     position: absolute;
-    // z-index: 0; /* Stay on top */
+    z-index: 0; /* Stay on top */
     background-color: #000; /* Black */
     box-shadow: 15px 12px 28px #FF8C00;
 
@@ -224,10 +231,20 @@ audio.controls {
   height: auto;
 }
 
-#logo{
+#logo {
   width: auto;
   height: auto;
 }
+
+// #logo{
+//   width: auto;
+//   height: auto;
+//   max-height: 300px;
+//   margin-top: 75px;
+//   padding-right: 15px;
+//   padding-left: 15px;
+// }
+
 
 #shoes {
   width: 200px;
@@ -253,36 +270,13 @@ audio.controls {
   margin-bottom: 0px;
 }
 
-@media screen and (min-width: 531px) and (max-width: 767px) {
-
-    #sidebar {
-      position: absolute;
-      width: auto;
-      columns: 2;
-      max-height: 460px;
-    }
-
-    .header {
-      height: 160px;
-      padding-bottom: 0;
-    }
+@media screen and (min-width: 350px) and (max-width: 568px) {
 
     #content {
-      position: relative;
-      margin-top: 15px;
-      padding-top: 15px;
-    }
+      columns: 1;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
 
-    #newLP {
-      max-width: 200px;
-    }
-
-    #calendar {
-      max-width: 260px;
-    }
-
-    #shoes {
-      max-width: 200px;
     }
 
     #footer {
@@ -290,19 +284,104 @@ audio.controls {
       height: 50px;
       /* padding: 10px; */
     }
+
+  }
+
+@media screen and (min-width: 569px) and (max-width: 768px) {
+
+  /* For tablets: */
+  /* .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;} */
+
+    #sidebar {
+      position: relative;
+      margin-left: 15px;
+      columns: 2;
+      max-height: 460px;
+
+    }
+
+    #content {
+      position: relative;
+      columns: 1;
+      width: 100vh;
+      padding-left: 25px;
+    }
+
+  .jumbotron img{
+      margin-top: 15px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #newLP {
+      width: auto;
+      max-width: 200px;
+    }
+
+    #calendar {
+      max-width: 260px;
+    }
+
+    #footer{
+      position: fixed;
+      font-size: 12px;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 0px;
+    }
+
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px){
 
   #sidebar {
-    columns: 1;
+    position: relative;
+    margin-left: 15px;
+    max-width: 360px;
+    height: auto;
   }
 
   #content {
+    position: relative;
     columns: 1;
-    margin-top: 15px;
+    width: 100vh;
+    padding-left: 15px;
+  }
+  /* For desktop: */
+  /* .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;} */
+
+}
+
+/* large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 993px) {
+
+  #sidebar {
+    position: absolute;
     margin-left: 15px;
+    max-width: 360px;
+    height: auto;
   }
 
 }

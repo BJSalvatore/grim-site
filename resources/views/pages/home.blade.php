@@ -1,18 +1,58 @@
 <style>
-@media screen and (min-width: 531px) and (max-width: 767px) {
+
+
+@media screen and (min-width: 350px) and (max-width: 568px) {
+
+    #content {
+      columns: 1;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+
+    }
+
+    #footer {
+      font-size: 8px;
+      height: 50px;
+      /* padding: 10px; */
+    }
+
+  }
+
+@media screen and (min-width: 569px) and (max-width: 768px) {
+
+  /* For tablets: */
+  /* .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;} */
 
     #sidebar {
-      position: absolute;
-      width: auto;
-      columns: 2;
+      position: relative;
+      margin-left: 15px;
+      columns: 1;
       max-height: 460px;
 
     }
 
     #content {
       position: relative;
+      columns: 1;
+      width: 100vh;
+      padding-left: 25px;
+    }
+
+  .jumbotron img{
       margin-top: 15px;
-      padding-top: 15px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .navbar {
@@ -20,6 +60,7 @@
     }
 
     #newLP {
+      width: auto;
       max-width: 200px;
     }
 
@@ -27,35 +68,59 @@
       max-width: 260px;
     }
 
-
-    #footer {
-      font-size: 8px;
-      height: 50px;
-      /* padding: 10px; */
+    #footer{
+      position: fixed;
+      font-size: 12px;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 0px;
     }
+
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px){
 
   #sidebar {
-    position: absolute;
-    width: auto;
-    columns: 4;
+    position: relative;
+    margin-left: 15px;
+    max-width: 360px;
+    height: auto;
   }
 
   #content {
-    columns: 2;
-    margin-left: 15px;
+    position: relative;
+    columns: 1;
+    width: 100vh;
+    padding-left: 15px;
   }
+  /* For desktop: */
+  /* .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;} */
 
 }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 991px) and (max-width: 1199px) {}
+/* large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 993px) {
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) and (max-width: 1920px;) {}
+  #sidebar {
+    position: absolute;
+    columns: 1;
+    margin-left: 15px;
+    width: 360px;
+    height: auto;
+  }
+}
+
 </style>
 
 @section('title', '| Home')
@@ -67,8 +132,8 @@
 
 @section('content')
 
-    <div class="col-md-4">@include('inc._sidebar')</div>
-    <div id="content" class="col-md-7 offset-md-4 p-4">
+    @include('inc._sidebar')
+    <div id="content" class="col-sm-12 col-md-6 offset-md-4 col-lg-6 offset-lg-4">
     <h1 style="font-family: Freckle Face;">Biography</h1>
     <!-- <p>THE GRIM STARTED IN 1982 PLAYING PARTIES IN THE SAN FERNANDO VALLEY. THEIR MUSIC APPEARED ON NUMEROUS COMPILATION RECORDS RELEASED BY MYSTIC RECORDS. IN 1984 MYSTIC RELEASED THEIR SELF TITLED RECORD KNOWN AS THE "ORANGE ALBUM". YOU MAY HAVE SEEN IT AS A BACKDROP IN THE MOVIE "PRETTY IN PINK". THE GRIM TOURED THE COUNTRY WITH NOFX, SCARED STRAIGHT. THEY PLAYED WITH BANDS LIKE SOCIAL DISTORTION, BAD RELIGION, NOFX, MINUTEMEN, PENNYWISE, THE VANDALS, DESCENDANTS, FACE TO FACE, RKL, NO USE FOR A NAME, ILL REPUTE, CIRCLE JERKS, AND MANY MORE! THE SONG, "SAIPAN DEATH MARCH" WAS ONE OF THE MOST REQUESTED SONGS ON THE RODNEY ON THE ROQ SHOW IN 1984. IN 1986 MYSTIC RECORDS RELEASED A SUPER SEVEN INCH RECORD FEATURING 4 SONGS RECORDED IN A TELEVISION STUDIO, ENTITLED "LIVE TO DIE". IN 1987 THE GRIM RECORDED AN ALBUM FOR MYSTIC THAT WAS EVENTUALLY RELEASED ON ALCHEMY RECORDS CALLED FACE OF BETRAYAL. IN 1988 MYSTIC RELEASED THE 7" LIVE AT FENDERS.
     THE BAND ENDED IN THE MID 90'S WHEN TIM STARTED WORKING FOR NOFX. THE BAND DID A COUPLE OF REUNION SHOWS IN EARLY 2001 WITH THE ORIGINAL MEMBERS, BUT SINCE JORDAN WAS IN STRUNG OUT THE REUNION WAS SHORT LIVED.

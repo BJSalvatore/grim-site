@@ -6,9 +6,9 @@
 @extends('layouts.app')
 @include('inc._navbar')
 @section('content')
-<div class="boostrap-container">
-      <div class="col-md-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-7 offset-md-5 p-4">
+
+  @include('inc._sidebar')
+    <div id="content" class="col-sm-12 col-md-6 offset-md-4 col-lg-6 offset-lg-4">
         <h1 style="font-family: Freckle Face;">Blog Posts</h1>
         <hr>
       <div class="post mt-3">
@@ -21,5 +21,4 @@
       @endforeach
       </div>
     </div>
-</div>
 @endsection

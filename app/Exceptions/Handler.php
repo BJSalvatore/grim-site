@@ -21,18 +21,18 @@ class Handler extends ExceptionHandler
     //     }
     //     return parent::renderHttpException($e);
     // }
-    public function render($request, Exception $e)
-      {
-      if ($this->isException($e)) {
-          if ($e->getStatusCode() == 404) {
-              return response()->view('errors.' . '404', [], 404);
-          }
-          if ($e->getStatusCode() == 500) {
-              return response()->view('errors.' . '500', [], 500);
-          }
-      return parent::render($request, $e);
-      }
-    }
+    // public function render($request, Exception $e)
+    //   {
+    //   if ($this->isException($e)) {
+    //       if ($e->getStatusCode() == 404) {
+    //           return response()->view('errors.' . '404', [], 404);
+    //       }
+    //       if ($e->getStatusCode() == 500) {
+    //           return response()->view('errors.' . '500', [], 500);
+    //       }
+    //   return parent::render($request, $e);
+    //   }
+    // }
 
     /**
      * A list of the exception types that are not reported.

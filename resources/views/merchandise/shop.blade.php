@@ -8,22 +8,23 @@
 @include('inc._header')
 
 @section('content')
-      <div class="col-md-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-6 offset-md-6 p-4">
+
+  @include('inc._sidebar')
+    <div id="content" class="col-sm-12 col-md-6 offset-md-4 col-lg-6 offset-lg-4">
         <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
         <hr>
           <div class="item mt-3">
             @foreach($items as $item)
-              <h3>Item: {{ $item -> itemName }}</h3>
+              <h3><strong>Item: </strong>{{ $item -> itemName }}</h3>
               <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img>
-              <p>Price: ${{ $item -> price}}</p>
-              <p>Description: {{ $item -> description}}</p>
+              <p><strong>Price: $</strong>{{ $item -> price}}</p>
+              <p><strong>Description: </strong>{{ $item -> description}}</p>
               <form>
-              @if($item -> size)
+              @if($item -> size != null)
                 <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                  <button type="button" class="btn btn-outline-secondary">Size</button>
-                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-outline-dark">Size</button>
+                  <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
@@ -35,11 +36,11 @@
                 </div>
                 </div>
               @endif
-              <p>Size: {{ $item -> size != null}}</p>
+              <!-- <p><strong>Size: </strong>{{ $item -> size != null}}</p> -->
                 <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                  <button type="button" class="btn btn-outline-secondary">Quantity</button>
-                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-outline-dark">Quantity</button>
+                  <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
@@ -49,17 +50,10 @@
                   </div>
                 </div>
                 </div>
+                <a href="{{ route('items.index')}}" class="btn btn-success" method="GET">Add to Cart</a>
               </form>
-                <div class="col-md-6">
-                   <a href="{{ route('items.index')}}" class="btn btn-block btn-secondary m-1" method="GET">Add to Cart</a>
-                </div>
             @endforeach
-<!--
-        <div class="container bg-secondary mt-3 align-content-center justify-content-center">
-          <div  id="merchInfo" class="container p-4">
 
-          </div>
-        </div> -->
         <div>
          <a href="{{ url('items')}}" class="btn btn-block btn-primary m-1" method="GET">Cancel</a>
         </div>

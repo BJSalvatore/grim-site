@@ -7,8 +7,9 @@
 @include('inc._header')
 
 @section('content')
-    <div class="col-md-4">@include('inc._sidebar')</div>
-      <div id="content" class="col-md-7 offset-md-5 p-4">
+
+  @include('inc._sidebar')
+      <div id="content" class="col-sm-12 col-md-7 offset-md-5 col-lg-6 offset-lg-4">
         <h1>Here's How You Can Contact us!</h1>
         <hr>
         <h5>Phone:</h5> <p>{{ $bandphone }}</p>

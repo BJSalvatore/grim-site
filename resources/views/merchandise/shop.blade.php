@@ -10,10 +10,13 @@
 @section('content')
 
   @include('inc._sidebar')
-    <div id="content" class="col-sm-6 col-md-3 offset-md-3 col-lg-3 offset-lg-4">
+    <div id="content" class="col-sm-6 col-md-2 offset-md-3 col-lg-1 offset-lg-4">
         <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
         <hr>
+        <div class="row">
+          <div class="col-2">
             @foreach($items as $item)
+          <div class="card-columns">
             <div class="card mt-3">
               <h3 class="card-header"><strong>{{ $item -> itemName }}</strong></h3>
               <div class="card-body">
@@ -55,7 +58,10 @@
               </form>
             </div>
             </div>
+          </div>
             @endforeach
+          </div>
+        </div>
         <!-- <div>
          <a href="{{ url('items')}}" class="btn btn-block btn-primary m-1" method="GET">Cancel</a>
         </div> -->

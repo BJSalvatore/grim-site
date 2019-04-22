@@ -10789,7 +10789,8 @@ input.largeCheckbox {
 }
 
 .card {
-  width: 360px;
+  display: inline-block;
+  min-width: 360px;
 }
 
 .card-header {
@@ -10799,6 +10800,10 @@ input.largeCheckbox {
 .card-body {
   margin-left: auto;
   margin-right: auto;
+}
+
+.card-body img {
+  width: auto;
 }
 
 table {

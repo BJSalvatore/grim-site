@@ -1,7 +1,7 @@
 <style>
 
 
-@media screen and (min-width: 569px) and (max-width: 768px) and (orientation: landscape){
+@media screen and (min-width: 320px) and (max-width: 768px) and (orientation: landscape){
 
   /* For tablets: */
   /* .col-s-1 {width: 8.33%;}
@@ -18,8 +18,8 @@
   .col-s-12 {width: 100%;} */
 
     #sidebar {
-      position: relative
-      width: 100%;
+      position: relative;
+      width: 100vw;
       margin-left: 10px;
       columns: 2;
       max-height: 460px;
@@ -34,12 +34,14 @@
     }
 
   .jumbotron img{
+      width: 100vw;
       margin-top: 15px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .navbar {
+      width: 100vw;
       margin-top: 360px;
     }
 
@@ -56,7 +58,7 @@
       position: fixed;
       font-size: 12px;
       padding: 12px;
-      width: 100%;
+      width: 100vw;
       margin-bottom: 0px;
     }
 

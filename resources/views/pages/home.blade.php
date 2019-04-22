@@ -1,24 +1,7 @@
 <style>
 
 
-@media screen and (min-width: 350px) and (max-width: 568px) {
-
-    #content {
-      columns: 1;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-
-    }
-
-    #footer {
-      font-size: 8px;
-      height: 50px;
-      /* padding: 10px; */
-    }
-
-  }
-
-@media screen and (min-width: 569px) and (max-width: 768px) {
+@media screen and (min-width: 569px) and (max-width: 768px) and (orientation: landscape){
 
   /* For tablets: */
   /* .col-s-1 {width: 8.33%;}
@@ -35,9 +18,10 @@
   .col-s-12 {width: 100%;} */
 
     #sidebar {
-      position: relative;
-      margin-left: 15px;
-      columns: 1;
+      position: relative
+      width: 100%;
+      margin-left: 10px;
+      columns: 2;
       max-height: 460px;
 
     }
@@ -76,49 +60,6 @@
       margin-bottom: 0px;
     }
 
-}
-
-@media screen and (min-width: 769px) and (max-width: 992px){
-
-  #sidebar {
-    position: relative;
-    margin-left: 15px;
-    max-width: 360px;
-    height: auto;
-  }
-
-  #content {
-    position: relative;
-    columns: 1;
-    width: 100vh;
-    padding-left: 15px;
-  }
-  /* For desktop: */
-  /* .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;} */
-
-}
-
-/* large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 993px) {
-
-  #sidebar {
-    position: absolute;
-    columns: 1;
-    margin-left: 15px;
-    width: 360px;
-    height: auto;
-  }
 }
 
 </style>

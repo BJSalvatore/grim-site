@@ -1,4 +1,4 @@
-<div id="sidebar" class="container-fluid w-100 text-light bg-dark justify-content-center d-none d-sm-block d-md-block d-lg-block mt-0">
+<div id="sidebar" class="container-fluid text-light bg-dark justify-content-center d-none d-sm-block d-md-block d-lg-block mt-0">
         <div class="col p-2">
               <p>New Release!</p>
               <img id="newLP" class="img-responsive" src="{{ asset('assets/images/TheGrimNuclearWorldOrder.jpg') }}"></img>
@@ -14,7 +14,7 @@
         </div>
         <div id="calendar" class="col pt-2 pb-0">
         <p>Upcoming Shows</p>
-          <div class="embed-responsive p-2" data-tockify-component="mini" data-tockify-calendar="thegrim"></div>
+          <div class="embed-responsive" data-tockify-component="mini" data-tockify-calendar="thegrim"></div>
           <script data-cfasync="false" data-tockify-script="embed"
                                         src="https://public.tockify.com/browser/embed.js"></script>
         </div>

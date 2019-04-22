@@ -25,7 +25,7 @@
 
   @include('inc._flash-message')
   <div id="parent" class="container-fluid">
-    <div id="parentRow" class="row">
+    <div id="parentRow" class="row m-0">
         @yield('content')
     </div>
   </div>

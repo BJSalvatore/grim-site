@@ -54,6 +54,7 @@ h5{
   width:100%;
   height: 200px;
   padding: 40px;
+  margin-bottom: 0;
 }
 
 //bootstrap
@@ -62,7 +63,8 @@ h5{
   width: 100%;
   flex-direction: column;
   margin: 0;
-  padding: 15px;
+  padding-top: 0;
+  // padding: 15px;
 }
 
 #parentRow {
@@ -74,6 +76,7 @@ h5{
 
 #content {
   min-height: 100vh;
+  margin-top: 15px;
 
 }
 
@@ -117,20 +120,6 @@ input.largeCheckbox{
 }
 
 
-// photo carousel
-
-// #item .img{
-//   margin: 5px;
-//   display: block;
-//   align-self: center;
-// }
-//
-// #myCarousel .img{
-//   width: auto;
-//   height: 200px;
-//   margin: 15px;
-// }
-
 .carousel-caption {
   text-align:center;
 }
@@ -158,6 +147,22 @@ input.largeCheckbox{
   padding: 10px;
   margin-bottom: 15px;
 }
+
+//item page
+.card {
+  width: 360px;
+}
+
+.card-header {
+  background-color: #808080;
+}
+
+.card-body{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 // discography page table
 
@@ -232,7 +237,9 @@ audio.controls {
 }
 
 #logo {
-  width: auto;
+  margin-top: 50px;
+  margin-left: 15px;
+  width: 400px;
   height: auto;
 }
 
@@ -247,7 +254,7 @@ audio.controls {
 
 
 #shoes {
-  width: 200px;
+  max-width: 250px;
   height: auto;
 }
 
@@ -280,14 +287,18 @@ audio.controls {
     }
 
     #footer {
-      font-size: 8px;
+      font-size: 10px;
       height: 50px;
       /* padding: 10px; */
     }
 
+    #shoes {
+      width: 200px;
+    }
+
   }
 
-@media screen and (min-width: 569px) and (max-width: 768px) {
+@media screen and (min-width: 569px) and (max-width: 768px) and (orientation: landscape){
 
   /* For tablets: */
   /* .col-s-1 {width: 8.33%;}
@@ -305,8 +316,9 @@ audio.controls {
 
     #sidebar {
       position: relative;
-      margin-left: 15px;
+      width: 100%;
       columns: 2;
+      margin-left: 10px;
       max-height: 460px;
 
     }
@@ -323,6 +335,7 @@ audio.controls {
       margin-left: auto;
       margin-right: auto;
     }
+
 
     #newLP {
       width: auto;
@@ -347,7 +360,7 @@ audio.controls {
 
   #sidebar {
     position: relative;
-    margin-left: 15px;
+    margin-left: 10px;
     max-width: 360px;
     height: auto;
   }
@@ -379,7 +392,7 @@ audio.controls {
 
   #sidebar {
     position: absolute;
-    margin-left: 15px;
+    margin-left: 10px;
     max-width: 360px;
     height: auto;
   }

@@ -18,7 +18,7 @@
           <script data-cfasync="false" data-tockify-script="embed"
                                         src="https://public.tockify.com/browser/embed.js"></script>
         </div>
-        <div class="col-sm d-none d-sm-none d-md-block d-lg-block p-4">
+        <div class="col-sm d-none d-sm-none d-md-none d-lg-block p-4">
             <img id="logo" class="img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
         </div>
   </div>

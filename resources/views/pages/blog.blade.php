@@ -8,7 +8,7 @@
 @section('content')
 
   @include('inc._sidebar')
-    <div id="content" class="col-sm-12 col-md-6 offset-md-4 col-lg-6 offset-lg-4">
+    <div id="content" class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-4">
         <h1 style="font-family: Freckle Face;">Blog Posts</h1>
         <hr>
       <div class="post mt-3">

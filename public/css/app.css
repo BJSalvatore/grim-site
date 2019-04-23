@@ -10673,16 +10673,18 @@ h5 {
   height: 440px;
   width: 100%;
   margin-bottom: 0px;
-  background-position: 0% 25%;
   background-color: #FF8C00;
   background-size: cover;
-  justify-content: center;
-  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .navbar {
   background-color: #000;
   color: #fff;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .nav-item {
@@ -10723,11 +10725,6 @@ h5 {
   width: 100%;
   margin: 0;
   padding: 0;
-}
-
-#content {
-  min-height: 100vh;
-  margin-top: 15px;
 }
 
 #blogForm .alert-danger {
@@ -10857,9 +10854,7 @@ audio.controls {
 }
 
 .img-responsive {
-  display: block;
   max-width: 100%;
-  height: auto;
 }
 
 #newLP {
@@ -10873,10 +10868,12 @@ audio.controls {
 }
 
 #logo {
-  margin-top: 50px;
-  margin-left: 15px;
-  width: 400px;
+  width: auto;
   height: auto;
+  max-height: 300px;
+  margin-top: 75px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 #shoes {
@@ -10904,22 +10901,34 @@ audio.controls {
   margin-bottom: 0px;
 }
 
+#band-image {
+  height: 440px;
+}
+
+#image-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1510px) {
+  #band-image {
+    -webkit-mask-image: linear-gradient(to left, black, rgba(0, 0, 0, 0));
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: left top, left bottom;
+  }
+}
+
 @media screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
-  /* For tablets: */
-
-  /* .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;} */
-
   #sidebar {
     position: relative;
     width: 100vw;
@@ -10933,19 +10942,13 @@ audio.controls {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
-    /* width: 100%; */
-    padding-left: 25px;
+    padding: 15px;
   }
 
-  .jumbotron img {
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
+  .navbar {
+    -webkit-columns: 1;
+            columns: 1;
   }
-
-  /* .navbar {
-      margin-top: 360px;
-    } */
 
   #newLP {
     width: auto;
@@ -10958,29 +10961,16 @@ audio.controls {
 
   #footer {
     position: fixed;
+    -webkit-columns: 1;
+            columns: 1;
     font-size: 12px;
     padding: 12px;
-    width: 100vw;
+    width: 100%;
     margin-bottom: 0px;
   }
 }
 
 @media screen and (min-width: 569px) and (max-width: 736px) and (orientation: landscape) {
-  /* For tablets: */
-
-  /* .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;} */
-
   #sidebar {
     position: relative;
     width: 100vw;
@@ -10994,14 +10984,16 @@ audio.controls {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
-    width: 100%;
-    padding-left: 25px;
   }
 
-  .jumbotron img {
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
+  .jumbotron {
+    -webkit-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+            columns: 3;
   }
 
   #newLP {
@@ -11017,7 +11009,8 @@ audio.controls {
     position: fixed;
     font-size: 12px;
     padding: 12px;
-    width: 100vw;
+    -webkit-columns: 3;
+            columns: 3;
     margin-bottom: 0px;
   }
 }
@@ -11038,8 +11031,16 @@ audio.controls {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
-    width: 100vw;
-    padding-left: 15px;
+  }
+
+  .jumbotron {
+    -webkit-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+            columns: 3;
   }
 
   #newLP {
@@ -11057,31 +11058,36 @@ audio.controls {
     width: 100vw;
     margin-bottom: 0px;
   }
-
-  .navbar {
-    margin-top: 0px;
-  }
 }
 
 @media screen and (min-width: 813px) and (max-width: 1023px) {
   #sidebar {
     position: relative;
+    -webkit-columns: 2;
+            columns: 2;
     margin-left: 10px;
-    width: 100vw;
     max-width: 360px;
     height: auto;
   }
 
   #content {
     position: relative;
-    -webkit-columns: 1;
-            columns: 1;
-    width: 100%;
-    padding-left: 15px;
+    -webkit-columns: 2;
+            columns: 2;
+  }
+
+  .jumbotron {
+    -webkit-columns: 3;
+            columns: 3;
   }
 
   .navbar {
-    margin-top: 0px;
+    -webkit-columns: 3;
+            columns: 3;
+  }
+
+  #band-image {
+    margin-left: 10px;
   }
 
   #shoes {
@@ -11096,21 +11102,6 @@ audio.controls {
     width: 100vw;
     margin-bottom: 0px;
   }
-
-  /* For desktop: */
-
-  /* .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;} */
 }
 
 /* large devices (large desktops, 1200px and up) */
@@ -11120,8 +11111,6 @@ audio.controls {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
-    width: 100%;
-    padding-left: 15px;
   }
 }
 

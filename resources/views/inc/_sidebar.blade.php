@@ -12,13 +12,13 @@
             <hr>
           </div>
         </div>
-        <div id="calendar" class="col pt-2 pb-0">
+        <div id="calendar" class="col pt-2 justify-content-center pb-0">
         <p>Upcoming Shows</p>
           <div class="embed-responsive" data-tockify-component="mini" data-tockify-calendar="thegrim"></div>
           <script data-cfasync="false" data-tockify-script="embed"
                                         src="https://public.tockify.com/browser/embed.js"></script>
         </div>
-        <div class="col-sm d-none d-sm-none d-md-none d-lg-block p-4">
-            <img id="logo" class="img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
+        <div class="col-sm d-none d-sm-none d-md-none d-lg-block justify-content-center mb-3">
+            <img class="img-responsive" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
         </div>
   </div>

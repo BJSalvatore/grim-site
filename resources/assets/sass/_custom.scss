@@ -418,11 +418,11 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 3;
+      columns: 8;
     }
 
     .navbar {
-    columns: 3;
+    columns: 8;
     }
 
 
@@ -451,23 +451,22 @@ audio.controls {
     position: relative;
     columns: 2;
     margin-left: 10px;
-    max-width: 360px;
+    // max-width: 360px;
     height: auto;
   }
 
   #content {
     position: relative;
-    columns: 2;
+    columns: 1;
 
   }
 
-
   .jumbotron {
-    columns: 3;
+    columns: 12;
   }
 
   .navbar {
-  columns: 3;
+    columns: 12;
   }
 
   #band-image {
@@ -491,11 +490,28 @@ audio.controls {
 }
 
 /* large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1366px) {
+
+  #sidebar {
+    position: relative;
+    columns: 1;
+    margin-left: 10px;
+    max-width: 360px;
+    height: auto;
+  }
 
   #content {
     position: relative;
     columns: 1;
+
+  }
+
+  .jumbotron {
+    columns: 12;
+  }
+
+  .navbar {
+    columns: 12;
   }
 
 }

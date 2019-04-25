@@ -11034,13 +11034,13 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 3;
-            columns: 3;
+    -webkit-columns: 8;
+            columns: 8;
   }
 
   .navbar {
-    -webkit-columns: 3;
-            columns: 3;
+    -webkit-columns: 8;
+            columns: 8;
   }
 
   #newLP {
@@ -11066,24 +11066,23 @@ audio.controls {
     -webkit-columns: 2;
             columns: 2;
     margin-left: 10px;
-    max-width: 360px;
     height: auto;
   }
 
   #content {
     position: relative;
-    -webkit-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+            columns: 1;
   }
 
   .jumbotron {
-    -webkit-columns: 3;
-            columns: 3;
+    -webkit-columns: 12;
+            columns: 12;
   }
 
   .navbar {
-    -webkit-columns: 3;
-            columns: 3;
+    -webkit-columns: 12;
+            columns: 12;
   }
 
   #band-image {
@@ -11106,11 +11105,30 @@ audio.controls {
 
 /* large devices (large desktops, 1200px and up) */
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1366px) {
+  #sidebar {
+    position: relative;
+    -webkit-columns: 1;
+            columns: 1;
+    margin-left: 10px;
+    max-width: 360px;
+    height: auto;
+  }
+
   #content {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 12;
+            columns: 12;
+  }
+
+  .navbar {
+    -webkit-columns: 12;
+            columns: 12;
   }
 }
 

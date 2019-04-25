@@ -10831,6 +10831,9 @@ table {
   background-color: #000;
   /* Black */
   box-shadow: 15px 12px 28px #FF8C00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* The navigation menu links */
@@ -10988,17 +10991,12 @@ audio.controls {
             columns: 1;
   }
 
-  .jumbotron {
-    -webkit-columns: 3;
-            columns: 3;
-  }
-
-  .navbar {
-    -webkit-columns: 3;
-            columns: 3;
-  }
-
   #newLP {
+    width: auto;
+    max-width: 200px;
+  }
+
+  #audio {
     width: auto;
     max-width: 200px;
   }
@@ -11024,6 +11022,46 @@ audio.controls {
     position: relative;
     width: 100vw;
     margin-left: 10px;
+    -webkit-columns: 3;
+            columns: 3;
+    max-height: 460px;
+  }
+
+  #content {
+    position: relative;
+    -webkit-columns: 1;
+            columns: 1;
+  }
+
+  #newLP {
+    width: auto;
+    max-width: 200px;
+  }
+
+  #audio {
+    width: auto;
+    width: 200px;
+  }
+
+  #calendar {
+    Width: auto;
+    max-width: 260px;
+  }
+
+  #footer {
+    position: fixed;
+    font-size: 12px;
+    padding: 12px;
+    width: 100vw;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #sidebar {
+    position: relative;
+    width: 100vw;
+    margin-left: 10px;
     -webkit-columns: 2;
             columns: 2;
     max-height: 460px;
@@ -11036,17 +11074,17 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 8;
-            columns: 8;
+    -webkit-columns: 10;
+            columns: 10;
   }
 
   .navbar {
-    -webkit-columns: 8;
-            columns: 8;
+    -webkit-columns: 10;
+            columns: 10;
   }
 
   #newLP {
-    width: 200px;
+    max-width: 200px;
   }
 
   #calendar {
@@ -11062,12 +11100,13 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
   #sidebar {
     position: relative;
     -webkit-columns: 1;
             columns: 1;
     margin-left: 10px;
+    max-width: 360px;
     height: auto;
   }
 
@@ -11090,6 +11129,4 @@ audio.controls {
     margin-bottom: 0px;
   }
 }
-
-/* large devices (large desktops, 1200px and up) */
 

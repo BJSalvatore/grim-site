@@ -284,9 +284,11 @@ audio.controls {
 
 #band-image {
   height: 440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#image-container {
+.background-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -301,7 +303,7 @@ audio.controls {
 
 }
 
-@media screen and (max-width: 1510px){
+@media screen and (max-width: 1024px){
     #band-image {
     -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
      -webkit-mask-size: 100% 100%;
@@ -311,7 +313,10 @@ audio.controls {
 
 }
 
-@media screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape){
+// larger mobile phones
+@media screen and (max-width: 576px) and (orientation: landscape){
+
+  // col-sm
 
     #sidebar {
       position: relative;
@@ -352,8 +357,10 @@ audio.controls {
 
 }
 
+// tablets
+@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape){
 
-@media screen and (min-width: 569px) and (max-width: 736px) and (orientation: landscape){
+ // col-md
 
   #sidebar {
     position: relative;
@@ -398,9 +405,10 @@ audio.controls {
 
 }
 
-/* iphone X */
-@media screen and (min-width: 737px) and (max-width: 812px) and (orientation: landscape){
+/* laptops */
+@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
 
+  //col-lg
 
     #sidebar {
       position: relative;
@@ -445,11 +453,13 @@ audio.controls {
 
 }
 
-@media screen and (min-width: 813px) and (max-width: 1023px){
+//desktops
+@media screen and (min-width: 1200px){
 
+  //col-xl
   #sidebar {
     position: relative;
-    columns: 2;
+    columns: 1;
     margin-left: 10px;
     // max-width: 360px;
     height: auto;
@@ -460,19 +470,6 @@ audio.controls {
     columns: 1;
 
   }
-
-  .jumbotron {
-    columns: 12;
-  }
-
-  .navbar {
-    columns: 12;
-  }
-
-  #band-image {
-    margin-left: 10px;
-  }
-
 
   #shoes {
     width: 200px;
@@ -490,28 +487,28 @@ audio.controls {
 }
 
 /* large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1366px) {
-
-  #sidebar {
-    position: relative;
-    columns: 1;
-    margin-left: 10px;
-    max-width: 360px;
-    height: auto;
-  }
-
-  #content {
-    position: relative;
-    columns: 1;
-
-  }
-
-  .jumbotron {
-    columns: 12;
-  }
-
-  .navbar {
-    columns: 12;
-  }
-
-}
+// @media screen and (min-width: 1366px) {
+//
+//   #sidebar {
+//     position: relative;
+//     columns: 1;
+//     margin-left: 10px;
+//     max-width: 360px;
+//     height: auto;
+//   }
+//
+//   #content {
+//     position: relative;
+//     columns: 1;
+//
+//   }
+//
+//   .jumbotron {
+//     columns: 12;
+//   }
+//
+//   .navbar {
+//     columns: 12;
+//   }
+//
+// }

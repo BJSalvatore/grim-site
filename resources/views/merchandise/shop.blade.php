@@ -25,22 +25,8 @@
               <p><strong>Description: </strong>{{ $item -> description}}</p>
               <form>
               @if($item -> size != null)
-                <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <button type="button" class="btn btn-outline-dark">Size</button>
-                  <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">SM</a>
-                    <a class="dropdown-item" href="#">MD</a>
-                    <a class="dropdown-item" href="#">LG</a>
-                    <a class="dropdown-item" href="#">XL</a>
-                  </div>
-                </div>
-                </div>
+              <p><strong>Size: </strong>{{ $item -> size}}</p>
               @endif
-              <!-- <p><strong>Size: </strong>{{ $item -> size != null}}</p> -->
                 <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                   <button type="button" class="btn btn-outline-dark">Quantity</button>
@@ -62,7 +48,5 @@
             @endforeach
           </div>
         </div>
-        <!-- <div>
-         <a href="{{ url('items')}}" class="btn btn-block btn-primary m-1" method="GET">Cancel</a>
-        </div> -->
+        </div>
 @endsection

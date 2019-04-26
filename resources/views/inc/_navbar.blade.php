@@ -42,6 +42,11 @@
         <li class="nav-item active">
           <a class="{{ Request::is ('login') ? 'active': ''}}" href="/auth/login">Login</a></li>
         </li>
+          @if(Request::is('shop'))
+          <li class="nav-item active">
+            <a class="{{ Request::is ('shop') ? 'active': ''}}" href="/cart"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+          </li>
+          @endif
         @endguest
 
         @if (auth()->check() && !auth()->user()->isAdmin())
@@ -68,6 +73,12 @@
           <li class="nav-item active">
             <a href="{{ url('/logout') }}"> Logout </a>
           </li>
+            @if(Request::is('shop'))s
+            <li class="nav-item active">
+              <a class="{{ Request::is ('shop') ? 'active': ''}}" href="/cart"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+            </li>
+            @endif
+
           @endif
 
         @if(auth()->check() && auth()->user()->isAdmin())

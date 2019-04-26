@@ -1,147 +1,138 @@
-body{
-  font-family: 'Open Sans', sans-serif;
-  height: auto;
-  padding-bottom: 90px;
-  background-color: silver;
-  z-index: -1;
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: auto;
+    padding-bottom: 90px;
+    background-color: silver;
+    z-index: -1;
 }
 
-h1{
-  font-family: 'Freckle Face', cursive;
+h1 {
+    font-family: 'Freckle Face', cursive;
 }
 
-h5{
-  font-weight: 600;
+h5 {
+    font-weight: 600;
 }
-
 //display
 .jumbotron {
     height: 440px;
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     background-color: #FF8C00;
     background-size: cover;
     margin-left: 0;
     margin-right: 0;
 }
-
 //navbar
-.navbar{
-  background-color: #000;
-  color: #fff;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+.navbar {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.nav-item{
-  color: silver;
+.nav-item {
+    color: silver;
 }
 
-.navbar-toggler{
-  border-color:  #FF8C00;
+.navbar-toggler {
+    border-color: #FF8C00;
 }
 
-.navbar-toggler-icon{
-  background-color: silver;
+.navbar-toggler-icon {
+    background-color: silver;
 }
 
-.navbar-brand{
-  font-family: 'Freckle Face';
-  font-size: 40px;
-  color: #FF8C00;
+.navbar-brand {
+    font-family: 'Freckle Face';
+    font-size: 40px;
+    color: #FF8C00;
 }
 
-.header{
-  width:100%;
-  height: 200px;
-  padding: 40px;
-  margin-bottom: 0;
+.header {
+    width: 100%;
+    height: 200px;
+    padding: 40px;
+    margin-bottom: 0;
 }
-
 //bootstrap
 #parent {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  margin: 0;
-  padding-top: 0;
-  // padding: 15px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 0;
+    // padding: 15px;
 }
 
 #parentRow {
-  display: flex;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
-
 //blog posts and comments
-
-#blogForm .alert-danger{
-  font-size: 10px;
+#blogForm .alert-danger {
+    font-size: 10px;
 }
 
-#blogButton{
-  margin: 2px;
+#blogButton {
+    margin: 2px;
 }
 
-#postInfo h5{
-  padding: 0px;
+#postInfo h5 {
+    padding: 0;
 }
 
-
-#comment-form .alert-danger{
-  font-size: 10px;
+#comment-form .alert-danger {
+    font-size: 10px;
 }
 
-#comment .flex-container{
-  display: flex;
-  height: auto;
-  flex-direction: column;
+#comment .flex-container {
+    display: flex;
+    height: auto;
+    flex-direction: column;
 }
 //
 // #comment section.content {
 //   flex: 1;
 // }
 
-#comment p{
-  margin-bottom: 0px !important;
-  padding: 1px;
+#comment p {
+    margin-bottom: 0 !important;
+    padding: 1px;
 }
 
-input.largeCheckbox{
-  width: 20px;
-  height: 20px;
+input.largeCheckbox {
+    width: 20px;
+    height: 20px;
 }
-
 
 .carousel-caption {
-  text-align:center;
+    text-align: center;
 }
 
 .carousel-inner .item img {
-  margin: auto;
+    margin: auto;
 }
 
 .carousel-control-next .carousel-control-prev {
-  margin: auto;
-  width: auto;
+    margin: auto;
+    width: auto;
 }
 
-.carousel-item img{
-  height: auto;
-  width: 100%;
+.carousel-item img {
+    height: auto;
+    width: 100%;
 }
-
-
 //contact page
 .well {
-  background: #DCDCDC;
-  border: 2px groove #A8A8A8;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 15px;
+    background: #DCDCDC;
+    border: 2px groove #A8A8A8;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 //
 // .card-columns {
@@ -152,68 +143,64 @@ input.largeCheckbox{
 //     column-count: 5;
 //   }
 // }
-
 // .card-columns {
 //   min-width: auto;
 // }
 
 .card {
-  display: inline-block;
-  min-width: 360px;
+    display: inline-block;
+    min-width: 360px;
 }
 
 .card-header {
-  background-color: #808080;
+    background-color: #808080;
 }
 
-.card-body{
-  margin-left: auto;
-  margin-right: auto;
+.card-body {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-body img {
-  width: auto;
+    width: auto;
 }
-
-
-
 // discography page table
-
 table {
-  width: 900px;
+    width: 900px;
 }
 
-.table-reponsive { //bootstrap defaults
-  min-width: 906px;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  border: 1px solid #ddd;
-
-  margin-bottom: 20px;
+.table-reponsive {
+    //bootstrap defaults
+    min-width: 906px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
 }
-
 // td {
 //   word-wrap: break-word;
 // }
-
 /* The sidebar menu */
 // DO NOT CHANGE THIS!!
+
 #sidebar {
-    width: 360px; /* Set the width of the sidebar */
-    margin-bottom: 90px; /* keeps sticky footer from covering content in sidebar */
+    width: 360px;
+    /* Set the width of the sidebar */
+    margin-bottom: 90px;
+    /* keeps sticky footer from covering content in sidebar */
     position: absolute;
-    z-index: 0; /* Stay on top */
-    background-color: #000; /* Black */
+    z-index: 0;
+    /* Stay on top */
+    background-color: #000;
+    /* Black */
     box-shadow: 15px 12px 28px #FF8C00;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 /* The navigation menu links */
 #sidebar p {
     padding: 4px;
@@ -222,316 +209,282 @@ table {
     color: #818181;
     display: block;
 }
-
 //audio
 audio.controls {
-  width: auto;
+    width: auto;
 }
 
-.embed-responsive { //bootstrap defaults
-  display: block;
-  max-width: 100%;
-  height: auto;
+.embed-responsive {
+    //bootstrap defaults
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
-
 //photos, images and logos
-
-.img-responsive { //bootstrap defaultsock;
-  max-width: 100%;
+.img-responsive {
+    //bootstrap defaultsock;
+    max-width: 100%;
 }
 
-#newLP{
-  width: auto;
-  height: auto;
+#newLP {
+    width: auto;
+    height: auto;
 }
 
 #calendar {
-  width: auto;
-  height: auto;
+    width: auto;
+    height: auto;
 }
 
-#logo{
-  width: auto;
-  height: auto;
-  max-height: 300px;
-  margin-top: 75px;
-  margin-right: 15px;
-  margin-left: 15px;
+#logo {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    margin-top: 75px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
-
 
 #shoes {
-  z-index: 1;
-  max-width: 250px;
-  height: auto;
+    z-index: 1;
+    max-width: 250px;
+    height: auto;
 }
 
-#thumbnail{
-  width: 100px;
-  height: auto;
+#thumbnail {
+    width: 100px;
+    height: auto;
 }
 
-#press img{
-  width: 160px;
-  height: auto;
-  margin-bottom: 6px;
+#press img {
+    width: 160px;
+    height: auto;
+    margin-bottom: 6px;
 }
 
-#footer{
-  position: fixed;
-  font-size: 12px;
-  padding: 12px;
-  width: 100%;
-  margin-bottom: 0px;
+#footer {
+    position: fixed;
+    font-size: 12px;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 #band-image {
-  height: 440px;
-  margin-left: auto;
-  margin-right: auto;
+    height: 440px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .background-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
-
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
     #band-image {
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-     -webkit-mask-size: 100% 100%;
-     -webkit-mask-repeat: no-repeat;
-     -webkit-mask-position: left top, left bottom;
+        -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: left top, left bottom;
     }
-
 }
-
 // larger mobile phones
-@media screen and (max-width: 576px) and (orientation: landscape){
-
-  // col-sm
-
+@media screen and (max-width: 576px) and (orientation: landscape) {
+    // col-sm
     #sidebar {
-      position: relative;
-      width: 100vw;
-      margin-left: 10px;
-      columns: 2;
-      max-height: 460px;
-
+        position: relative;
+        width: 100vw;
+        margin-left: 10px;
+        columns: 2;
+        max-height: 460px;
     }
 
     #content {
-      position: relative;
-      columns: 1;
-      padding: 15px;
+        position: relative;
+        columns: 1;
+        padding: 15px;
     }
 
     .navbar {
-    columns: 1;
+        columns: 1;
     }
 
     #newLP {
-      width: auto;
-      max-width: 200px;
+        width: auto;
+        max-width: 200px;
     }
 
     #calendar {
-      max-width: 260px;
+        max-width: 260px;
     }
 
-    #footer{
-      position: fixed;
-      columns: 1;
-      font-size: 12px;
-      padding: 12px;
-      width: 100%;
-      margin-bottom: 0px;
+    #footer {
+        position: fixed;
+        columns: 1;
+        font-size: 12px;
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 0;
     }
-
 }
-
 // tablets
-@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape){
-
- // col-md
-
-  #sidebar {
-    position: relative;
-    width: 100vw;
-    margin-left: 10px;
-    columns: 2;
-    max-height: 460px;
-
-  }
-
-  #content {
-    position: relative;
-    columns: 1;
-
-  }
-
-  // .jumbotron {
-  //   columns: 3;
-  // }
-  //
-  // .navbar {
-  // columns: 3;
-  // }
-
-
-  #newLP {
-    width: auto;
-    max-width: 200px;
-  }
-
-  #audio {
-    width: auto;
-    max-width: 200px;
-  }
-
-  #calendar {
-    max-width: 260px;
-  }
-
-  #footer{
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    columns: 3;
-    margin-bottom: 0px;
-  }
-
-}
-
-/* laptops */
-@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
-
-  //col-lg
-
+@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+    // col-md
     #sidebar {
-      position: relative;
-      width: 100vw;
-      margin-left: 10px;
-      columns: 3;
-      max-height: 460px;
-
+        position: relative;
+        width: 100vw;
+        margin-left: 10px;
+        columns: 2;
+        max-height: 460px;
     }
 
     #content {
-      position: relative;
-      columns: 1;
-
+        position: relative;
+        columns: 1;
     }
-
+    // .jumbotron {
+    //   columns: 3;
+    // }
+    //
+    // .navbar {
+    // columns: 3;
+    // }
     #newLP {
-      width: auto;
-      max-width: 200px;
+        width: auto;
+        max-width: 200px;
     }
 
     #audio {
-      width: auto;
-      width: 200px;
+        width: auto;
+        max-width: 200px;
     }
 
     #calendar {
-      Width:auto;
-      max-width: 260px;
+        max-width: 260px;
     }
 
-    #footer{
-      position: fixed;
-      font-size: 12px;
-      padding: 12px;
-      width: 100vw;
-      margin-bottom: 0px;
+    #footer {
+        position: fixed;
+        font-size: 12px;
+        padding: 12px;
+        columns: 3;
+        margin-bottom: 0;
     }
-
 }
-
-//ipads
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-
-  //col-lg
-
+/* laptops */
+@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+    //col-lg
     #sidebar {
-      position: relative;
-      width: 100vw;
-      margin-left: 10px;
-      columns: 2;
-      max-height: 460px;
-
+        position: relative;
+        width: 100vw;
+        margin-left: 10px;
+        columns: 3;
+        max-height: 460px;
     }
 
     #content {
-      position: relative;
-      columns: 1;
-
+        position: relative;
+        columns: 1;
     }
 
-      .jumbotron {
-        columns: 10;
-      }
-
-      .navbar {
-        columns: 10;
-      }
-
     #newLP {
-      max-width: 200px;
+        width: auto;
+        max-width: 200px;
+    }
+
+    #audio {
+        width: auto;
+        width: 200px;
     }
 
     #calendar {
-      max-width: 260px;
+        Width: auto;
+        max-width: 260px;
     }
 
-    #footer{
-      position: fixed;
-      font-size: 12px;
-      padding: 12px;
-      width: 100vw;
-      margin-bottom: 0px;
+    #footer {
+        position: fixed;
+        font-size: 12px;
+        padding: 12px;
+        width: 100vw;
+        margin-bottom: 0;
     }
 }
+//ipads
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    //col-lg
+    #sidebar {
+        position: relative;
+        width: 100vw;
+        margin-left: 10px;
+        columns: 2;
+        max-height: 460px;
+    }
 
+    #content {
+        position: relative;
+        columns: 1;
+    }
+
+    .jumbotron {
+        columns: 10;
+    }
+
+    .navbar {
+        columns: 10;
+    }
+
+    #newLP {
+        max-width: 200px;
+    }
+
+    #calendar {
+        max-width: 260px;
+    }
+
+    #footer {
+        position: fixed;
+        font-size: 12px;
+        padding: 12px;
+        width: 100vw;
+        margin-bottom: 0;
+    }
+}
 //desktops
-@media screen and (min-width: 1025px) and (max-width: 1366px){
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+    //col-xl
+    #sidebar {
+        position: relative;
+        columns: 1;
+        margin-left: 10px;
+        max-width: 360px;
+        height: auto;
+    }
 
-  //col-xl
-  #sidebar {
-    position: relative;
-    columns: 1;
-    margin-left: 10px;
-    max-width: 360px;
-    height: auto;
-  }
+    #content {
+        position: relative;
+        columns: 1;
+    }
 
-  #content {
-    position: relative;
-    columns: 1;
+    #shoes {
+        width: 200px;
+        height: auto;
+    }
 
-  }
-
-  #shoes {
-    width: 200px;
-    height: auto;
-  }
-
-  #footer{
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    width: 100vw;
-    margin-bottom: 0px;
-  }
-
+    #footer {
+        position: fixed;
+        font-size: 12px;
+        padding: 12px;
+        width: 100vw;
+        margin-bottom: 0;
+    }
 }

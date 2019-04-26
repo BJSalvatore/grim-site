@@ -146,6 +146,15 @@ Route::get('shop', function(){
   return view('merchandise.shop', ['items'=>$items])->with('header_title', $header_title);
 });
 
+Route::get('cart', function(){
+  $cartItems = DB::table('cart')
+        ->orderBy('id', 'asc')
+        // ->limit(10)
+        ->get();
+  return view('merchandise.cart', ['cartItems'=>$cartItems]);
+});
+
+
 // Routes for $messages
 Route::resource('/messages', 'MessageController');
 Route::get('/messages/index', 'MessageController@index')->name('messages.index');

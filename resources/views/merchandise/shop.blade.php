@@ -40,7 +40,7 @@
                   </div>
                 </div>
                 </div>
-                <a href="{{ route('items.index')}}" class="btn btn-success" method="GET">Add to Cart</a>
+                <a href="{{ route('cart.store')}}" class="btn btn-success" method="GET">Add to Cart</a>
               </form>
             </div>
             </div>

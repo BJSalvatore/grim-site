@@ -23,10 +23,10 @@ class CreateCartTable extends Migration
             $table -> string('itemName');
             $table -> string('size');
             $table -> integer('quantity');
-            $table -> float('price');
-            $table -> float('subtotal');
-            $table -> float('shipping');
-            $table -> float('total');
+            $table -> string('price');
+            $table -> string('subtotal');
+            $table -> string('shipping');
+            $table -> string('total');
             $table -> timestamp('created_at')->nullable();
         });
     }

@@ -7,15 +7,16 @@
     <h1 style="font-family: Freckle Face;">Shopping Cart</h1>
     <hr>
   <div class="row">
-    <div class="col-12-lg">
-    <p>When you are ready to place your order, please download the invoice file. Then email it to boboedy@yahoo.com.<br>
+    <div class="col-lg-12">
+    <div class="col-6-lg">
+    <p>When you are ready to place your order, please download the invoice file.<br>Then email it to boboedy@yahoo.com.<br>
     We will then contact you to arrange for payment.<br><strong>Thanks for your purchase!</strong>
-    <!-- </div>
-    <div class="col-2-lg"> -->
-      <img id="shoes" class="img-responsive float-right" src="{{ asset('assets/images/converseGray.png') }}"></img>
-    </p>
     </div>
+      <img id="shoes" class="img-responsive float-right" style="margin-top: -160px;" src="{{ asset('assets/images/converseGray.png') }}"></img>
+    </p>
   </div>
+  <a href="{{ url('/shop') }}" class="btn btn-block btn-primary">Continue Shopping</a>
+</div>
 
 @foreach ($cartItems as $cartItem)
 
@@ -29,9 +30,9 @@
       {{ $cartItem -> streetAddress}}</br>
       {{ $cartItem -> city }}, {{ $cartItem -> state }}<br>
       {{ $cartItem -> zipCode }}
-    </div>
+  </div>
   <hr>
-  <div class="row p-2 m-1" style="background-color: #818181 ;">
+  <div class="row p-2 m-1" style="background-color: #818181;">
     <div class="col-6">
         <strong>ITEM</strong>
     </div>
@@ -69,21 +70,19 @@
       <div class="col-2">
         <strong>Shipping</strong>
       </div>
-      <hr>
       <div class="col-2">
       <strong>Total</strong>
       </div>
     </div>
     <div class="col-2">
-      {{ $cartItem -> subtotal }}
+    <div class="col-1">
+      ${{ $cartItem -> subtotal }}
     </div>
-    <div class="col-2">
-      {{ $cartItem -> shipping }}
+    <div class="col-1">
+      ${{ $cartItem -> shipping }}
     </div>
-    <hr>
-    <hr>
-    <div class="col-2">
-    {{ $cartItem -> total }}
+    <div class="col-1">
+      ${{ $cartItem -> total }}
     </div>
   </div>
   </div>

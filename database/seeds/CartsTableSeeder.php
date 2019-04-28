@@ -16,10 +16,10 @@ class CartsTableSeeder extends Seeder
         'itemName' => 'Black & White Logo Patch',
         'size' =>'',
         'quantity' => 2,
-        'price' => 2.00,
-        'subtotal' => 4.00,
-        'shipping' => 2.00,
-        'total' => 6.00
+        'price' => '2.00',
+        'subtotal' => '4.00',
+        'shipping' => '2.00',
+        'total' => '6.00'
       ]);
 
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PDF;
 
 class CartController extends Controller
 {
@@ -23,7 +24,8 @@ class CartController extends Controller
       'streetAddress' => 'required|max:255',
       'city' => 'required|max:255',
       'state' => 'required|min:2|max:2',
-      'zipCode' => 'required|min:5|max:10'
+      'zipCode' => 'required|min:5|max:10',
+      'phoneNumber' => 'required|min:10|max:13'
     ],
       $messages = [
         'customerName.required' => 'Your name is required for shipping.',
@@ -38,18 +40,21 @@ class CartController extends Controller
         'zipCode.required' => 'Zip code is required for shipping.',
         'zipCode.min' => 'Minimum number of numbers is 5',
         'zipCode.max' => 'Maximum number of characters is 10.',
+        'phoneNumber.required' => 'A contact number is required.',
+        'phoneNumber.min' => 'Please make sure you have included your area code.',
+        'phoneNumber.max' => 'You have entered too many characters.',
     ]);
 
     // store in database
     $cart => new Cart;
+    $cart => id = $request -> input('id');
     $cart => customerName = $request -> input('customerName');
     $cart => streetAddress = $request -> input('streetAddress');
     $cart => city = $request -> input('city');
     $cart => state = $request -> input('state');
     $cart => zipCode = $request -> input('zipCode');
-    // need to create array associated with order number here
-
-
+    $cart => phoneNumber = $request -> input('phoneNumber');
+    $cart -> order = $request -> input(['itemName', 'size', 'quantity', 'price')];
     // need to calculate totals in array
     $cart => subtotal = $request -> input('subtotal');
     $cart => shipping = $request -> input('shipping');
@@ -59,6 +64,13 @@ class CartController extends Controller
 
     Session::flash('success', 'Item has been successfully added to cart!');
     return redirect()->route('/shop');
+  }
+
+  public function downloadPDF($id) {
+    $cart = Cart::find($id);
+
+    $pdf = PDF::loadView('pdf', compact('cart'));
+    return $pdf->download('invoice.pdf');
   }
 
   public function show($id)

@@ -8,6 +8,7 @@
         "php": "^7.3.4",
         "aws/aws-sdk-php": "^3.90",
         "aws/aws-sdk-php-laravel": "~3.0",
+        "barryvdh/laravel-dompdf": "^0.8.4",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "honeybadger-io/honeybadger-laravel": "^1.5",

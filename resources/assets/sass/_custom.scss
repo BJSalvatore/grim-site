@@ -226,6 +226,15 @@ audio.controls {
     max-width: 100%;
 }
 
+#invoiceForm label{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#invoiceForm input {
+  margin: 0px;
+}
+
 #totals p {
   display: inline-block;
   align: justify;

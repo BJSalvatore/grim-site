@@ -137,13 +137,16 @@ Route::get('inventory', function(){
   return view('merchandise.index', ['items'=>$items]);
 });
 
+Route::post('cart/store{id}', 'CartController@store')->name('cart.store');
+Route::get('/downloadPDF/{id}', 'CartController@downloadPDF');
+
 Route::get('shop', function(){
   $header_title ="Shop!";
   $items = DB::table('items')
   ->orderBy('id', 'asc')
   // ->limit(20)
   ->get();
-  return view('merchandise.shop', ['items'=>$items])->with('header_title', $header_title);
+  return view('merchandise.shop', ['orderNumber' => $cart -> id, 'items'=>$items])->with('header_title', $header_title);
 });
 
 Route::get('cart', function(){

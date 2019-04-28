@@ -20,10 +20,11 @@ class CreateCartTable extends Migration
             $table -> string('city');
             $table -> string('state');
             $table -> string('zipCode');
-            $table -> string('itemName');
-            $table -> string('size');
-            $table -> integer('quantity');
-            $table -> string('price');
+            $table -> string('phoneNumber');
+            $table -> string('order');
+            // $table -> string('itemName');
+            // $table -> integer('quantity');
+            // $table -> string('price');
             $table -> string('subtotal');
             $table -> string('shipping');
             $table -> string('total');

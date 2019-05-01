@@ -11018,6 +11018,18 @@ audio.controls {
             columns: 1;
   }
 
+  .jumbotron {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
   #newLP {
     width: auto;
     max-width: 200px;
@@ -11050,10 +11062,16 @@ audio.controls {
     position: relative;
     width: 100vw;
     margin-left: 10px;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
-    max-height: 460px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+    max-height: 480px;
+  }
+
+  #sidebar p {
+    font-size: 16px;
+    padding: 2px;
+    margin-bottom: 10px;
   }
 
   #content {
@@ -11092,9 +11110,9 @@ audio.controls {
     position: relative;
     width: 100vw;
     margin-left: 10px;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
     max-height: 460px;
   }
 
@@ -11106,15 +11124,15 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 10;
-       -moz-columns: 10;
-            columns: 10;
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   .navbar {
-    -webkit-columns: 10;
-       -moz-columns: 10;
-            columns: 10;
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   #newLP {
@@ -11150,6 +11168,18 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
+  }
+
+  .navbar {
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   #shoes {

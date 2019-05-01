@@ -367,13 +367,15 @@ audio.controls {
         position: relative;
         columns: 1;
     }
-    // .jumbotron {
-    //   columns: 3;
-    // }
-    //
-    // .navbar {
-    // columns: 3;
-    // }
+
+    .jumbotron {
+      columns: 3;
+    }
+
+    .navbar {
+    columns: 3;
+    }
+
     #newLP {
         width: auto;
         max-width: 200px;
@@ -403,14 +405,20 @@ audio.controls {
         position: relative;
         width: 100vw;
         margin-left: 10px;
-        columns: 3;
-        max-height: 460px;
+        columns: 2;
+        max-height: 480px;
+    }
+
+    #sidebar p {
+      font-size: 16px;
+      padding: 2px;
+      margin-bottom: 10px;
     }
 
     #content {
         position: relative;
         columns: 1;
-    }
+      }
 
     #newLP {
         width: auto;
@@ -442,7 +450,7 @@ audio.controls {
         position: relative;
         width: 100vw;
         margin-left: 10px;
-        columns: 2;
+        columns: 3;
         max-height: 460px;
     }
 
@@ -452,11 +460,12 @@ audio.controls {
     }
 
     .jumbotron {
-        columns: 10;
+        columns: 4;
     }
 
     .navbar {
-        columns: 10;
+        columns: 4;
+
     }
 
     #newLP {
@@ -489,6 +498,15 @@ audio.controls {
     #content {
         position: relative;
         columns: 1;
+    }
+
+    .jumbotron {
+        columns: 4;
+    }
+
+    .navbar {
+        columns: 4;
+
     }
 
     #shoes {

@@ -10,7 +10,7 @@
 
   @include('inc._sidebar')
     <div id="content" class="col-sm-12 col-md-6 offset-md-3 col-lg-6">
-      <div class="col-xl-12 offset-xl-3 pl-4">
+      <div class="col-xl-12 offset-xl-2 pl-4">
       <h1 style="font-family: Freckle Face;">Photos</h1>
       <hr>
       <div id="myCarousel" class="carousel slide mt-3" data-ride="carousel">

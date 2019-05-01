@@ -9,7 +9,7 @@
 @section('content')
 
   @include('inc._sidebar')
-      <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+  <div id="content" class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-lg-4">
         <h1>Here's How You Can Contact us!</h1>
         <hr>
         <h5>Phone:</h5> <p>{{ $bandphone }}</p>

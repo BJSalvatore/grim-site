@@ -10945,6 +10945,11 @@ audio.controls {
   height: 100%;
 }
 
+#padding {
+  padding: 15px;
+  margin-left: 15px;
+}
+
 @media screen and (max-width: 1024px) {
   #band-image {
     -webkit-mask-image: linear-gradient(to left, black, rgba(0, 0, 0, 0));
@@ -10970,7 +10975,6 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    padding: 15px;
   }
 
   .navbar {
@@ -11149,12 +11153,6 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  .navbar {
     -webkit-columns: 4;
        -moz-columns: 4;
             columns: 4;

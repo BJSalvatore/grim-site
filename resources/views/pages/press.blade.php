@@ -5,7 +5,7 @@
 
 @section('content')
       @include('inc._sidebar')
-      <div id="content" class="col-sm-12 col-md-7 col-lg-6 offset-lg-4">
+      <div id="content" class="col-sm-12 col-md-7 col-lg-6">
           <h1 style="font-family: Freckle Face;">Press Releases</h1>
           <hr>
           <div id="press" class="release flex-row">

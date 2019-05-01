@@ -10,7 +10,7 @@
 @section('content')
 
   @include('inc._sidebar')
-    <div id="content" class="col-sm-6 col-md-2 offset-md-3 col-lg-1 offset-lg-4">
+    <div id="content" class="col-sm-6 col-md-2 offset-md-3 col-lg-1">
         <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
         <hr>
         <div class="row">

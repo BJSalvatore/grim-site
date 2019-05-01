@@ -3,7 +3,7 @@
 @section('title', '| Shopping Cart')
 
 @section('content')
-<div id="content" class="mt-3 col-sm-6 col-md-8 offset-md-3 col-lg-6 offset-lg-3 col-xl-7 offset-xl-2">
+<div id="content" class="mt-3 col-sm-6 col-md-8 offset-md-3 col-lg-6 col-xl-7">
     <h1 style="font-family: Freckle Face;">Shopping Cart</h1>
     <hr>
   <div class="row">

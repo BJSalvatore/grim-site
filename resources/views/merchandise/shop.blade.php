@@ -10,12 +10,12 @@
 @section('content')
 
   @include('inc._sidebar')
-    <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-      <div class="col-xl-12 pl-4">
+  <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+    <div class="col-xl-12 offset-xl-6 pl-4">
         <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
         <hr>
         <div class="row">
-          <div class="col-2">
+          <div class="col-1">
             @foreach($items as $item)
           <div class="card-columns">
             <div class="card mt-3">

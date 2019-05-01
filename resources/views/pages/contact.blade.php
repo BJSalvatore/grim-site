@@ -9,7 +9,8 @@
 @section('content')
 
   @include('inc._sidebar')
-      <div id="content" class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-4">
+      <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+        <div class="col-xl-12 offset-xl-6 pl-4">
         <h1>Here's How You Can Contact us!</h1>
         <hr>
         <h5>Phone:</h5> <p>{{ $bandphone }}</p>
@@ -55,4 +56,5 @@
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
     </form>
     </div>
+  </div>
 @endsection

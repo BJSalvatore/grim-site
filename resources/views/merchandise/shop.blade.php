@@ -10,7 +10,8 @@
 @section('content')
 
   @include('inc._sidebar')
-    <div id="content" class="col-sm-6 col-md-2 offset-md-3 col-lg-1">
+    <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+      <div class="col-xl-12 offset-xl-6 pl-4">
         <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
         <hr>
         <div class="row">
@@ -49,4 +50,5 @@
           </div>
         </div>
         </div>
+      </div>
 @endsection

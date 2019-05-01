@@ -369,11 +369,11 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 3;
+      columns:2;
     }
 
     .navbar {
-    columns: 3;
+      columns: 2;
     }
 
     #newLP {
@@ -406,14 +406,22 @@ audio.controls {
         width: 100vw;
         margin-left: 10px;
         columns: 2;
-        max-height: 480px;
+        max-height: 460px;
     }
 
-    #sidebar p {
-      font-size: 16px;
-      padding: 2px;
-      margin-bottom: 10px;
+    #content {
+        position: relative;
+        columns: 1;
     }
+
+    .jumbotron {
+      columns:2;
+    }
+
+    .navbar {
+      columns: 2;
+    }
+
 
     #content {
         position: relative;
@@ -444,19 +452,27 @@ audio.controls {
     }
 }
 //ipads
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
     //col-lg
     #sidebar {
         position: relative;
         width: 100vw;
         margin-left: 10px;
-        columns: 3;
+        columns: 2;
         max-height: 460px;
     }
 
     #content {
         position: relative;
         columns: 1;
+    }
+
+    .jumbotron {
+      columns:2;
+    }
+
+    .navbar {
+      columns: 2;
     }
 
     .jumbotron {
@@ -485,7 +501,7 @@ audio.controls {
     }
 }
 //desktops
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
     //col-xl
     #sidebar {
         position: relative;

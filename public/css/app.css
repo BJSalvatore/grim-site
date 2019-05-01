@@ -11019,15 +11019,15 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   .navbar {
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   #newLP {
@@ -11065,13 +11065,26 @@ audio.controls {
     -webkit-columns: 2;
        -moz-columns: 2;
             columns: 2;
-    max-height: 480px;
+    max-height: 460px;
   }
 
-  #sidebar p {
-    font-size: 16px;
-    padding: 2px;
-    margin-bottom: 10px;
+  #content {
+    position: relative;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+  }
+
+  .navbar {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   #content {
@@ -11105,14 +11118,14 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100vw;
     margin-left: 10px;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
     max-height: 460px;
   }
 
@@ -11121,6 +11134,18 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+  }
+
+  .navbar {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   .jumbotron {
@@ -11152,7 +11177,7 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
   #sidebar {
     position: relative;
     -webkit-columns: 1;

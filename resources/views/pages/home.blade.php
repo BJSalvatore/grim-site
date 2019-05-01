@@ -8,7 +8,7 @@
 @section('content')
 
   @include('inc._sidebar')
-  <div id="content" class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-xl-4">
+  <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
       <h1 style="font-family: Freckle Face;">Biography</h1>
         <p>The Grim started in 1982 playing parties in the San Fernando Valley. Their music appeared on numerous compilation records released by Mystic Records. In 1984, Mystic released their self titled record known as the 'Orange Album'. You may have seen it as a backdrop in the movie 'Pretty In Pink'. The Grim toured the country with NOFX, Scared Straight. They played with bands like Social Distortion, Bad Religion, NOFX, Minutemen, Pennywise, The Vandals, Descendants, Face To Face, RKL, No Use For A Name, Ill Repute, Circle Jerks, and many more! The song, 'Saipan Death March' was one of the most requested songs on the Rodney On The Roq show in 1984.<br>
         <br>

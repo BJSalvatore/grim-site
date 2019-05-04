@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-4">
     @include('inc._sidebar')</div>
-    <div id="content" class="col-lg-8 p-4">
+  <div class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-xl-4">
+    <div id="content" class="col-10 p-4">
       <div class="post mt-3">
         @if($post->image)
           <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="300" width="auto"> </img>
@@ -14,8 +14,8 @@
           <h3>{{ $post -> title }}</h3>
           <p>{{ $post -> post }}</p>
         </div>
-        <div id="comment" class="flex-container">
-          <section class="content">
+        <div id="comment">
+          <section>
             @foreach($post-> comments as $comment)
               @if($comment -> approved == true)
                 <p><strong>UserName: </strong>{{$comment-> username}}</p>
@@ -33,7 +33,7 @@
 
     @if(auth()->check())
     <div id="comment-form">
-      <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
+      <form method="POST" action="{{ action('CommentsController@store', $post-> slug) }}">
         <div class="row">
           @csrf
             <div class="col-lg-8">

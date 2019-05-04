@@ -10734,6 +10734,10 @@ h5 {
   padding: 0;
 }
 
+#comment p {
+  width: 100%;
+}
+
 #blogForm .alert-danger {
   font-size: 10px;
 }

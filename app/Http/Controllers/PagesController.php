@@ -80,6 +80,10 @@ class PagesController extends Controller
             return view('auth/admin');
       }
 
+      public function getCart(){
+        return view('merchandise/cart');
+      }
+
 
       public function getMessages() {
         $header_title = "Messages";

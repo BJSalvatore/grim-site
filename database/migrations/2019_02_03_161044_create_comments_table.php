@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->string('username');
             $table->text('comment');
             $table->boolean('approved')->default(false);
-            $table->integer('post_id')->unsigned();
+            $table->string('post_slug');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('approved_at')->nullable();

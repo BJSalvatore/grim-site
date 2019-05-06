@@ -51,9 +51,9 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-     public function store(Request $request, $post_id)
+     public function store(Request $request, $id)
      {
-       $post = Post::find($post_slug);
+       $post = Post::find($id);
 
        $validatedData = $request->validate([
         'comment' => 'required|min:5|max:2000|unique:comments',
@@ -70,7 +70,7 @@ class CommentsController extends Controller
           $comment = new Comment();
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
-          $comment-> post_id = post() -> asssociate($post->slug);
+          $comment-> post_id = post() -> asssociate($post);
           $comment-> approved = false;
           // $comment -> approved_at = Carbon::now();
 

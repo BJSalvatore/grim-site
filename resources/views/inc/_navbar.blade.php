@@ -1,5 +1,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
 <div class="row">
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-dark" style="width: 100%">
 
@@ -109,4 +109,4 @@
     </div>
   </nav>
 </div>
-</div>
+<!-- </div> -->

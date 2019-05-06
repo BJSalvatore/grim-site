@@ -10796,22 +10796,39 @@ input.largeCheckbox {
   margin-bottom: 15px;
 }
 
+#shopCards {
+  max-width: 260px;
+  width: auto;
+  height: auto;
+}
+
+.card-deck {
+  padding: 15px;
+}
+
 .card {
-  display: inline-block;
-  min-width: 360px;
+  width: 300px;
+  height: auto;
+  border: 2px solid #000;
 }
 
 .card-header {
+  font-size: 20px;
   background-color: #808080;
 }
 
 .card-body {
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.card-body img {
-  width: auto;
+[class*="row"] {
+  justify-content: left;
+}
+
+[class*="col-"] {
+  width: 100%;
 }
 
 table {
@@ -10845,6 +10862,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 /* The navigation menu links */
@@ -10868,7 +10886,8 @@ audio.controls {
 }
 
 .img-responsive {
-  max-width: 100%;
+  width: auto;
+  max-width: 260px;
 }
 
 #invoiceForm label {
@@ -11038,11 +11057,6 @@ audio.controls {
             columns: 2;
   }
 
-  #newLP {
-    width: auto;
-    max-width: 200px;
-  }
-
   #audio {
     width: auto;
     max-width: 200px;
@@ -11102,11 +11116,6 @@ audio.controls {
             columns: 1;
   }
 
-  #newLP {
-    width: auto;
-    max-width: 200px;
-  }
-
   #audio {
     width: auto;
     width: 200px;
@@ -11143,49 +11152,16 @@ audio.controls {
        -moz-columns: 1;
             columns: 1;
   }
-
-  .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-  }
-
-  .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-  }
-
-  .jumbotron {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  #newLP {
-    max-width: 200px;
-  }
-
-  #calendar {
-    max-width: 260px;
-  }
-
-  #footer {
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    width: 100vw;
-    margin-bottom: 0;
-  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
   #sidebar {
-    position: relative;
+    position: fixed;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
     margin-left: 10px;
+    margin-top: 15px;
     max-width: 360px;
     height: auto;
   }
@@ -11195,31 +11171,6 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-  }
-
-  .jumbotron {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  .navbar {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  #shoes {
-    width: 200px;
-    height: auto;
-  }
-
-  #footer {
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    width: 100vw;
-    margin-bottom: 0;
   }
 }
 

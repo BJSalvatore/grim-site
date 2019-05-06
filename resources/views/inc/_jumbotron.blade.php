@@ -3,7 +3,7 @@
         <img id="logo" src="{{ asset('assets/images/TheGrimLogoTransparent.png') }}"></img>
       <!-- </div> -->
 
-        <img id="band-image" class="overlay img-responsive" style="background-image: url('/assets/images/MainPic.png'); background-repeat: no-repeat;"></img>
+        <img id="band-image" class="overlay img" style="background-image: url('/assets/images/MainPic.png'); background-repeat: no-repeat;"></img>
 
     </div>
 </div>

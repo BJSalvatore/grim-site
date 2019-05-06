@@ -139,36 +139,51 @@ input.largeCheckbox {
     padding: 10px;
     margin-bottom: 15px;
 }
-//
-// .card-columns {
-//   @include media-breakpoint-only(lg) {
-//     column-count: 4;
-//   }
-//   @include media-breakpoint-only(xl) {
-//     column-count: 5;
-//   }
-// }
-// .card-columns {
-//   min-width: auto;
-// }
 
-.card {
-    display: inline-block;
-    min-width: 360px;
+// .container-fluid {
+//   max-width: 1366px; }
+
+#shopCards {
+  max-width: 260px;
+  width: auto;
+  height: auto;
+
 }
 
+.card-deck {
+  padding: 15px;
+}
+
+.card {
+  width: 300px;
+  height: auto;
+  border: 2px solid #000;
+}
+
+
 .card-header {
-    background-color: #808080;
+  font-size: 20px;
+  background-color: #808080;
 }
 
 .card-body {
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.card-body img {
-    width: auto;
+
+[class*="row"] {
+	// margin-bottom: 1em;
+  justify-content: left;
 }
+
+[class*="col-"] {
+	// padding-top: .75rem;
+	// padding-bottom: .75rem;
+	width: 100%;
+}
+
 // discography page table
 table {
     width: 900px;
@@ -191,6 +206,11 @@ table {
 /* The sidebar menu */
 // DO NOT CHANGE THIS!!
 
+// .container {
+//   position: absolute;
+//   margin: 15px;
+// }
+
 #sidebar {
     width: 360px;
     /* Set the width of the sidebar */
@@ -205,6 +225,7 @@ table {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 /* The navigation menu links */
 #sidebar p {
@@ -227,9 +248,10 @@ audio.controls {
 }
 //photos, images and logos
 .img-responsive {
-    //bootstrap defaultsock;
-    max-width: 100%;
+    width: auto;
+    max-width: 260px;
 }
+
 
 #invoiceForm label{
     margin-top: 0px;
@@ -387,11 +409,6 @@ audio.controls {
       columns: 2;
     }
 
-    #newLP {
-        width: auto;
-        max-width: 200px;
-    }
-
     #audio {
         width: auto;
         max-width: 200px;
@@ -440,11 +457,6 @@ audio.controls {
         columns: 1;
       }
 
-    #newLP {
-        width: auto;
-        max-width: 200px;
-    }
-
     #audio {
         width: auto;
         width: 200px;
@@ -480,71 +492,24 @@ audio.controls {
 
     }
 
-    .jumbotron {
-      columns:2;
-    }
-
-    .navbar {
-      columns: 2;
-    }
-
-    .jumbotron {
-        columns: 4;
-    }
-
-
-    #newLP {
-        max-width: 200px;
-    }
-
-    #calendar {
-        max-width: 260px;
-    }
-
-    #footer {
-        position: fixed;
-        font-size: 12px;
-        padding: 12px;
-        width: 100vw;
-        margin-bottom: 0;
-    }
 }
 //desktops
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
     //col-xl
     #sidebar {
-        position: relative;
-        columns: 1;
-        margin-left: 10px;
-        max-width: 360px;
-        height: auto;
+     position: fixed;
+     columns: 1;
+     margin-left: 10px;
+     margin-top: 15px;
+     max-width: 360px;
+     height: auto;
     }
 
     #content {
-        position: relative;
-        columns: 1;
+       position: relative;
+       columns: 1;
 
     }
 
-    .jumbotron {
-        columns: 4;
-    }
 
-    .navbar {
-        columns: 4;
-
-    }
-
-    #shoes {
-        width: 200px;
-        height: auto;
-    }
-
-    #footer {
-        position: fixed;
-        font-size: 12px;
-        padding: 12px;
-        width: 100vw;
-        margin-bottom: 0;
-    }
 }

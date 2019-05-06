@@ -155,7 +155,7 @@ input.largeCheckbox {
 }
 
 .card {
-  width: 300px;
+  max-width: 300px;
   height: auto;
   border: 2px solid #000;
 }
@@ -250,6 +250,11 @@ audio.controls {
 .img-responsive {
     width: auto;
     max-width: 260px;
+}
+
+#cards.container-fluid {
+  width: 80%;
+  min-width: 280px;
 }
 
 
@@ -481,7 +486,7 @@ audio.controls {
     #sidebar {
         position: relative;
         width: 100vw;
-        margin-left: 10px;
+        margom-left: 10px;
         columns: 2;
         max-height: 460px;
     }
@@ -497,7 +502,7 @@ audio.controls {
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
     //col-xl
     #sidebar {
-     position: fixed;
+     position: absolute;
      columns: 1;
      margin-left: 10px;
      margin-top: 15px;
@@ -505,11 +510,11 @@ audio.controls {
      height: auto;
     }
 
-    #content {
-       position: relative;
-       columns: 1;
-
-    }
+    // #content {
+    //    position: relative;
+    //    columns: 2;
+    //
+    // }
 
 
 }

@@ -10807,7 +10807,7 @@ input.largeCheckbox {
 }
 
 .card {
-  width: 300px;
+  max-width: 300px;
   height: auto;
   border: 2px solid #000;
 }
@@ -10888,6 +10888,11 @@ audio.controls {
 .img-responsive {
   width: auto;
   max-width: 260px;
+}
+
+#cards.container-fluid {
+  width: 80%;
+  min-width: 280px;
 }
 
 #invoiceForm label {
@@ -11139,7 +11144,7 @@ audio.controls {
   #sidebar {
     position: relative;
     width: 100vw;
-    margin-left: 10px;
+    margom-left: 10px;
     -webkit-columns: 2;
        -moz-columns: 2;
             columns: 2;
@@ -11156,7 +11161,7 @@ audio.controls {
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
   #sidebar {
-    position: fixed;
+    position: absolute;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
@@ -11164,13 +11169,6 @@ audio.controls {
     margin-top: 15px;
     max-width: 360px;
     height: auto;
-  }
-
-  #content {
-    position: relative;
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
   }
 }
 

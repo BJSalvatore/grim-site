@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
   @include('inc._flash-message')
   <div id="parent" class="container-fluid">
     <div id="parentRow" class="row m-0">

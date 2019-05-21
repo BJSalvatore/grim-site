@@ -12,10 +12,7 @@ class Comment extends Model
 
     public function post()
     {
-        return $this->belongsTo('App\Post', 'post_id', 'id');
+        return $this->belongsTo('App\Post');
     }
 
-    public function comment(){
-        return $this->belongsTo('App\Comment', 'id');
-    }
 }

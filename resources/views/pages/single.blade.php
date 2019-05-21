@@ -3,10 +3,9 @@
 <!-- @section('title', "| {{$post->title}}") -->
 
 @section('content')
-<div class="row">
-    @include('inc._sidebar')</div>
-  <div class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-xl-4">
-    <div id="content" class="col-10 p-4">
+  @include('inc._sidebar')
+    <div id="content" class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-lg-4">
+    <!-- <div class="col-10 p-4"> -->
       <div class="post mt-3">
         @if($post->image)
           <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="300" width="auto"> </img>
@@ -55,5 +54,5 @@
       </form>
     </div>
     @endif
-  </div>
+  <!-- </div> -->
 @endsection

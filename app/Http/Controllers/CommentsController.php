@@ -68,9 +68,10 @@ class CommentsController extends Controller
       ]);
 
           $comment = new Comment();
+          $this->post = Post::findOrFail('id');
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
-          $comment-> post_id = post() -> asssociate($post);
+          $comment-> post() -> associate($post -> id);
           $comment-> approved = false;
           // $comment -> approved_at = Carbon::now();
 

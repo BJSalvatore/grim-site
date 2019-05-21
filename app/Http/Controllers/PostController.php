@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use App\Comment;
 use App\Post;
 use Session;
 use Image;

@@ -14,22 +14,21 @@
   <div class="row">
   <div class="col-sm-12 col-md-10 col-lg-8 offset-lg-5 col-xl-6 offset-xl-3">
     <!-- <div class="col-12-lg offset-4-lg"> -->
-      <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
-      <hr>
+      <h1 style="font-family: Freckle Face; margin-left: 15px;">Buy Stuff!!</h1>
     </div>
   </div>
-
+  <hr>
   <div id="cards" class="container-fluid">
   <div class="row">
   <!-- <div class="col"> -->
   <div class="card-deck">
    </div>
       @foreach($items as $item)
-      <div class="card mt-3">
+      <div id="shopCard" class="card mt-3">
         <div class="card-block">
         <h3 class="card-header"><strong>{{ $item -> itemName }}</strong></h3>
         <div class="card-body">
-        <img id="shopCards" img-responsive justify-content-center style="margin-bottom: 20px;" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img>
+        <img id="shopCard" img-responsive justify-content-center style="margin-bottom: 20px;" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img>
         <p><strong>Price: $</strong>{{ $item -> price}}</p>
         <p><strong>Description: </strong>{{ $item -> description}}</p>
         <form>
@@ -58,5 +57,6 @@
       <!-- </div> -->
     <!-- </div> -->
   </div>
+</div>
 </div>
 @endsection

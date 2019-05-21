@@ -15,28 +15,28 @@ class CommentsTableSeeder extends Seeder
         'username' => 'Demoncowgirl',
         'comment' => 'This is a blog_1 test comment.',
         'approved' => true,
-        'post_slug' => 'blog-1',
+        'post_id' => 1,
         ]);
 
         DB::table('comments')->insert([
           'username' => 'Demoncowgirl',
           'comment' => 'Nee! Bring me shrubbery!',
           'approved' => true,
-          'post_slug' => 'monty-python-blog',
+          'post_id' => 41,
           ]);
 
           DB::table('comments')->insert([
             'username' => 'Ellie Mae',
             'comment' => 'I love bacon!!',
             'approved' => false,
-            'post_slug' => 'bacon-blog',
+            'post_id' => 21,
             ]);
 
             DB::table('comments')->insert([
               'username' => 'Ellie Mae',
               'comment' => 'Yay! Grim!!!',
               'approved' => false,
-              'post_slug' => 'blog-10',
+              'post_id' => 91,
               ]);
 
     }

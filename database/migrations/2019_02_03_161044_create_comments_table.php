@@ -17,15 +17,20 @@ class CreateCommentsTable extends Migration
             $table->string('username');
             $table->text('comment');
             $table->boolean('approved')->default(false);
-            $table->string('post_slug');
+            $table->integer('post_id')->unsigned();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('approved_at')->nullable();
+
+            $table->foreign('post_id')
+            ->references('id')
+            ->on('posts')
+            ->onDelete('cascade');
           });
 
-          Schema::table(('comments'), function($table){
-            $table->foreign('post_id')->references('id')->on('posts');
-        });
+        //   Schema::table(('comments'), function($table){
+        //     $table->foreign('post_id')->references('id')->on('posts');
+        // });
     }
 
     /**

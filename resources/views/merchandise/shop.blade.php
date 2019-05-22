@@ -9,15 +9,12 @@
 
 @section('content')
 
-@include('inc._sidebar')
+<!-- @include('inc._sidebar') -->
 <div id="content">
-  <div class="row">
-  <div class="col-sm-12 col-md-10 col-lg-8 offset-lg-5 col-xl-6 offset-xl-3">
-    <!-- <div class="col-12-lg offset-4-lg"> -->
-      <h1 style="font-family: Freckle Face; margin-left: 15px;">Buy Stuff!!</h1>
-    </div>
-  </div>
+  <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
   <hr>
+<div class="row">
+
   <div id="cards" class="container-fluid">
   <div class="row">
   <!-- <div class="col"> -->
@@ -54,9 +51,7 @@
       </div>
       </div>
       @endforeach
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
+</div>
 </div>
 </div>
 @endsection

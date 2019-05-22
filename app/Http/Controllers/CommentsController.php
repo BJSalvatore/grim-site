@@ -73,16 +73,17 @@ class CommentsController extends Controller
           $comment = new Comment();
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
-          // $comment-> post_id = post() -> asssociate($post->id);
           $comment-> post() -> associate($post -> id);
           $comment-> approved = true;
           // $comment -> approved_at = Carbon::now();
 
           $comment->save();
 
-          Session::flash('success', 'Comment was submitted successfully!<br>It will not be displayed until approved by the admin.');
+          Session::flash('success', 'Comment was submitted successfully! It will not be displayed until approved by the admin.');
 
-          return redirect()->view('comments.single', $comment -> id);
+
+        return redirect()->route('posts.show', $post -> id);
+        // 'single/'.$post -> slug
       }
 
 
@@ -95,8 +96,6 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
-
-      dd($comment);
 
       return view('comments.show', ['comment' => $comment]);
     }

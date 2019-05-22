@@ -5,7 +5,7 @@
 
 @extends('layouts.app')
 @include('inc._header')
-
+@include('inc._flash-message')
 @section('content')
 
   <!-- @include('inc._sidebar') -->
@@ -22,31 +22,20 @@
         <hr>
         <h5>To email directly,<br>click envelope icon below:</h5>
         <p><a href="mailto:boboedy@yahoo.com"><i class="fas fa-envelope fa-3x"></i></a></p>
-        <h5>Or login and use the form below:</h5>
+        <h5>Or login to use our online form:</h5>
       <hr>
 
+    @if (auth()->check())
     <h1>Contact Form</h1>
       <div class="form-group">
         <form method="POST" action="{{ action('MessageController@store') }}">
            @csrf
         <label for="email">Email:</label>
-        @if (auth()->check())
         <input v-model="email" name="email" class="form-control" type="text" placeholder="Email address" value="{{ Auth::user()->email }}">
-        @else
-        <input v-model="email" name="email" class="form-control" type="text" placeholder="Email address" value="Email address">
-        @endif
       </div>
       <div class="form-group">
         <label for="name">Name:</label>
-        <input v-model="name" name="name" class="form-control" type="text" placeholder="Name">
-      </div>
-      <div class="form-group">
-        <label for="username">Username:</label>
-        @if (auth()->check())
-        <input v-model="username" name="username" class="form-control" type="text" value="{{ Auth::user()->username}}">
-        @else
-          <input v-model="username" name="username" class="form-control" type="text" value="User name">
-        @endif
+        <input v-model="name" name="name" class="form-control" type="text" placeholder="Name" value="{{ Auth::user()->name}}">
       </div>
       <div class="form-group">
         <label for="message">Message:</label>
@@ -54,5 +43,8 @@
       </div>
       <button type="submit" class="btn btn-dark btn-md m-1">Send Message</button>
     </form>
+    @else
+      <a href="{{ url('auth/login') }}" class="btn btn-md btn-primary m-1">Login</a>
+    @endif
   </div>
 @endsection

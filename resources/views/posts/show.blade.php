@@ -5,21 +5,43 @@
 
 @extends('layouts.app')
 @include('inc._navbar')
+@include('inc._flash-message')
 @section('content')
-<div class="row">
-  <div class="col-lg-4">
-    @include('inc._sidebar')</div>
-      <div class="col-lg-5">
-          <div class="post mt-3">
+<!-- <div class="row"> -->
+  <div id="content">
+      <div class="col-lg-10 offset-lg-2">
+          <div id="post" class="post card container-fluid">
             @if($post -> image)
-              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="300" width="auto"> </img>
+              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
-              <p>{{ $post -> post}}</p>
+              <p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>
+              <a href="{{ url('single/'.$post -> slug)}}" class="btn btn-md btn-grim">Read more</a>
+
+              @if (auth()->user()->isAdmin())
+                    <div class="bg-secondary mt-3 align-content-center justify-content-center">
+                      <div  id="postInfo" class="container-fluid p-4">
+                        <h5>URL:</h5>
+                        <a href="{{ url('single/'.$post -> slug)}}">{{ url('single/'.$post -> slug)}}</a> <!--appends slug to base url-->
+                        <h5>Created on:</h5>
+                        <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
+                        <h5>Updated on:</h5>
+                        <p>{{ $post -> updated_at }}</p>
+                      </div>
+                    </div>
+                  <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+                  <div class="m-0">
+                    <button type="submit" class="btn btn-block btn-danger mt-1">Delete</a>
+                  </div>
+                    <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-block btn-warning mt-1" method="GET">Edit</form>
+                    <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-0" method="GET">View All Posts</a>
+                  </form>
+                @endif
           </div>
-          <hr>
-          <hr>
-          <div id="comment" class="flex-container">
+
+          <div id="comment" class="flex-container ml-3">
             <section class="content">
             @foreach($post-> comments as $comment)
                 <p><strong>UserName: </strong>{{$comment-> username}}</p>
@@ -29,28 +51,10 @@
             @endforeach
               </section>
             </div>
+
+              </div>
       </div>
-  <div class="col-lg-3">
-      <div class="container bg-secondary mt-3 align-content-center justify-content-center">
-        <div  id="postInfo" class="container p-4">
-          <h5>URL:</h5>
-          <a href="{{ url('single/'.$post -> slug)}}">{{ url('single/'.$post -> slug)}}</a> <!--appends slug to base url-->
-          <h5>Created on:</h5>
-          <p>{{ date('Y-m-d\ H:i:s', strtotime($post -> created_at)) }}</p>
-          <h5>Updated on:</h5>
-          <p>{{ $post -> updated_at }}</p>
-        </div>
-      </div>
-    <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
-      @csrf
-      @method('DELETE')
-    <div>
-      <button type="submit" class="btn btn-block btn-danger m-1">Delete</a>
-    </div>
-    </form>
-       <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-block btn-warning m-1" method="GET">Edit</form>
-      <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-1" method="GET">View All Posts</a>
-  </div>
-</div>
+
+
 
 @endsection

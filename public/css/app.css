@@ -10677,7 +10677,13 @@ h5 {
   font-weight: 600;
 }
 
-#messages.container {
+.btn-grim {
+  background-color: #FF8C00;
+}
+
+#messages.container-fluid {
+  display: flex;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -10741,6 +10747,10 @@ h5 {
   width: 100%;
 }
 
+.comment {
+  margin-left: 15px;
+}
+
 #blogForm .alert-danger {
   font-size: 10px;
 }
@@ -10751,6 +10761,20 @@ h5 {
 
 #postInfo h5 {
   padding: 0;
+}
+
+#post.container-fluid {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#post.card {
+  min-width: 800px;
+  background-color: #E8E8E8;
+  padding: 15px;
+  border-width: 1px;
+  margin-bottom: 30px;
 }
 
 #comment-form .alert-danger {
@@ -10791,15 +10815,8 @@ input.largeCheckbox {
   width: 100%;
 }
 
-.well {
-  background: #DCDCDC;
-  border: 2px groove #A8A8A8;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
 .card {
+  margin-top: 15px;
   border: 2px solid #000;
 }
 

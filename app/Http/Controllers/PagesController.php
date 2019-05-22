@@ -59,6 +59,11 @@ class PagesController extends Controller
         return view('comments/index')->with('header_title', $header_title);
       }
 
+      // public function showComments() {
+      //   $header_title = "See What Everyone Is Saying!";
+      //   return view('posts.show')->with('header_title', $header_title);
+      // }
+
       public function getUnnaproved() {
         return view('comments/unnapproved');
       }

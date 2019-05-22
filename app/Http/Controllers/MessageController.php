@@ -46,19 +46,19 @@ class MessageController extends Controller
 
           ]);
 
-
         // store in database
         $message = new Message;
         $message -> email = $request -> input('email');
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
-        $message-> username = $request -> input('username');
-        $message -> responded_on = $request -> input('responded_on');
+        $message -> username = auth()->user() -> username;
+        $message -> response = $request -> input('repsonse');
+        $message -> responded_on = Carbon::now();;
         $message -> save();
 
         if (auth()->user()){
           Session::flash('success', 'Your message has been successfully sent!');
-          return redirect()->route('home');
+          return redirect()->route('pages.home');
         }else{
           Session::flash('danger', 'You  must be registered and login to send a message!');
           return redirect()->route('login');

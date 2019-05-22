@@ -14,6 +14,17 @@ h1 {
 h5 {
     font-weight: 600;
 }
+
+#messages.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// #message.card-header{
+//   background-color: #FF8C00;
+// }
+
+
 //display
 .jumbotron {
     height: 440px;
@@ -155,7 +166,7 @@ input.largeCheckbox {
   width: 100%;
 }
 
-.card-header {
+#shopCard.card-header {
   font-size: 16px;
   background-color: #808080;
 }

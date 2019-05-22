@@ -22,13 +22,13 @@
 </head>
 
 <body>
-  @include('inc._flash-message')
   <div id="parent" class="container-fluid">
     <div id="parentRow" class="row">
+        @include('inc._flash-message')
 
-    @if(Request::is('/') || Request::is('about') || Request::is('blog') || Request::is('contact') || Request::is('photos') || Request::is('press') || Request::is('single'))
-        @include('inc._sidebar')
-    @endif
+        @if(Request::is('/') || Request::is('about') || Request::is('blog') || Request::is('contact') || Request::is('photos') || Request::is('press') || Request::is('single'))
+          @include('inc._sidebar')
+        @endif
 
         @yield('content')
     </div>

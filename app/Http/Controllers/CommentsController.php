@@ -22,11 +22,14 @@ class CommentsController extends Controller
       $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getSingle($id){
+
+      // fetch from database based on $slug
+      $comment = Comment::where('id', '=', $id)->first();
+      // return the view and pass in the post object
+      return view('comments.single')->withComment($comment);
+    }
+
     public function index()
     {
       // create a variable and store all of our blog comments in it
@@ -68,18 +71,18 @@ class CommentsController extends Controller
       ]);
 
           $comment = new Comment();
-          $this->post = Post::findOrFail('id');
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
+          // $comment-> post_id = post() -> asssociate($post->id);
           $comment-> post() -> associate($post -> id);
-          $comment-> approved = false;
+          $comment-> approved = true;
           // $comment -> approved_at = Carbon::now();
 
           $comment->save();
 
           Session::flash('success', 'Comment was submitted successfully!<br>It will not be displayed until approved by the admin.');
 
-          return redirect()->view('comments.show', $comment -> id);
+          return redirect()->view('comments.single', $comment -> id);
       }
 
 
@@ -92,6 +95,8 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
+
+      dd($comment);
 
       return view('comments.show', ['comment' => $comment]);
     }

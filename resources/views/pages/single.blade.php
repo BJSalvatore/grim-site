@@ -4,7 +4,7 @@
 
 @section('content')
   @include('inc._sidebar')
-    <div id="content" class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 col-xl-6 offset-lg-4">
+    <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
     <!-- <div class="col-10 p-4"> -->
       <div class="post mt-3">
         @if($post->image)
@@ -29,10 +29,10 @@
       <h5>You must be registered and logged in to leave a comment.</h5>
         <a href="{{ url('auth/login') }}" class="btn btn-md btn-primary m-1">Login</a>
       @endif
-
+      <hr>
     @if(auth()->check())
-    <div id="comment-form">
-      <form method="POST" action="{{ action('CommentsController@store', $post-> slug) }}">
+    <div id="comment-form mt-3">
+     <form method="POST" action="{{ action('CommentsController@store', $post-> id) }}">
         <div class="row">
           @csrf
             <div class="col-lg-8">
@@ -48,11 +48,12 @@
               @endif
           </div>
           <div class="col-lg-8">
-            <button type="submit" class="btn btn-secondary btn-md m-1">Submit Comment</button>
+            <button type="submit" class="btn btn-secondary btn-md m-1">Review Comment</button>
           </div>
         </div>
       </form>
     </div>
     @endif
-  <!-- </div> -->
+  </div>
+
 @endsection

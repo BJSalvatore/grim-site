@@ -60,6 +60,8 @@ Route::get('/comments/{id}/index', 'CommentsController@index')->name('comments.i
 Route::put('/comments/{id}', 'CommentsController@update')->name('comments.update');
 Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
 
+// Route::get('commments/{id}', ['as' => 'comments.single', 'uses' => 'CommentsController@getSingle']->where('id', $comment -> id ));
+
 Route::get('status', function(){
   $comments = DB::table('comments')
         ->orderBy('created_at', 'asc')
@@ -70,7 +72,6 @@ Route::get('status', function(){
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
-
 
 //routes for press releases
 Route::resource('releases', 'PressReleaseController@index');

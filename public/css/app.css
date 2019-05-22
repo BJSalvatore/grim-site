@@ -10677,6 +10677,11 @@ h5 {
   font-weight: 600;
 }
 
+#messages.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .jumbotron {
   height: 440px;
   width: 100%;
@@ -10812,7 +10817,7 @@ input.largeCheckbox {
   width: 100%;
 }
 
-.card-header {
+#shopCard.card-header {
   font-size: 16px;
   background-color: #808080;
 }

@@ -25,8 +25,9 @@
           <p>{{ $comment -> approved_at }}</p>
         </div>
       </div>
-    <!-- @endforeach -->
-     <!-- <a href="{{ url('/status') }}" class="btn btn-block btn-primary m-1" method="GET">View All Comments</a> -->
+      <div class="col-lg-8">
+        <button type="submit" class="btn btn-secondary btn-md m-1">Submit Comment</button>
+      </div>
     </div>
 </div>
 @endsection

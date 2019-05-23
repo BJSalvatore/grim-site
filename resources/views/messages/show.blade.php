@@ -15,6 +15,7 @@
           <p><strong>Date Received: </strong>{{ date('M j, Y', strtotime($message->created_at)) }}</p>
       </div>
     <div id="response" class="card p-3">
+
           <p><strong>Response: </strong>{{ $message -> response}}</p>
           <p><strong>Responded on: </strong>{{ date('M j, Y', strtotime($message->responded_on)) }}</p>
 

@@ -10815,14 +10815,16 @@ input.largeCheckbox {
   width: 100%;
 }
 
+#cards.container-fluid {
+  margin-top: 10px;
+  margin-left: 40px;
+  width: 100%;
+  min-width: 280px;
+}
+
 .card {
   margin-top: 15px;
   border: 2px solid #000;
-}
-
-.card-deck {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #card.card {
@@ -10834,6 +10836,11 @@ input.largeCheckbox {
   width: 100%;
 }
 
+#shopCard.card {
+  z-index: 0;
+  margin: 5px;
+}
+
 #shopCard.card-header {
   font-size: 16px;
   background-color: #808080;
@@ -10841,8 +10848,7 @@ input.largeCheckbox {
 
 .card-block {
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px;
 }
 
 table {
@@ -10868,7 +10874,7 @@ table {
   margin-bottom: 90px;
   /* keeps sticky footer from covering content in sidebar */
   margin-top: 15px;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-right: 10px;
   z-index: 0;
   /* Stay on top */
@@ -10908,11 +10914,6 @@ audio.controls {
 .img-responsive {
   width: auto;
   max-width: 260px;
-}
-
-#cards.container-fluid {
-  width: 100%;
-  min-width: 280px;
 }
 
 #invoiceForm label {
@@ -11004,7 +11005,7 @@ audio.controls {
   }
 }
 
-@media screen and (max-width: 576px) and (orientation: landscape) {
+@media screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
@@ -11060,7 +11061,63 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+@media screen and (max-width: 569px) and (orientation: landscape) {
+  #sidebar {
+    position: relative;
+    width: 100%;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+    max-height: 480px;
+  }
+
+  #content {
+    position: relative;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    padding: 15px;
+  }
+
+  .navbar {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .header {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    height: 100px;
+  }
+
+  #newLP {
+    width: auto;
+    max-width: 240;
+  }
+
+  #calendar {
+    max-width: 260px;
+  }
+
+  #shoes {
+    margin-top: -100px;
+  }
+
+  #footer {
+    position: fixed;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    font-size: 12px;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 767px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
@@ -11120,17 +11177,16 @@ audio.controls {
 
 /* laptops */
 
-@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+@media screen and (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
     -webkit-columns: 2;
        -moz-columns: 2;
             columns: 2;
-    height: auto;
+    height: 520px;
     margin-left: 15px;
     margin-right: 15px;
-    margin-bottom: 0;
   }
 
   #content {
@@ -11138,10 +11194,6 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-  }
-
-  h5 {
-    font-size: 20px;
   }
 
   .jumbotron {
@@ -11154,6 +11206,10 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
+  }
+
+  h5 {
+    font-size: 20px;
   }
 
   #shoes {

@@ -1,7 +1,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('title', '| Inventory')
+@section('title', '| Shop')
 
 @extends('layouts.app')
 
@@ -11,15 +11,12 @@
 
 <!-- @include('inc._sidebar') -->
 <div id="content">
-  <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
-  <hr>
-<div class="row">
-
   <div id="cards" class="container-fluid">
+    <!-- <div class="row">
+      <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
+      <hr>
+    </div>   -->
   <div class="row">
-  <!-- <div class="col"> -->
-  <div class="card-deck">
-   </div>
       @foreach($items as $item)
       <div id="shopCard" class="card mt-3">
         <div class="card-block">
@@ -51,7 +48,6 @@
       </div>
       </div>
       @endforeach
-</div>
 </div>
 </div>
 @endsection

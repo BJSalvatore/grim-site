@@ -98,12 +98,11 @@ Route::get('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
 
 Route::get('photos', function(){
-  $header_title = "Photos!";
   $files = DB::table('files')
       ->orderBy('id', 'asc')
       // ->limit(10)
       ->get();
-  return view('pages.photos', ['files'=>$files])->with('header_title', $header_title);
+  return view('pages.photos', ['files'=>$files]);
 });
 
 //routes for inventory
@@ -128,7 +127,7 @@ Route::post('cart/store', 'CartController@store')->name('cart.store');
 Route::get('/downloadPDF/{id}', 'CartController@downloadPDF');
 
 Route::get('shop', function(){
-  $header_title ="Shop!";
+  $header_title ="Buy Our Stuff!";
   $items = DB::table('items')
   ->orderBy('id', 'asc')
   // ->limit(20)
@@ -136,13 +135,14 @@ Route::get('shop', function(){
   return view('merchandise.shop', ['items'=>$items])->with('header_title', $header_title);
 });
 
-Route::get('cart', function(){
-  $cartItems = DB::table('cart')
-        ->orderBy('id', 'asc')
-        // ->limit(10)
-        ->get();
-  return view('merchandise.cart', ['cartItems'=>$cartItems]);
-});
+// Route::get('cart', function(){
+//   $header_title="Shopping Cart"
+  // $cartItems = DB::table('cart')
+  //       ->orderBy('id', 'asc')
+  //       // ->limit(10)
+  //       ->get();
+  // return view('merchandise.cart', ['cartItems'=>$cartItems])->with('header_title', $header_title);
+// });
 
 
 // Routes for $messages

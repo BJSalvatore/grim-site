@@ -53,13 +53,10 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message -> username = auth()->user() -> username;
-        $message -> response = $request -> input('repsonse');
-        $message -> responded_on = Carbon::now();;
         $message -> save();
 
         if (auth()->user()){
-          Session::flash('success', 'Your message has been successfully sent!');
-          return redirect()->route('pages.home');
+          return back()->with('success', 'Your message was sent successfully!');
         }else{
           Session::flash('danger', 'You  must be registered and login to send a message!');
           return redirect()->route('login');

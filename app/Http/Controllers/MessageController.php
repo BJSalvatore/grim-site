@@ -6,27 +6,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
 use Carbon\Carbon;
 use App\Message;
+use App\Response;
 use Session;
 
 class MessageController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
 
     public function index(){
     // create a variable and store all of the messages in it
-    $messages = Message::orderBy('created_at', 'asc')->paginate(5);
+    $messages = Message::orderBy('id', 'desc')->paginate(5);
     // return a view and pass in the variable
-    return view('messages.index')->with('messages', $messages);
+    return view('messages.index', ['messages' => $messages]);
     }
 
-    public function __construct()
+  public function create()
     {
-      // $this->middleware('auth');
+        return view('messages.create'); //shows comment page
     }
 
-    public function create()
-    {
-        return view('pages.contact'); //shows comment page
-    }
 
     public function store(Request $request)
     {
@@ -48,11 +49,13 @@ class MessageController extends Controller
           ]);
 
         // store in database
-        $message = new Message;
+        $message = new Message();
         $message -> email = $request -> input('email');
+        $message -> username = auth()->user() -> username;
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
-        $message -> username = auth()->user() -> username;
+        $message -> created_at = Carbon::now();
+
         $message -> save();
 
         if (auth()->user()){
@@ -61,7 +64,8 @@ class MessageController extends Controller
           Session::flash('danger', 'You  must be registered and login to send a message!');
           return redirect()->route('login');
           }
-        }
+
+    }
 
 
     public function show($id){

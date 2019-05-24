@@ -1,4 +1,4 @@
-<div id="messages" class="container mt-3">
+<div id="messages" class="container-fluid">
   <div class="row">
     <div class="col-md-8">
     @if(Session::has('success'))

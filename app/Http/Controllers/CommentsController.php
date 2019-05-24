@@ -79,20 +79,11 @@ class CommentsController extends Controller
 
           $comment->save();
 
-          Session::flash('success', 'Comment was submitted successfully! It will not be displayed until approved by the admin.');
-
-
+        Session::flash('success', 'Comment was submitted successfully! It will not be displayed until approved by the admin.');
         return redirect()->route('posts.show', $post -> id);
-        // 'single/'.$post -> slug
       }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
       $comment = Comment::find($id);
@@ -100,24 +91,13 @@ class CommentsController extends Controller
       return view('comments.show', ['comment' => $comment]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
          $comment = new Comment();
@@ -136,12 +116,7 @@ class CommentsController extends Controller
          return redirect()->view('comments.show', $comment -> id );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $comment = Comment::find($id);

@@ -28,7 +28,7 @@
           <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
           <td>{{ $message -> responded_on }}</td>
           <td>
-            <a href="{{ route('messages.show', $message -> id)}}" class="btn btn-block btn-secondary" method="GET">View</a><br>
+            <a href="{{ route('messages.show', $message -> id) }}" class="btn btn-block btn-secondary" method="GET">View</a><br>
             <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
           </td>
         </tr>

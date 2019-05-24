@@ -12,7 +12,7 @@ class AddResponseTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('responses', function (Blueprint $table) {
         $table->increments('id')->unsigned();
         $table->integer('message_id')->unsigned();
         $table->string('response');
@@ -25,6 +25,7 @@ class AddResponseTable extends Migration
       });
     }
      // Reverse the migrations.
-    public function down()
-          Schema::dropIfExists('messages');
+    public function down(){
+          Schema::dropIfExists('responses');
+        }
 }

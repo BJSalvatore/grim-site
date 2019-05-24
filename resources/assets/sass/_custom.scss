@@ -18,11 +18,16 @@ h5 {
   background-color: #FF8C00;
 }
 
-#messages.container-fluid{
-  display: flex;
+#messages.container-fluid {
+  width: 100%;
   margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  float: left;
+}
+
+#messageResponse.container-fluid{
+  width: 100%;
+  float: center;
+
 }
 
 //display
@@ -77,7 +82,8 @@ h5 {
 
 #content {
   padding: 15px;
-  margin-left: 30px;
+  margin-top: 15px;
+  margin-left: 15px;
 
 }
 
@@ -202,6 +208,11 @@ input.largeCheckbox {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #ddd;
     margin-bottom: 20px;
+}
+
+#sidebar {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #sidebar.container {
@@ -446,9 +457,9 @@ audio.controls {
         width: 100%;
         max-height: 480px;
 
-    -webkit-column-count: 2;
-     -moz-column-count: 2;
-      column-count: 2;
+        -webkit-column-count: 2;
+         -moz-column-count: 2;
+          column-count: 2;
 
     }
 
@@ -510,11 +521,11 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 2;
+      columns: 3;
     }
 
     .navbar {
-      columns: 1;
+      columns: 3;
     }
 
     h5 {

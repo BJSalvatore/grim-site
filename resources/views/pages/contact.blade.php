@@ -5,7 +5,6 @@
 
 @extends('layouts.app')
 @include('inc._header')
-@include('inc._flash-message')
 @section('content')
 
   <!-- @include('inc._sidebar') -->
@@ -26,6 +25,7 @@
       <hr>
 
     @if (auth()->check())
+    @include('inc._flash-message')
     <h1>Contact Form</h1>
       <div class="form-group">
         <form method="POST" action="{{ action('MessageController@store') }}">

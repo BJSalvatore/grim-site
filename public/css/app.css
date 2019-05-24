@@ -10681,10 +10681,14 @@ h5 {
 }
 
 #messages.container-fluid {
-  display: flex;
+  width: 100%;
   margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  float: left;
+}
+
+#messageResponse.container-fluid {
+  width: 100%;
+  float: center;
 }
 
 .jumbotron {
@@ -10738,7 +10742,8 @@ h5 {
 
 #content {
   padding: 15px;
-  margin-left: 30px;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 #comment p {
@@ -10857,6 +10862,11 @@ input.largeCheckbox {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   border: 1px solid #ddd;
   margin-bottom: 20px;
+}
+
+#sidebar {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #sidebar.container {
@@ -11158,15 +11168,15 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   .navbar {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   h5 {

@@ -29,7 +29,11 @@
         @if($item -> size != null)
         <p><strong>Size: </strong>{{ $item -> size}}</p>
         @endif
-          <div class="input-group input-group-sm mb-3">
+      <form>
+        <label class="mt-1" for="quantity">Quantity</label>
+        <input class="form-control w-25" id="quantity" name="quantity" type="text"></input>
+      </form>
+          <!-- <div class="input-group input-group-sm mb-3">
           <div class="input-group-prepend">
             <button type="button" class="btn btn-outline-dark">Quantity</button>
             <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +45,7 @@
               <a class="dropdown-item" href="#">3</a>
             </div>
           </div>
-          </div>
+          </div> -->
           <a href="{{ route('cart.store')}}" class="btn btn-success" method="GET">Add to Cart</a>
         </form>
       </div>

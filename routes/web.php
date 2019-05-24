@@ -146,12 +146,12 @@ Route::get('shop', function(){
 
 
 // Routes for $messages
-Route::resource('/messages', 'MessageController');
-Route::get('/messages/index', 'MessageController@index')->name('messages.index');
-Route::post('/messages/store', 'MessageController@store')->name('messages.store');
-Route::post('/messages/create', 'MessageController@create');
+Route::resource('messages', 'MessageController');
+Route::get('messages/index', 'MessageController@index')->name('messages.index');
+Route::post('messages/store', 'MessageController@store')->name('messages.store');
+Route::post('messages/create', 'MessageController@create');
 Route::get('messages/{id}/mail', 'MessageController@mail')->name('messages.mail');
-Route::get('messages/{id}/show', 'MessageController@show');
+Route::get('messages/{id}/show', 'MessageController@show')->name('messages.show');
 Route::get('messages/{id}', 'MessageController@destroy');
 
 
@@ -161,6 +161,23 @@ Route::get('messages', function(){
         ->limit(10)
         ->get();
   return view('messages.index', ['messages'=> $messages]);
+});
+
+// Routes for reponses
+Route::resource('/responses', 'ResponseController');
+Route::get('/responses/index', 'ResponseController@index')->name('responses.index');
+Route::post('/responses/store', 'ResponseController@store')->name('responses.store');
+Route::post('/responses/create', 'ResponseController@create');
+Route::get('responses/{id}/show', 'ResponseController@show')->name('responses.show');
+Route::get('responses/{id}', 'ResponseController@destroy');
+
+
+Route::get('responses', function(){
+  $messages = DB::table('responses')
+        ->orderBy('responded_at', 'desc')
+        ->limit(10)
+        ->get();
+  return view('responses.index', ['responses'=> $responses]);
 });
 
 // routes for emails

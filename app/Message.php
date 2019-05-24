@@ -8,14 +8,14 @@ class Message extends Model
 {
 
       protected $fillable = [
-          'email', 'name', 'nessage', 'username', 'created_at', 'updated_at', 'responded_on'
+          'email', 'username', 'name', 'message', 'created_at'
       ];
 
       protected $table = 'messages';
 
 
-    public function messages()
+    public function response()
     {
-        return $this->belongsTo('App\Message', 'id');
+        return $this->hasMany('App\Response');
     }
 }

@@ -4,7 +4,6 @@ body {
     height: auto;
     padding-bottom: 90px;
     background-color: silver;
-    z-index: -1;
 }
 
 h1 {
@@ -78,8 +77,8 @@ h5 {
 
 #content {
   padding: 15px;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #comment p {
@@ -91,7 +90,7 @@ h5 {
 }
 
 //blog posts and comments
-#blogForm .alert-danger {
+.alert-danger {
     font-size: 10px;
 }
 
@@ -194,14 +193,8 @@ input.largeCheckbox {
     margin: 10px;
 }
 
-// discography page table
-table {
-    width: 900px;
-}
-
 .table-reponsive {
     //bootstrap defaults
-    min-width: 906px;
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
@@ -211,20 +204,16 @@ table {
     margin-bottom: 20px;
 }
 
-#sidebar {
-    display: flex;
+#sidebar.container {
+    display: block;
     height: auto;
-    max-width: 360px;
-    /* Set the width of the sidebar */
-    margin-bottom: 90px;
+    // margin-bottom: 90px;
     /* keeps sticky footer from covering content in sidebar */
     margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
+    // margin-left: auto;
+    // margin-right: auto;
     z-index: 0;
     /* Stay on top */
-    // background-color: #000;
-    /* Black */
     box-shadow: 15px 12px 28px #FF8C00;
     flex-direction: column;
     align-items: center;
@@ -234,6 +223,7 @@ table {
 /* The navigation menu links */
 #sidebar p {
     padding: 4px;
+    margin: 0;
     font-size: 25px;
     font-weight: 600;
     color: #818181;
@@ -241,22 +231,13 @@ table {
 }
 
 //audio
-#audio {
-  height: 40px;
-}
-
 audio.controls {
     width: 100%;
+    height: 40px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.embed-responsive {
-    //bootstrap defaults
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
 //photos, images and logos
 .img-responsive {
     width: auto;
@@ -283,12 +264,6 @@ audio.controls {
     height: auto;
 }
 
-#calendar {
-    width: auto;
-    height: auto;
-    margin: 0px;
-}
-
 #logo {
     width: auto;
     height: auto;
@@ -304,6 +279,11 @@ audio.controls {
     max-width: 250px;
     height: auto;
 }
+
+// #recordLabelLogo {
+//   width: auto;
+//   z-index: 1;
+// }
 
 #thumbnail {
     width: 100px;
@@ -344,6 +324,8 @@ audio.controls {
     height: 100%;
 }
 
+
+
 // .toggle-content {
 //   display: none;
 //   opacity: 0;
@@ -379,30 +361,28 @@ audio.controls {
     #content {
         position: relative;
         columns: 1;
-        padding: 15px;
 
     }
 
     .navbar {
-      columns: 1;
+      width: 100%;
+      // columns: 1;
     }
 
     .header {
-      columns: 1;
+      width: 100%;
+      // columns: 1;
       height: 100px;
+    }
+
+    audio {
+      height: 40px;
+      width: 100%;
     }
 
     #newLP {
         width: auto;
-        max-width:240 ;
-    }
-
-    #calendar {
-        max-width: 260px;
-    }
-
-    #shoes {
-        margin-top: -100px;
+        max-width:240px;
     }
 
     #footer {
@@ -416,7 +396,7 @@ audio.controls {
 }
 
 // larger mobile phones
-@media screen and (max-width: 569px) and (orientation: landscape) {
+@media screen and (min-width: 569px) and (max-width: 576px) and (orientation: landscape) {
 //     // col-sm
         #sidebar {
         position: relative;
@@ -441,17 +421,13 @@ audio.controls {
       height: 100px;
     }
 
+    audio {
+      height: 40px;
+    }
+
     #newLP {
         width: auto;
-        max-width:240 ;
-    }
-
-    #calendar {
-        max-width: 260px;
-    }
-
-    #shoes {
-        margin-top: -100px;
+        max-width:240px;
     }
 
     #footer {
@@ -465,14 +441,16 @@ audio.controls {
 }
 // // tablets
 @media screen and (min-width: 577px) and (max-width: 767px) and (orientation: landscape) {
-//     // col-md
+    // col-md
     #sidebar {
         position: relative;
         width: 100%;
-        columns: 2;
-        height: 520px;
-        margin-left: 15px;
-        margin-right: 15px;
+        max-height: 480px;
+
+    -webkit-column-count: 2;
+     -moz-column-count: 2;
+      column-count: 2;
+
     }
 
     #content {
@@ -488,21 +466,26 @@ audio.controls {
       columns: 1;
     }
 
+    audio {
+      height: 40px;
+    }
+
     h5 {
       font-size: 25px;
     }
 
     #shoes {
-        margin-top: -100px;
+      margin-top: -80px;
     }
 
     #newLP {
       width: 200px;
     }
 
-    #calendar {
-        max-width: 240px;
+    #recordLabelLogo.img-responsive {
+      width: 200px;
     }
+
 
     #footer {
         position: fixed;
@@ -519,10 +502,7 @@ audio.controls {
     #sidebar {
         position: relative;
         width: 100%;
-        columns: 2;
-        height: 520px;
-        margin-left: 15px;
-        margin-right: 15px;
+        columns: 3;
     }
 
     #content {
@@ -531,7 +511,7 @@ audio.controls {
     }
 
     .jumbotron {
-      columns:2;
+      columns:3;
     }
 
     .navbar {
@@ -543,17 +523,12 @@ audio.controls {
       font-size: 20px;
     }
 
-    #shoes {
-        margin-top: -100px;
-    }
-
     #newLP {
       width: 200px;
     }
 
-
-    #calendar {
-        width: 300px;
+    #shoes {
+      margin-top: -80px;
     }
 
     #footer {
@@ -565,47 +540,47 @@ audio.controls {
     }
 }
 // //ipads
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-//     //col-lg
+@media screen and (min-width: 994px) and (max-width: 1023px) and (orientation: landscape) {
+    //col-lg
     #sidebar {
         position: relative;
         max-width: 360px;
-        margin-left: 10px;
-        columns: 2;
-        max-height: 460px;
+        margin-left: 15px !important;
+        columns: 3;
     }
 
     #content {
         position: relative;
+        width: 100%;
         columns: 1;
 
     }
 
     .jumbotron {
-      width: 100vw;
+      width: 100%;
       columns:1;
     }
 
     .navbar {
-      width: 100vw;
+      width: 100%;
       columns: 1;
     }
 
 }
 
 // desktops
-@media screen and (min-width: 1024px) and (max-width: 1366px) {
-//     //col-xl
+@media screen and (min-width: 1024px){
+    //col-xl
     #sidebar {
      position: relative;
      columns: 1;
      margin-left: 15px;
-     margin-top: 15px;
      max-width: 360px;
      height: auto;
     }
 
     #content {
+        width: 100%;
         position: relative;
         columns: 1;
 

@@ -10738,8 +10738,7 @@ h5 {
 
 #content {
   padding: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 30px;
 }
 
 #comment p {
@@ -10865,6 +10864,8 @@ input.largeCheckbox {
   height: auto;
   /* keeps sticky footer from covering content in sidebar */
   margin-top: 15px;
+  margin-left: 0;
+  margin-right: 0;
   z-index: 0;
   /* Stay on top */
   box-shadow: 15px 12px 28px #FF8C00;
@@ -11042,7 +11043,6 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    padding: 15px;
   }
 
   .navbar {
@@ -11158,9 +11158,9 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   .navbar {
@@ -11194,7 +11194,6 @@ audio.controls {
   #sidebar {
     position: relative;
     max-width: 360px;
-    margin-left: 15px !important;
     -webkit-columns: 3;
        -moz-columns: 3;
             columns: 3;
@@ -11202,21 +11201,18 @@ audio.controls {
 
   #content {
     position: relative;
-    width: 100%;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
   }
 
   .jumbotron {
-    width: 100%;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
   }
 
   .navbar {
-    width: 100%;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
@@ -11235,8 +11231,19 @@ audio.controls {
   }
 
   #content {
-    width: 100%;
     position: relative;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .navbar {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;

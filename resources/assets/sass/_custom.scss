@@ -77,8 +77,8 @@ h5 {
 
 #content {
   padding: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 30px;
+
 }
 
 #comment p {
@@ -210,8 +210,8 @@ input.largeCheckbox {
     // margin-bottom: 90px;
     /* keeps sticky footer from covering content in sidebar */
     margin-top: 15px;
-    // margin-left: auto;
-    // margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
     z-index: 0;
     /* Stay on top */
     box-shadow: 15px 12px 28px #FF8C00;
@@ -408,7 +408,6 @@ audio.controls {
     #content {
         position: relative;
         columns: 1;
-        padding: 15px;
 
     }
 
@@ -511,13 +510,12 @@ audio.controls {
     }
 
     .jumbotron {
-      columns:3;
+      columns: 2;
     }
 
     .navbar {
       columns: 1;
     }
-
 
     h5 {
       font-size: 20px;
@@ -545,24 +543,20 @@ audio.controls {
     #sidebar {
         position: relative;
         max-width: 360px;
-        margin-left: 15px !important;
         columns: 3;
     }
 
     #content {
         position: relative;
-        width: 100%;
         columns: 1;
 
     }
 
     .jumbotron {
-      width: 100%;
       columns:1;
     }
 
     .navbar {
-      width: 100%;
       columns: 1;
     }
 
@@ -580,9 +574,17 @@ audio.controls {
     }
 
     #content {
-        width: 100%;
         position: relative;
         columns: 1;
 
     }
+
+    .jumbotron {
+      columns:1;
+    }
+
+    .navbar {
+      columns: 1;
+    }
+
 }

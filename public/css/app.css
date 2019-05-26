@@ -10828,6 +10828,9 @@ input.largeCheckbox {
 .card {
   margin-top: 15px;
   border: 2px solid #000;
+  z-index: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #card.card {
@@ -10839,19 +10842,41 @@ input.largeCheckbox {
   width: 100%;
 }
 
-#shopCard.card {
-  z-index: 0;
-  margin: 5px;
-}
-
-#shopCard.card-header {
+.card-header {
   font-size: 16px;
   background-color: #808080;
 }
 
 .card-block {
   width: 300px;
-  margin: 10px;
+}
+
+thead {
+  background-color: #808080;
+  font-size: 20px;
+}
+
+tr {
+  border: 1px solid #808080;
+}
+
+td {
+  padding: 15px;
+}
+
+.format {
+  font-size: 14px;
+}
+
+.no-gutters {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.no-gutters .col,
+.no-gutters [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .table-reponsive {
@@ -10860,7 +10885,6 @@ input.largeCheckbox {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  border: 1px solid #ddd;
   margin-bottom: 20px;
 }
 
@@ -10869,19 +10893,18 @@ input.largeCheckbox {
   margin-right: auto;
 }
 
-#sidebar.container {
+#sidebar.mx-auto {
   display: block;
   height: auto;
   /* keeps sticky footer from covering content in sidebar */
   margin-top: 15px;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 15px;
+  float: left;
   z-index: 0;
   /* Stay on top */
   box-shadow: 15px 12px 28px #FF8C00;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 /* The navigation menu links */
@@ -10905,6 +10928,12 @@ audio.controls {
 .img-responsive {
   width: auto;
   max-width: 260px;
+}
+
+#messagesResponse.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
 }
 
 #invoiceForm label {
@@ -11056,9 +11085,9 @@ audio.controls {
   }
 
   .navbar {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   .header {
@@ -11089,11 +11118,12 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 577px) and (max-width: 767px) and (orientation: landscape) {
+@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
     max-height: 480px;
+    margin-left: 15px;
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
@@ -11107,15 +11137,17 @@ audio.controls {
   }
 
   .jumbotron {
+    width: 100%;
     -webkit-columns: 2;
        -moz-columns: 2;
             columns: 2;
   }
 
   .navbar {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    width: 100%;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   audio {
@@ -11151,10 +11183,9 @@ audio.controls {
 
 /* laptops */
 
-@media screen and (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
   #sidebar {
     position: relative;
-    width: 100%;
     -webkit-columns: 3;
        -moz-columns: 3;
             columns: 3;
@@ -11174,6 +11205,7 @@ audio.controls {
   }
 
   .navbar {
+    width: 100%;
     -webkit-columns: 3;
        -moz-columns: 3;
             columns: 3;
@@ -11183,8 +11215,20 @@ audio.controls {
     font-size: 20px;
   }
 
+  #calendar {
+    width: 240px;
+  }
+
+  .data-tockify-height {
+    height: 400px;
+  }
+
   #newLP {
-    width: 200px;
+    width: 240px;
+  }
+
+  #recordLabelLogo.img-responsive {
+    width: 240px;
   }
 
   #shoes {

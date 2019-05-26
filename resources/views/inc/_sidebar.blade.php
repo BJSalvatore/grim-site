@@ -1,4 +1,5 @@
-<div id="sidebar" class="container text-center text-light bg-dark d-none d-sm-block d-md-block d-lg-block">
+<div class="px-3">
+<div id="sidebar" class="mx-auto text-center text-light bg-dark d-none d-sm-block d-md-block d-lg-block">
   <meta name="csrf-token" content="{{ csrf_token() }}">
         <div class="col justify-content-center">
               <p>New Release!</p>
@@ -12,11 +13,14 @@
           </div>
         </div>
         <div class="col justify-content-center">
-            <p>Upcoming Shows</p>
-              <div id="calendar" class="embed-responsive justify-content-center" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
+          <div class="row">
+               <p>Upcoming Shows</p>
+          </div>
+              <div id="calendar" class="embed-responsive justify-content-center" data-tockify-height="420px" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
               <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
-        </div>
+            </div>
         <div class="col-sm d-none d-sm-none d-md-block d-lg-block d-xl-block">
             <img id="recordLabelLogo" class="img-responsive mt-3 mb-3" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
         </div>
   </div>
+</div>

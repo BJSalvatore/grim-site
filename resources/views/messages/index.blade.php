@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="row mt-3" style="margin-bottom: 80px;">
-  <div class="col-lg-12">
-    <div class="col-lg-8 offset-lg-2">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+    <div class="col-lg-8 offset-lg-4">
     <h1>Messages</h1>
     <table id="messages" class="table">
       <thead>

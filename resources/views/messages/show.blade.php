@@ -24,7 +24,7 @@
           <p><strong>Responded on: </strong>{{ date('M j, Y', strtotime($response->responded_on)) }}</p>
           <hr>
         @endforeach
-            <a href="{{ route ('messages.mail', $message ->id) }}" class="btn btn-block btn-primary" method="GET">Respond</a><br>
+            <a href="{{ route ('email.mail', $message ->id) }}" class="btn btn-block btn-primary" method="GET">Respond</a><br>
             <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
             <a href="{{ url('messages') }}" class="btn btn-block btn-secondary" method="GET">View All Messages</a><br>
       </div>

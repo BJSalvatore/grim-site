@@ -74,12 +74,6 @@ class MessageController extends Controller
 
     }
 
-    public function mail($id){
-      $message = Message::find($id);
-      return view('messages.mail', ['message' => $message]);
-
-    }
-
     public function destroy($id){
       $message = Message::findOrFail($id);
       $message -> delete();

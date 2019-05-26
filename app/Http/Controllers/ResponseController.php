@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Email;
 use Carbon\Carbon;
 use App\Response;
 use App\Message;
@@ -58,9 +59,6 @@ class ResponseController extends Controller
        $response -> responded_on = Carbon::now();
 
        $response->save();
-
-     Session::flash('success', 'Response was sent sucessfully!');
-     return redirect()->route('messages.show', $message -> id)->with('success', 'Response was sent successfully!');
 
    }
 

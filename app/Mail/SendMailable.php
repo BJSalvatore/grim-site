@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Mail;
+namespace App\Email;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class MessageResponse extends Mailable
+use App\Response;
+
+class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +20,7 @@ class MessageResponse extends Mailable
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -28,6 +30,6 @@ class MessageResponse extends Mailable
      */
     public function build()
     {
-        return view('pages.contact');
+        return view('email.mail');
     }
 }

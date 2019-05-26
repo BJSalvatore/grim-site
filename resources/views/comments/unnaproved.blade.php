@@ -4,15 +4,9 @@
 @section('title', '| Unapproved Comments')
 
 @section('content')
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-lg-12">
+<div class="row mt-3" style="margin-bottom: 80px;">
     <h1>Unnaproved Blog Comments</h1>
-    </div>
-    <div class="col-lg-12"><hr></div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
+    <table-reesponsive>
       <table class="table">
         <thead>
           <th>#</th>
@@ -42,7 +36,6 @@
           @endforeach
         </tbody>
       </table>
-    </div>
+    </table-responsive>
   </div>
-</div>
 @endsection

@@ -7,9 +7,10 @@
       <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
 
             <h1>Messages</h1>
-              <p><strong>User Name: </strong>{{ $message -> username}}</p>
-              <p><strong>Email Address: </strong>{{ $message-> email }}</p>
-              <p><strong>Message: </strong>{{ $message -> message }}</p>
+              <p><strong>User Name: </strong>{{ $email -> to_name}}</p>
+              <p><strong>Email Address: </strong>{{ $email -> to_email }}</p>
+              <p><strong>Title: </strong>{{ $email -> title }}
+              <p><strong>Message: </strong>{{ $email -> body }}</p>
               <p><strong>Created at: </strong>{{ $message -> created_at }}</p>
 
               @foreach($message-> response as $response)

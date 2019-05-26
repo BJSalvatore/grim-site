@@ -3,19 +3,19 @@
 @section('title', '| Messages')
 
 @section('content')
-<div class="row mt-3" style="margin-bottom: 80px;">
-  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-    <div class="col-lg-8 offset-lg-4">
+<div class="row ml-4 mt-3" style="margin-bottom: 80px;">
+    <table-responsive>
     <h1>Messages</h1>
     <table id="messages" class="table">
       <thead>
-        <th>#</th>
-        <th>User Name</th>
-        <th>Email</th>
-        <th>Name</th>
-        <th>Message</th>
-        <th>Created On</th>
-        <th>Responded On</th>
+        <th class="w-5">#</th>
+        <th class="w-10">User Name</th>
+        <th class="w-10">Email</th>
+        <th class="w-10">Name</th>
+        <th class="w-35">Message</th>
+        <th class="w-10">Created On</th>
+        <th class="w-10">Responded<br>On</th>
+        <th class="w-10"></th>
       </thead>
       <tbody>
         @foreach($messages as $message)
@@ -35,8 +35,6 @@
         @endforeach
       </tbody>
     </table>
-  </div>
+  </table-responsive>
 </div>
-</div>
-
 @endsection

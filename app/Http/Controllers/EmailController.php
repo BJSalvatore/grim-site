@@ -16,16 +16,19 @@ use App\Message;
 class EmailController extends Controller
 {
 
+
 public function mail(){
+
+  $message = Message::find($id);
+
   Email::send('bethsalvatore2018@gmail.com')->send(new SendMailable($message));
 
 
 
-        // $to_name = $message -> username;
-        // $to_email = $message -> email;
-        // $name = $message -> name;
-        // $body = $message -> response;
-        // $data = array('name'=> $name, "body" => $body);
+        $to_name = $message -> username;
+        $to_email = $message -> email;
+        $title = $message -> name;
+        $body = $message -> response;
 
         // Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
         //     $message->to($to_email, $to_name)
@@ -37,7 +40,7 @@ public function mail(){
         //   ['responded_on' => Carbon::now()
         // ]);
 
-        return view('email.mail', $message -> id)->with('success', 'Response was sent successfully!');
+        return view('messages.show', $message -> id)->with('success', 'Response was sent successfully!');
 
 
 }

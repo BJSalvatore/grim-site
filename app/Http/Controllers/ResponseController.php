@@ -24,12 +24,14 @@ class ResponseController extends Controller
     $this->middleware('auth');
   }
 
-  public function getResponse($id){
-    // fetch from database based on $id
-    $response = Response::where('id', '=', $id)->first();
-    // return the view and pass in the post object
-    return view('messages.single')->withResponse($response);
-  }
+  // public function getResponse($id){
+  //   // fetch from database based on $id
+  //   $response = Response::where('id', '=', $id)->first();
+  //   // return the view and pass in the post object
+  //   return view('messages.single')->withResponse($response);
+  // }
+
+
 
   public function index()
   {
@@ -65,6 +67,8 @@ class ResponseController extends Controller
    public function show($id)
    {
      $response = Response::find($id);
+
+     return view ('messages.show', ['response' => $response]);
 
    }
 

@@ -23,12 +23,6 @@ class MessageController extends Controller
     return view('messages.index', ['messages' => $messages]);
     }
 
-  public function create()
-    {
-        return view('messages.create'); //shows comment page
-    }
-
-
     public function store(Request $request)
     {
         // validate the data
@@ -55,7 +49,7 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message -> created_at = Carbon::now();
-
+        // dd($message);
         $message -> save();
 
         if (auth()->user()){
@@ -66,7 +60,6 @@ class MessageController extends Controller
           }
 
     }
-
 
     public function show($id){
       $message = Message::find($id);

@@ -18,6 +18,14 @@ h5 {
   background-color: #FF8C00;
 }
 
+#messages.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 #messages.container-fluid {
   width: 100%;
   margin-top: 15px;
@@ -202,7 +210,7 @@ thead {
   font-size: 20px;
 }
 
-tr {
+.table {
   border: 1px solid #808080;
 }
 
@@ -246,7 +254,6 @@ td {
     // margin-bottom: 90px;
     /* keeps sticky footer from covering content in sidebar */
     margin-top: 15px;
-    margin-left: 15px;
     float: left;
 
     z-index: 0;
@@ -387,7 +394,7 @@ audio.controls {
 }
 
 // small mobile phones
-@media screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
+@media screen and (min-width: 320px) and (max-width: 575px) and (orientation: landscape) {
 //     // col-sm
         #sidebar {
         position: relative;
@@ -403,54 +410,7 @@ audio.controls {
     }
 
     .navbar {
-      width: 100%;
-      // columns: 1;
-    }
-
-    .header {
-      width: 100%;
-      // columns: 1;
-      height: 100px;
-    }
-
-    audio {
-      height: 40px;
-      width: 100%;
-    }
-
-    #newLP {
-        width: auto;
-        max-width:240px;
-    }
-
-    #footer {
-        position: fixed;
-        columns: 1;
-        font-size: 12px;
-        padding: 12px;
-        width: 100%;
-        margin-bottom: 0;
-    }
-}
-
-// larger mobile phones
-@media screen and (min-width: 569px) and (max-width: 576px) and (orientation: landscape) {
-//     // col-sm
-        #sidebar {
-        position: relative;
-        width: 100%;
-        columns: 3;
-        max-height: 480px;
-    }
-
-    #content {
-        position: relative;
-        columns: 1;
-
-    }
-
-    .navbar {
-      columns: 2;
+      columns: 1;
     }
 
     .header {
@@ -460,6 +420,7 @@ audio.controls {
 
     audio {
       height: 40px;
+      width: 100%;
     }
 
     #newLP {
@@ -476,33 +437,80 @@ audio.controls {
         margin-bottom: 0;
     }
 }
-// // tablets
-@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+
+// larger mobile phones and tablets
+@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape){
+    // col-sm
+        #sidebar {
+        position: relative;
+        width: 100%;
+        columns: 2;
+        max-height: 480px;
+    }
+
+    #content {
+        position: relative;
+        columns: 1;
+
+    }
+
+    .jumbotron {
+      columns: 2;
+    }
+
+    .navbar {
+      columns: 2;
+    }
+
+    .header {
+      columns: 2;
+      height: 100px;
+    }
+
+    audio {
+      height: 40px;
+    }
+
+    #newLP {
+        width: auto;
+        max-width:240px;
+    }
+
+    #footer {
+        position: fixed;
+        columns: 1;
+        font-size: 12px;
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+// tablets
+@media screen and (min-width: 768px) and (max-width: 991) and (orientationi: landscape){
     // col-md
     #sidebar {
         position: relative;
         width: 100%;
         max-height: 480px;
         margin-left: 15px;
-
-        -webkit-column-count: 2;
-         -moz-column-count: 2;
-          column-count: 2;
+        columns: 3;
 
     }
 
     #content {
         position: relative;
-        columns: 1;
+        columns: 2;
     }
 
     .jumbotron {
-      width: 100%;
-      columns:2;
+      columns: 2;
     }
 
     .navbar {
-      width: 100%;
+      columns: 2;
+    }
+
+    .header {
       columns: 2;
     }
 
@@ -536,14 +544,14 @@ audio.controls {
     }
 }
 
-/* laptops */
-@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+// desktops
+@media screen and (min-width: 992px) and (max-width: 1199px){
     //col-lg
     #sidebar {
         position: relative;
         // margin-left: 15px;
         // width: 100%;
-        columns: 3;
+        columns: 1;
     }
 
     #content {
@@ -552,12 +560,13 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 3;
+      width: 100%;
+      columns: 2;
     }
 
     .navbar {
       width: 100%;
-      columns: 3;
+      columns: 2;
     }
 
     h5 {
@@ -592,8 +601,8 @@ audio.controls {
         margin-bottom: 0;
     }
 }
-// //ipads
-@media screen and (min-width: 994px) and (max-width: 1023px) and (orientation: landscape) {
+// x-large screens
+@media screen and (min-width: 1200px){
     //col-lg
     #sidebar {
         position: relative;
@@ -608,17 +617,19 @@ audio.controls {
     }
 
     .jumbotron {
+      width: 100%;
       columns:1;
     }
 
     .navbar {
+      width: 100%;
       columns: 1;
     }
 
 }
 
 // desktops
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1140px){
     //col-xl
     #sidebar {
      position: relative;
@@ -635,10 +646,12 @@ audio.controls {
     }
 
     .jumbotron {
+      width: 100%;
       columns:1;
     }
 
     .navbar {
+      width: 100%;
       columns: 1;
     }
 

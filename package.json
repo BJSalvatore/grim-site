@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/demoncowgirl/grim-site#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "braces": "^3.0.2",
     "cross-env": "^5.2.0",
     "gifsicle": "^4.0.1",
@@ -45,7 +46,6 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.3.1",
     "express": "^4.17.0",
     "jquery": "^3.4.1",
     "laravel-mix": "^4.0.15",

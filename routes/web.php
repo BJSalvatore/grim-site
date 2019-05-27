@@ -69,7 +69,6 @@ Route::get('messages', function(){
   return view('messages.index', ['messages'=> $messages]);
 });
 
-
 //Routes for comments
 Route::resource('/comments', 'CommentsController');
 Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');

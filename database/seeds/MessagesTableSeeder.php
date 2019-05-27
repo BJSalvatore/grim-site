@@ -43,5 +43,13 @@ class MessagesTableSeeder extends Seeder
                 'username' => 'LaLa',
                 'created_at' => Carbon::now()
               ]);
+
+              DB::table('messages')
+              ->insert(['email' => 'ellie@example.com',
+                  'name' => 'Ellie Mae Salvatore',
+                  'message' => 'This is a test message from Ellie. Please respond.',
+                  'username' => 'Ellie Mae',
+                  'created_at' => Carbon::now()
+                ]);
     }
 }

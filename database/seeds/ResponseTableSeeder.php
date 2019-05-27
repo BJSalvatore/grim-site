@@ -19,5 +19,35 @@ class ResponseTableSeeder extends Seeder
           'respondee' => 'Demoncowgirl',
           'responded_on' => Carbon::now()
         ]);
+
+        DB::table('responses')
+        ->insert(['message_id' => 1,
+            'response' => 'What date is the party and what is your address?',
+            'respondee' => 'Demoncowgirl',
+            'responded_on' => Carbon::now()
+          ]);
+
+          DB::table('responses')
+          ->insert(['message_id' => 41,
+              'response' => 'What\'s up, Ellie?',
+              'respondee' => 'Demoncowgirl',
+              'responded_on' => Carbon::now()
+            ]);
+
+            DB::table('responses')
+            ->insert(['message_id' => 41,
+                'response' => 'Test Response #2',
+                'respondee' => 'Demoncowgirl',
+                'responded_on' => Carbon::now()
+              ]);
+
+              DB::table('responses')
+              ->insert(['message_id' => 41,
+                  'response' => 'Test Response #3',
+                  'respondee' => 'Demoncowgirl',
+                  'responded_on' => Carbon::now()
+                ]);
+
+
     }
 }

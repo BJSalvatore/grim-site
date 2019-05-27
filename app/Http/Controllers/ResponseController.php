@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Collective\Html\Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Email;
+use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Response;
 use App\Message;
@@ -23,15 +22,6 @@ class ResponseController extends Controller
   {
     $this->middleware('auth');
   }
-
-  // public function getResponse($id){
-  //   // fetch from database based on $id
-  //   $response = Response::where('id', '=', $id)->first();
-  //   // return the view and pass in the post object
-  //   return view('messages.single')->withResponse($response);
-  // }
-
-
 
   public function index()
   {

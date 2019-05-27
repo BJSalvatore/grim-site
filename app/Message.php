@@ -14,7 +14,7 @@ class Message extends Model
       protected $table = 'messages';
 
 
-    public function response()
+    public function responses()
     {
         return $this->hasMany('App\Response');
     }

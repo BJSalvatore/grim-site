@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Collective\Html\Eloquent;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Message;
 use App\Response;
+use App\User;
 use Session;
 
 class MessageController extends Controller
@@ -15,6 +21,13 @@ class MessageController extends Controller
     {
       $this->middleware('auth');
     }
+
+    // public function getMessage(){
+    //   // fetch from database based on id
+    //   $message = Message::where('id', '=', $id)->first();
+    //   // return the view and pass in the post object
+    //   return view('messages.show')->withMessage($message);
+    // }
 
     public function index(){
     // create a variable and store all of the messages in it
@@ -49,7 +62,7 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message -> created_at = Carbon::now();
-        // dd($message);
+
         $message -> save();
 
         if (auth()->user()){
@@ -63,6 +76,7 @@ class MessageController extends Controller
 
     public function show($id){
       $message = Message::find($id);
+
       return view('messages.show', ['message' => $message]);
 
     }

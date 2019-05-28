@@ -3,10 +3,13 @@
 @section('title', '| Messages')
 
 @section('content')
-<div class="row ml-4 mt-3" style="margin-bottom: 80px;">
-    <table-responsive>
+<div class="container mt-3">
+  <div class="row">
+  @include('inc._flash-message')
+  <div class="col-lg-12">
     <h1>Messages</h1>
-    <table id="messages" class="table">
+    <table-responsive>
+    <table id="messages" class="table-repsonsive">
       <thead>
         <th class="w-5">#</th>
         <th class="w-10">User Name</th>
@@ -20,9 +23,9 @@
       <tbody>
         @foreach($messages as $message)
         <tr>
-          <th>{{ $message -> id }}</th>
+          <td>{{ $message -> id }}</td>
           <td>{{ $message -> username }}</td>
-          <th>{{ $message -> email }}</th>
+          <td>{{ $message -> email }}</td>
           <td>{{ $message -> name }}</td>
           <td>{{ $message -> message }}</td>
           <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
@@ -31,10 +34,12 @@
             <a href="{{ route('messages.show', $message -> id) }}" class="btn btn-block btn-secondary" method="GET">View</a><br>
             <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
           </td>
+          @endforeach
         </tr>
-        @endforeach
       </tbody>
     </table>
   </table-responsive>
+</div>
+</div>
 </div>
 @endsection

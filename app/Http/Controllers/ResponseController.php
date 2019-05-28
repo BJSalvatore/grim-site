@@ -26,12 +26,12 @@ class ResponseController extends Controller
   public function index()
   {
     // create a variable and store all of our blog comments in it
-    $responses = Response::orderBy('id', 'asc')->get();
+    $responses = Response::orderBy('id', 'asc')->paginate(10);
     // // return a view and pass in the variable
     return view('responses.index', ['responses' => $responses]);
   }
 
-  public function store(Request $request)
+  public function store(Request $request, $id)
   {
     $message = Message::find($id);
 
@@ -46,19 +46,22 @@ class ResponseController extends Controller
 
        $response = new Response();
        $response-> response = $request-> input('response');
-       $response-> respondee = auth()->user() -> respondee;
+       $response-> respondee = $request -> input('respondee');
+       // $response-> respondee = auth()->user() -> respondee;
        $response-> message() -> associate($message -> id);
        $response -> responded_on = Carbon::now();
 
        $response->save();
+
+       Session::flash('success', 'Response was send successfully!');
+       return redirect()->route('messages.show', $message -> id);
 
    }
 
    public function show($id)
    {
      $response = Response::find($id);
-
-     return view ('messages.show', ['response' => $response]);
+     return view('responses.index', ['response' => $response]);
 
    }
 

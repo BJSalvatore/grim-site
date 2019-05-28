@@ -84,9 +84,10 @@ class PostController extends Controller
 
             $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
             $post-> image = $s3;
+            $post-> image = $filename; //saves filename for retrieval of image
 
         }
-            $post-> image = $filename; //saves filename for retrieval of image
+
             $post -> save();
 
         Session::flash('success', 'The blog post was saved successfully!');

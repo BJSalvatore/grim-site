@@ -8,8 +8,9 @@
 <div class="row">
   <div class="col-lg-12">
     <h1>All Image, Video & Audio Files</h1>
-    <table class="table">
-      <a href="{{ route('files.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Files</a>
+      <a href="{{ route('files.create') }}" class="btn btn-lg btn-block btn-primary">Add New Files</a>
+      <hr>
+      <table class="table mt-3">
       <thead>
         <th>#</th>
         <th>Name</th>
@@ -21,7 +22,6 @@
         <th></th>
       </thead>
       <tbody>
-
         @foreach($files as $file)
         <tr>
           <th>{{ $file-> id }}</th>

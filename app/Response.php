@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Response extends Model
 {
+  public $timestamps = false;
+
   protected $fillable = [
       'message_id', 'response', 'respondee', 'responded_on'
   ];
@@ -17,4 +19,5 @@ class Response extends Model
   {
       return $this->belongsTo('App\Message');
   }
+
 }

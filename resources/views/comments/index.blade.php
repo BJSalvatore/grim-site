@@ -6,27 +6,24 @@
 @section('content')
 <div class="container mt-3">
   <div class="row">
+    @include('inc._flash-message')
     <div class="col-lg-12">
         <h1>All Blog Comments</h1>
-    </div>
-    <div class="col-lg-12"><hr></div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <a href="{{ url('comments/unnaproved') }}" class="btn btn-block btn-primary m-1" method="GET">View Only Unnaproved Comments</a>
-      <table class="table">
+      <a href="{{ url('comments/unnaproved') }}" class="btn btn-block btn-primary" method="GET">View Only Unnaproved Comments</a>
+      <hr>
+      <table-responsive>
+      <table id="comments" class="table-responsive mt-3">
         <thead>
-          <th>#</th>
-          <th>Username</th>
-          <th>Comment</th>
-          <th>Post ID</th>
-          <th>Status</th>
-          <th>Created At</th>
-          <th>Approved At</th>
-          <th></th>
+          <th class="w-10">#</th>
+          <th class="w-10">Username</th>
+          <th class=W->Comment</th>
+          <th class="w-5">Post ID</th>
+          <th class="w-10">Status</th>
+          <th class="w-10">Created At</th>
+          <th class="w-10">Approved At</th>
+          <th class="w-10"></th>
         </thead>
         <tbody>
-
           @foreach($comments as $comment)
           <tr>
             <th>{{ $comment-> id }}</th>
@@ -56,10 +53,10 @@
               <a href="{{ route('comments.show', $comment -> id)}}" class="btn btn-block btn-secondary" method="GET">View Comment</a><br>
             </td>
           </tr>
-          </div>
         @endforeach
         </tbody>
       </table>
+    </table-responsive>
     </div>
   </div>
 </div>

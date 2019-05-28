@@ -18,6 +18,18 @@ h5 {
   background-color: #FF8C00;
 }
 
+#messages.card #response.card{
+  width: 100%;
+}
+
+#messages.card {
+  background-color: #E8E8E8;
+}
+
+#response.card {
+  border: 1px solid #808080;
+}
+
 #messages.table-responsive {
     width: 100%;
     border: 1px solid #808080;
@@ -29,12 +41,19 @@ h5 {
 #messages.container-fluid {
   width: 100%;
   margin-top: 15px;
-  float: left;
+  float: center;
 }
 
-#messageResponse.container-fluid{
-  width: 100%;
-  float: center;
+#messageResponse p{
+  padding: 0;
+  margin: 0;
+}
+
+#merchandise.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
@@ -415,7 +434,12 @@ audio.controls {
 
     .header {
       columns: 1;
-      height: 100px;
+      height: 200px;
+    }
+
+    #shoes {
+        width: 150px;
+        height: auto;
     }
 
     audio {
@@ -464,7 +488,12 @@ audio.controls {
 
     .header {
       columns: 2;
-      height: 100px;
+      height: 200px;
+    }
+
+    #shoes {
+        width: 150px;
+        height: auto;
     }
 
     audio {

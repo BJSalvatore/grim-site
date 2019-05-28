@@ -8,7 +8,7 @@
       </div>
       <!-- <p>Stuff here...</p> -->
     </div>
-    <div class="col-4 offset-8 d-none d-sm-block d-md-block d-lg-block d-xl-block">
+    <div class="col-4 offset-8 d-none d-sm d-none d-md-block d-lg-block d-xl-block">
       <img id="shoes" class="float-right" src="{{ asset('assets/images/converseGray.png') }}"></img>
     </div>
   </div>

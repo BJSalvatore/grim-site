@@ -11,51 +11,42 @@
   },
   "name": "grim-site",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.x"
-  },
-  "description": "",
+  "description": "Admin login for testing   Username: bob@example.com   Pwd: secret",
   "main": "index.js",
   "directories": {
     "test": "tests"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "laravel-mix": "^4.0.15",
+    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4",
+    "mysql": "^2.17.1",
+    "popper.js": "^1.15.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.20.1",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demoncowgirl/grim-site.git"
   },
-  "author": "Beth Salvatore",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/demoncowgirl/grim-site/issues"
   },
-  "homepage": "https://github.com/demoncowgirl/grim-site#readme",
-  "dependencies": {
-    "bootstrap": "^4.3.1",
-    "braces": "^3.0.2",
-    "cross-env": "^5.2.0",
-    "gifsicle": "^4.0.1",
-    "heroku": "^7.24.3",
-    "jquery-validation": "^1.19.0",
-    "js-yaml": "^3.13.1",
-    "mysql": "^2.17.1",
-    "mysql-server": "^1.0.5",
-    "pngquant-bin": "^5.0.2",
-    "popper.js": "^1.15.0",
-    "tar": "^4.4.8",
-    "webpack-dev-server": "^3.2.1"
-  },
-  "devDependencies": {
-    "axios": "^0.18.0",
-    "express": "^4.17.0",
-    "jquery": "^3.4.1",
-    "laravel-mix": "^4.0.15",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.12.0",
-    "sass": "^1.19.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
-    "webpack-mix": "^2.0.2"
-  }
+  "homepage": "https://github.com/demoncowgirl/grim-site#readme"
 }

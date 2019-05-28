@@ -22,22 +22,17 @@ class MessageController extends Controller
       $this->middleware('auth');
     }
 
-    // public function getMessage(){
-    //   // fetch from database based on id
-    //   $message = Message::where('id', '=', $id)->first();
-    //   // return the view and pass in the post object
-    //   return view('messages.show')->withMessage($message);
-    // }
-
     public function index(){
     // create a variable and store all of the messages in it
-    $messages = Message::orderBy('id', 'desc')->paginate(5);
+    $messages = Message::orderBy('id', 'desc')->paginate(10);
     // return a view and pass in the variable
     return view('messages.index', ['messages' => $messages]);
     }
 
     public function store(Request $request)
     {
+      $response = Response::find($id);
+
         // validate the data
       $validatedData = $request ->validate([
           'email' => 'required|max:255|email',
@@ -62,6 +57,7 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message -> created_at = Carbon::now();
+        $message-> response() -> associate($response -> message_id);
 
         $message -> save();
 
@@ -76,9 +72,7 @@ class MessageController extends Controller
 
     public function show($id){
       $message = Message::find($id);
-
       return view('messages.show', ['message' => $message]);
-
     }
 
     public function destroy($id){

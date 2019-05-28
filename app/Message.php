@@ -8,7 +8,7 @@ class Message extends Model
 {
 
       protected $fillable = [
-          'email', 'username', 'name', 'message', 'created_at'
+          'email', 'username', 'name', 'message', 'responded_on'
       ];
 
       protected $table = 'messages';

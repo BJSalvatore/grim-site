@@ -19,7 +19,7 @@
               <div id="calendar" class="embed-responsive justify-content-center" data-tockify-height="420px" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
               <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
             </div>
-        <div class="col-sm d-sm-block d-md-block d-lg-block d-xl-block">
+        <div class="col-sm d-none d-md-block d-lg-block d-xl-block">
             <img id="recordLabelLogo" class="img-responsive mt-3 mb-3" src="{{ asset('assets/images/SoundSpeedRecordsLogo.jpg') }}"></img>
         </div>
   </div>

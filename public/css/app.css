@@ -10758,8 +10758,6 @@ h5 {
   width: 100%;
   height: 160px;
   padding: 40px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .row {
@@ -10992,10 +10990,11 @@ audio.controls {
 }
 
 #shoes {
-  margin-top: -40px;
+  margin-top: 0px;
   z-index: 1;
   max-width: 250px;
   height: auto;
+  float: right;
 }
 
 #thumbnail {
@@ -11046,7 +11045,7 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 575px) and (orientation: landscape) {
+@media screen and (max-width: 575px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
@@ -11073,7 +11072,7 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    height: 200px;
+    height: 180px;
   }
 
   #shoes {
@@ -11103,7 +11102,7 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape) {
+@media screen and (min-width: 576px) and (max-width: 811px) and (orientation: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
@@ -11121,21 +11120,21 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   .header {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
     height: 200px;
   }
 
@@ -11165,12 +11164,11 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991) and (orientationi: landscape) {
+@media screen and (min-width: 812px) and (max-width: 991) and (orientationi: landscape) {
   #sidebar {
     position: relative;
     width: 100%;
     max-height: 480px;
-    margin-left: 15px;
     -webkit-columns: 3;
        -moz-columns: 3;
             columns: 3;
@@ -11184,21 +11182,21 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   .header {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   audio {
@@ -11235,6 +11233,7 @@ audio.controls {
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   #sidebar {
     position: relative;
+    width: 100%;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
@@ -11248,17 +11247,15 @@ audio.controls {
   }
 
   .jumbotron {
-    width: 100%;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 6;
+       -moz-columns: 6;
+            columns: 6;
   }
 
   .navbar {
-    width: 100%;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 6;
+       -moz-columns: 6;
+            columns: 6;
   }
 
   h5 {
@@ -11331,7 +11328,6 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    margin-left: 15px;
     max-width: 360px;
     height: auto;
   }
@@ -11357,4 +11353,73 @@ audio.controls {
             columns: 1;
   }
 }
+
+/* Portrait and Landscape */
+
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #sidebar {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+  }
+
+  #content {
+    position: relative;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .header {
+    height: 160px;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  audio {
+    height: 40px;
+  }
+
+  h5 {
+    font-size: 25px;
+  }
+
+  #calendar {
+    width: 240px;
+  }
+
+  #newLP {
+    width: 240px;
+  }
+
+  #recordLabelLogo.img-responsive {
+    display: none;
+  }
+
+  #shoes {
+    width: 160px;
+    height: auto;
+    margin-top: 20px;
+  }
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
 

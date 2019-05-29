@@ -33,27 +33,12 @@ class CommentsController extends Controller
     public function index()
     {
       // create a variable and store all of our blog comments in it
-      $comments = Comment::orderBy('id', 'asc')->get();
+      $comments = Comment::orderBy('id', 'asc')->paginate(10);
       // // return a view and pass in the variable
       return view('comments.index', ['comments' => $comments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
      public function store(Request $request, $id)
      {
        $post = Post::find($id);
@@ -87,7 +72,6 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
-
       return view('comments.show', ['comment' => $comment]);
     }
 

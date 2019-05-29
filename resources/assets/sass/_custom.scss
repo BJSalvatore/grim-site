@@ -97,8 +97,7 @@ h5 {
     width: 100%;
     height: 160px;
     padding: 40px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
 .row{
@@ -343,10 +342,11 @@ audio.controls {
 }
 
 #shoes {
-    margin-top: -40px;
+    margin-top: 0px;
     z-index: 1;
     max-width: 250px;
     height: auto;
+    float: right;
 }
 
 #thumbnail {
@@ -389,20 +389,6 @@ audio.controls {
 }
 
 
-
-// .toggle-content {
-//   display: none;
-//   opacity: 0;
-//   overflow: hidden;
-//   transition: opacity 350ms ease-in-out;
-// }
-//
-// .toggle-content.is-visible {
-//   display: block;
-//   opacity: 1;
-// }
-
-
 @media screen and (max-width: 1024px) {
     #band-image {
         -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
@@ -413,7 +399,7 @@ audio.controls {
 }
 
 // small mobile phones
-@media screen and (min-width: 320px) and (max-width: 575px) and (orientation: landscape) {
+@media screen and (max-width: 575px) and (orientation: landscape) {
 //     // col-sm
         #sidebar {
         position: relative;
@@ -434,7 +420,7 @@ audio.controls {
 
     .header {
       columns: 1;
-      height: 200px;
+      height: 180px;
     }
 
     #shoes {
@@ -463,7 +449,7 @@ audio.controls {
 }
 
 // larger mobile phones and tablets
-@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape){
+@media screen and (min-width: 576px) and (max-width: 811px) and (orientation: landscape){
     // col-sm
         #sidebar {
         position: relative;
@@ -479,15 +465,15 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 2;
+      columns: 1;
     }
 
     .navbar {
-      columns: 2;
+      columns: 1;
     }
 
     .header {
-      columns: 2;
+      columns: 1;
       height: 200px;
     }
 
@@ -514,14 +500,14 @@ audio.controls {
         margin-bottom: 0;
     }
 }
+
 // tablets
-@media screen and (min-width: 768px) and (max-width: 991) and (orientationi: landscape){
+@media screen and (min-width: 812px) and (max-width: 991) and (orientationi: landscape){
     // col-md
     #sidebar {
         position: relative;
         width: 100%;
         max-height: 480px;
-        margin-left: 15px;
         columns: 3;
 
     }
@@ -532,15 +518,15 @@ audio.controls {
     }
 
     .jumbotron {
-      columns: 2;
+      columns: 3;
     }
 
     .navbar {
-      columns: 2;
+      columns: 3;
     }
 
     .header {
-      columns: 2;
+      columns: 1;
     }
 
     audio {
@@ -578,8 +564,7 @@ audio.controls {
     //col-lg
     #sidebar {
         position: relative;
-        // margin-left: 15px;
-        // width: 100%;
+        width: 100%;
         columns: 1;
     }
 
@@ -589,13 +574,11 @@ audio.controls {
     }
 
     .jumbotron {
-      width: 100%;
-      columns: 2;
+      columns: 6;
     }
 
     .navbar {
-      width: 100%;
-      columns: 2;
+      columns: 6;
     }
 
     h5 {
@@ -663,7 +646,6 @@ audio.controls {
     #sidebar {
      position: relative;
      columns: 1;
-     margin-left: 15px;
      max-width: 360px;
      height: auto;
     }
@@ -685,3 +667,134 @@ audio.controls {
     }
 
 }
+// media query for iphone x
+/* Portrait and Landscape */
+@media only screen
+  and (min-width: 375px)
+  and (max-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+    #sidebar {
+        position: relative;
+        width: 100%;
+        max-height: 480px;
+        columns: 2;
+
+    }
+
+    #content {
+        position: relative;
+        columns: 1;
+    }
+
+    .jumbotron {
+      columns: 3;
+    }
+
+    .navbar {
+      columns: 3;
+    }
+
+    .header {
+      height: 160px;
+      columns: 3;
+    }
+
+    audio {
+      height: 40px;
+    }
+
+    h5 {
+      font-size: 25px;
+    }
+
+
+    #calendar {
+      width: 240px;
+    }
+
+    // .data-tockify-height {
+    //   height: 400px;
+    // }
+
+
+      #newLP {
+        width: 240px;
+      }
+
+      #recordLabelLogo.img-responsive {
+        display: none;
+      }
+
+      #shoes {
+        width: 160px;
+        height: auto;
+        margin-top: 20px;
+      }
+
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
+// @media screen
+//   and (min-width: 360px)
+//   and (min-height: 640px)
+//   and (-webkit-device-pixel-ratio: 4) {
+//
+//     #sidebar {
+//         position: relative;
+//         width: 100%;
+//         max-height: 480px;
+//         columns: 2;
+//
+//     }
+//
+//     #content {
+//         position: relative;
+//         columns: 1;
+//     }
+//
+//     .jumbotron {
+//       columns: 2;
+//     }
+//
+//     .navbar {
+//       columns: 2;
+//     }
+//
+//     .header {
+//       columns: 2;
+//     }
+//
+//     audio {
+//       height: 40px;
+//     }
+//
+//     h5 {
+//       font-size: 25px;
+//     }
+//
+//
+//     #calendar {
+//       width: 240px;
+//     }
+//
+//     .data-tockify-height {
+//       height: 400px;
+//     }
+//
+//
+//       #newLP {
+//         width: 240px;
+//       }
+//
+//       #recordLabelLogo.img-responsive {
+//         display: none;
+//       }
+//
+//       #shoes {
+//         margin-top: -80px;
+//       }
+//
+// }

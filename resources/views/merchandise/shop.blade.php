@@ -8,14 +8,8 @@
 @include('inc._header')
 
 @section('content')
-
-<!-- @include('inc._sidebar') -->
-<div id="content">
+  <div id="content">
   <div id="cards" class="container-fluid">
-    <!-- <div class="row">
-      <h1 style="font-family: Freckle Face;">Buy Stuff!!</h1>
-      <hr>
-    </div>   -->
   <div class="row">
       @foreach($items as $item)
       <div id="shopCard" class="card mt-3">
@@ -52,6 +46,7 @@
       </div>
       </div>
       @endforeach
+</div>
 </div>
 </div>
 @endsection

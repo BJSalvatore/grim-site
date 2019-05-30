@@ -10756,7 +10756,7 @@ h5 {
 
 .header {
   width: 100%;
-  height: 160px;
+  height: 140px;
   padding: 40px;
 }
 
@@ -10844,9 +10844,12 @@ input.largeCheckbox {
   width: 100%;
 }
 
+#cards {
+  margin-left: 140px;
+}
+
 #cards.container-fluid {
   margin-top: 10px;
-  margin-left: 40px;
   width: 100%;
   min-width: 280px;
 }
@@ -10874,7 +10877,7 @@ input.largeCheckbox {
 }
 
 .card-block {
-  width: 300px;
+  max-width: 300px;
 }
 
 thead {
@@ -10922,14 +10925,14 @@ td {
 #sidebar.mx-auto {
   display: block;
   height: auto;
-  /* keeps sticky footer from covering content in sidebar */
   margin-top: 15px;
-  float: left;
   z-index: 0;
   /* Stay on top */
   box-shadow: 15px 12px 28px #FF8C00;
   flex-direction: column;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* The navigation menu links */
@@ -10952,7 +10955,9 @@ audio.controls {
 
 .img-responsive {
   width: auto;
+  height: auto;
   max-width: 260px;
+  max-height: 260px;
 }
 
 #messagesResponse.container-fluid {
@@ -10976,7 +10981,7 @@ audio.controls {
 }
 
 #newLP img {
-  max-width: 260px;
+  max-width: 280px;
   height: auto;
 }
 
@@ -10990,11 +10995,10 @@ audio.controls {
 }
 
 #shoes {
-  margin-top: 0px;
+  margin-top: -60px;
   z-index: 1;
   max-width: 250px;
   height: auto;
-  float: right;
 }
 
 #thumbnail {
@@ -11072,7 +11076,7 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    height: 180px;
+    height: 140px;
   }
 
   #shoes {
@@ -11083,6 +11087,10 @@ audio.controls {
   audio {
     height: 40px;
     width: 100%;
+  }
+
+  #cards.container-fluid {
+    margin-left: 15px;
   }
 
   #newLP {
@@ -11135,12 +11143,18 @@ audio.controls {
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    height: 200px;
+    height: 120px;
+  }
+
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #shoes {
-    width: 150px;
+    width: 160px;
     height: auto;
+    margin-top: -80px;
   }
 
   audio {
@@ -11169,9 +11183,9 @@ audio.controls {
     position: relative;
     width: 100%;
     max-height: 480px;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
   #content {
@@ -11199,6 +11213,11 @@ audio.controls {
             columns: 1;
   }
 
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   audio {
     height: 40px;
   }
@@ -11208,6 +11227,8 @@ audio.controls {
   }
 
   #shoes {
+    width: 160px;
+    height: auto;
     margin-top: -80px;
   }
 
@@ -11278,10 +11299,6 @@ audio.controls {
     width: 240px;
   }
 
-  #shoes {
-    margin-top: -80px;
-  }
-
   #footer {
     position: fixed;
     font-size: 12px;
@@ -11295,9 +11312,9 @@ audio.controls {
   #sidebar {
     position: relative;
     max-width: 360px;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   #content {
@@ -11386,10 +11403,24 @@ audio.controls {
   }
 
   .header {
-    height: 160px;
     -webkit-columns: 3;
        -moz-columns: 3;
             columns: 3;
+  }
+
+  #shoes {
+    width: 160px;
+    height: auto;
+    margin-top: -80px;
+  }
+
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #cards.container-fluid {
+    width: 200px;
   }
 
   audio {
@@ -11401,21 +11432,15 @@ audio.controls {
   }
 
   #calendar {
-    width: 240px;
+    width: 260px;
   }
 
   #newLP {
-    width: 240px;
+    width: 260px;
   }
 
   #recordLabelLogo.img-responsive {
     display: none;
-  }
-
-  #shoes {
-    width: 160px;
-    height: auto;
-    margin-top: 20px;
   }
 }
 

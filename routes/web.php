@@ -76,14 +76,14 @@ Route::get('/comments/{id}/index', 'CommentsController@index')->name('comments.i
 Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
 Route::put('/comments/{id}', 'CommentsController@update')->name('comments.update');
 
-// Route::get('commments/{id}', ['as' => 'comments.single', 'uses' => 'CommentsController@getSingle']->where('id', $comment -> id ));
+Route::get('comments/unapproved', 'CommentsController@index')->name('comments.unapproved');
 
 Route::get('status', function(){
   $comments = DB::table('comments')
         ->orderBy('created_at', 'asc')
         // ->limit(10)
         ->get();
-  return view('comments.index', ['comments'=>$comments]);
+  return view('comments.unnaproved', ['comments'=>$comments]);
 });
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');

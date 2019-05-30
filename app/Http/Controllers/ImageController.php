@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class ImageController extends Controller
 {

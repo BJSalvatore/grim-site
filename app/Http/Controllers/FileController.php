@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 use Session;
-use Image;
 
 // there are four arrays of different file extensions used for validation
 class FileController extends Controller

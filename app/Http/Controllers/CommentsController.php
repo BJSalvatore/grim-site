@@ -72,6 +72,7 @@ class CommentsController extends Controller
     public function show($id)
     {
       $comment = Comment::find($id);
+      dd($comment);
       return view('comments.show', ['comment' => $comment]);
     }
 

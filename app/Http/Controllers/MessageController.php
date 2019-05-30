@@ -31,8 +31,6 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-      $response = Response::find($id);
-
         // validate the data
       $validatedData = $request ->validate([
           'email' => 'required|max:255|email',
@@ -57,7 +55,7 @@ class MessageController extends Controller
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
         $message -> created_at = Carbon::now();
-        $message-> response() -> associate($response -> message_id);
+        // $message-> response() -> associate($response -> message_id);
 
         $message -> save();
 

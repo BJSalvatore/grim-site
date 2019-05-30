@@ -47,7 +47,6 @@ class ResponseController extends Controller
        $response = new Response();
        $response-> response = $request-> input('response');
        $response-> respondee = $request -> input('respondee');
-       // $response-> respondee = auth()->user() -> respondee;
        $response-> message() -> associate($message -> id);
        $response -> responded_on = Carbon::now();
 

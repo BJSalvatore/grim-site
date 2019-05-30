@@ -10664,10 +10664,10 @@ a.text-dark:focus {
 
 body {
   font-family: "Open Sans", sans-serif;
+  font-size: 100%;
   height: auto;
   padding-bottom: 90px;
   background-color: silver;
-  z-index: -1;
 }
 
 h1 {
@@ -10676,6 +10676,47 @@ h1 {
 
 h5 {
   font-weight: 600;
+}
+
+.btn-grim {
+  background-color: #FF8C00;
+}
+
+#messages.card #response.card {
+  width: 100%;
+}
+
+#messages.card {
+  background-color: #E8E8E8;
+}
+
+#response.card {
+  border: 1px solid #808080;
+}
+
+#messages.table-responsive {
+  width: 100%;
+  border: 1px solid #808080;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messages.container-fluid {
+  width: 100%;
+  margin-top: 15px;
+  float: center;
+}
+
+#messageResponse p {
+  padding: 0;
+  margin: 0;
+}
+
+#merchandise.table-responsive {
+  width: 100%;
+  border: 1px solid #808080;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .jumbotron {
@@ -10692,8 +10733,7 @@ h5 {
   background-color: #000;
   color: #fff;
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
 }
 
 .nav-item {
@@ -10716,27 +10756,31 @@ h5 {
 
 .header {
   width: 100%;
-  height: 200px;
+  height: 140px;
   padding: 40px;
-  margin-bottom: 0;
 }
 
-#parent {
+.row {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  margin: 0;
-  padding-top: 0;
-}
-
-#parentRow {
-  display: flex;
-  width: 100%;
   margin: 0;
   padding: 0;
 }
 
-#blogForm .alert-danger {
+#content {
+  padding: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+#comment p {
+  width: 100%;
+}
+
+.comment {
+  margin-left: 15px;
+}
+
+.alert-danger {
   font-size: 10px;
 }
 
@@ -10746,6 +10790,20 @@ h5 {
 
 #postInfo h5 {
   padding: 0;
+}
+
+#post.container-fluid {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#post.card {
+  min-width: 800px;
+  background-color: #E8E8E8;
+  padding: 15px;
+  border-width: 1px;
+  margin-bottom: 30px;
 }
 
 #comment-form .alert-danger {
@@ -10786,69 +10844,102 @@ input.largeCheckbox {
   width: 100%;
 }
 
-.well {
-  background: #DCDCDC;
-  border: 2px groove #A8A8A8;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 15px;
+#cards {
+  margin-left: 140px;
+}
+
+#cards.container-fluid {
+  margin-top: 10px;
+  width: 100%;
+  min-width: 280px;
 }
 
 .card {
-  display: inline-block;
-  min-width: 360px;
+  margin-top: 15px;
+  border: 2px solid #000;
+  z-index: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-.card-header {
-  background-color: #808080;
-}
-
-.card-body {
-  margin-left: auto;
-  margin-right: auto;
+#card.card {
+  max-width: 320px;
+  height: auto;
 }
 
 .card-body img {
-  width: auto;
+  width: 100%;
 }
 
-table {
-  width: 900px;
+.card-header {
+  font-size: 16px;
+  background-color: #808080;
+}
+
+.card-block {
+  max-width: 300px;
+}
+
+thead {
+  background-color: #808080;
+  font-size: 20px;
+}
+
+.table {
+  border: 1px solid #808080;
+}
+
+td {
+  padding: 15px;
+}
+
+.format {
+  font-size: 14px;
+}
+
+.no-gutters {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.no-gutters .col,
+.no-gutters [class*=col-] {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .table-reponsive {
-  min-width: 906px;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  border: 1px solid #ddd;
   margin-bottom: 20px;
 }
 
-/* The sidebar menu */
-
 #sidebar {
-  width: 360px;
-  /* Set the width of the sidebar */
-  margin-bottom: 90px;
-  /* keeps sticky footer from covering content in sidebar */
-  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sidebar.mx-auto {
+  display: block;
+  height: auto;
+  margin-top: 15px;
   z-index: 0;
   /* Stay on top */
-  background-color: #000;
-  /* Black */
   box-shadow: 15px 12px 28px #FF8C00;
-  display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* The navigation menu links */
 
 #sidebar p {
   padding: 4px;
+  margin: 0;
   font-size: 25px;
   font-weight: 600;
   color: #818181;
@@ -10856,17 +10947,23 @@ table {
 }
 
 audio.controls {
-  width: auto;
-}
-
-.embed-responsive {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-responsive {
-  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-width: 260px;
+  max-height: 260px;
+}
+
+#messagesResponse.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
 }
 
 #invoiceForm label {
@@ -10883,13 +10980,8 @@ audio.controls {
   align: justify;
 }
 
-#newLP {
-  width: auto;
-  height: auto;
-}
-
-#calendar {
-  width: auto;
+#newLP img {
+  max-width: 280px;
   height: auto;
 }
 
@@ -10903,6 +10995,7 @@ audio.controls {
 }
 
 #shoes {
+  margin-top: -60px;
   z-index: 1;
   max-width: 250px;
   height: auto;
@@ -10947,11 +11040,6 @@ audio.controls {
   height: 100%;
 }
 
-#padding {
-  padding: 15px;
-  margin-left: 15px;
-}
-
 @media screen and (max-width: 1024px) {
   #band-image {
     -webkit-mask-image: linear-gradient(to left, black, rgba(0, 0, 0, 0));
@@ -10961,15 +11049,14 @@ audio.controls {
   }
 }
 
-@media screen and (max-width: 576px) and (orientation: landscape) {
+@media screen and (max-width: 575px) and (orientation: landscape) {
   #sidebar {
     position: relative;
-    width: 100vw;
-    margin-left: 10px;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-    max-height: 460px;
+    width: 100%;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+    max-height: 480px;
   }
 
   #content {
@@ -10985,13 +11072,30 @@ audio.controls {
             columns: 1;
   }
 
-  #newLP {
-    width: auto;
-    max-width: 200px;
+  .header {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    height: 140px;
   }
 
-  #calendar {
-    max-width: 260px;
+  #shoes {
+    width: 150px;
+    height: auto;
+  }
+
+  audio {
+    height: 40px;
+    width: 100%;
+  }
+
+  #cards.container-fluid {
+    margin-left: 15px;
+  }
+
+  #newLP {
+    width: auto;
+    max-width: 240px;
   }
 
   #footer {
@@ -11006,15 +11110,14 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+@media screen and (min-width: 576px) and (max-width: 811px) and (orientation: landscape) {
   #sidebar {
     position: relative;
-    width: 100vw;
-    margin-left: 10px;
+    width: 100%;
     -webkit-columns: 2;
        -moz-columns: 2;
             columns: 2;
-    max-height: 460px;
+    max-height: 480px;
   }
 
   #content {
@@ -11025,29 +11128,116 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .header {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    height: 120px;
+  }
+
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #shoes {
+    width: 160px;
+    height: auto;
+    margin-top: -80px;
+  }
+
+  audio {
+    height: 40px;
   }
 
   #newLP {
     width: auto;
-    max-width: 200px;
+    max-width: 240px;
   }
 
-  #audio {
-    width: auto;
-    max-width: 200px;
+  #footer {
+    position: fixed;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+    font-size: 12px;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 812px) and (max-width: 991) and (orientationi: landscape) {
+  #sidebar {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
   }
 
-  #calendar {
-    max-width: 260px;
+  #content {
+    position: relative;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+  }
+
+  .jumbotron {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .header {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  audio {
+    height: 40px;
+  }
+
+  h5 {
+    font-size: 25px;
+  }
+
+  #shoes {
+    width: 160px;
+    height: auto;
+    margin-top: -80px;
+  }
+
+  #newLP {
+    width: 200px;
+  }
+
+  #recordLabelLogo.img-responsive {
+    width: 200px;
   }
 
   #footer {
@@ -11061,17 +11251,13 @@ audio.controls {
   }
 }
 
-/* laptops */
-
-@media screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+@media screen and (min-width: 992px) and (max-width: 1199px) {
   #sidebar {
     position: relative;
-    width: 100vw;
-    margin-left: 10px;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-    max-height: 460px;
+    width: 100%;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   #content {
@@ -11082,37 +11268,35 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 6;
+       -moz-columns: 6;
+            columns: 6;
   }
 
   .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 6;
+       -moz-columns: 6;
+            columns: 6;
   }
 
-  #content {
-    position: relative;
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
-  }
-
-  #newLP {
-    width: auto;
-    max-width: 200px;
-  }
-
-  #audio {
-    width: auto;
-    width: 200px;
+  h5 {
+    font-size: 20px;
   }
 
   #calendar {
-    Width: auto;
-    max-width: 260px;
+    width: 240px;
+  }
+
+  .data-tockify-height {
+    height: 400px;
+  }
+
+  #newLP {
+    width: 240px;
+  }
+
+  #recordLabelLogo.img-responsive {
+    width: 240px;
   }
 
   #footer {
@@ -11124,15 +11308,13 @@ audio.controls {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+@media screen and (min-width: 1200px) {
   #sidebar {
     position: relative;
-    width: 100vw;
-    margin-left: 10px;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-    max-height: 460px;
+    max-width: 360px;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   #content {
@@ -11143,47 +11325,26 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    width: 100%;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   .navbar {
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
-  }
-
-  .jumbotron {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  #newLP {
-    max-width: 200px;
-  }
-
-  #calendar {
-    max-width: 260px;
-  }
-
-  #footer {
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    width: 100vw;
-    margin-bottom: 0;
+    width: 100%;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1366px) {
+@media screen and (min-width: 1140px) {
   #sidebar {
     position: relative;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-    margin-left: 10px;
     max-width: 360px;
     height: auto;
   }
@@ -11196,28 +11357,94 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
+    width: 100%;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
 
   .navbar {
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
+    width: 100%;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+}
+
+/* Portrait and Landscape */
+
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #sidebar {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+  }
+
+  #content {
+    position: relative;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
+
+  .jumbotron {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .navbar {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
+  }
+
+  .header {
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   #shoes {
-    width: 200px;
+    width: 160px;
     height: auto;
+    margin-top: -80px;
   }
 
-  #footer {
-    position: fixed;
-    font-size: 12px;
-    padding: 12px;
-    width: 100vw;
-    margin-bottom: 0;
+  #cards {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #cards.container-fluid {
+    width: 200px;
+  }
+
+  audio {
+    height: 40px;
+  }
+
+  h5 {
+    font-size: 25px;
+  }
+
+  #calendar {
+    width: 260px;
+  }
+
+  #newLP {
+    width: 260px;
+  }
+
+  #recordLabelLogo.img-responsive {
+    display: none;
   }
 }
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
 

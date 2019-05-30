@@ -4,31 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Collective\Html\Eloquent;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Message;
+use App\Response;
+use App\User;
 use Session;
 
 class MessageController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
 
     public function index(){
     // create a variable and store all of the messages in it
-    $messages = Message::orderBy('created_at', 'asc')->paginate(5);
+    $messages = Message::orderBy('id', 'desc')->paginate(10);
     // return a view and pass in the variable
-    return view('messages.index')->with('messages', $messages);
-    }
-
-    public function __construct()
-    {
-      // $this->middleware('auth');
-    }
-
-    public function create()
-    {
-        return view('pages.contact'); //shows comment page
+    return view('messages.index', ['messages' => $messages]);
     }
 
     public function store(Request $request)
     {
+      $response = Response::find($id);
+
         // validate the data
       $validatedData = $request ->validate([
           'email' => 'required|max:255|email',
@@ -46,36 +50,29 @@ class MessageController extends Controller
 
           ]);
 
-
         // store in database
-        $message = new Message;
+        $message = new Message();
         $message -> email = $request -> input('email');
+        $message -> username = auth()->user() -> username;
         $message -> name = $request -> input('name');
         $message -> message = $request -> input('message');
-        $message-> username = $request -> input('username');
-        $message -> responded_on = $request -> input('responded_on');
+        $message -> created_at = Carbon::now();
+        $message-> response() -> associate($response -> message_id);
+
         $message -> save();
 
         if (auth()->user()){
-          Session::flash('success', 'Your message has been successfully sent!');
-          return redirect()->route('home');
+          return back()->with('success', 'Your message was sent successfully!');
         }else{
           Session::flash('danger', 'You  must be registered and login to send a message!');
           return redirect()->route('login');
           }
-        }
 
+    }
 
     public function show($id){
       $message = Message::find($id);
       return view('messages.show', ['message' => $message]);
-
-    }
-
-    public function mail($id){
-      $message = Message::find($id);
-      return view('messages.mail', ['message' => $message]);
-
     }
 
     public function destroy($id){

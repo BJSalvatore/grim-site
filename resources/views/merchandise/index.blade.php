@@ -3,44 +3,42 @@
 @section('title', '| Inventory')
 
 @section('content')
-<div class="row mt-3" style="margin-bottom: 80px;">
-  <div class="col-lg-12">
-    <div class="col-lg-8 offset-lg-2">
+<div class="container mt-3">
+  <div class= "row">
+    <div class ="col-lg-12">
     <h1>Inventory</h1>
-    <table id="merchandise" class="table">
-    <a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-secondary m-1">Add New Item</a>
+      <a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-primary">Add New Item</a>
+      <hr>
+    <table-responsive>
+    <table id="merchandise" class="table mt-3">
       <thead>
         <th>#</th>
-        <th>Item Name</th>
-        <th></th>
+        <th>Image</th>
+        <th>Item</th>
         <th>Description</th>
+        <th>Price</th>
         <th>Size</th>
         <th>Quantity</th>
-        <th>Price</th>
-        <th>User</th>
-        <th>Created On</th>
-      </thead
+      </thead>
       <tbody>
-        @foreach($items as $item)
-        <tr>
-          <th>{{ $item-> id }}</th>
-          <th>{{ $item-> itemName }}</th>
-          <th><img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item -> image) }}" height="150" width="auto"></img></th>
-          <th><h6>{{ $item-> description }}</h6></th>
-          <td>{{ $item -> size }}</td>
+          @foreach($items as $item)
+          <tr>
+          <td>{{ $item -> id }}</td>
+          @if($item -> image )
+            <td><img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="150" width="auto"></img></td>
+          @else
+            <td>No Image</td>
+          @endif
+          <td>{{ $item -> itemName }}</td>
+          <td>{{ $item-> description }}</td>
+          <td>{{ $item -> price }}</td>
+          <td>{{ $item -> size}}</td>
           <td>{{ $item -> quantity }}</td>
-          <th>{{ $item -> price}}</th>
-          <td>{{ $item-> user_id }}</td>
-          <td>{{ date('M j, Y', strtotime($item->created_at)) }}</td>
-          <td>
-            <a href="{{ route('items.show', $item -> id)}}" class="btn btn-block btn-secondary" method="GET">View</a><br>
-            <a href="{{ route('items.edit', $item -> id)}}" class="btn btn-block btn-light" method="GET">Edit</a><br>
-            <a href="{{ route('items.destroy', $item->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
-          </td>
         </tr>
-        @endforeach
+          @endforeach
       </tbody>
     </table>
+  </table-responsive>
   </div>
 </div>
 </div>

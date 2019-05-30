@@ -53,12 +53,30 @@ Route::get('blog', function(){
   return view('pages.blog', ['posts'=>$posts]);
 });
 
+//Routes for Messages
+Route::resource('/messages', 'MessageController');
+Route::get('/messages/index', 'MessageController@index')->name('messages.index');
+Route::post('/messages/store', 'MessageController@store')->name('messages.store');
+Route::get('/messages/{id}/show', 'MessageController@show')->name('messages.show');
+Route::get('/messages/{id}', 'MessageController@destroy');
+
+
+Route::get('messages', function(){
+  $messages = DB::table('messages')
+        ->orderBy('created_at', 'desc')
+        ->limit(10)
+        ->get();
+  return view('messages.index', ['messages'=> $messages]);
+});
+
 //Routes for comments
 Route::resource('/comments', 'CommentsController');
-Route::post('comments/{post_id}/store', 'CommentsController@store')->name('comments.store');
-Route::get('/comments/index', 'CommentsController@index')->name('comments.index');
-Route::post('/comments/{id}', 'CommentsController@update')->name('comments.update');
+Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
+Route::get('/comments/{id}/index', 'CommentsController@index')->name('comments.index');
 Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
+Route::put('/comments/{id}', 'CommentsController@update')->name('comments.update');
+
+// Route::get('commments/{id}', ['as' => 'comments.single', 'uses' => 'CommentsController@getSingle']->where('id', $comment -> id ));
 
 Route::get('status', function(){
   $comments = DB::table('comments')
@@ -71,21 +89,21 @@ Route::get('status', function(){
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");
 
-//Routes for comments associated to $posts
-Route::resource('comments', 'CommentsController');
-Route::get('/comments/index', 'CommentsController@index')->name('comments.index');
-// Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
-Route::post('/comments/{post_id}/store', 'CommentsController@store')->name('comments.store');
-Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
+// Routes for reponses
+Route::resource('/responses', 'ResponseController');
+Route::post('responses/{message_id}', 'ResponseController@store')->name('responses.store');
+Route::get('responses/{id}/index', 'ResponseController@index')->name('responses.index');
+Route::get('responses/{id}/show', 'ResponseController@show')->name('responses.show');
+Route::get('responses/{id}', 'ResponseController@destroy');
 
-Route::get('comments', function(){
-  $comments = DB::table('comments')
-    ->orderBy('id', 'asc')
-    // ->limit(10)
-    ->get();
-  return view('comments.index', ['comments'=>$comments]);
-});
 
+// Route::get('responses', function(){
+//   $responses = DB::table('responses')
+//         ->orderBy('responded_at', 'desc')
+//         ->limit(10)
+//         ->get();
+//   return view('responses.index', ['responses'=> $responses]);
+// });
 
 //routes for press releases
 Route::resource('releases', 'PressReleaseController@index');
@@ -112,12 +130,11 @@ Route::get('files/edit/{id}', 'FileController@edit');
 Route::post('files/delete/{id}', 'FileController@destroy');
 
 Route::get('photos', function(){
-  $header_title = "Photos!";
   $files = DB::table('files')
       ->orderBy('id', 'asc')
       // ->limit(10)
       ->get();
-  return view('pages.photos', ['files'=>$files])->with('header_title', $header_title);
+  return view('pages.photos', ['files'=>$files]);
 });
 
 //routes for inventory
@@ -142,7 +159,7 @@ Route::post('cart/store', 'CartController@store')->name('cart.store');
 Route::get('/downloadPDF/{id}', 'CartController@downloadPDF');
 
 Route::get('shop', function(){
-  $header_title ="Shop!";
+  $header_title ="Buy Our Stuff!";
   $items = DB::table('items')
   ->orderBy('id', 'asc')
   // ->limit(20)
@@ -150,32 +167,13 @@ Route::get('shop', function(){
   return view('merchandise.shop', ['items'=>$items])->with('header_title', $header_title);
 });
 
-Route::get('cart', function(){
-  $cartItems = DB::table('cart')
-        ->orderBy('id', 'asc')
-        // ->limit(10)
-        ->get();
-  return view('merchandise.cart', ['cartItems'=>$cartItems]);
-});
+// Route::get('cart', function(){
+//   $header_title="Shopping Cart"
+  // $cartItems = DB::table('cart')
+  //       ->orderBy('id', 'asc')
+  //       // ->limit(10)
+  //       ->get();
+  // return view('merchandise.cart', ['cartItems'=>$cartItems])->with('header_title', $header_title);
+// });
 
-
-// Routes for $messages
-Route::resource('/messages', 'MessageController');
-Route::get('/messages/index', 'MessageController@index')->name('messages.index');
-Route::post('/messages/store', 'MessageController@store')->name('messages.store');
-Route::post('/messages/create', 'MessageController@create');
-Route::get('messages/{id}/mail', 'MessageController@mail')->name('messages.mail');
-Route::get('messages/{id}/show', 'MessageController@show');
-Route::get('messages/{id}', 'MessageController@destroy');
-
-
-Route::get('messages', function(){
-  $messages = DB::table('messages')
-        ->orderBy('created_at', 'desc')
-        ->limit(10)
-        ->get();
-  return view('messages.index', ['messages'=> $messages]);
-});
-
-// routes for emails
-Route::post('/send', 'EmailController@send');
+// Route::get('/email/{id)/mail', 'EmailController@mail');

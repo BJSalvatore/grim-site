@@ -13,30 +13,30 @@ class CommentsTableSeeder extends Seeder
     {
       DB::table('comments')->insert([
         'username' => 'Demoncowgirl',
-        'comment' => 'This is a test comment.',
+        'comment' => 'This is a blog_1 test comment.',
         'approved' => true,
         'post_id' => 1,
         ]);
 
         DB::table('comments')->insert([
           'username' => 'Demoncowgirl',
-          'comment' => 'This is another test comment.',
+          'comment' => 'Nee! Bring me shrubbery!',
           'approved' => true,
-          'post_id' => 1,
+          'post_id' => 41,
           ]);
 
           DB::table('comments')->insert([
             'username' => 'Ellie Mae',
-            'comment' => 'This is another test comment.',
+            'comment' => 'I love bacon!!',
             'approved' => false,
-            'post_id' => 1,
+            'post_id' => 21,
             ]);
 
             DB::table('comments')->insert([
               'username' => 'Ellie Mae',
-              'comment' => 'This is another test comment.',
+              'comment' => 'Yay! Grim!!!',
               'approved' => false,
-              'post_id' => 1,
+              'post_id' => 91,
               ]);
 
     }

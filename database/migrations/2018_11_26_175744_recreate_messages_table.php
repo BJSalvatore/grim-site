@@ -18,7 +18,7 @@ class RecreateMessagesTable extends Migration
           $table-> string('email');
           $table-> string('name');
           $table-> string('message');
-          $table-> string('username') -> nullable();
+          $table-> string('username')->nullable();
           $table->timestamps();
         });
       }

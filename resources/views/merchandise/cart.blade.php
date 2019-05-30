@@ -18,7 +18,7 @@
   <a href="{{ url('/shop') }}" class="btn btn-block btn-primary">Continue Shopping</a>
 </div>
 
-<form id="invoiceForm" class="mt-3" method="post" action="{{route('CartController@store')}}">
+<form id="invoiceForm" class="mt-3" method="post" action="{{action('CartController@store')}}">
   {{csrf_field()}}
   <div class='form-group'>
     <label for="customerName" class="control-label">Full Name</label>
@@ -107,7 +107,7 @@
   </div>
   </div>
 @endforeach
-  <a href="{{ action('CartController@downloadPDF', $id -> id)}}">Download PDF Invoice</a>
+  <a href="{{ action('CartController@downloadPDF', $cart -> id)}}">Download PDF Invoice</a>
   </div>
 </div>
 </div>

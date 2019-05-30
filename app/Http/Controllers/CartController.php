@@ -76,9 +76,8 @@ class CartController extends Controller
   public function show($id)
   {
       // call function in Post model
-      $cartItem = Cart::find($id);
-
-      return view('merchandise.cart', ['cartItem' => $cartItem]);
+      $cart = Cart::find($id);
+      return view('merchandise.cart', ['id' => $id]);
 
   }
 

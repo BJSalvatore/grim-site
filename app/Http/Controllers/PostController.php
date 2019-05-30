@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use App\Comment;
 use App\Post;
 use Session;
 use Image;
@@ -19,11 +20,7 @@ class PostController extends Controller
     {
       $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // create a variable and store all of our blog posts in it
@@ -32,21 +29,11 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('posts.create'); //shows a form page
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
       // validate the data
@@ -72,7 +59,7 @@ class PostController extends Controller
         ]);
 
         // store in database
-        $post = new Post;
+        $post = new Post();
         $post -> title = $request -> input('title');
         $post -> slug = $request -> input('slug');
         $post -> post = $request -> input('post');
@@ -97,38 +84,27 @@ class PostController extends Controller
 
             $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
             $post-> image = $s3;
+            $post-> image = $filename; //saves filename for retrieval of image
 
         }
-            $post-> image = $filename; //saves filename for retrieval of image
+
             $post -> save();
+
         Session::flash('success', 'The blog post was saved successfully!');
         // redirect to another
-
         return redirect()->route('posts.show', $post -> slug);
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         // call function in Post model
         $post = Post::find($id);
-
         return view('posts.show', ['post' => $post]);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         // find post in database and save it as variable

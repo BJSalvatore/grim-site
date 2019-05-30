@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
       $this->call(FileTableSeeder::class);
       $this->call(ItemsTableSeeder::class);
       $this->call(MessagesTableSeeder::class);
-      $this->call(CartsTableSeeder::class);
+      $this->call(ResponseTableSeeder::class);
+      // $this->call(CartsTableSeeder::class);
     }
 }

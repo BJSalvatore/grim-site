@@ -22,38 +22,26 @@ class CommentsController extends Controller
       $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getSingle($id){
+
+      // fetch from database based on $slug
+      $comment = Comment::where('id', '=', $id)->first();
+      // return the view and pass in the post object
+      return view('comments.single')->withComment($comment);
+    }
+
     public function index()
     {
       // create a variable and store all of our blog comments in it
-      $comments = Comment::orderBy('id', 'asc')->get();
+      $comments = Comment::orderBy('id', 'asc')->paginate(10);
       // // return a view and pass in the variable
       return view('comments.index', ['comments' => $comments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-     public function store(Request $request, $post_id)
+     public function store(Request $request, $id)
      {
-       $post = Post::find($post_id);
+       $post = Post::find($id);
 
        $validatedData = $request->validate([
         'comment' => 'required|min:5|max:2000|unique:comments',
@@ -70,49 +58,30 @@ class CommentsController extends Controller
           $comment = new Comment();
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
-          $comment-> post_id = post() -> asssociate($post->id);
-          $comment-> approved = false;
+          $comment-> post() -> associate($post -> id);
+          $comment-> approved = true;
           // $comment -> approved_at = Carbon::now();
 
           $comment->save();
 
-          Session::flash('success', 'Comment was submitted successfully!<br>It will not be displayed until approved by the admin.');
-
-          return redirect()->view('comments.show', $comment -> id);
+        Session::flash('success', 'Comment was submitted successfully! It will not be displayed until approved by the admin.');
+        return redirect()->route('posts.show', $post -> id);
       }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
       $comment = Comment::find($id);
-
       return view('comments.show', ['comment' => $comment]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
          $comment = new Comment();
@@ -131,12 +100,7 @@ class CommentsController extends Controller
          return redirect()->view('comments.show', $comment -> id );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $comment = Comment::find($id);

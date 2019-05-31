@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 use Carbon\Carbon;
 use App\Comment;
 use App\Post;

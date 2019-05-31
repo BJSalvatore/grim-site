@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 
 class ImageController extends Controller
 {

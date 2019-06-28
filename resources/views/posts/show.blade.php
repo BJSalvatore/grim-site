@@ -11,6 +11,7 @@
   <div id="content">
       <div class="col-lg-10 offset-lg-2">
           <div id="post" class="post card container-fluid">
+
             @if($post -> image)
               <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
             @endif
@@ -29,6 +30,7 @@
                         <p>{{ $post -> updated_at }}</p>
                       </div>
                     </div>
+
                   <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')
@@ -39,6 +41,7 @@
                     <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-0" method="GET">View All Posts</a>
                   </form>
                 @endif
+
           </div>
 
           <div id="comment" class="flex-container ml-3">

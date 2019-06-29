@@ -18,6 +18,10 @@
           <a href="{{ url('single/'.$post -> slug)}}" class="btn btn-sm btn-secondary">Read more</a>
         <hr>
       @endforeach
+      <div class="d-flex flex-row align-items-center justify-content-center">
+        {{$posts -> links()}}
       </div>
-  </div>
+      <div class="d-flex flex-row align-items-center justify-content-center">
+        Page {{$posts->currentPage()}} of {{$posts->lastPage()}}
+      </div>
 @endsection

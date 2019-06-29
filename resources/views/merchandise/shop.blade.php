@@ -16,7 +16,7 @@
         <div class="card-block">
         <h3 class="card-header"><strong>{{ $item -> itemName }}</strong></h3>
         <div class="card-body">
-        <img id="shopCard" img-responsive justify-content-center style="margin-bottom: 20px;" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img>
+        <img id="shopCard" img-responsive justify-content-center style="margin-bottom: 20px;" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img>
         <p><strong>Price: $</strong>{{ $item -> price}}</p>
         <p><strong>Description: </strong>{{ $item -> description}}</p>
         <form>

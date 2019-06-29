@@ -86,7 +86,7 @@ public function index()
         $type =  $ext;
         $filename = time() . '.' . $ext;
         $path = public_path('uploadedFiles/' . $filename);
-        $s3Path = secure_asset('files/' . $filename);
+        $s3Path = asset('files/' . $filename);
 
         Image::make($fileUpload)->resize(400, null, function ($constraint){
           $constraint->aspectRatio();

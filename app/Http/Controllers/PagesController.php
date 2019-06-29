@@ -58,9 +58,9 @@ class PagesController extends Controller
       //   return view('posts.show')->with('header_title', $header_title);
       // }
 
-      public function getUnnaproved() {
-        return view('comments/unnapproved');
-      }
+      // public function getUnnaproved() {
+      //   return view('comments/unnapproved');
+      // }
 
         public function register(){
           return view('auth/register');

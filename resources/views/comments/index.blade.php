@@ -9,7 +9,7 @@
     @include('inc._flash-message')
     <div class="col-lg-12">
         <h1>All Blog Comments</h1>
-      <a href="{{ route('/status') }}" class="btn btn-block btn-primary" method="GET">View Only Unnaproved Comments</a>
+        <a href="{{ route('comments.unapproved') }}" class="btn btn-block btn-primary" method="GET">View Only Unnaproved Comments</a>
       <hr>
       <table-responsive>
       <table id="comments" class="table-responsive mt-3">

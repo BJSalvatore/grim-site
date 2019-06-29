@@ -11,7 +11,7 @@
           <div id="press" class="release flex-row">
          @foreach($releases as $release)
          @if($release -> image)
-           <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/press/' . $release->image)}}"> </img>
+           <img src="{{ asset('https://s3.amazonaws.com/grim-images/press/' . $release->image)}}"> </img>
          @endif
            <h3><strong>{{ $release -> title }}<strong></h3>
            <h5>{{ $release -> release_date }}</h5>

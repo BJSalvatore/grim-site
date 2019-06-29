@@ -15,7 +15,7 @@
               <h3>Name: {{ $file -> name }}</h3>
               <p>Type: {{$file -> type }}</p>
               <p>Title: {{ $file -> title}}</p>
-              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/files/' . $file->file)}}" height="300" width="auto"> </img></p>
+              <img src="{{ asset('https://s3.amazonaws.com/grim-images/files/' . $file->file)}}" height="300" width="auto"> </img></p>
           </div>
       </div>
   <div class="col-lg-3">

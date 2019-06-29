@@ -94,7 +94,7 @@ class StockController extends Controller
               $image = $request->file('image');
               $filename = time() . '.' . $image->getClientOriginalExtension();
               $location = public_path('merch/' . $filename);
-              $s3Path = secure_asset('merch/' . $filename);
+              $s3Path = asset('merch/' . $filename);
 
               Image::make($image)->resize(400, null, function ($constraint){
                 $constraint->aspectRatio();

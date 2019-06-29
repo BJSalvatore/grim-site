@@ -329,9 +329,11 @@ audio.controls {
 
 }
 
-#newLP img{
-    max-width: 280px;
-    height: auto;
+#newLP {
+  width: auto;
+  height: auto;
+  max-width: 280px;
+
 }
 
 #logo {
@@ -480,6 +482,10 @@ audio.controls {
     .header {
       columns: 1;
       height: 120px;
+    }
+
+    #calendar {
+      height: 240px;
     }
 
     #cards {

@@ -21,7 +21,7 @@
         <tbody>
           <tr style="height: 10px;"></tr>
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/orange_album.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/orange_album.jpg') }}"></img></td>
             <td>Getting Revenge In 'Merica'</td>
             <td class="format">12" LP</td>
             <td>1984</td>
@@ -29,7 +29,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/slimey-valley.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/images/slimey-valley.jpg') }}"></img></td>
             <td>It Came From Slimey Valley</td>
             <td class="format">Vinyl, LP Compilation<br>Song - "Old Towne Mall"</td>
             <td>1984</td>
@@ -37,7 +37,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/live-at-fenders.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/images/live-at-fenders.jpg') }}"></img></td>
             <td>Live At Fenders</td>
             <td class="format">7" EP</td>
             <td>1987</td>
@@ -45,7 +45,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/live-to-die.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/images/live-to-die.jpg') }}"></img></td>
             <td>Live To Die</td>
             <td class="format">7" EP</td>
             <td>1987</td>
@@ -53,7 +53,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/face_of_betrayal.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/face_of_betrayal.jpg') }}"></img></td>
             <td>Face Of Betrayal</td>
             <td class="format">LP</td>
             <td>1988</td>
@@ -61,7 +61,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/best_of_album.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/best_of_album.jpg') }}"></img></td>
             <td>Best Of ... The Grim</td>
             <td class="format">CD, Cassette, LP Compilation</td>
             <td>2011</td>
@@ -69,7 +69,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/cop_killer_ep.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/cop_killer_ep.jpg') }}"></img></td>
             <td>Cop Killer</td>
             <td class="format">7" EP</td>
             <td>2017</td>
@@ -77,7 +77,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
           <tr>
-            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/NuclearWorldOrder.jpg') }}"></img></td>
+            <td><img id="thumbnail" class="d-flex img-responsive" src="{{ asset('https://s3.amazonaws.com/grim-images/merch/NuclearWorldOrder.jpg') }}"></img></td>
             <td>Nuclear World Order</td>
             <td class="format">Full length LP</td>
             <td>2018</td>

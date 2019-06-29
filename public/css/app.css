@@ -11426,9 +11426,10 @@ audio.controls {
   align: justify;
 }
 
-#newLP img {
-  max-width: 280px;
+#newLP {
+  width: auto;
   height: auto;
+  max-width: 280px;
 }
 
 #logo {
@@ -11591,6 +11592,10 @@ audio.controls {
        -moz-columns: 1;
             columns: 1;
     height: 120px;
+  }
+
+  #calendar {
+    height: 240px;
   }
 
   #cards {

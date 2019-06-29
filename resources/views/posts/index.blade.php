@@ -29,7 +29,7 @@
             <td>{{ $post->slug }}</td>
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
             @if($post -> image )
-              <td><img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post -> image) }}" height="150" width="auto"></img></td>
+              <td><img src="{{ asset('https://s3.amazonaws.com/grim-images/images/' . $post -> image) }}" height="150" width="auto"></img></td>
               @else
               <td>No Image</td>
             @endif

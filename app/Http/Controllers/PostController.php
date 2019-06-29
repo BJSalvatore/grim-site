@@ -26,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('id', 'desc')->paginate(20);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
 
         return view('posts.index', ['posts' => $posts]);
     }
@@ -74,7 +74,7 @@ class PostController extends Controller
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/' . $filename);
-          $s3Path = secure_asset('images/' . $filename);
+          $s3Path = asset('images/' . $filename);
 
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){

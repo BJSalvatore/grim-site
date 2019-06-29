@@ -59,7 +59,7 @@ class CommentsController extends Controller
           $comment-> username = auth()->user() -> username;
           $comment-> comment = $request-> comment;
           $comment-> post() -> associate($post -> id);
-          $comment-> approved = true;
+          $comment-> approved = false;
           // $comment -> approved_at = Carbon::now();
 
           $comment->save();

@@ -48,8 +48,7 @@ Route::get('/blog/index', 'BlogController@index')->name('blog.index');
 Route::get('blog', function(){
   $posts = DB::table('posts')
         ->orderBy('id', 'asc')
-        // ->limit(10)
-        ->get();
+        ->paginate(6);
   return view('pages.blog', ['posts'=>$posts]);
 });
 
@@ -83,8 +82,17 @@ Route::get('status', function(){
         ->orderBy('created_at', 'asc')
         // ->limit(10)
         ->get();
-  return view('comments.unnaproved', ['comments'=>$comments]);
+  return view('comments.index', ['comments'=>$comments]);
 });
+
+//
+// Route::get('unapproved', function(){
+//   $comments = DB::table('comments')
+//         ->orderBy('created_at', 'asc')
+//         // ->limit(10)
+//         ->get();
+//   return view('comments.unnapproved', ['comments'=>$comments]);
+// });
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");

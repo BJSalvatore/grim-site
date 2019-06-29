@@ -5,15 +5,16 @@
 
 @extends('layouts.app')
 @include('inc._navbar')
-@include('inc._flash-message')
 @section('content')
 <!-- <div class="row"> -->
   <div id="content">
-      <div class="col-lg-10 offset-lg-2">
+    <div class="col-lg-8 offset-lg-2">
+        @include('inc._flash-message')
+    </div>
+      <div class="col-lg-8 offset-lg-2">
           <div id="post" class="post card container-fluid">
-
             @if($post -> image)
-              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
+              <img src="{{ asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
               <p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>

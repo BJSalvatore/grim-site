@@ -1,11 +1,12 @@
 <div class="px-3">
   <div id="sidebar" class="mx-auto text-center text-light bg-dark d-none d-sm-block d-md-block d-lg-block">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+  <div class="col">
     <div class="container-fluid mt-2">
       <p>New Release!</p>
         <img id="newLP" class="img-responsive" src="{{ asset('images/TheGrimNuclearWorldOrder.jpg') }}"></img>
     </div>
-    <div class="container-fluid mt-3 mb-3">
+    <div class="container-fluid mt-3">
       <center><p>Cop Killer</p></center>
       <div id="audio" class="d-flex text-center">
         <audio controls class="embed-responsive">
@@ -14,15 +15,18 @@
         </audio>
       </div>
     </div>
-    <div class="container-fluid text-center justify-content-center mt-2">
+  </div>
+  <div class="col">
+    <div class="container-fluid text-center justify-content-center mt-3">
       <p>Upcoming Shows</p>
       <div class="col">
         <div class="row">
-          <div id="calendar" class="embed-responsive justify-content-center mb-3" data-tockify-height="auto" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
+          <div id="calendar" class="embed-responsive justify-content-center mb-3" data-tockify-height="380px" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
           <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
         </div>
       </div>
     </div>
+  </div>
       <div class="col-sm d-none d-md-block d-lg-block d-xl-block">
           <img id="recordLabelLogo" class="img-responsive mt-3 mb-3" src="{{ asset('images/SoundSpeedRecordsLogo.jpg') }}"></img>
       </div>

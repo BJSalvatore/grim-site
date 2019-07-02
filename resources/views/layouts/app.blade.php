@@ -24,7 +24,7 @@
 <body>
   <div id="parent" class="container-fluid">
     <div id="parentRow" class="row">
-        @if(Request::is('/', 'about', 'blog', 'contact', 'photos', 'press'))
+        @if(Request::is('/', 'about', 'blog', 'contact', 'press'))
             @include('inc._sidebar')
         @endif
         @yield('content')

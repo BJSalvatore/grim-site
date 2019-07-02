@@ -11576,15 +11576,17 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    width: 100%;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   .navbar {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    width: 100%;
+    -webkit-columns: 3;
+       -moz-columns: 3;
+            columns: 3;
   }
 
   .header {
@@ -11635,9 +11637,9 @@ audio.controls {
     position: relative;
     width: 100%;
     max-height: 480px;
-    -webkit-columns: 2;
-       -moz-columns: 2;
-            columns: 2;
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   #content {
@@ -11648,15 +11650,17 @@ audio.controls {
   }
 
   .jumbotron {
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    width: 100%;
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   .navbar {
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    width: 100%;
+    -webkit-columns: 4;
+       -moz-columns: 4;
+            columns: 4;
   }
 
   .header {
@@ -11719,28 +11723,13 @@ audio.controls {
             columns: 1;
   }
 
-  .jumbotron {
-    -webkit-columns: 6;
-       -moz-columns: 6;
-            columns: 6;
-  }
-
-  .navbar {
-    -webkit-columns: 6;
-       -moz-columns: 6;
-            columns: 6;
-  }
-
   h5 {
     font-size: 20px;
   }
 
   #calendar {
     width: 240px;
-  }
-
-  .data-tockify-height {
-    height: 400px;
+    height: 480px;
   }
 
   #newLP {

@@ -8,9 +8,8 @@
 
 @section('content')
 
-  <!-- @include('inc._sidebar') -->
   <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-
+    <!-- <div class="col"> -->
       <h1 style="font-family: Freckle Face;">Photos</h1>
       <hr>
       <div id="myCarousel" class="carousel slide mt-3" data-ride="carousel">
@@ -43,6 +42,7 @@
               <span class="sr-only">Next</span>
           </a>
         </div>
-      </div>
+      <!-- </div> -->
+    </div>
 
 @endsection

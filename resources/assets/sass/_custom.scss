@@ -14,47 +14,10 @@ h5 {
     font-weight: 600;
 }
 
-.btn-grim{
-  background-color: #FF8C00;
-}
-
-#messages.card #response.card{
-  width: 100%;
-}
-
-#messages.card {
-  background-color: #E8E8E8;
-}
-
-#response.card {
-  border: 1px solid #808080;
-}
-
-#messages.table-responsive {
-    width: 100%;
-    border: 1px solid #808080;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-#messages.container-fluid {
-  width: 100%;
-  margin-top: 15px;
-  float: center;
-}
-
-#messageResponse p{
-  padding: 0;
-  margin: 0;
-}
-
-#merchandise.table-responsive {
-    width: 100%;
-    border: 1px solid #808080;
-    margin-left: auto;
-    margin-right: auto;
-
+.row{
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 //display
@@ -67,6 +30,27 @@ h5 {
     margin-left: 0;
     margin-right: 0;
 }
+
+#band-image {
+    height: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.background-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
 //navbar
 .navbar {
     background-color: #000;
@@ -93,26 +77,113 @@ h5 {
     color: #FF8C00;
 }
 
+// header
 .header {
     width: 100%;
     height: 140px;
     padding: 40px;
+    background-color: #FF8C00;
 
 }
 
-.row{
-    display: flex;
+// sidebar
+#sidebar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sidebar.mx-auto {
+    display: block;
+    height: auto;
+    margin-top: 15px;
+    z-index: 0;
+    box-shadow: 15px 12px 28px #FF8C00;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* The navigation menu links */
+#sidebar p {
+    padding: 4px;
     margin: 0;
-    padding: 0;
+    font-size: 25px;
+    font-weight: 600;
+    color: #818181;
+    display: block;
 }
 
+//audio
+audio.controls {
+    width: 100%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// admin messages page
+#messages.card #response.card{
+  width: 100%;
+}
+
+#messages.card {
+  background-color: #E8E8E8;
+}
+
+#response.card {
+  border: 1px solid #808080;
+}
+
+#messages.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#messages.container-fluid {
+  width: 100%;
+  margin-top: 15px;
+  float: center;
+}
+
+#messagesResponse.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+}
+
+#messageResponse p{
+  padding: 0;
+  margin: 0;
+}
+
+
+// merchandidse page
+#merchandise.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+// custom button
+.btn-grim{
+  background-color: #FF8C00;
+}
+
+// content id for media queries
 #content {
   padding: 15px;
   margin-top: 15px;
   margin-left: 15px;
-
 }
 
+// comments for blog posts
 #comment p {
   width: 100%;
 }
@@ -121,7 +192,22 @@ h5 {
   margin-left: 15px;
 }
 
-//blog posts and comments
+#comment-form .alert-danger {
+    font-size: 10px;
+}
+
+#comment .flex-container {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+
+#comment p {
+    margin-bottom: 0 !important;
+    padding: 1px;
+}
+
 .alert-danger {
     font-size: 10px;
 }
@@ -130,6 +216,7 @@ h5 {
     margin: 2px;
 }
 
+// blog posts page
 #postInfo h5 {
     padding: 0;
 }
@@ -148,46 +235,43 @@ h5 {
   margin-bottom: 30px;
 }
 
-
-#comment-form .alert-danger {
-    font-size: 10px;
-}
-
-#comment .flex-container {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-}
-
-
-#comment p {
-    margin-bottom: 0 !important;
-    padding: 1px;
-}
-
+// checkbox for comment approval
 input.largeCheckbox {
     width: 20px;
     height: 20px;
 }
 
+// photo carousel
 .carousel-caption {
     text-align: center;
 }
 
-.carousel-inner .item img {
+.carousel-inner img {
     margin: auto;
 }
 
-.carousel-control-next .carousel-control-prev {
-    margin: auto;
-    width: auto;
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-indicators .active{
+  background-color: #FF8C00;
 }
 
 .carousel-item img {
-    height: auto;
-    width: 100%;
+    height: 75vh;
+    width: auto;
 }
 
+.fas {
+  color: #818181;
+}
+
+.caption-background {
+  color: #818181;
+}
+
+// bootstrap cards - merchandise?
 #cards {
   margin-left: 140px;
 }
@@ -225,6 +309,7 @@ input.largeCheckbox {
     max-width: 300px;
 }
 
+// tables
 thead {
   background-color: #808080;
   font-size: 20px;
@@ -238,19 +323,19 @@ td {
   padding: 15px;
 }
 
-.format {
-  font-size: 14px;
-}
-
-.no-gutters {
-  margin-left: 0px;
-  margin-right: 0px;
-    .col,
-    [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
-    }
-}
+// .format {
+//   font-size: 14px;
+// }
+//
+// .no-gutters {
+//   margin-left: 0px;
+//   margin-right: 0px;
+//     .col,
+//     [class*="col-"] {
+//       padding-right: 0;
+//       padding-left: 0;
+//     }
+// }
 
 .table-reponsive {
     //bootstrap defaults
@@ -263,70 +348,12 @@ td {
     margin-bottom: 20px;
 }
 
-#sidebar {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#sidebar.mx-auto {
-    display: block;
-    height: auto;
-    margin-top: 15px;
-    z-index: 0;
-    /* Stay on top */
-    box-shadow: 15px 12px 28px #FF8C00;
-    flex-direction: column;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-/* The navigation menu links */
-#sidebar p {
-    padding: 4px;
-    margin: 0;
-    font-size: 25px;
-    font-weight: 600;
-    color: #818181;
-    display: block;
-}
-
-//audio
-audio.controls {
-    width: 100%;
-    height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 //photos, images and logos
 .img-responsive {
     width: auto;
     height: auto;
     max-width: 260px;
     max-height: 260px;
-}
-
-#messagesResponse.container-fluid {
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0;
-}
-
-#invoiceForm label{
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-#invoiceForm input {
-  margin: 0px;
-}
-
-#totals p {
-  display: inline-block;
-  align: justify;
-
 }
 
 #newLP {
@@ -363,32 +390,28 @@ audio.controls {
     margin-bottom: 6px;
 }
 
+//merchandise invoice form for download
+#invoiceForm label{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#invoiceForm input {
+  margin: 0px;
+}
+
+#totals p {
+  display: inline-block;
+  align: justify;
+
+}
+
 #footer {
     position: fixed;
     font-size: 12px;
     padding: 12px;
     width: 100%;
     margin-bottom: 0;
-}
-
-#band-image {
-    height: 440px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.background-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
 }
 
 

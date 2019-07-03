@@ -28,10 +28,10 @@ class PagesController extends Controller
         return view('pages/contact')->with("header_title", $header_title)->with("bandemail", $bandemail)->with("bandphone", $bandphone)->withBandaddress($bandaddress);
       }
 
-          public function getPhotos() {
-            $header_title = "Check Us Out!";
-          return view('pages/photos')->with('header_title', $header_title);
-      }
+      //     public function getPhotos() {
+      //       $header_title = "Check Us Out!";
+      //     return view('pages/photos')->with('header_title', $header_title);
+      // }
 
           public function getBlog() {
             $header_title = "Blog Posts";

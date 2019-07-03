@@ -11116,45 +11116,11 @@ h5 {
   font-weight: 600;
 }
 
-.btn-grim {
-  background-color: #FF8C00;
-}
-
-#messages.card #response.card {
-  width: 100%;
-}
-
-#messages.card {
-  background-color: #E8E8E8;
-}
-
-#response.card {
-  border: 1px solid #808080;
-}
-
-#messages.table-responsive {
-  width: 100%;
-  border: 1px solid #808080;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#messages.container-fluid {
-  width: 100%;
-  margin-top: 15px;
-  float: center;
-}
-
-#messageResponse p {
-  padding: 0;
+.row {
+  display: -webkit-box;
+  display: flex;
   margin: 0;
-}
-
-#merchandise.table-responsive {
-  width: 100%;
-  border: 1px solid #808080;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0;
 }
 
 .jumbotron {
@@ -11165,6 +11131,26 @@ h5 {
   background-size: cover;
   margin-left: 0;
   margin-right: 0;
+}
+
+#band-image {
+  height: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.background-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .navbar {
@@ -11196,13 +11182,92 @@ h5 {
   width: 100%;
   height: 140px;
   padding: 40px;
+  background-color: #FF8C00;
 }
 
-.row {
-  display: -webkit-box;
-  display: flex;
+#sidebar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sidebar.mx-auto {
+  display: block;
+  height: auto;
+  margin-top: 15px;
+  z-index: 0;
+  box-shadow: 15px 12px 28px #FF8C00;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The navigation menu links */
+
+#sidebar p {
+  padding: 4px;
   margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+  color: #818181;
+  display: block;
+}
+
+audio.controls {
+  width: 100%;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messages.card #response.card {
+  width: 100%;
+}
+
+#messages.card {
+  background-color: #E8E8E8;
+}
+
+#response.card {
+  border: 1px solid #808080;
+}
+
+#messages.table-responsive {
+  width: 100%;
+  border: 1px solid #808080;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messages.container-fluid {
+  width: 100%;
+  margin-top: 15px;
+  float: center;
+}
+
+#messagesResponse.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+}
+
+#messageResponse p {
   padding: 0;
+  margin: 0;
+}
+
+#merchandise.table-responsive {
+  width: 100%;
+  border: 1px solid #808080;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-grim {
+  background-color: #FF8C00;
 }
 
 #content {
@@ -11217,6 +11282,24 @@ h5 {
 
 .comment {
   margin-left: 15px;
+}
+
+#comment-form .alert-danger {
+  font-size: 10px;
+}
+
+#comment .flex-container {
+  display: -webkit-box;
+  display: flex;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+#comment p {
+  margin-bottom: 0 !important;
+  padding: 1px;
 }
 
 .alert-danger {
@@ -11246,24 +11329,6 @@ h5 {
   margin-bottom: 30px;
 }
 
-#comment-form .alert-danger {
-  font-size: 10px;
-}
-
-#comment .flex-container {
-  display: -webkit-box;
-  display: flex;
-  height: auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-}
-
-#comment p {
-  margin-bottom: 0 !important;
-  padding: 1px;
-}
-
 input.largeCheckbox {
   width: 20px;
   height: 20px;
@@ -11273,18 +11338,29 @@ input.largeCheckbox {
   text-align: center;
 }
 
-.carousel-inner .item img {
+.carousel-inner img {
   margin: auto;
 }
 
-.carousel-control-next .carousel-control-prev {
-  margin: auto;
-  width: auto;
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-indicators .active {
+  background-color: #FF8C00;
 }
 
 .carousel-item img {
-  height: auto;
-  width: 100%;
+  height: 75vh;
+  width: auto;
+}
+
+.fas {
+  color: #818181;
+}
+
+.caption-background {
+  color: #818181;
 }
 
 #cards {
@@ -11336,21 +11412,6 @@ td {
   padding: 15px;
 }
 
-.format {
-  font-size: 14px;
-}
-
-.no-gutters {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.no-gutters .col,
-.no-gutters [class*=col-] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
 .table-reponsive {
   width: 100%;
   overflow-x: auto;
@@ -11360,70 +11421,11 @@ td {
   margin-bottom: 20px;
 }
 
-#sidebar {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#sidebar.mx-auto {
-  display: block;
-  height: auto;
-  margin-top: 15px;
-  z-index: 0;
-  /* Stay on top */
-  box-shadow: 15px 12px 28px #FF8C00;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* The navigation menu links */
-
-#sidebar p {
-  padding: 4px;
-  margin: 0;
-  font-size: 25px;
-  font-weight: 600;
-  color: #818181;
-  display: block;
-}
-
-audio.controls {
-  width: 100%;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .img-responsive {
   width: auto;
   height: auto;
   max-width: 260px;
   max-height: 260px;
-}
-
-#messagesResponse.container-fluid {
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0;
-}
-
-#invoiceForm label {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-#invoiceForm input {
-  margin: 0px;
-}
-
-#totals p {
-  display: inline-block;
-  align: justify;
 }
 
 #newLP {
@@ -11459,32 +11461,26 @@ audio.controls {
   margin-bottom: 6px;
 }
 
+#invoiceForm label {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#invoiceForm input {
+  margin: 0px;
+}
+
+#totals p {
+  display: inline-block;
+  align: justify;
+}
+
 #footer {
   position: fixed;
   font-size: 12px;
   padding: 12px;
   width: 100%;
   margin-bottom: 0;
-}
-
-#band-image {
-  height: 440px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.background-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
 }
 
 @media screen and (max-width: 1024px) {

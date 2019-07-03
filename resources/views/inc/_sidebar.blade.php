@@ -21,7 +21,7 @@
       <p>Upcoming Shows</p>
       <div class="col">
         <div class="row">
-          <div id="calendar" class="embed-responsive justify-content-center mb-3" data-tockify-height="380px" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
+          <div id="calendar" class="embed-responsive justify-content-center mb-3" data-tockify-height="448px" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
           <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
         </div>
       </div>

@@ -5,16 +5,12 @@
 
 @extends('layouts.app')
 @include('inc._navbar')
-
 @section('content')
 
-  <div id="content" class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-    <!-- <div class="col"> -->
-      <h1 style="font-family: Freckle Face;">Photos</h1>
-      <hr>
+  <div id="content" class="container-fluid">
       <div id="myCarousel" class="carousel slide mt-3" data-ride="carousel">
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <ol class="carousel-indicators mt-3 p-3">
             @foreach($files as $file)
               <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
             @endforeach
@@ -24,25 +20,26 @@
             @foreach($files as $file)
               @if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
               <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <img class="d-block img-fluid" src="{{ asset('uploadedFiles/' .  $file -> file)}}">
-             <div class="carousel-caption d-none d-md-block">
-                 <h3>{{ $file -> title }}</h3>
-             </div>
+                  <img class="d-block img-fluid" src="{{ asset('uploadedFiles/' .  $file -> file)}}">
+                 <div class="text-center">
+                     <h3>{{ $file -> title }}</h3>
+                 </div>
             </div>
              @endif
            @endforeach
          </div>
           <!-- Left and right controls -->
           <a class="carousel-control-prev" href="#myCarouselControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span><i class="fas fa-arrow-circle-left fa-5x"></i></span>
+              <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
               <span class="sr-only">Previous</span>
           </a>
           <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span><i class="fas fa-arrow-circle-right fa-5x"></i></span>
+              <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
               <span class="sr-only">Next</span>
           </a>
         </div>
-      <!-- </div> -->
     </div>
 
 @endsection

@@ -11123,6 +11123,10 @@ h5 {
   padding: 0;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 .jumbotron {
   height: 440px;
   width: 100%;
@@ -11199,6 +11203,8 @@ h5 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
           align-items: center;
   margin-left: auto;
@@ -11421,17 +11427,10 @@ td {
   margin-bottom: 20px;
 }
 
-.img-responsive {
+#newLP.img-responsive {
   width: auto;
   height: auto;
   max-width: 260px;
-  max-height: 260px;
-}
-
-#newLP {
-  width: auto;
-  height: auto;
-  max-width: 280px;
 }
 
 #logo {
@@ -11441,6 +11440,12 @@ td {
   margin-top: 75px;
   margin-right: 15px;
   margin-left: 15px;
+}
+
+#recordLabelLogo.img-responsive {
+  width: auto;
+  height: auto;
+  max-width: 260px;
 }
 
 #shoes {
@@ -11503,24 +11508,15 @@ td {
     max-height: 480px;
   }
 
+  #sidebar p {
+    font-size: 18px;
+  }
+
   #content {
     position: relative;
     -webkit-columns: 1;
        -moz-columns: 1;
             columns: 1;
-  }
-
-  .navbar {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
-  }
-
-  .header {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
-    height: 140px;
   }
 
   #shoes {
@@ -11533,13 +11529,12 @@ td {
     width: 100%;
   }
 
-  #cards.container-fluid {
-    margin-left: 15px;
+  #calendar {
+    height: 400px;
   }
 
-  #newLP {
-    width: auto;
-    max-width: 240px;
+  #cards.container-fluid {
+    margin-left: 15px;
   }
 
   #footer {
@@ -11564,6 +11559,10 @@ td {
     max-height: 480px;
   }
 
+  #sidebar p {
+    font-size: 18px;
+  }
+
   #content {
     position: relative;
     -webkit-columns: 1;
@@ -11572,28 +11571,11 @@ td {
   }
 
   .jumbotron {
-    width: 100%;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
+    width: 100vw;
   }
 
   .navbar {
-    width: 100%;
-    -webkit-columns: 3;
-       -moz-columns: 3;
-            columns: 3;
-  }
-
-  .header {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
-    height: 120px;
-  }
-
-  #calendar {
-    height: 240px;
+    width: 100vw;
   }
 
   #cards {
@@ -11609,11 +11591,6 @@ td {
 
   audio {
     height: 40px;
-  }
-
-  #newLP {
-    width: auto;
-    max-width: 240px;
   }
 
   #footer {
@@ -11632,7 +11609,7 @@ td {
   #sidebar {
     position: relative;
     width: 100%;
-    max-height: 480px;
+    max-height: 500px;
     -webkit-columns: 4;
        -moz-columns: 4;
             columns: 4;
@@ -11646,23 +11623,11 @@ td {
   }
 
   .jumbotron {
-    width: 100%;
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
+    width: 100vw;
   }
 
   .navbar {
-    width: 100%;
-    -webkit-columns: 4;
-       -moz-columns: 4;
-            columns: 4;
-  }
-
-  .header {
-    -webkit-columns: 1;
-       -moz-columns: 1;
-            columns: 1;
+    width: 100vw;
   }
 
   #cards {
@@ -11682,14 +11647,6 @@ td {
     width: 160px;
     height: auto;
     margin-top: -80px;
-  }
-
-  #newLP {
-    width: 200px;
-  }
-
-  #recordLabelLogo.img-responsive {
-    width: 200px;
   }
 
   #footer {
@@ -11723,16 +11680,7 @@ td {
     font-size: 20px;
   }
 
-  #calendar {
-    width: 240px;
-    height: 480px;
-  }
-
   #newLP {
-    width: 240px;
-  }
-
-  #recordLabelLogo.img-responsive {
     width: 240px;
   }
 
@@ -11866,18 +11814,6 @@ td {
 
   h5 {
     font-size: 25px;
-  }
-
-  #calendar {
-    width: 260px;
-  }
-
-  #newLP {
-    width: 260px;
-  }
-
-  #recordLabelLogo.img-responsive {
-    display: none;
   }
 }
 

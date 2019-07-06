@@ -20,6 +20,10 @@ h5 {
     padding: 0;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 //display
 .jumbotron {
     height: 440px;
@@ -99,6 +103,7 @@ h5 {
     z-index: 0;
     box-shadow: 15px 12px 28px #FF8C00;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
@@ -323,20 +328,6 @@ td {
   padding: 15px;
 }
 
-// .format {
-//   font-size: 14px;
-// }
-//
-// .no-gutters {
-//   margin-left: 0px;
-//   margin-right: 0px;
-//     .col,
-//     [class*="col-"] {
-//       padding-right: 0;
-//       padding-left: 0;
-//     }
-// }
-
 .table-reponsive {
     //bootstrap defaults
     // display: table-cell;
@@ -349,18 +340,17 @@ td {
 }
 
 //photos, images and logos
-.img-responsive {
-    width: auto;
-    height: auto;
-    max-width: 260px;
-    max-height: 260px;
-}
+// .img-responsive {
+//     width: auto;
+//     height: auto;
+//     max-width: 260px;
+//     max-height: 260px;
+// }
 
-#newLP {
+#newLP.img-responsive{
   width: auto;
   height: auto;
-  max-width: 280px;
-
+  max-width: 260px;
 }
 
 #logo {
@@ -370,6 +360,12 @@ td {
     margin-top: 75px;
     margin-right: 15px;
     margin-left: 15px;
+}
+
+#recordLabelLogo.img-responsive {
+  width: auto;
+  height: auto;
+  max-width: 260px;
 }
 
 #shoes {
@@ -434,20 +430,16 @@ td {
         max-height: 480px;
     }
 
+    #sidebar p {
+        font-size: 18px;
+      }
+
     #content {
         position: relative;
         columns: 1;
 
     }
 
-    .navbar {
-      columns: 1;
-    }
-
-    .header {
-      columns: 1;
-      height: 140px;
-    }
 
     #shoes {
         width: 150px;
@@ -459,13 +451,12 @@ td {
       width: 100%;
     }
 
-    #cards.container-fluid {
-      margin-left: 15px;
+    #calendar {
+      height: 400px;
     }
 
-    #newLP {
-        width: auto;
-        max-width:240px;
+    #cards.container-fluid {
+      margin-left: 15px;
     }
 
     #footer {
@@ -481,11 +472,15 @@ td {
 // larger mobile phones and tablets
 @media screen and (min-width: 576px) and (max-width: 811px) and (orientation: landscape){
     // col-sm
-        #sidebar {
-        position: relative;
-        width: 100%;
-        columns: 2;
-        max-height: 480px;
+      #sidebar {
+      position: relative;
+      width: 100%;
+      columns: 2;
+      max-height: 480px;
+    }
+
+      #sidebar p {
+      font-size: 18px;
     }
 
     #content {
@@ -495,22 +490,11 @@ td {
     }
 
     .jumbotron {
-      width: 100%;
-      columns: 3;
+      width: 100vw;
     }
 
     .navbar {
-      width: 100%;
-      columns: 3;
-    }
-
-    .header {
-      columns: 1;
-      height: 120px;
-    }
-
-    #calendar {
-      height: 240px;
+      width: 100vw;
     }
 
     #cards {
@@ -528,10 +512,6 @@ td {
       height: 40px;
     }
 
-    #newLP {
-        width: auto;
-        max-width:240px;
-    }
 
     #footer {
         position: fixed;
@@ -549,7 +529,7 @@ td {
     #sidebar {
         position: relative;
         width: 100%;
-        max-height: 480px;
+        max-height: 500px;
         columns: 4;
 
     }
@@ -560,17 +540,11 @@ td {
     }
 
     .jumbotron {
-      width: 100%;
-      columns: 4;
+      width: 100vw;
     }
 
     .navbar {
-      width: 100%;
-      columns: 4;
-    }
-
-    .header {
-      columns: 1;
+      width: 100vw;
     }
 
     #cards {
@@ -591,15 +565,6 @@ td {
         height: auto;
         margin-top: -80px;
     }
-
-    #newLP {
-      width: 200px;
-    }
-
-    #recordLabelLogo.img-responsive {
-      width: 200px;
-    }
-
 
     #footer {
         position: fixed;
@@ -624,32 +589,12 @@ td {
         columns: 1;
     }
 
-    // .jumbotron {
-    //   columns: 6;
-    // }
-    //
-    // .navbar {
-    //   columns: 6;
-    // }
 
     h5 {
       font-size: 20px;
     }
 
-    #calendar {
-      width: 240px;
-      height: 480px;
-    }
-
-    // .data-tockify-height {
-    //   height: 400px;
-    // }
-
     #newLP {
-      width: 240px;
-    }
-
-    #recordLabelLogo.img-responsive {
       width: 240px;
     }
 
@@ -769,20 +714,6 @@ td {
     h5 {
       font-size: 25px;
     }
-
-
-    #calendar {
-      width: 260px;
-    }
-
-
-      #newLP {
-        width: 260px;
-      }
-
-      #recordLabelLogo.img-responsive {
-        display: none;
-      }
 
 }
 

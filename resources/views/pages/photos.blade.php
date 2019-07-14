@@ -29,7 +29,7 @@
            @endforeach
          </div>
           <!-- Left and right controls -->
-          <a class="carousel-control-prev" href="#myCarouselControls" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span><i class="fas fa-arrow-circle-left fa-5x"></i></span>
               <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
               <span class="sr-only">Previous</span>

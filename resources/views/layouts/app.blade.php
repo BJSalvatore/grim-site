@@ -30,6 +30,7 @@
         @yield('content')
     </div>
   </div>
+  @include('inc._ticker')
   @include('inc._footer')
 
 <!-- Scripts -->

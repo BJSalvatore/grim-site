@@ -85,7 +85,7 @@
           </tr>
           <!-- <tr style="height: 10px;"></tr> -->
         </tbody>
+            </table>
       </table-responsive>
-    </table>
 </div>
 @endsection

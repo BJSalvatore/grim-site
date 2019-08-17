@@ -36,7 +36,6 @@
               <label class="m-0" for='response'>Response</label>
               <textarea class="form-control"  style="border: 2px groove #A8A8A8;" id="response" name="response" rows="10" placeholder="Type response here."></textarea>
               <button type="submit" class="btn btn-block btn-dark" method="GET">Send</button><br>
-              <a href="{{ route ('responses.store', $message -> id) }}" class="btn btn-primary btn-block" method="POST">Save</a>
               <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
               <a href="{{ url('messages') }}" class="btn btn-block btn-secondary" method="GET">View All Messages</a><br>
           </form>

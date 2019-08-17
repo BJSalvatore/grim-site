@@ -9,7 +9,7 @@
   <div class="col-lg-12">
     <h1>Messages</h1>
     <table-responsive>
-    <table id="messages" class="table-repsonsive">
+    <table id="messages" class="table-repsonsive table-striped">
       <thead>
         <th class="w-5">#</th>
         <th class="w-10">User Name</th>
@@ -31,11 +31,11 @@
           <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
           <td>{{ $message -> responded_on }}</td>
           <td>
-            <a href="{{ route('messages.show', $message -> id) }}" class="btn btn-block btn-secondary" method="GET">View</a><br>
-            <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block" method="DELETE">Delete</a>
+            <a href="{{ route('messages.show', $message -> id) }}" class="btn btn-block btn-secondary mt-3" method="GET">View</a><br>
+            <a href="{{ route('messages.destroy', $message->id) }}" class="btn btn-danger btn-block mb-3" method="DELETE">Delete</a>
           </td>
-          @endforeach
         </tr>
+      @endforeach
       </tbody>
     </table>
   </table-responsive>

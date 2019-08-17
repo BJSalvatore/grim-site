@@ -152,7 +152,7 @@ return [
         /*
          * Package Service Providers...
          */
-         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
+        Hootlex\Moderation\ModerationServiceProvider::class,
          Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...

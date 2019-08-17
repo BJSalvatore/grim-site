@@ -31,20 +31,18 @@
             <td>{{ $comment->comment }}</td>
             <td>{{ $comment-> post_id }}</td>
             @if($comment -> approved == true)
-            <td>Approved</td>
+            <td><strong>Approved</strong></td>
             @else
             <td>
-              <div class="form-group">
               <form action="{{action('CommentsController@update', $comment->id )}}" method="POST">
                 @csrf
                 @method('PUT')
                 <input class="form-control form-control-lg" id="username" name='username' value="{{ $comment -> username }}" type="hidden"></input>
                 <input class="form-control form-control-lg" id="comment" name='comment' value="{{ $comment -> comment }}" type="hidden"></input>
                 <input class="form-control form-control-lg" id="post_id" name='post_id' value="{{ $comment -> post_id }}" type="hidden"></input>
-                <input class="form-control form-control-lg" id="approved" name='approved' value="{{ $comment -> approved }}" type="hidden"></input>
-              <center><input class="btn btn-sm btn-danger" type="submit" value="Approve"></input></center>
+                <input class="form-control form-control-lg" id="approved" name='approved' value=1 type="hidden"></input>
+                <input id="approveBtn" class="btn btn-md btn-danger" type="submit" value="Approve"></input>
               </form>
-            </div>
             </td>
             @endif
             <td>{{ date('M j, Y', strtotime($comment -> created_at)) }}</td>

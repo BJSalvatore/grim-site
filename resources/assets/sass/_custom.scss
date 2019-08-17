@@ -22,6 +22,7 @@ h5 {
 
 .container-fluid {
   padding: 0;
+  border-radius: .25em !important;
 }
 
 //display
@@ -127,7 +128,7 @@ $duration: 30s;
   margin-bottom: 55px;
   margin-top: 10px;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   height: 4rem;
   background-color: rgba(#000, 0.9);
@@ -135,7 +136,7 @@ $duration: 30s;
   box-sizing: content-box;
 
   .ticker {
-    z-index: 1;
+    z-index: -1;
     display: inline-block;
     height: 4rem;
     line-height: 4rem;
@@ -165,9 +166,6 @@ $duration: 30s;
   }
 
 }
-
-// body { padding-bottom: 5rem; }
-// h1,h2,p {padding: 0 5%;}
 
 // sidebar
 #sidebar {
@@ -301,6 +299,10 @@ audio.controls {
     padding: 1px;
 }
 
+.btn #approveBtn {
+
+}
+
 .alert-danger {
     font-size: 10px;
 }
@@ -405,16 +407,17 @@ input.largeCheckbox {
 // tables
 thead {
   background-color: #808080;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .table {
   border: 1px solid #808080;
 }
 
-td {
+th {
   padding: 15px;
 }
+
 
 .table-reponsive {
     width: 100%;
@@ -425,7 +428,7 @@ td {
     margin-bottom: 20px;
 }
 
-#newLP.img-responsive{
+#newLP {
   width: auto;
   height: auto;
   max-width: 260px;
@@ -558,7 +561,7 @@ i {
       position: relative;
       width: 100%;
       columns: 2;
-      max-height: 480px;
+      max-height: 500px;
     }
 
       #sidebar p {
@@ -592,10 +595,22 @@ i {
         margin-top: -80px;
     }
 
+    #newLp {
+      width: 200px;
+    }
+
     audio {
       height: 40px;
     }
 
+    .ticker-wrap {
+        height: 2rem;
+      }
+
+    .ticker__item {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
 
     #footer {
         position: fixed;

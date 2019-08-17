@@ -84,22 +84,23 @@ class CommentsController extends Controller
 
     public function update(Request $request, $id)
     {
-         $comment = new Comment();
-         $comment-> username = auth()->user() -> username;
-         $comment-> comment = $request-> comment;
-         $comment-> post_id = $request-> post_id;
-         $comment-> approved = true;
-         $comment -> approved_at = Carbon::now();
 
-         $comment = $request->all();
+        $comment = Comment::find($id);
 
-         $comment->save();
+          $comment = Comment::find($id);
+          $comment-> username = $request -> username;
+          $comment-> comment = $request-> comment;
+          $comment-> post_id = $request-> post_id;
+          $comment-> approved = true;
 
-         Session::flash('success', 'Comment was approved successfully!');
+          if($comment->save()){
+            Session::flash('success', 'Comment was approved successfully!');
+          }else{
+              Session::flash('flash_message', 'Approval failed!');
+          }
+            return back();
 
-         return redirect()->view('comments.show', $comment -> id );
-    }
-
+        }
 
     public function destroy($id)
     {

@@ -7,8 +7,7 @@
 @include('inc._navbar')
 
 @section('content')
-<div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 m-2">
         @include('inc._flash-message')
       <div id="comment">
       <div class="comment mt-3">
@@ -26,8 +25,7 @@
           <p>{{ $comment -> approved_at }}</p>
         </div>
       </div>
-     <a href="{{ url('/status') }}" class="btn btn-block btn-primary m-1" method="GET">View All Comments</a>
+     <a href="{{ url('/status') }}" class="btn btn-block btn-primary mt-1" method="GET">View All Comments</a>
     </div>
   </div>
-</div>
 @endsection

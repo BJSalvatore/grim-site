@@ -23,7 +23,7 @@
           </thead>
           <tbody>
             @foreach($comments as $comment)
-              @if($comment -> approved == false)
+              @if($comment -> approved == 0)
               <tr>
                 <th>{{ $comment-> id }}</th>
                 <th>{{ $comment->username }}</th>

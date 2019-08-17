@@ -6,7 +6,7 @@
 <div class="container mt-3">
   <div class="row">
     @include('inc._flash-message')
-    <div class="col-lg-12">
+      <div class="col-lg-12">
         <h1>All Posts</h1>
         <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary">Create New Post</a>
         <hr>

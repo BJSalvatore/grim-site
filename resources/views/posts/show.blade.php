@@ -6,12 +6,9 @@
 @extends('layouts.app')
 @include('inc._navbar')
 @section('content')
-<!-- <div class="row"> -->
   <div id="content">
-    <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-12 offset-lg-2">
         @include('inc._flash-message')
-    </div>
-      <div class="col-lg-8 offset-lg-2">
           <div id="post" class="post card container-fluid">
             @if($post -> image)
               <img src="{{ asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
@@ -55,10 +52,5 @@
             @endforeach
               </section>
             </div>
-
-              </div>
-      </div>
-
-
-
+          </div>
 @endsection

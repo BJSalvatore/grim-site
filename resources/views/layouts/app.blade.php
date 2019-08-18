@@ -30,9 +30,6 @@
         @yield('content')
     </div>
   </div>
-  @if(Request::is('/'))
-    @include('inc._ticker')
-  @endif
   @include('inc._footer')
 
 <!-- Scripts -->

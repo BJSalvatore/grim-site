@@ -10672,33 +10672,36 @@ h5 {
 }
 
 .jumbotron {
-  height: 440px;
+  height: 504px;
   width: 100%;
-  margin-bottom: 0;
+  margin: 0;
   background-color: #FF8C00;
   background-size: cover;
-  margin-left: 0;
-  margin-right: 0;
+}
+
+#logo {
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  margin-top: 140px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 #band-image {
   height: 440px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.background-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border-style: none;
 }
 
 .overlay {
   position: absolute;
   bottom: 0;
-  top: 0;
+  top: 64px;
   width: 100%;
   height: 100%;
+  border-style: none;
 }
 
 .navbar {
@@ -10760,24 +10763,22 @@ h5 {
 }
 
 .ticker-wrap {
-  position: fixed;
-  z-index: -1;
-  margin-bottom: 55px;
-  margin-top: 10px;
-  bottom: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
   width: 100vw;
   overflow: hidden;
-  height: 4rem;
-  background-color: rgba(0, 0, 0, 0.9);
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.6);
   padding-left: 100%;
   box-sizing: content-box;
 }
 
 .ticker-wrap .ticker {
-  z-index: -1;
+  z-index: 1;
   display: inline-block;
-  height: 4rem;
-  line-height: 4rem;
+  height: 64px;
+  line-height: 64px;
   white-space: nowrap;
   padding-right: 100%;
   box-sizing: content-box;
@@ -10807,7 +10808,7 @@ h5 {
   display: block;
   height: auto;
   margin-top: 15px;
-  z-index: 0;
+  z-index: -1;
   box-shadow: 15px 12px 28px #FF8C00;
   flex-direction: column;
   justify-content: center;
@@ -11040,15 +11041,6 @@ th {
   width: auto;
   height: auto;
   max-width: 260px;
-}
-
-#logo {
-  width: auto;
-  height: auto;
-  max-height: 300px;
-  margin-top: 75px;
-  margin-right: 15px;
-  margin-left: 15px;
 }
 
 #recordLabelLogo.img-responsive {

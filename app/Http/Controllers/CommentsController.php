@@ -85,8 +85,6 @@ class CommentsController extends Controller
     public function update(Request $request, $id)
     {
 
-        $comment = Comment::find($id);
-
           $comment = Comment::find($id);
           $comment-> username = $request -> username;
           $comment-> comment = $request-> comment;

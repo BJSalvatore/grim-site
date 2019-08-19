@@ -128,6 +128,17 @@ public function index()
       return view('files.edit', ['file' => $file]);
     }
 
+    public function update (Request $request, $id)
+    {
+      $file = File::find($id);
+
+      $request -> validate({
+
+
+      });
+
+    }
+
 
     //delete file from disk and Database
     public function destroy($id)

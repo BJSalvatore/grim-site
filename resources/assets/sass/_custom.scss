@@ -416,17 +416,26 @@ input.largeCheckbox {
 // tables
 thead {
   background-color: #808080;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .table {
   border: 1px solid #808080;
+  border-radius: .25rem;
 }
 
 th {
   padding: 15px;
 }
 
+tbody {
+  font-size: 14px;
+  word-wrap: normal;
+}
+
+td {
+  padding: 10px;
+}
 
 .table-reponsive {
     width: 100%;

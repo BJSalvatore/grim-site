@@ -73,8 +73,8 @@ class PostController extends Controller
         if($request->hasFile('blog_image')) {
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
-          $s3Path = asset('images/' . $filename);
+          $location = public_path('images/blogImages/' . $filename);
+          $s3Path = asset('images/blogImages/' . $filename);
 
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
@@ -84,12 +84,11 @@ class PostController extends Controller
             // $public = Storage::disk('public')->put($location, $filename);
             // $post-> image = $public;
 
-            $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
-            $post-> image = $s3;
+            // $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+            // $post-> image = $s3;
             $post-> image = $filename; //saves filename for retrieval of image
 
         }
-
             $post -> save();
 
         Session::flash('success', 'The blog post was saved successfully!');
@@ -146,8 +145,8 @@ class PostController extends Controller
           //add new photo
           $newImage = $request->file('blog_image');
           $newFilename = time() . '.' . $newImage->getClientOriginalExtension();
-          $location = public_path('images/' . $newFilename);
-          $filePath = public_path('images/');
+          $location = public_path('images/blogImages' . $newFilename);
+          $filePath = public_path('images/blogImages');
           Image::make($newImage)->resize(300, null, function ($constraint){
           $constraint->aspectRatio();
           })->save($location);

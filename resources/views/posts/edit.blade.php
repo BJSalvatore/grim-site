@@ -12,7 +12,7 @@
           @method('PUT')
           <div>
           @if($post->image)
-            <img class="mt-1" src="{{ asset('images/' . $post->image)}}" height="300" width="auto"> </img>
+            <img class="mt-1" src="{{ asset('images/blogImages/' . $post->image)}}" height="300" width="auto"> </img>
           @endif
           </div>
           <div>

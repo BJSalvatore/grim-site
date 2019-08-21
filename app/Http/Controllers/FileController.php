@@ -93,12 +93,13 @@ public function index()
         })->save($path);
 
         // save file to local Storage
-        // $public = Storage::disk('public')->put($path, $filename, 'public');
-        // $fileUpload -> file = $public;
+        $public = Storage::disk('public')->put($path, $filename, 'public');
+        $fileUpload -> file = $public;
 
         //save file to aws
-        $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
-        $fileUpload-> file = $s3;
+        // $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+        // dd($s3);
+        // $fileUpload-> file = $s3;
 
       }
 
@@ -132,10 +133,10 @@ public function index()
     {
       $file = File::find($id);
 
-      $request -> validate({
-
-
-      });
+      // $request -> validate({
+      //
+      //
+      // });
 
     }
 

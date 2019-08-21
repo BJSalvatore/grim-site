@@ -11,7 +11,7 @@
         @include('inc._flash-message')
           <div id="post" class="post card container-fluid">
             @if($post -> image)
-              <img src="{{ asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
+              <img src="{{ asset('/images/blogImages/' . $filename)}}" height="auto" width="260"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
               <p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>

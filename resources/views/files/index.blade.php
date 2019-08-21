@@ -28,7 +28,7 @@
           <th>{{ $file-> name }}</th>
           <th>{{ $file-> title }}</th>
           <td>@if($file-> type == 'jpg'||$file-> type == 'jpeg'||$file-> type == 'png'||$file-> type == 'gif'||$file-> type == 'svg')
-            <img src="{{ asset('https://s3.amazonaws.com/grim-images/files/' .  $file -> file) }}" height="150" width="auto"></img>
+            <img src="{{ asset('/uploadedFiles/' .  $file -> file) }}" height="150" width="auto"></img>
           @elseif($file-> type == 'mp3'||$file-> type == 'ogg'||$file-> type == 'mpga')
             <i class="fas fa-file-audio fa-7x"></i>
           @elseif($file-> type == 'doc'||$file-> type == 'docx'||$file-> type == 'pdf'||$file-> type == 'odt')

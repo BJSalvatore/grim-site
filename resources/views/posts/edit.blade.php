@@ -24,6 +24,7 @@
             <input class="form-control" style="word-wrap" id="editpost" name='post' value="{{ wordwrap($post -> post, 50, "\n", true) }}" type="text"></input>
             <label class="mb-1" for="blog_image">Update Image</label>
             <input class="form-control" id="blog_image" name="blog_image" value="{{ $post -> image }}" type="file"></input>
+            <button type="button" class="btn btn-sm btn-danger m-1">Cancel File Upload</button>
             <div class="container-fluid bg-secondary mt-4 p-4">
               <h5>Created on:</h5>
               <p>{{ $post -> created_at }}</p>

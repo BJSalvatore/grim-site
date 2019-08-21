@@ -40,6 +40,7 @@
                 @if($errors->has('blog_image'))
                    <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('blog_image') }}</strong></p>
                  @endif
+                <button type="button" class="btn btn-sm btn-danger m-1">Cancel File Upload</button>
               </div>
               <div class="col-md-9">
                  <button id="blogButton" type="submit" class="btn btn-secondary btn-md mt-2">Publish New Post</button>

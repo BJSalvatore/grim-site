@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 use Carbon\Carbon;
 use App\Comment;
 use App\Post;
@@ -24,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store all of our blog posts in it
-        $posts = Post::orderBy('id', 'desc')->paginate(20);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
 
         return view('posts.index', ['posts' => $posts]);
     }
@@ -71,8 +73,8 @@ class PostController extends Controller
         if($request->hasFile('blog_image')) {
           $image = $request->file('blog_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
-          $s3Path = secure_asset('images/' . $filename);
+          $location = public_path('images/blogImages/' . $filename);
+          $s3Path = asset('images/blogImages/' . $filename);
 
           // resize uploaded image
           Image::make($image)->resize(300, null, function ($constraint){
@@ -82,12 +84,11 @@ class PostController extends Controller
             // $public = Storage::disk('public')->put($location, $filename);
             // $post-> image = $public;
 
-            $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
-            $post-> image = $s3;
+            // $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+            // $post-> image = $s3;
             $post-> image = $filename; //saves filename for retrieval of image
 
         }
-
             $post -> save();
 
         Session::flash('success', 'The blog post was saved successfully!');
@@ -98,36 +99,25 @@ class PostController extends Controller
 
     public function show($id)
     {
-        // call function in Post model
         $post = Post::find($id);
         return view('posts.show', ['post' => $post]);
-
     }
 
 
     public function edit($id)
     {
-        // find post in database and save it as variable
         $post = Post::find($id);
-        // return the view and pas in the var we previously created
         return view('posts.edit', ['post' => $post]);
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
 
       $post = Post::find($id);
-      $oldFilename = $post -> image;
 
-      $validatedData = $request ->validate([
+      $request ->validate([
           'title' => 'required|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:10',
           'post' => 'required',
           'blog_image' =>'image|mimes:jpeg,png,jpg,gif,svg|max:20000' //max file size of 8MB
         ],
@@ -138,7 +128,7 @@ class PostController extends Controller
             'slug.required' => 'A slug is required!',
             'slug.alpha-dash' => 'Use only hyphens between words!',
             'slug.min' => 'Minimum number of characters is 5!',
-            'slug.max' => 'Maximum number of characters is 255!',
+            'slug.max' => 'Maximum number of characters is 10!',
             // 'slug.unique' => 'This slug has already been used.',
             'post.required' => 'Don\'t leave without telling your fans something...anything!',
             'blog_image.image' => 'This is not an image!',
@@ -147,45 +137,44 @@ class PostController extends Controller
         ]);
 
         $post = $request->all(); // this retrieve the new input information
+        $post -> title = $request -> title;
+        $post -> slug = $request -> slug;
+        $post -> post = $request -> post;
 
         if($request->hasFile('blog_image')){
           //add new photo
           $newImage = $request->file('blog_image');
           $newFilename = time() . '.' . $newImage->getClientOriginalExtension();
-          $location = public_path('images/' . $newFilename);
-          $filePath = public_path('images/');
+          $location = public_path('images/blogImages' . $newFilename);
+          $filePath = public_path('images/blogImages');
           Image::make($newImage)->resize(300, null, function ($constraint){
           $constraint->aspectRatio();
           })->save($location);
 
           // delete old image from local public folder
-          if (Storage::exists(public_path('images/' . $oldFilename))){
-              Storage::delete(public_path('images/' . $oldFilename));
-              unlink(public_path('images/' . $oldFilename));
-            }
-
-          // delete old image from AWS storage
-          if(Storage::disk('public')->exists($filePath . $oldFilename)) {
-            Storage::disk('public')->delete($filePath . $oldFilename);
-          }
+          // if (Storage::exists(public_path('images/' . $oldFilename))){
+          //     Storage::delete(public_path('images/' . $oldFilename));
+          //     unlink(public_path('images/' . $oldFilename));
+          //   }
+          //
+          // // delete old image from AWS storage
+          // if(Storage::disk('public')->exists($filePath . $oldFilename)) {
+          //   Storage::disk('public')->delete($filePath . $oldFilename);
+          // }
 
         // save image to aws s3
-          $public = Storage::disk('public')->put($filePath, $newImage);
-          $post->newImage = $public;
+          // $public = Storage::disk('public')->put($filePath, $newImage);
+          // $post->newImage = $public;
 
       }
-          $post->newImage = $filename;
+          // $post->newImage = $filename;
+
           $post -> save();
 
         Session::flash('success', 'This post was successfully updated and saved.');
         return redirect()->route('posts.show', $post->id);
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
       $post = Post::findOrFail($id);

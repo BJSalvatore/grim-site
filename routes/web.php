@@ -48,8 +48,7 @@ Route::get('/blog/index', 'BlogController@index')->name('blog.index');
 Route::get('blog', function(){
   $posts = DB::table('posts')
         ->orderBy('id', 'asc')
-        // ->limit(10)
-        ->get();
+        ->paginate(6);
   return view('pages.blog', ['posts'=>$posts]);
 });
 
@@ -76,7 +75,7 @@ Route::get('/comments/{id}/index', 'CommentsController@index')->name('comments.i
 Route::get('/comments/{id}/show', 'CommentsController@show')->name('comments.show');
 Route::put('/comments/{id}', 'CommentsController@update')->name('comments.update');
 
-// Route::get('commments/{id}', ['as' => 'comments.single', 'uses' => 'CommentsController@getSingle']->where('id', $comment -> id ));
+Route::get('comments/unapproved', 'CommentsController@index')->name('comments.unapproved');
 
 Route::get('status', function(){
   $comments = DB::table('comments')
@@ -85,6 +84,15 @@ Route::get('status', function(){
         ->get();
   return view('comments.index', ['comments'=>$comments]);
 });
+
+//
+// Route::get('unapproved', function(){
+//   $comments = DB::table('comments')
+//         ->orderBy('created_at', 'asc')
+//         // ->limit(10)
+//         ->get();
+//   return view('comments.unnapproved', ['comments'=>$comments]);
+// });
 
 Route::get('single/{slug}', 'BlogController@getSingle')->name('blog.single');
 // ->where("/^[a-zA-Z0-9-_]+$/");

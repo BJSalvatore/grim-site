@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 use Carbon\Carbon;
 use Session;
-use Image;
 
 // there are four arrays of different file extensions used for validation
 class FileController extends Controller
@@ -84,19 +86,20 @@ public function index()
         $type =  $ext;
         $filename = time() . '.' . $ext;
         $path = public_path('uploadedFiles/' . $filename);
-        $s3Path = secure_asset('files/' . $filename);
+        $s3Path = asset('files/' . $filename);
 
         Image::make($fileUpload)->resize(400, null, function ($constraint){
           $constraint->aspectRatio();
         })->save($path);
 
         // save file to local Storage
-        // $public = Storage::disk('public')->put($path, $filename, 'public');
-        // $fileUpload -> file = $public;
+        $public = Storage::disk('public')->put($path, $filename, 'public');
+        $fileUpload -> file = $public;
 
         //save file to aws
-        $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
-        $fileUpload-> file = $s3;
+        // $s3 = Storage::disk('s3')->put($s3Path, $filename, 'public');
+        // dd($s3);
+        // $fileUpload-> file = $s3;
 
       }
 
@@ -124,6 +127,17 @@ public function index()
       $file = File::find($id);
 
       return view('files.edit', ['file' => $file]);
+    }
+
+    public function update (Request $request, $id)
+    {
+      $file = File::find($id);
+
+      // $request -> validate({
+      //
+      //
+      // });
+
     }
 
 

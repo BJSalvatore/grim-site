@@ -38,7 +38,7 @@ class PressReleaseController extends Controller
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $location = public_path('pressReleases' . $filename);
-        $s3Path = secure_asset('press/') . $filename;
+        $s3Path = asset('press/') . $filename;
 
         // resize uploaded image
         Image::make($image)->resize(160, null, function ($constraint){

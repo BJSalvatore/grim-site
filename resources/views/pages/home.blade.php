@@ -16,5 +16,11 @@
         <br>Fast forward to 2010, the band reformed with 3 new members. Tim was always talking with with ex Jughead's Revenge bassist, Brian Preiss, about starting up a new band, but Brian convinced him to reform The Grim. When he decided to call Bob, he agreed to do The Grim one more time. Jeff Yearsley was asked to play 2nd guitar. Jeff was a fellow band mate and friend of Brian's from the early punk rock days. The band played their first show with the new line up opening up for the Adolescents in the summer of 2010.<br>
         <br>2016 saw the addition of one of Simi Valley's finest drummers, Micah Rossellini. The band was now complete and in 2017 released a new 7-inch on Felony Records. In 2018, the band is set to release their first full lenth vinyl in 30 years with 'New World Order through Sound Speed Records.
       </p>
+      <div id="social-media" class="text-center pb-4">
+        <a href="https://www.facebook.com/thegrimband/"><i class="fab fa-facebook-square fa-3x"></i></a>
+        <a href="https://twitter.com/thegrimband/"><i class="fab fa-twitter-square fa-3x pl-3 pr-3"></i></a>
+        <a href="https://www.instagram.com/thegrimband/"><i class="fab fa-instagram fa-3x"></i></a>
+      </div>
   </div>
+
 @endsection

@@ -25,7 +25,7 @@
           <tr>
           <td>{{ $item -> id }}</td>
           @if($item -> image )
-            <td><img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="150" width="auto"></img></td>
+            <td><img src="{{ asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="150" width="auto"></img></td>
           @else
             <td>No Image</td>
           @endif

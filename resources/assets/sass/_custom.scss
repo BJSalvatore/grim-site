@@ -14,59 +14,60 @@ h5 {
     font-weight: 600;
 }
 
-.btn-grim{
-  background-color: #FF8C00;
+.row{
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-#messages.card #response.card{
-  width: 100%;
-}
-
-#messages.card {
-  background-color: #E8E8E8;
-}
-
-#response.card {
-  border: 1px solid #808080;
-}
-
-#messages.table-responsive {
-    width: 100%;
-    border: 1px solid #808080;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-#messages.container-fluid {
-  width: 100%;
-  margin-top: 15px;
-  float: center;
-}
-
-#messageResponse p{
+.container-fluid {
   padding: 0;
-  margin: 0;
-}
-
-#merchandise.table-responsive {
-    width: 100%;
-    border: 1px solid #808080;
-    margin-left: auto;
-    margin-right: auto;
-
+  border-radius: .25em !important;
 }
 
 //display
 .jumbotron {
-    height: 440px;
+    height: 504px;
     width: 100%;
-    margin-bottom: 0;
+    margin: 0;
     background-color: #FF8C00;
     background-size: cover;
-    margin-left: 0;
-    margin-right: 0;
 }
+
+
+#logo {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    margin-top: 140px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#band-image {
+    height: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+
+}
+
+// .background-image {
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-bottom: 0;
+// }
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    top: 64px;
+    width: 100%;
+    height: 100%;
+    border-style: none;
+}
+
 //navbar
 .navbar {
     background-color: #000;
@@ -93,26 +94,196 @@ h5 {
     color: #FF8C00;
 }
 
+// header
 .header {
     width: 100%;
     height: 140px;
     padding: 40px;
+    background-color: #FF8C00;
 
 }
 
-.row{
-    display: flex;
+// ticker
+* { box-sizing: border-box; }
+$duration: 30s;
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  overflow: hidden;
+  height: 64px;
+  background-color: rgba(#000, 0.6);
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+    z-index: 1;
+    display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: $duration;
+            animation-duration: $duration;
+
+    &__item {
+
+      display: inline-block;
+
+      padding: 0 2rem;
+      font-size: 2rem;
+      color: white;
+
+    }
+
+  }
+
+}
+
+// sidebar
+#sidebar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sidebar.mx-auto {
+    display: block;
+    height: auto;
+    margin-top: 15px;
+    z-index: -1;
+    box-shadow: 15px 12px 28px #FF8C00;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* The navigation menu links */
+#sidebar p {
+    padding: 4px;
     margin: 0;
-    padding: 0;
+    font-size: 25px;
+    font-weight: 600;
+    color: #818181;
+    display: block;
 }
 
+//audio
+audio.controls {
+    width: 100%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// calendar
+#calendar iframe {
+  scroll-behavior: smooth;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+// admin messages page
+#messages.card #response.card{
+  width: 100%;
+}
+
+#messages.card {
+  background-color: #E8E8E8;
+}
+
+#response.card {
+  border: 1px solid #808080;
+}
+
+#messages.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#messages.container-fluid {
+  width: 100%;
+  margin-top: 15px;
+  float: center;
+}
+
+#messagesResponse.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+}
+
+#messageResponse p{
+  padding: 0;
+  margin: 0;
+}
+
+
+// merchandidse page
+#merchandise.table-responsive {
+    width: 100%;
+    border: 1px solid #808080;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+// custom button
+.btn-grim{
+  background-color: #FF8C00;
+}
+
+// content id for media queries
 #content {
+  margin-left: auto;
+  margin-right: auto;
   padding: 15px;
   margin-top: 15px;
   margin-left: 15px;
-
 }
 
+// comments for blog posts
 #comment p {
   width: 100%;
 }
@@ -121,7 +292,26 @@ h5 {
   margin-left: 15px;
 }
 
-//blog posts and comments
+#comment-form .alert-danger {
+    font-size: 10px;
+}
+
+#comment .flex-container {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+
+#comment p {
+    margin-bottom: 0 !important;
+    padding: 1px;
+}
+
+.btn #approveBtn {
+
+}
+
 .alert-danger {
     font-size: 10px;
 }
@@ -130,6 +320,7 @@ h5 {
     margin: 2px;
 }
 
+// blog posts page
 #postInfo h5 {
     padding: 0;
 }
@@ -148,46 +339,43 @@ h5 {
   margin-bottom: 30px;
 }
 
-
-#comment-form .alert-danger {
-    font-size: 10px;
-}
-
-#comment .flex-container {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-}
-
-
-#comment p {
-    margin-bottom: 0 !important;
-    padding: 1px;
-}
-
+// checkbox for comment approval
 input.largeCheckbox {
     width: 20px;
     height: 20px;
 }
 
+// photo carousel
 .carousel-caption {
     text-align: center;
 }
 
-.carousel-inner .item img {
+.carousel-inner img {
     margin: auto;
 }
 
-.carousel-control-next .carousel-control-prev {
-    margin: auto;
-    width: auto;
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-indicators .active{
+  background-color: #FF8C00;
 }
 
 .carousel-item img {
-    height: auto;
-    width: 100%;
+    height: 75vh;
+    width: auto;
 }
 
+.fas {
+  color: #818181;
+}
+
+.caption-background {
+  color: #818181;
+}
+
+// bootstrap cards - merchandise?
 #cards {
   margin-left: 140px;
 }
@@ -225,36 +413,31 @@ input.largeCheckbox {
     max-width: 300px;
 }
 
+// tables
 thead {
   background-color: #808080;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .table {
   border: 1px solid #808080;
+  border-radius: .25rem;
 }
 
-td {
+th {
   padding: 15px;
 }
 
-.format {
+tbody {
   font-size: 14px;
+  word-wrap: normal;
 }
 
-.no-gutters {
-  margin-left: 0px;
-  margin-right: 0px;
-    .col,
-    [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
-    }
+td {
+  padding: 10px;
 }
 
 .table-reponsive {
-    //bootstrap defaults
-    // display: table-cell;
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
@@ -263,57 +446,42 @@ td {
     margin-bottom: 20px;
 }
 
-#sidebar {
-  margin-left: auto;
-  margin-right: auto;
+#newLP {
+  width: auto;
+  height: auto;
+  max-width: 260px;
 }
 
-#sidebar.mx-auto {
-    display: block;
+#recordLabelLogo.img-responsive {
+  width: auto;
+  height: auto;
+  max-width: 260px;
+}
+
+#shoes {
+    margin-top: -60px;
+    z-index: 1;
+    max-width: 250px;
     height: auto;
-    margin-top: 15px;
-    z-index: 0;
-    /* Stay on top */
-    box-shadow: 15px 12px 28px #FF8C00;
-    flex-direction: column;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-
 }
 
-/* The navigation menu links */
-#sidebar p {
-    padding: 4px;
-    margin: 0;
-    font-size: 25px;
-    font-weight: 600;
-    color: #818181;
-    display: block;
-}
+// #tickerLogo img{
+//   width: 25px;
+//   height: auto;
+// }
 
-//audio
-audio.controls {
-    width: 100%;
-    height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-//photos, images and logos
-.img-responsive {
-    width: auto;
+#thumbnail {
+    width: 100px;
     height: auto;
-    max-width: 260px;
-    max-height: 260px;
 }
 
-#messagesResponse.container-fluid {
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0;
+#press img {
+    width: 160px;
+    height: auto;
+    margin-bottom: 6px;
 }
 
+//merchandise invoice form for download
 #invoiceForm label{
     margin-top: 0px;
     margin-bottom: 0px;
@@ -329,38 +497,6 @@ audio.controls {
 
 }
 
-#newLP img{
-    max-width: 280px;
-    height: auto;
-}
-
-#logo {
-    width: auto;
-    height: auto;
-    max-height: 300px;
-    margin-top: 75px;
-    margin-right: 15px;
-    margin-left: 15px;
-}
-
-#shoes {
-    margin-top: -60px;
-    z-index: 1;
-    max-width: 250px;
-    height: auto;
-}
-
-#thumbnail {
-    width: 100px;
-    height: auto;
-}
-
-#press img {
-    width: 160px;
-    height: auto;
-    margin-bottom: 6px;
-}
-
 #footer {
     position: fixed;
     font-size: 12px;
@@ -369,26 +505,10 @@ audio.controls {
     margin-bottom: 0;
 }
 
-#band-image {
-    height: 440px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.background-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+i {
+  color: #696969;
 }
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
 
 @media screen and (max-width: 1024px) {
     #band-image {
@@ -409,20 +529,16 @@ audio.controls {
         max-height: 480px;
     }
 
+    #sidebar p {
+        font-size: 18px;
+      }
+
     #content {
         position: relative;
         columns: 1;
 
     }
 
-    .navbar {
-      columns: 1;
-    }
-
-    .header {
-      columns: 1;
-      height: 140px;
-    }
 
     #shoes {
         width: 150px;
@@ -434,13 +550,12 @@ audio.controls {
       width: 100%;
     }
 
-    #cards.container-fluid {
-      margin-left: 15px;
+    #calendar {
+      height: 400px;
     }
 
-    #newLP {
-        width: auto;
-        max-width:240px;
+    #cards.container-fluid {
+      margin-left: 15px;
     }
 
     #footer {
@@ -456,30 +571,31 @@ audio.controls {
 // larger mobile phones and tablets
 @media screen and (min-width: 576px) and (max-width: 811px) and (orientation: landscape){
     // col-sm
-        #sidebar {
-        position: relative;
-        width: 100%;
-        columns: 2;
-        max-height: 480px;
+      #sidebar {
+      position: relative;
+      width: 100%;
+      columns: 2;
+      max-height: 500px;
+    }
+
+      #sidebar p {
+      font-size: 18px;
     }
 
     #content {
         position: relative;
-        columns: 1;
+        columns: 2;
 
     }
 
     .jumbotron {
-      columns: 1;
+      width: 100vw;
+      columns: 3;
     }
 
     .navbar {
-      columns: 1;
-    }
-
-    .header {
-      columns: 1;
-      height: 120px;
+      width: 100vw;
+      columns: 3;
     }
 
     #cards {
@@ -493,21 +609,28 @@ audio.controls {
         margin-top: -80px;
     }
 
+    #newLp {
+      width: 200px;
+    }
+
     audio {
       height: 40px;
     }
 
-    #newLP {
-        width: auto;
-        max-width:240px;
+    .ticker-wrap {
+        height: 2rem;
+      }
+
+    .ticker__item {
+        padding: 0 1rem;
+        font-size: 1rem;
     }
 
     #footer {
         position: fixed;
-        columns: 1;
         font-size: 12px;
         padding: 12px;
-        width: 100%;
+        width: 100vw;
         margin-bottom: 0;
     }
 }
@@ -518,26 +641,22 @@ audio.controls {
     #sidebar {
         position: relative;
         width: 100%;
-        max-height: 480px;
-        columns: 2;
+        max-height: 500px;
+        columns: 3;
 
     }
 
     #content {
         position: relative;
-        columns: 2;
+        columns: 1;
     }
 
     .jumbotron {
-      columns: 3;
+      width: 100vw;
     }
 
     .navbar {
-      columns: 3;
-    }
-
-    .header {
-      columns: 1;
+      width: 100vw;
     }
 
     #cards {
@@ -559,20 +678,11 @@ audio.controls {
         margin-top: -80px;
     }
 
-    #newLP {
-      width: 200px;
-    }
-
-    #recordLabelLogo.img-responsive {
-      width: 200px;
-    }
-
-
     #footer {
         position: fixed;
         font-size: 12px;
         padding: 12px;
-        columns: 3;
+        width: 100vw;
         margin-bottom: 0;
     }
 }
@@ -591,31 +701,12 @@ audio.controls {
         columns: 1;
     }
 
-    .jumbotron {
-      columns: 6;
-    }
-
-    .navbar {
-      columns: 6;
-    }
 
     h5 {
       font-size: 20px;
     }
 
-    #calendar {
-      width: 240px;
-    }
-
-    .data-tockify-height {
-      height: 400px;
-    }
-
     #newLP {
-      width: 240px;
-    }
-
-    #recordLabelLogo.img-responsive {
       width: 240px;
     }
 
@@ -735,20 +826,6 @@ audio.controls {
     h5 {
       font-size: 25px;
     }
-
-
-    #calendar {
-      width: 260px;
-    }
-
-
-      #newLP {
-        width: 260px;
-      }
-
-      #recordLabelLogo.img-responsive {
-        display: none;
-      }
 
 }
 

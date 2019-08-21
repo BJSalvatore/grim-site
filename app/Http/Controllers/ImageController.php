@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Image;
+use Intervention\Image\Facades\Image;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 
 class ImageController extends Controller
 {
@@ -30,7 +32,7 @@ class ImageController extends Controller
     // $image = $request->file('blog_image');
     $filename = time() . '.' . $image->getClientOriginalExtension();
     $location = public_path('assets/images/blogImages/' . $filename);
-    $filePath = secure_asset('images/' . $filename;
+    $filePath = asset('images/' . $filename;
     // resize uploaded image
     Image::make($image)->resize(300, null, function ($constraint){
       $constraint->aspectRatio();

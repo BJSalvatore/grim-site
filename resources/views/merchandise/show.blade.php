@@ -16,7 +16,7 @@
               <p><strong>Description: </strong>{{ $item -> description}}</p>
               <p><strong>Size: </strong>{{ $item -> size}}</p>
               <p><strong>Quantity: </strong>{{ $item -> quantity}}</p>
-              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
+              <img src="{{ asset('https://s3.amazonaws.com/grim-images/merch/' . $item->image)}}" height="300" width="auto"> </img></p>
           </div>
       </div>
   <div class="col-lg-3">

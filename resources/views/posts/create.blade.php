@@ -4,10 +4,9 @@
 @section('title', '| Create New Post')
 
 @section('content')
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
     @include('inc._flash-message')
-    <div class="col-lg-12">
+    <div class="col-lg-10 offset-lg-2">
         <h1>Enter New Blog Post</h1>
         <hr>
         <div id="blogForm" class="form-group">
@@ -49,6 +48,5 @@
         </form>
       </div>
     </div>
-  </div>
 </div>
 @endsection

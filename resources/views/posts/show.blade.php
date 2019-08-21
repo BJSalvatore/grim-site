@@ -5,14 +5,13 @@
 
 @extends('layouts.app')
 @include('inc._navbar')
-@include('inc._flash-message')
 @section('content')
-<!-- <div class="row"> -->
   <div id="content">
-      <div class="col-lg-10 offset-lg-2">
+        <div class="col-lg-12 offset-lg-2">
+        @include('inc._flash-message')
           <div id="post" class="post card container-fluid">
             @if($post -> image)
-              <img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post->image)}}" height="auto" width="260"> </img>
+              <img src="{{ asset('/images/blogImages/' . $filename)}}" height="auto" width="260"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
               <p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>
@@ -29,6 +28,7 @@
                         <p>{{ $post -> updated_at }}</p>
                       </div>
                     </div>
+
                   <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')
@@ -39,6 +39,7 @@
                     <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-0" method="GET">View All Posts</a>
                   </form>
                 @endif
+
           </div>
 
           <div id="comment" class="flex-container ml-3">
@@ -51,10 +52,5 @@
             @endforeach
               </section>
             </div>
-
-              </div>
-      </div>
-
-
-
+          </div>
 @endsection

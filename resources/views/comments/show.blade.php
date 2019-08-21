@@ -7,17 +7,15 @@
 @include('inc._navbar')
 
 @section('content')
-      <div class="row">
+      <div class="col-lg-12 m-2">
         @include('inc._flash-message')
-        <div class="col-lg-12">
-
-        <div id="comment">
-        <div class="comment mt-3">
-          <p><strong>ID: </strong>{{ $comment-> id }}</p>
-          <p><strong>Username: </strong>{{ $comment->username }}</p>
-          <p><strong>Comment: </strong>{{ $comment->comment }}</p>
-        </div>
-      <div class="container bg-secondary mt-3 align-content-center justify-content-center">
+      <div id="comment">
+      <div class="comment mt-3">
+        <p><strong>ID: </strong>{{ $comment-> id }}</p>
+        <p><strong>Username: </strong>{{ $comment->username }}</p>
+        <p><strong>Comment: </strong>{{ $comment->comment }}</p>
+      </div>
+      <div class="container-fluid bg-secondary mt-3 align-content-center justify-content-center">
         <div  id="commentInfo" class="container p-4">
           <h5>Created on:</h5>
           <p>{{ date('Y-m-d\ H:i:s', strtotime($comment -> created_at)) }}</p>
@@ -27,7 +25,7 @@
           <p>{{ $comment -> approved_at }}</p>
         </div>
       </div>
-     <a href="{{ url('/status') }}" class="btn btn-block btn-primary m-1" method="GET">View All Comments</a>
+     <a href="{{ url('/status') }}" class="btn btn-block btn-primary mt-1" method="GET">View All Comments</a>
     </div>
   </div>
 @endsection

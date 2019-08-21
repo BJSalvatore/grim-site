@@ -6,11 +6,11 @@
 <div class="container mt-3">
   <div class="row">
     @include('inc._flash-message')
-    <div class="col-lg-12">
+      <div class="col-lg-12">
         <h1>All Posts</h1>
         <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary">Create New Post</a>
         <hr>
-      <table class="table-responsive">
+      <table class="table-responsive table-striped">
         <thead>
           <th>#</th>
           <th>Title</th>
@@ -29,16 +29,20 @@
             <td>{{ $post->slug }}</td>
             <td>{{ substr(($post -> post), 0, 150) }}{{ strlen($post->post) > 150 ? "..." : "" }}</td>
             @if($post -> image )
-              <td><img src="{{ secure_asset('https://s3.amazonaws.com/grim-images/images/' . $post -> image) }}" height="150" width="auto"></img></td>
+              <td><img src="{{ asset('/images/blogImages/' . $post -> image) }}" height="150" width="auto"></img></td>
               @else
               <td>No Image</td>
             @endif
             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
             <td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
             <td>
-              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary m-1" method="GET">View</a>
-              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light m-1" method="GET">Edit</a>
-              <a action="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm" method="DELETE">Delete</a>
+              <a href="{{ route('posts.show', $post -> id)}}" class="btn btn-sm btn-secondary" method="GET">View</a>
+              <a href="{{ route('posts.edit', $post -> id)}}" class="btn btn-sm btn-light " method="GET">Edit</a>
+              <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                @csrf
+                <button type="submit" class="btn btn-danger btn-sm mt-1">Delete</button>
+              </form>
             </td>
           </tr>
           @endforeach

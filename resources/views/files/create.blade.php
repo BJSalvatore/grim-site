@@ -28,6 +28,7 @@
                   @endif
                     <label class="mt-1" for="file">File</label>
                     <input class="form-control p-1" name="file" type="file"></input>
+                    <button type="button" class="btn btn-sm btn-danger m-1">Cancel File Upload</button>
                     @if($errors->has('file'))
                        <p class="alert alert-danger mt-1" role="alert"><strong>{{ $errors->first('file') }}</strong></p>
                      @endif

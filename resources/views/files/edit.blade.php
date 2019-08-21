@@ -8,7 +8,7 @@
   <div calls="row">
     <div class="col-md-2"></div>
       <div class="col-md-9 mt-3">
-        <h1>Add a New File</h1>
+        <h1>Edit File</h1>
           <div id="fileForm" class="form-group">
             <form method="POST" action="{{ action('FileController@update', $file -> id) }}" enctype="multipart/form-data">
               <div class="row">
@@ -30,6 +30,7 @@
                         <label class="file-label">
                             <input class="file-input" type="file" ref="file" name="file" value="{{ $file -> name . $file -> ext }}">
                             <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
+                            <button type="button" class="btn btn-sm btn-danger m-1">Cancel File Upload</button>
                         </label>
                     </div>
                 </div>

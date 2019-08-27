@@ -8,8 +8,8 @@
       <center><p>Cop Killer</p></center>
       <div id="audio" class="d-flex text-center">
         <audio controls class="embed-responsive">
-            <source id="audioSource" type="audio/mp3" src="{{ asset('https://s3.amazonaws.com/grim-images/audio/the-grim_the-grim-cop-killer-7-inch.mp3')}}">
-            <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+            <source id="audioSource" type="audio/mp3" src="{{ asset('/public/audio/the-grim_the-grim-cop-killer-7-inch.mp3')}}">
+            <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script> -->
         </audio>
       </div>
     </div>

@@ -17,7 +17,7 @@
     <div class="container-fluid text-center justify-content-center mt-3">
       <div class="col">
       <p>Upcoming Shows</p>
-      <div id="calendar" class="embed-responsive justify-content-center mb-1" data-tockify-component="calendar" data-tockify-calendar="thegrimband"></div>
+      <div id="calendar" class="embed-responsive justify-content-center mb-1" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
       </div>
     </div>
       <div class="col-sm d-none col-md-block d-lg-block d-xl-block">

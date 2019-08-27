@@ -18,6 +18,7 @@
       <div class="col">
       <p>Upcoming Shows</p>
       <div id="calendar" class="embed-responsive justify-content-center mb-1" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
+      <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
       </div>
     </div>
       <div class="col-sm d-none col-md-block d-lg-block d-xl-block">

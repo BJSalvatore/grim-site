@@ -11,7 +11,7 @@
         @include('inc._flash-message')
           <div id="post" class="post card container-fluid">
             @if($post -> image)
-              <img src="{{ asset('/images/blogImages/' . $filename)}}" height="auto" width="260"> </img>
+              <img src="{{ asset('/images/blogImages/' . $post -> image) }}" height="auto" width="260"> </img>
             @endif
               <h3>{{ $post -> title }}</h3>
               <p>{{ substr($post -> post, 0, 300)}}{{ strlen($post -> post) > 300 ? "..." : ""}}</p>
@@ -29,13 +29,18 @@
                       </div>
                     </div>
 
-                  <form action id="editForm" method="POST" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
+                  <form action id="editForm" method="PUT" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')
                   <div class="m-0">
-                    <button type="submit" class="btn btn-block btn-danger mt-1">Delete</a>
+                    <button type="submit" class="btn btn-block btn-danger mt-1">Delete</button>
                   </div>
-                    <a href="{{ route('posts.edit', $post-> id) }}" class="btn btn-block btn-warning mt-1" method="GET">Edit</form>
+                  </form>
+                  <form action id="editForm" method="PUT" action="{{ route('posts.edit', $post->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <button class="btn btn-block btn-warning mt-1">Edit</button>
+                  </form>
                     <a href="{{ url('posts') }}" class="btn btn-block btn-primary m-0" method="GET">View All Posts</a>
                   </form>
                 @endif

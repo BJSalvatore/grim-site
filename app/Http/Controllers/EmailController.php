@@ -30,15 +30,15 @@ public function mail(){
         $title = $message -> name;
         $body = $message -> response;
 
-        // Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
-        //     $message->to($to_email, $to_name)
-        //             ->subject('Test');
-        //     $message->from('FROM_EMAIL_ADDRESS','Beth');
-        // });
-        //
-        // DB::table('messages')->insert(
-        //   ['responded_on' => Carbon::now()
-        // ]);
+        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+             $message->to($to_email, $to_name)
+                     ->subject('Test');
+             $message->from('FROM_EMAIL_ADDRESS','Beth');
+         });
+
+         DB::table('messages')->insert(
+           ['responded_on' => Carbon::now()
+        ]);
 
         return view('messages.show', $message -> id)->with('success', 'Response was sent successfully!');
 

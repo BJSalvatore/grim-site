@@ -1,7 +1,7 @@
 <div class="px-3">
   <div id="sidebar" class="mx-auto text-center text-light bg-dark d-none d-sm-block d-md-block d-lg-block">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <div class="container-fluid mt-2">
+    <div class="container-fluid">
       <div class="col">
         <p>New Release!</p>
         <img id="newLP" class="img-responsive" src="{{ asset('images/TheGrimNuclearWorldOrder.jpg') }}"></img>
@@ -17,7 +17,7 @@
     <div class="container-fluid text-center justify-content-center mt-3">
       <div class="col">
       <p>Upcoming Shows</p>
-      <div id="calendar" class="embed-responsive justify-content-center mb-1" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
+      <div id="calendar" class="embed-responsive justify-content-center m-2" data-tockify-component="mini" data-tockify-calendar="thegrimband"></div>
       <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
       </div>
     </div>

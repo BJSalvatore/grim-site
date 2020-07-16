@@ -5,7 +5,7 @@
       <div class="col">
         <p>New Release!</p>
         <img id="newLP" class="img-responsive" src="{{ asset('images/TheGrimNuclearWorldOrder.jpg') }}"></img>
-      <center><p>Cop Killer</p></center>
+      <center><p>Song Title Here</p></center>
       <div id="audio" class="d-flex text-center">
         <audio controls class="embed-responsive">
             <source id="audioSource" type="audio/mp3" src="{{ asset('/public/audio/the-grim_the-grim-cop-killer-7-inch.mp3')}}">

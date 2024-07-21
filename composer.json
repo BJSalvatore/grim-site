@@ -18,7 +18,7 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
-	"laravel/installer": "^4.1"
+	"laravel/installer": "^4.1",
         "league/flysystem-aws-s3-v3": "^1.0",
         "spatie/laravel-google-calendar": "^2.2",
         "symfony/orm-pack": "^1.0"

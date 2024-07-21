@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class AddSlugToPosts extends Migration
@@ -14,7 +14,7 @@ class AddSlugToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function ($table) {
-          $table->string('slug')->unique()->after('post');
+            $table->string('slug')->unique()->after('post');
         });
     }
 
@@ -25,8 +25,8 @@ class AddSlugToPosts extends Migration
      */
     public function down()
     {
-          Schema::table('posts', function ($table) {
+        Schema::table('posts', function ($table) {
             $table->dropColumn('slug');
-          });
+        });
     }
 }

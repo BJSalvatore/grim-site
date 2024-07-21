@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class AddUsernameToUsersTable extends Migration
@@ -14,7 +14,7 @@ class AddUsernameToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-          $table->string('username')->unique()->after('email');
+            $table->string('username')->unique()->after('email');
         });
     }
 
@@ -26,7 +26,7 @@ class AddUsernameToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-          $table->dropColumn('username');
+            $table->dropColumn('username');
         });
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class DropMessagesTable extends Migration
@@ -23,13 +23,12 @@ class DropMessagesTable extends Migration
      */
     public function down()
     {
-
-      Schema::create('messages', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('email');
-          $table->string('name');
-          $table->string('message');
-          $table->timestamps();
-      });
+        Schema::create('messages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('email');
+            $table->string('name');
+            $table->string('message');
+            $table->timestamps();
+        });
     }
 }

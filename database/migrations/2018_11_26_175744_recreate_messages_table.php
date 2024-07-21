@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class RecreateMessagesTable extends Migration
@@ -13,15 +13,15 @@ class RecreateMessagesTable extends Migration
      */
     public function up()
     {
-      Schema::create('messages', function (Blueprint $table) {
-          $table-> increments('id')->unsigned();
-          $table-> string('email');
-          $table-> string('name');
-          $table-> string('message');
-          $table-> string('username')->nullable();
-          $table->timestamps();
+        Schema::create('messages', function (Blueprint $table) {
+            $table-> increments('id')->unsigned();
+            $table-> string('email');
+            $table-> string('name');
+            $table-> string('message');
+            $table-> string('username')->nullable();
+            $table->timestamps();
         });
-      }
+    }
 
     /**
      * Reverse the migrations.

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
@@ -26,7 +27,7 @@ class CreateCommentsTable extends Migration
             ->references('id')
             ->on('posts')
             ->onDelete('cascade');
-          });
+        });
 
         //   Schema::table(('comments'), function($table){
         //     $table->foreign('post_id')->references('id')->on('posts');
@@ -40,8 +41,7 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-          // Schema::dropForeign(['post_id']);
-          Schema::dropIfExists('comments');
-
+        // Schema::dropForeign(['post_id']);
+        Schema::dropIfExists('comments');
     }
-  }
+}

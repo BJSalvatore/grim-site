@@ -49,7 +49,7 @@ class MessageController extends Controller
           ]);
 
         // store in database
-        $message = new Message();
+        $message = new Message(); 
         $message -> email = $request -> input('email');
         $message -> username = auth()->user() -> username;
         $message -> name = $request -> input('name');
